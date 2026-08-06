@@ -1,0 +1,21 @@
+# UTF-8
+Domain X_CHEQUE_ISSUE
+    @t24:LocalFields (localRefApplications=true)
+    @java:Package (value=localRefApplication.x_cheque_issue)
+namespace "http://www.odcgroup.com/X_CHEQUE_ISSUE"
+metamodelVersion 1.30.6
+Classes {
+    X_CHEQUE_ISSUE extends CQ_ChqIssue:CHEQUE_ISSUE
+    {
+        /* Cheque Leaves Range */
+        LBACTR_CHEQUE_RANGE : T24BusinessTypes:A
+            @i18n:Label (en=CHEQUE.RANGE)
+            @t24:LocalFields (maxChars=16, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=LBACTR.CHEQUE.RANGE)
+        /* Chequebook Print Type */
+        LBACTR_PRINT_TYPE : LocalFieldsEnumeration:LocalField_LBACTR_PRINT_TYPE
+            @i18n:Label (en=PRINTING.TYPE)
+            @t24:LocalFields (maxChars=4, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=LBACTR.PRINT)
+            @t24:i (t24Name=LBACTR.PRINT.TYPE)
+    }
+}

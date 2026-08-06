@@ -1,0 +1,6 @@
+public table CustomerTest {
+    t24: CUSTOMERTEST
+    fields:{
+        EbCusLegalId(EB.CUS.LEGAL.ID)=1
+    }
+}

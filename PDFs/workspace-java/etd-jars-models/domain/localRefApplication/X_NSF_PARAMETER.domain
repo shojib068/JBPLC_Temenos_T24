@@ -1,0 +1,41 @@
+# UTF-8
+Domain X_NSF_PARAMETER
+    @t24:LocalFields (localRefApplications=true)
+    @java:Package (value=localRefApplication.x_nsf_parameter)
+namespace "http://www.odcgroup.com/X_NSF_PARAMETER"
+metamodelVersion 1.30.6
+Classes {
+    Group_NSF_REJECT_TXN_VERSION
+    {
+        /* Version for posting NSF Returns */
+        NSF_REJECT_TXN_VERSION -> EB_Versions:VERSION
+            @i18n:Label (en=NSF.REJ.VERSION)
+            @t24:LocalFields (applicationEnrich=PRINT_ONLY, maxChars=54, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=NSF.REJECT.TXN.VERSION)
+        /* OFS Source for NSF Returns process */
+        NSF_REJECT_OFS -> EB_Interface:OFS_SOURCE
+            @i18n:Label (en=NSF.REJECT.OFS)
+            @t24:LocalFields (applicationEnrich=DESCRIPTION, maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=NSF.REJECT.OFS)
+    }
+    X_NSF_PARAMETER extends AC_NSF:NSF_PARAMETER
+    {
+        /* Fund decision maker identifier */
+        NSF_FLOAT_COMPONENT : T24BusinessTypes:A
+            @i18n:Label (en=NSF.FLOAT.COMP)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=NSF.FLOAT.COMPONENT)
+        /* Fund decision maker identifier */
+        FLOAT_HOLD_TYPE : T24BusinessTypes:A
+            @i18n:Label (en=FLOAT.HOLD.TYPE)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=FLOAT.HOLD.TYPE)
+        GroupSample_NSF_REJECT_TXN_VERSION -> byValue X_NSF_PARAMETER:Group_NSF_REJECT_TXN_VERSION *
+            @t24:i (t24Name=GroupSample_NSF_REJECT_TXN_VERSION)
+        /* What action to take when Stop Exist */
+        US_STOP_EXIST : T24BusinessTypes:A
+            @i18n:Label (en=STOP.EXIST)
+            @t24:LocalFields (maxChars=7, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=STOP.EXIST)
+            @t24:i (t24Name=US.STOP.EXIST)
+    }
+}

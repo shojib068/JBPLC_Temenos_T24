@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><enquiry:Enquiry xmlns:enquiry="http://www.odcgroup.com/t24/Enquiry" xmlns:translationDsl="http://www.odcgroup.com/translation/TranslationDsl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" endLine="99" fileName="name:/ACM_AccountOpening:ACCOUNT#" metamodelVersion="1.30.6" name="AI.ACCTMANDATE.VIEW" noSelection="true" showAllBooks="false" startLine="4" zeroRecordsDisplay="true">
+  <description xsi:type="translationDsl:LocalTranslations">
+    <translations locale="en" text="Account Mandate"/>
+  </description>
+  <fixedSelections field="MANDATE.RECORD" operand="NotEquals">
+    <values>NULL</values>
+  </fixedSelections>
+  <customSelection>
+    <selection field="@ID">
+      <label xsi:type="translationDsl:LocalTranslations">
+        <translations locale="en" text="Account No"/>
+      </label>
+    </selection>
+    <selection field="MANDATE.APPL">
+      <label xsi:type="translationDsl:LocalTranslations">
+        <translations locale="en" text="Mandate Application"/>
+      </label>
+    </selection>
+    <selection field="MANDATE.REG">
+      <label xsi:type="translationDsl:LocalTranslations">
+        <translations locale="en" text="Mandate Reg"/>
+      </label>
+    </selection>
+    <selection field="MANDATE.RECORD">
+      <label xsi:type="translationDsl:LocalTranslations">
+        <translations locale="en" text="Mandate Record"/>
+      </label>
+    </selection>
+  <operator>AND</operator><operator>AND</operator><operator>AND</operator></customSelection>
+  <fields alignment="Left" commaSeparator="false" displaySection="Header" displayType="CLASS-TITLE" name="HDR">
+    <position column="1" line="0"/>
+    <operation value="&quot;Account Mandate&quot;" xsi:type="enquiry:ConstantOperation"/>
+  </fields>
+  <fields alignment="Left" commaSeparator="false" displaySection="Header" displayType="CLASS-ENQ.NORECS" name="ZERORECORDS">
+    <breakCondition break="None"/>
+    <position column="1"/>
+    <operation value="&quot;No Mandate Record Found&quot;" xsi:type="enquiry:ConstantOperation"/>
+  </fields>
+  <fields alignment="Right" commaSeparator="false" length="19" name="CUSTID" singleMulti="Single">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="Account No"/>
+    </label>
+    <position column="1"/>
+    <operation field="ACCOUNT.NUMBER" xsi:type="enquiry:ApplicationFieldNameOperation"/>
+  </fields>
+  <fields alignment="Left" commaSeparator="false" length="35" name="MANDATE" singleMulti="Multi">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="Mandate Application"/>
+    </label>
+    <position column="7"/>
+    <operation field="MANDATE.APPL" xsi:type="enquiry:ApplicationFieldNameOperation"/>
+    <conversion newData="Funds Transfer" oldData="FUNDS.TRANSFER" xsi:type="enquiry:ReplaceConversion"/>
+    <conversion newData="Salary Payment" oldData="FT.BULK.MASTER" xsi:type="enquiry:ReplaceConversion"/>
+  </fields>
+  <fields alignment="Left" commaSeparator="false" name="MANDATE.RECORD.2">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="Mandate Date"/>
+    </label>
+    <format format="Date"/>
+    <position column="9"/>
+    <operation field="MANDATE.RECORD.1" xsi:type="enquiry:FieldExtractOperation"/>
+    <conversion delimiter="-" from="1" to="1" xsi:type="enquiry:ExtractConversion"/>
+  </fields>
+  <fields alignment="Left" commaSeparator="false" length="35" name="SHORT.TITLE" singleMulti="Single">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="Name"/>
+    </label>
+    <operation field="SHORT.TITLE" xsi:type="enquiry:ApplicationFieldNameOperation"/>
+  </fields>
+  <fields alignment="Right" commaSeparator="false" length="4" name="ACCT.OFFICER" singleMulti="Single">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="Acct Officer"/>
+    </label>
+    <operation field="ACCOUNT.OFFICER" xsi:type="enquiry:ApplicationFieldNameOperation"/>
+  </fields>
+  <fields alignment="Left" commaSeparator="false" length="35" name="MANDATE.APPL" singleMulti="Multi">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="Mandate Application"/>
+    </label>
+    <operation field="MANDATE.APPL" xsi:type="enquiry:ApplicationFieldNameOperation"/>
+  </fields>
+  <fields alignment="Left" commaSeparator="false" hidden="true" length="35" name="MANDATE.REG" singleMulti="Multi">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="Mandate Reg"/>
+    </label>
+    <operation field="MANDATE.REG" xsi:type="enquiry:ApplicationFieldNameOperation"/>
+  </fields>
+  <fields alignment="Left" commaSeparator="false" hidden="true" length="35" name="MANDATE.RECORD" singleMulti="Multi">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="Mandate Record"/>
+    </label>
+    <operation field="MANDATE.RECORD" xsi:type="enquiry:ApplicationFieldNameOperation"/>
+  </fields>
+  <fields alignment="Left" commaSeparator="false" name="MANDATE.RECORD.1" singleMulti="Multi">
+    <format format="Date"/>
+    <operation field="MANDATE.RECORD" xsi:type="enquiry:ApplicationFieldNameOperation"/>
+    <conversion delimiter="." from="2" to="1" xsi:type="enquiry:ExtractConversion"/>
+  </fields>
+  <drillDowns enquiry="AI.MANDATE.LIST" image="launch.gif" labelField="MANDATE">
+    <description xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="View Mandate"/>
+    </description>
+    <criteria field="@ID" operand="Equals">
+      <values>MANDATE.RECORD</values>
+    </criteria>
+    
+  </drillDowns>
+  <attributes>UNDERLINE.HEADER.ROW</attributes>
+</enquiry:Enquiry>

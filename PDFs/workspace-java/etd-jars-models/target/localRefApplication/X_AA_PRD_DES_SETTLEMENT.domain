@@ -1,0 +1,51 @@
+# UTF-8
+Domain X_AA_PRD_DES_SETTLEMENT
+    @t24:LocalFields (localRefApplications=true)
+    @java:Package (value=localRefApplication.x_aa_prd_des_settlement)
+namespace "http://www.odcgroup.com/X_AA_PRD_DES_SETTLEMENT"
+metamodelVersion 1.30.6
+Classes {
+    Group_ACH_NOTES
+    {
+        /* ACH Addenda Payment Information */
+        ACH_NOTES : T24BusinessTypes:A
+            @i18n:Label (en=ACH.NOTES)
+            @t24:LocalFields (maxChars=40, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=ACH.NOTES)
+    }
+    X_AA_PRD_DES_SETTLEMENT extends AA_Settlement:AA_PRD_DES_SETTLEMENT
+    {
+        /* CHKG.ACCOUNT */
+        INT_LIQ_ACCOUNT : T24BusinessTypes:N
+            @i18n:Label (en=CHKG.ACCOUNT)
+            @t24:LocalFields (maxChars=15, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=INT.LIQ.ACCOUNT)
+        /* Islamic Payout Option */
+        IS_PAYOUT : T24BusinessTypes:A
+            @i18n:Label (en=IS.PAYOUT)
+            @t24:LocalFields (maxChars=30, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=IS.PAYOUT)
+        /* Hold Fund */
+        HOLD_FUND : LocalFieldsEnumeration:LocalField_HOLD_FUND
+            @i18n:Label (en=HOLD.FUND)
+            @t24:LocalFields (maxChars=1, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=HOLD.FUND)
+        /* Locked Reference */
+        LOCKED_ID : T24BusinessTypes:A
+            @i18n:Label (en=LOCKED.ID)
+            @t24:LocalFields (maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=LOCKED.ID)
+        /* ACH Benificiary Details */
+        USREGS_ACH_BEN -> USREGS_ACH:USREGS_ACH_BEN_DETAILS
+            @i18n:Label (en=USREGS.ACH.BEN)
+            @t24:LocalFields (applicationEnrich=CUSTOMER, maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USREGS.ACH.BEN)
+        /* Pay by Check */
+        USRETL_PAY_BY_CHECK : T24BusinessTypes:A
+            @i18n:Label (en=PAY.BY.CHECK)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USRETL.PAY.BY.CHECK)
+        GroupSample_ACH_NOTES -> byValue X_AA_PRD_DES_SETTLEMENT:Group_ACH_NOTES *
+            @t24:i (t24Name=GroupSample_ACH_NOTES)
+    }
+}

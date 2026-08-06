@@ -1,0 +1,61 @@
+# UTF-8
+Domain X_SEC_ACC_MASTER
+    @t24:LocalFields (localRefApplications=true)
+    @java:Package (value=localRefApplication.x_sec_acc_master)
+namespace "http://www.odcgroup.com/X_SEC_ACC_MASTER"
+metamodelVersion 1.30.6
+Classes {
+    Group_SAM_CUST_REL_ID
+    {
+        /* Holds SAM and CUSTOMER RELATION ID */
+        SAM_CUST_REL_ID : T24BusinessTypes:N
+            @i18n:Label (en=SAM.CUST.REL.ID)
+            @t24:LocalFields (maxChars=40, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=SAM.CUST.REL.ID)
+    }
+    X_SEC_ACC_MASTER extends SC_ScoPortfolioMaintenance:SEC_ACC_MASTER
+    {
+        GroupSample_SAM_CUST_REL_ID -> byValue X_SEC_ACC_MASTER:Group_SAM_CUST_REL_ID *
+            @t24:i (t24Name=GroupSample_SAM_CUST_REL_ID)
+        /* Alternate Id for the SAM */
+        SAM_ALTERNATE_KEY : T24BusinessTypes:A
+            @i18n:Label (en=PORT.ALT.ID)
+            @t24:LocalFields (maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=SAM.ALTERNATE.KEY)
+        /* TAX.CODE */
+        TAX_CODE : T24BusinessTypes:N
+            @i18n:Label (en=TAX.CODE)
+            @t24:LocalFields (maxChars=16, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=TAX.CODE)
+        /* Legal Entity Platform ID */
+        LEGAL_ENTITY_PF_ID -> AULEFS_Foundation:AULEFS_LEGAL_ENTITY_PLATFORM
+            @i18n:Label (en=LE.PF.ID)
+            @t24:LocalFields (applicationEnrich=FUND_NAME, maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=LEGAL.ENTITY.PF.ID)
+        /* Parent portfolio ID */
+        PARENT_PF_ID -> SC_ScoPortfolioMaintenance:SEC_ACC_MASTER
+            @i18n:Label (en=PARENT.PF.ID)
+            @t24:LocalFields (applicationEnrich=ACCOUNT_NAME, maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=PARENT.PF.ID)
+        /* Portfolio Residence */
+        PORTFOLIO_RESIDENCE -> ST_Config:COUNTRY
+            @i18n:Label (en=PF.RESIDENCE)
+            @t24:LocalFields (applicationEnrich=COUNTRY_NAME, maxChars=9, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=PORTFOLIO.RESIDENCE)
+        /* TFN Status */
+        TFN_STATUS : LocalFieldsEnumeration:LocalField_TFN_STATUS
+            @i18n:Label (en=TFN.STATUS)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=AUWHTX.TFN.STATUS)
+            @t24:i (t24Name=TFN.STATUS)
+        /* Legal Entity Sub Type */
+        LEGAL_ENTITY_SUB_TYPE : LocalFieldsEnumeration:LocalField_LEGAL_ENTITY_SUB_TYPE
+            @i18n:Label (en=LE.SUB.TYPE)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=AULEFS.LEGAL.ENTITY.SUB.TYPE)
+            @t24:i (t24Name=LEGAL.ENTITY.SUB.TYPE)
+        /* Sma Apir */
+        SMA_APIR : T24BusinessTypes:A
+            @i18n:Label (en=SMA.APIR)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NOCHANGE)
+            @t24:i (t24Name=SMA.APIR)
+    }
+}

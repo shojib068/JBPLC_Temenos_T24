@@ -1,0 +1,26 @@
+# UTF-8
+Domain X_DX_CONTRACT_MASTER
+    @t24:LocalFields (localRefApplications=true)
+    @java:Package (value=localRefApplication.x_dx_contract_master)
+namespace "http://www.odcgroup.com/X_DX_CONTRACT_MASTER"
+metamodelVersion 1.30.6
+Classes {
+    X_DX_CONTRACT_MASTER extends DX_Configuration:DX_CONTRACT_MASTER
+    {
+        /* TDS.MESSAGE.ID */
+        TDS_MESSAGE_ID : T24BusinessTypes:A
+            @i18n:Label (en=TDS.MESSAGE.ID)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=TDS.MESSAGE.ID)
+        /* Commodity Base for DXtrade */
+        COMMODITY_BASE : LocalFieldsEnumeration:LocalField_COMMODITY_BASE
+            @i18n:Label (en=COMMODITY.BASE)
+            @t24:LocalFields (maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=COMMODITY.BASE)
+            @t24:i (t24Name=COMMODITY.BASE)
+        /* Commodity Details */
+        COMMODITY_DETAILS : LocalFieldsEnumeration:LocalField_COMMODITY_DETAILS
+            @i18n:Label (en=COMMODITY.DET)
+            @t24:LocalFields (maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=COMMODITY.DETAILS)
+            @t24:i (t24Name=COMMODITY.DETAILS)
+    }
+}

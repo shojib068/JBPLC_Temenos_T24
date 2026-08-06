@@ -1,0 +1,151 @@
+# UTF-8
+Domain X_AC_INWARD_ENTRY
+    @t24:LocalFields (localRefApplications=true)
+    @java:Package (value=localRefApplication.x_ac_inward_entry)
+namespace "http://www.odcgroup.com/X_AC_INWARD_ENTRY"
+metamodelVersion 1.30.6
+Classes {
+    X_AC_INWARD_ENTRY extends FT_Clearing:AC_INWARD_ENTRY
+    {
+        /* Clearing Channel identifier for NSF */
+        NSF_CLEARING_CHANNEL : T24BusinessTypes:A
+            @i18n:Label (en=CLRNG.CHANNEL)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=NSF.CLEARING.CHANNEL)
+        /* OBCB.ACCTID */
+        OBCB_ACCTID : T24BusinessTypes:ANY
+            @i18n:Label (en=OBCB.ACCTID)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=OBCB.ACCTID)
+        /* OBCB.PAGE */
+        OBCB_PAGE : T24BusinessTypes:ANY
+            @i18n:Label (en=OBCB.PAGE)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=OBCB.PAGE)
+        /* OBCB.FROM.ID */
+        OBCB_FROM_ID : T24BusinessTypes:ANY
+            @i18n:Label (en=OBCB.FROM.ID)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=OBCB.FROM.ID)
+        /* BATCH.STATUS */
+        BATCH_STATUS : T24BusinessTypes:ANY
+            @i18n:Label (en=BATCH.STATUS)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=BATCH.STATUS)
+        /* BOOKED.DATE */
+        BOOKED_DATE : T24BusinessTypes:ANY
+            @i18n:Label (en=BOOKED.DATE)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=BOOKED.DATE)
+        /* DUPLICATE */
+        DUPLICATE : T24BusinessTypes:ANY
+            @i18n:Label (en=DUPLICATE)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=DUPLICATE)
+        /* MERCHANT */
+        MERCHANT : T24BusinessTypes:ANY
+            @i18n:Label (en=MERCHANT)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=MERCHANT)
+        /* BOOKED.TIME */
+        BOOKED_TIME : T24BusinessTypes:ANY
+            @i18n:Label (en=BOOKED.TIME)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=BOOKED.TIME)
+        /* PROCESS.TIME */
+        PROCESS_TIME : T24BusinessTypes:ANY
+            @i18n:Label (en=PROCESS.TIME)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=PROCESS.TIME)
+        /* ORIG.AMOUNT */
+        ORIG_AMOUNT : T24BusinessTypes:ANY
+            @i18n:Label (en=ORIG.AMOUNT)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=ORIG.AMOUNT)
+        /* ORIG.CCY */
+        ORIG_CCY : T24BusinessTypes:ANY
+            @i18n:Label (en=ORIG.CCY)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=ORIG.CCY)
+        /* ORIG.CATEG */
+        ORIG_CATEG : T24BusinessTypes:ANY
+            @i18n:Label (en=ORIG.CATEG)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=ORIG.CATEG)
+        /* ORIG.SUB.CATEG */
+        ORIG_SUB_CATEG : T24BusinessTypes:ANY
+            @i18n:Label (en=ORIG.SUB.CATEG)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=ORIG.SUB.CATEG)
+        /* CUST.CATEG.CODE */
+        CUST_CATEG_CODE : T24BusinessTypes:ANY
+            @i18n:Label (en=CUST.CATEG.CODE)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=CUST.CATEG.CODE)
+        /* CUST.CATEG.NAME */
+        CUST_CATEG_NAME : T24BusinessTypes:ANY
+            @i18n:Label (en=CUST.CATEG.NAME)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=CUST.CATEG.NAME)
+        /* CHQ.NUMBER */
+        CHQ_NUMBER : T24BusinessTypes:ANY
+            @i18n:Label (en=CHQ.NUMBER)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=CHQ.NUMBER)
+        /* ACCOUNT.BAL */
+        ACCOUNT_BAL : T24BusinessTypes:ANY
+            @i18n:Label (en=ACCOUNT.BAL)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=ACCOUNT.BAL)
+        /* ACC.BAL.AFTER */
+        ACC_BAL_AFTER : T24BusinessTypes:ANY
+            @i18n:Label (en=ACC.BAL.AFTER)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=ACC.BAL.AFTER)
+        /* ACC.BAL.BEFORE */
+        ACC_BAL_BEFORE : T24BusinessTypes:ANY
+            @i18n:Label (en=ACC.BAL.BEFORE)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=ACC.BAL.BEFORE)
+        /* TXN.LAST.UPD */
+        TXN_LAST_UPD : T24BusinessTypes:ANY
+            @i18n:Label (en=TXN.LAST.UPD)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=TXN.LAST.UPD)
+        /* Cash Bundles Deposited */
+        USRETL_CASH_BUND_DEP : T24BusinessTypes:N
+            @i18n:Label (en=CASH.BUND.DEP)
+            @t24:LocalFields (maxChars=7, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USRETL.CASH.BUND.DEP)
+        /* On Us Checks Count */
+        USRETL_ONUS_CHK_DEP : T24BusinessTypes:N
+            @i18n:Label (en=ONUS.CHK.DEP)
+            @t24:LocalFields (maxChars=7, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USRETL.ONUS.CHK.DEP)
+        /* Local Checks Count */
+        USRETL_LCL_CHK_DEP : T24BusinessTypes:N
+            @i18n:Label (en=LCL.CHK.DEP)
+            @t24:LocalFields (maxChars=7, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USRETL.LCL.CHK.DEP)
+        /* Foreign Checks Count */
+        USRETL_FGN_CHK_DEP : T24BusinessTypes:N
+            @i18n:Label (en=FGN.CHK.DEP)
+            @t24:LocalFields (maxChars=7, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USRETL.FGN.CHK.DEP)
+        /* Party Name */
+        USRETL_PARTY_NAME : T24BusinessTypes:A
+            @i18n:Label (en=PARTY.NAME)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USRETL.PARTY.NAME)
+        /* Party Identifier */
+        USRETL_PARTY_IDENTIFIER : T24BusinessTypes:A
+            @i18n:Label (en=PRTY.IDENTIFIER)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USRETL.PARTY.IDENTIFIER)
+        /* Check Image Reference */
+        CHECK_IMAGE_REF : T24BusinessTypes:ANY
+            @i18n:Label (en=CHECK.IMG.REF)
+            @t24:LocalFields (maxChars=45, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=CHECK.IMAGE.REF)
+    }
+}

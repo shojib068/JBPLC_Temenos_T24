@@ -1,0 +1,21 @@
+# UTF-8
+Domain X_ACCOUNT_STATEMENT
+    @t24:LocalFields (localRefApplications=true)
+    @java:Package (value=localRefApplication.x_account_statement)
+namespace "http://www.odcgroup.com/X_ACCOUNT_STATEMENT"
+metamodelVersion 1.30.6
+Classes {
+    X_ACCOUNT_STATEMENT extends AC_AccountStatement:ACCOUNT_STATEMENT
+    {
+        /* PRINTING */
+        USRETL_PRINTING : LocalFieldsEnumeration:LocalField_USRETL_PRINTING
+            @i18n:Label (en=PRINTING)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=PRINT.TYPE)
+            @t24:i (t24Name=USRETL.PRINTING)
+        /* Image Options */
+        USRETL_IMAGE_OPTIONS -> USRETL_CombinedStatement:USRETL_IMAGE_OPTIONS
+            @i18n:Label (en=IMAGE.OPTIONS)
+            @t24:LocalFields (applicationEnrich=_ID, maxChars=15, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USRETL.IMAGE.OPTIONS)
+    }
+}

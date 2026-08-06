@@ -1,0 +1,46 @@
+# UTF-8
+Domain X_EB_QUERIES_ANSWERS
+    @t24:LocalFields (localRefApplications=true)
+    @java:Package (value=localRefApplication.x_eb_queries_answers)
+namespace "http://www.odcgroup.com/X_EB_QUERIES_ANSWERS"
+metamodelVersion 1.30.6
+Classes {
+    X_EB_QUERIES_ANSWERS extends DE_Messaging:EB_QUERIES_ANSWERS
+    {
+        /* Header Business ID */
+        HDR_BUSS_ID : T24BusinessTypes:A
+            @i18n:Label (en=HDR.BUSS.ID)
+            @t24:LocalFields (maxChars=64, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=HDR.BUSS.ID)
+        /* Header Source ID */
+        HDR_SOURCE : T24BusinessTypes:A
+            @i18n:Label (en=HDR.SOURCE)
+            @t24:LocalFields (maxChars=8, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=HDR.SOURCE)
+        /* Header Process ID */
+        HDR_PRCS_ID : T24BusinessTypes:A
+            @i18n:Label (en=HDR.PRCS.ID)
+            @t24:LocalFields (maxChars=64, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=HDR.PRCS.ID)
+        /* Header Branch Code */
+        HDR_BRCH_CD : T24BusinessTypes:A
+            @i18n:Label (en=HDR.BRCH.CD)
+            @t24:LocalFields (maxChars=4, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=HDR.BRCH.CD)
+        /* Header Customer ID */
+        HDR_CUST_ID : T24BusinessTypes:A
+            @i18n:Label (en=HDR.CUST.ID)
+            @t24:LocalFields (maxChars=11, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=HDR.CUST.ID)
+        /* Header User ID */
+        HDR_USER_ID : T24BusinessTypes:A
+            @i18n:Label (en=HDR.USER.ID)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=HDR.USER.ID)
+        /* Header Server Node */
+        HDR_SER_NDE : T24BusinessTypes:A
+            @i18n:Label (en=HDR.SER.NDE)
+            @t24:LocalFields (maxChars=65, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=HDR.SER.NDE)
+    }
+}

@@ -1,0 +1,16 @@
+# UTF-8
+Domain X_ACCOUNT_CLOSURE
+    @t24:LocalFields (localRefApplications=true)
+    @java:Package (value=localRefApplication.x_account_closure)
+namespace "http://www.odcgroup.com/X_ACCOUNT_CLOSURE"
+metamodelVersion 1.30.6
+Classes {
+    X_ACCOUNT_CLOSURE extends AC_AccountClosure:ACCOUNT_CLOSURE
+    {
+        /* Primary Account for Reserve */
+        RSRV_PRIMARY_AC : T24BusinessTypes:A
+            @i18n:Label (en=RSRV.PRIMARY.AC)
+            @t24:LocalFields (maxChars=15, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=RSRV.PRIMARY.AC)
+    }
+}

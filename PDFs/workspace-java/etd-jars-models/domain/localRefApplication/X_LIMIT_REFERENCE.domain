@@ -1,0 +1,16 @@
+# UTF-8
+Domain X_LIMIT_REFERENCE
+    @t24:LocalFields (localRefApplications=true)
+    @java:Package (value=localRefApplication.x_limit_reference)
+namespace "http://www.odcgroup.com/X_LIMIT_REFERENCE"
+metamodelVersion 1.30.6
+Classes {
+    X_LIMIT_REFERENCE extends LI_Config:LIMIT_REFERENCE
+    {
+        /* Record the Risk Type */
+        RISK_TYPE : LocalFieldsEnumeration:LocalField_RISK_TYPE
+            @i18n:Label (en=RISK.TYPE)
+            @t24:LocalFields (maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=ESPVRC.RISK.TYPE)
+            @t24:i (t24Name=RISK.TYPE)
+    }
+}

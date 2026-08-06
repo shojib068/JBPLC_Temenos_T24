@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<libraryInfos>
+<libraryInfo home="E:\R22\Temenos\DS\jdk" version="1.8.0_121">
+<bootpath>
+<entry path="E:\R22\Temenos\DS\jdk\jre\lib\resources.jar"/>
+<entry path="E:\R22\Temenos\DS\jdk\jre\lib\rt.jar"/>
+<entry path="E:\R22\Temenos\DS\jdk\jre\lib\sunrsasign.jar"/>
+<entry path="E:\R22\Temenos\DS\jdk\jre\lib\jsse.jar"/>
+<entry path="E:\R22\Temenos\DS\jdk\jre\lib\jce.jar"/>
+<entry path="E:\R22\Temenos\DS\jdk\jre\lib\charsets.jar"/>
+<entry path="E:\R22\Temenos\DS\jdk\jre\lib\jfr.jar"/>
+<entry path="E:\R22\Temenos\DS\jdk\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="E:\R22\Temenos\DS\jdk\jre\lib\ext"/>
+<entry path="C:\WINDOWS\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="E:\R22\Temenos\DS\jdk\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="E:\R22\Temenos\DS\jdk\jre" version="1.8.0_121">
+<bootpath>
+<entry path="E:\R22\Temenos\DS\jdk\jre\lib\resources.jar"/>
+<entry path="E:\R22\Temenos\DS\jdk\jre\lib\rt.jar"/>
+<entry path="E:\R22\Temenos\DS\jdk\jre\lib\sunrsasign.jar"/>
+<entry path="E:\R22\Temenos\DS\jdk\jre\lib\jsse.jar"/>
+<entry path="E:\R22\Temenos\DS\jdk\jre\lib\jce.jar"/>
+<entry path="E:\R22\Temenos\DS\jdk\jre\lib\charsets.jar"/>
+<entry path="E:\R22\Temenos\DS\jdk\jre\lib\jfr.jar"/>
+<entry path="E:\R22\Temenos\DS\jdk\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="E:\R22\Temenos\DS\jdk\jre\lib\ext"/>
+<entry path="C:\WINDOWS\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="E:\R22\Temenos\DS\jdk\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="C:\R22\Temenos\DS\jdk\jre" version="1.8.0_121">
+<bootpath>
+<entry path="C:\R22\Temenos\DS\jdk\jre\lib\resources.jar"/>
+<entry path="C:\R22\Temenos\DS\jdk\jre\lib\rt.jar"/>
+<entry path="C:\R22\Temenos\DS\jdk\jre\lib\sunrsasign.jar"/>
+<entry path="C:\R22\Temenos\DS\jdk\jre\lib\jsse.jar"/>
+<entry path="C:\R22\Temenos\DS\jdk\jre\lib\jce.jar"/>
+<entry path="C:\R22\Temenos\DS\jdk\jre\lib\charsets.jar"/>
+<entry path="C:\R22\Temenos\DS\jdk\jre\lib\jfr.jar"/>
+<entry path="C:\R22\Temenos\DS\jdk\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="C:\R22\Temenos\DS\jdk\jre\lib\ext"/>
+<entry path="C:\WINDOWS\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="C:\R22\Temenos\DS\jdk\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="E:\R22\Temenos\Temenos\DS\jdk" version="1.8.0_121">
+<bootpath>
+<entry path="E:\R22\Temenos\Temenos\DS\jdk\jre\lib\resources.jar"/>
+<entry path="E:\R22\Temenos\Temenos\DS\jdk\jre\lib\rt.jar"/>
+<entry path="E:\R22\Temenos\Temenos\DS\jdk\jre\lib\sunrsasign.jar"/>
+<entry path="E:\R22\Temenos\Temenos\DS\jdk\jre\lib\jsse.jar"/>
+<entry path="E:\R22\Temenos\Temenos\DS\jdk\jre\lib\jce.jar"/>
+<entry path="E:\R22\Temenos\Temenos\DS\jdk\jre\lib\charsets.jar"/>
+<entry path="E:\R22\Temenos\Temenos\DS\jdk\jre\lib\jfr.jar"/>
+<entry path="E:\R22\Temenos\Temenos\DS\jdk\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="E:\R22\Temenos\Temenos\DS\jdk\jre\lib\ext"/>
+<entry path="C:\WINDOWS\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="E:\R22\Temenos\Temenos\DS\jdk\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+<libraryInfo home="C:\R22\Temenos\DS\jdk" version="1.8.0_121">
+<bootpath>
+<entry path="C:\R22\Temenos\DS\jdk\jre\lib\resources.jar"/>
+<entry path="C:\R22\Temenos\DS\jdk\jre\lib\rt.jar"/>
+<entry path="C:\R22\Temenos\DS\jdk\jre\lib\sunrsasign.jar"/>
+<entry path="C:\R22\Temenos\DS\jdk\jre\lib\jsse.jar"/>
+<entry path="C:\R22\Temenos\DS\jdk\jre\lib\jce.jar"/>
+<entry path="C:\R22\Temenos\DS\jdk\jre\lib\charsets.jar"/>
+<entry path="C:\R22\Temenos\DS\jdk\jre\lib\jfr.jar"/>
+<entry path="C:\R22\Temenos\DS\jdk\jre\classes"/>
+</bootpath>
+<extensionDirs>
+<entry path="C:\R22\Temenos\DS\jdk\jre\lib\ext"/>
+<entry path="C:\WINDOWS\Sun\Java\lib\ext"/>
+</extensionDirs>
+<endorsedDirs>
+<entry path="C:\R22\Temenos\DS\jdk\jre\lib\endorsed"/>
+</endorsedDirs>
+</libraryInfo>
+</libraryInfos>

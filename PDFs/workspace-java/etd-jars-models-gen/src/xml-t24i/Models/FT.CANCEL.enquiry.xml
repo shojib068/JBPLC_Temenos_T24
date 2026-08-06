@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><enquiry:Enquiry xmlns:enquiry="http://www.odcgroup.com/t24/Enquiry" xmlns:translationDsl="http://www.odcgroup.com/translation/TranslationDsl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" endLine="99" fileName="name:/FT_Contract:FUNDS.TRANSFER#" metamodelVersion="1.30.6" name="FT.CANCEL" noSelection="true" showAllBooks="false" startLine="4" zeroRecordsDisplay="true">
+  <description xsi:type="translationDsl:LocalTranslations">
+    <translations locale="en" text="Cancellation of Payments"/>
+  </description>
+  <fixedSelections field="TRANSACTION.TYPE" operand="Matches">
+    <values>OT...</values>
+    <values>EQ</values>
+    <values>'IT'</values>
+    <values>'OD'</values>
+    <values>'OD10'</values>
+  </fixedSelections>
+  <fixedSelections field="TRANSACTION.TYPE" operand="NotEquals">
+    <values>'OTTC'</values>
+    <values>'OT40'</values>
+    <values>'OT20'</values>
+    <values>'OT22'</values>
+  </fixedSelections>
+  <customSelection>
+    <selection field="@ID" mandatory="true">
+      <label xsi:type="translationDsl:LocalTranslations">
+        <translations locale="en" text="Transaction Ref"/>
+      </label>
+      <operands>Contains</operands>
+      <operands>Equals</operands>
+    </selection>
+    <selection field="DEBIT.ACCT.NO">
+      <label xsi:type="translationDsl:LocalTranslations">
+        <translations locale="en" text="Debit Account"/>
+      </label>
+    </selection>
+    <selection field="CREDIT.ACCT.NO">
+      <label xsi:type="translationDsl:LocalTranslations">
+        <translations locale="en" text="Credit Account"/>
+      </label>
+    </selection>
+    <selection field="DEBIT.CUSTOMER">
+      <label xsi:type="translationDsl:LocalTranslations">
+        <translations locale="en" text="Debit Customer"/>
+      </label>
+    </selection>
+    <selection field="CREDIT.CUSTOMER">
+      <label xsi:type="translationDsl:LocalTranslations">
+        <translations locale="en" text="Credit Customer"/>
+      </label>
+    </selection>
+  <operator>AND</operator><operator>AND</operator><operator>AND</operator><operator>AND</operator></customSelection>
+  <fields alignment="Left" commaSeparator="false" displaySection="Header" displayType="CLASS-TITLE" name="HDR">
+    <position column="1" line="1"/>
+    <operation value="&quot;Cancellation of Payments&quot;" xsi:type="enquiry:ConstantOperation"/>
+  </fields>
+  <fields alignment="Left" commaSeparator="false" displaySection="Header" displayType="CLASS-ENQ.NORECS" name="ZERONORECORDS">
+    <breakCondition break="None"/>
+    <position column="1"/>
+    <operation value="&quot;Check Funds Transfer Reference&quot;" xsi:type="enquiry:ConstantOperation"/>
+  </fields>
+  <fields alignment="Left" commaSeparator="false" length="16" name="@ID" singleMulti="Single">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="Transaction Ref"/>
+    </label>
+    <position column="1"/>
+    <operation field="@ID" xsi:type="enquiry:ApplicationFieldNameOperation"/>
+    <conversion delimiter=";" from="1" to="1" xsi:type="enquiry:ExtractConversion"/>
+  </fields>
+  <fields alignment="Left" commaSeparator="false" length="4" name="TXN.TYPE" singleMulti="Single">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="Txn Type"/>
+    </label>
+    <position column="2"/>
+    <operation field="TRANSACTION.TYPE" xsi:type="enquiry:ApplicationFieldNameOperation"/>
+  </fields>
+  <fields alignment="Left" commaSeparator="false" hidden="true" length="35" name="DISP.ORD">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="Ordered By"/>
+    </label>
+    <position column="3"/>
+    <operation firstField="ORD.BANK" leftField="ORD.CUST" operand="Equals" rightField="NULL" secondField="ORD.CUST" xsi:type="enquiry:DecisionOperation"/>
+  </fields>
+  <fields alignment="Left" commaSeparator="false" hidden="true" name="DISP.BEN">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="Beneficiary"/>
+    </label>
+    <position column="4"/>
+    <operation firstField="BEN.BANK" leftField="BEN.CUSTOMER" operand="Equals" rightField="NULL" secondField="BEN.CUSTOMER" xsi:type="enquiry:DecisionOperation"/>
+  </fields>
+  <fields alignment="Right" commaSeparator="false" length="10" name="DEBIT.ACCT.NO" singleMulti="Single">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="Debit Account"/>
+    </label>
+    <position column="5"/>
+    <operation field="DEBIT.ACCT.NO" xsi:type="enquiry:ApplicationFieldNameOperation"/>
+  </fields>
+  <fields alignment="Left" commaSeparator="false" length="3" name="CCY1" singleMulti="Single">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="Debit Ccy"/>
+    </label>
+    <position column="6"/>
+    <operation field="DEBIT.CURRENCY" xsi:type="enquiry:ApplicationFieldNameOperation"/>
+  </fields>
+  <fields alignment="Right" commaSeparator="false" length="19" name="DEBIT.AMOUNT">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="Debit Amount"/>
+    </label>
+    <format field="CCY1" format="Currency" pattern="-#"/>
+    <position column="7"/>
+    <operation field="DEBIT.AMOUNT" xsi:type="enquiry:ApplicationFieldNameOperation"/>
+  </fields>
+  <fields alignment="Right" commaSeparator="false" length="10" name="CREDIT.ACCT.NO" singleMulti="Single">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="Credit Account"/>
+    </label>
+    <position column="8"/>
+    <operation field="CREDIT.ACCT.NO" xsi:type="enquiry:ApplicationFieldNameOperation"/>
+  </fields>
+  <fields alignment="Left" commaSeparator="false" length="3" name="CREDIT.CCY" singleMulti="Single">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="Credit Ccy"/>
+    </label>
+    <position column="9"/>
+    <operation field="CREDIT.CURRENCY" xsi:type="enquiry:ApplicationFieldNameOperation"/>
+  </fields>
+  <fields alignment="Right" commaSeparator="false" length="19" name="CREDIT.AMOUNT" singleMulti="Single">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="Credit Amount"/>
+    </label>
+    <format field="CCY1" format="Currency" pattern="-#"/>
+    <position column="10"/>
+    <operation field="CREDIT.AMOUNT" xsi:type="enquiry:ApplicationFieldNameOperation"/>
+  </fields>
+  <fields alignment="Left" commaSeparator="false" length="35" name="ORD.CUST">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="Ordered By"/>
+    </label>
+    <operation field="ORDERING.CUST" xsi:type="enquiry:ApplicationFieldNameOperation"/>
+  </fields>
+  <fields alignment="Left" commaSeparator="false" length="35" name="ORD.BANK">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="Ordered By"/>
+    </label>
+    <operation field="ORDERING.BANK" xsi:type="enquiry:ApplicationFieldNameOperation"/>
+  </fields>
+  <fields alignment="Left" commaSeparator="false" name="NULL">
+    <breakCondition break="Once"/>
+    <operation value="&quot;&quot;" xsi:type="enquiry:ConstantOperation"/>
+  </fields>
+  <fields alignment="Left" commaSeparator="false" length="35" name="BEN.CUSTOMER" singleMulti="Single">
+    <operation field="BEN.CUSTOMER" xsi:type="enquiry:ApplicationFieldNameOperation"/>
+  </fields>
+  <fields alignment="Left" commaSeparator="false" length="35" name="BEN.BANK" singleMulti="Multi">
+    <operation field="BEN.BANK" xsi:type="enquiry:ApplicationFieldNameOperation"/>
+  </fields>
+  <drillDowns image="view.gif" labelField="@ID" screen="FUNDS.TRANSFER,VIEW">
+    <description xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="View Record"/>
+    </description>
+    <parameters function="See">
+      <fieldName>@ID</fieldName>
+    </parameters>
+    
+  </drillDowns>
+  <drillDowns image="notify.gif" screen="FUNDS.TRANSFER,CANCEL">
+    <description xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="Cancellation of FT"/>
+    </description>
+    <criteria field="CURRENT.DEBIT" operand="&gt;">
+      <values>DEBIT.ACCT.NO</values>
+    </criteria>
+    <criteria field="CURRENT.CREDIT" operand="&gt;">
+      <values>CREDIT.ACCT.NO</values>
+    </criteria>
+    <criteria field="CURRENT.CREDIT.CCY" operand="&gt;">
+      <values>CREDIT.CCY</values>
+    </criteria>
+    <criteria field="CURRENT.CCY1" operand="&gt;">
+      <values>CCY1</values>
+    </criteria>
+    <criteria field="CURRENT.CREDIT.AMT" operand="&gt;">
+      <values>CREDIT.AMOUNT</values>
+    </criteria>
+    <criteria field="CURRENT.DEBIT.AMT" operand="&gt;">
+      <values>DEBIT.AMOUNT</values>
+    </criteria>
+    <parameters auto="true" function="Input"/>
+    
+  </drillDowns>
+  <fileVersion>
+    <values>Live</values>
+    <values>History</values>
+  </fileVersion>
+</enquiry:Enquiry>

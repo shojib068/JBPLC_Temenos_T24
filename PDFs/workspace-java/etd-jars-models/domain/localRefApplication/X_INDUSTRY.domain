@@ -1,0 +1,26 @@
+# UTF-8
+Domain X_INDUSTRY
+    @t24:LocalFields (localRefApplications=true)
+    @java:Package (value=localRefApplication.x_industry)
+namespace "http://www.odcgroup.com/X_INDUSTRY"
+metamodelVersion 1.30.6
+Classes {
+    X_INDUSTRY extends ST_Config:INDUSTRY
+    {
+        /* BoE Sector Classification */
+        BOE_SECTOR -> UKSTAT_Foundation:BOE_SECTOR
+            @i18n:Label (en=BOE.SECTOR)
+            @t24:LocalFields (applicationEnrich=DESCRIPTION, maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=BOE.SECTOR)
+        /* BOE Industry Classification */
+        BOE_INDUSTRY -> UKSTAT_Foundation:BOE_INDUSTRY
+            @i18n:Label (en=BOE.INDUSTRY)
+            @t24:LocalFields (applicationEnrich=DESCRIPTION, maxChars=5, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=BOE.INDUSTRY)
+        /* ONS SIC 2007 Code */
+        BOE_SIC -> UKSTAT_Foundation:BOE_SIC
+            @i18n:Label (en=BOE.SIC)
+            @t24:LocalFields (applicationEnrich=DESCRIPTION, maxChars=5, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=BOE.SIC)
+    }
+}

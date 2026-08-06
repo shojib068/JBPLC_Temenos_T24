@@ -1,0 +1,21 @@
+# UTF-8
+Domain X_COMPANY
+    @t24:LocalFields (localRefApplications=true)
+    @java:Package (value=localRefApplication.x_company)
+namespace "http://www.odcgroup.com/X_COMPANY"
+metamodelVersion 1.30.6
+Classes {
+    X_COMPANY extends ST_CompanyCreation:COMPANY
+    {
+        /* Bank code */
+        CLABE_BANK_CODE : T24BusinessTypes:A
+            @i18n:Label (en=CLB.BANK.CODE)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=CLB.BANK.CODE)
+            @t24:i (t24Name=CLABE.BANK.CODE)
+        /* Bank Branch Code */
+        CLABE_BRANCH_CODE : T24BusinessTypes:A
+            @i18n:Label (en=CLB.BRANCH.CODE)
+            @t24:LocalFields (maxChars=4, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=CLB.BRANCH.CODE)
+            @t24:i (t24Name=CLABE.BRANCH.CODE)
+    }
+}

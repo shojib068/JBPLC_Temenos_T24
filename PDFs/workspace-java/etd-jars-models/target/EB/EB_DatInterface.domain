@@ -1,0 +1,94 @@
+# UTF-8
+/* Core routines that are at database level */
+Domain EB_DatInterface
+    @t24:i (module=EB)
+    @java:Package (value=com.temenos.t24.datamodel.eb.eb_datinterface)
+namespace "http://www.temenos.com/t24/EB_DatInterface"
+metamodelVersion 1.30.6
+Classes {
+    EB_FILE_STATS
+        @i18n:Description (en="")
+        @t24:i (t24Name=EB.FILE.STATS, level=I, type=L, allowedFunctions="L P S", localRefAllowed=false)
+    {
+        DATE -> byValue EB_DatInterface:EB_FILE_STATS__DATE *
+            @t24:i (t24Name=DATE)
+        /* Indicates File name for which, file size information is captured. */
+        ID -> EB_DatInterface:EB_FILE_STATS PK required
+            @i18n:Label (en="Transaction Ref")
+            @i18n:Tooltip (en="Transaction Reference")
+            @t24:i (align=L, inputBehaviour=I, maxLength=16, sysNumber=0.0, core=true, businessType=A, t24Name=ID, mandatory=true)
+/* Will hold the value Y or N.
+Y indicates important file. */
+        IMPORTANT : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=1, sysNumber=10.0, core=true, t24Name=IMPORTANT, mandatory=false)
+        K_DATE -> byValue EB_DatInterface:EB_FILE_STATS__K_DATE *
+            @t24:i (t24Name=K.DATE)
+        LCOMMENT : T24BusinessTypes:N
+            @i18n:Label (en=Comment)
+            @t24:i (align=L, inputBehaviour=N, maxLength=40, core=false, t24Name=LCOMMENT, genOperation="COMMENT<1,1>", mandatory=false)
+        LDATE : T24BusinessTypes:N
+            @i18n:Label (en=Date)
+            @t24:i (align=R, inputBehaviour=N, maxLength=11, core=false, t24Name=LDATE, genOperation="DATE<1,1>", mandatory=false)
+        LMIN_MODULO : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=10, core=false, t24Name=LMIN.MODULO, genOperation="MIN.MODULO<1,1>", mandatory=false)
+        LMODULO : T24BusinessTypes:N
+            @i18n:Label (en=Modulo)
+            @t24:i (align=R, inputBehaviour=N, maxLength=10, core=false, t24Name=LMODULO, genOperation="MODULO<1,1>", mandatory=false)
+        LOVERFLOW : T24BusinessTypes:N
+            @i18n:Label (en=Overflow)
+            @t24:i (align=R, inputBehaviour=N, maxLength=10, core=false, t24Name=LOVERFLOW, genOperation="OVERFLOW<1,1>", mandatory=false)
+        LRECORDS : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=10, core=false, t24Name=LRECORDS, genOperation="RECORDS<1,1>", mandatory=false)
+        LSEPARATION : T24BusinessTypes:N
+            @i18n:Label (en=Separation)
+            @t24:i (align=R, inputBehaviour=N, maxLength=10, core=false, t24Name=LSEPARATION, genOperation="SEPARATION<1,1>", mandatory=false)
+        LSIZE : T24BusinessTypes:N
+            @i18n:Label (en=Size)
+            @t24:i (align=R, inputBehaviour=N, maxLength=10, core=false, t24Name=LSIZE, genOperation="SIZE<1,1>", mandatory=false)
+        /* Minimum modulo for the file. */
+        MIN_MODULO : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=I, maxLength=10, sysNumber=2.0, core=true, t24Name=MIN.MODULO, mandatory=false)
+        /* Path information of the file. */
+        PATH : T24BusinessTypes:A required
+            @i18n:Label (en="Image Storage Path")
+            @t24:i (align=L, inputBehaviour=I, maxLength=45, sysNumber=1.0, core=true, t24Name=PATH, mandatory=true)
+    }
+    EB_FILE_STATS__DATE
+    {
+        /* Information or Reason for building the file size information. */
+        COMMENT : T24BusinessTypes:A
+            @i18n:Label (en=Comment)
+            @t24:i (align=L, inputBehaviour=I, maxLength=40, sysNumber=9.0, core=true, t24Name=COMMENT, mandatory=false)
+        /* System date on which file size information is captured. */
+        DATE : T24BusinessTypes:D
+            @i18n:Label (en=Date)
+            @t24:i (align=R, inputBehaviour=I, maxLength=11, sysNumber=3.0, core=true, t24Name=DATE, mandatory=false)
+        /* Modulo of the file. */
+        MODULO : T24BusinessTypes:N
+            @i18n:Label (en=Modulo)
+            @t24:i (align=R, inputBehaviour=I, maxLength=10, sysNumber=5.0, core=true, t24Name=MODULO, mandatory=false)
+        /* Number of overflow blocks per group. */
+        OVERFLOW : T24BusinessTypes:N
+            @i18n:Label (en=Overflow)
+            @t24:i (align=R, inputBehaviour=I, maxLength=10, sysNumber=7.0, core=true, t24Name=OVERFLOW, mandatory=false)
+/* Number of records in the file.
+Data will be updated only if file size information is fetched using the option 'FULL'.
+For other options, will hold '*'. */
+        RECORDS : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=I, maxLength=10, sysNumber=8.0, core=true, t24Name=RECORDS, mandatory=false)
+        /* Separation of the file. */
+        SEPARATION : T24BusinessTypes:N
+            @i18n:Label (en=Separation)
+            @t24:i (align=R, inputBehaviour=I, maxLength=10, sysNumber=6.0, core=true, t24Name=SEPARATION, mandatory=false)
+        /* Size of the file in bytes. */
+        SIZE : T24BusinessTypes:N
+            @i18n:Label (en=Size)
+            @t24:i (align=R, inputBehaviour=I, maxLength=10, sysNumber=4.0, core=true, t24Name=SIZE, mandatory=false)
+    }
+    EB_FILE_STATS__K_DATE
+    {
+        K_DATE : T24BusinessTypes:D
+            @i18n:Label (en=Date)
+            @t24:i (align=R, inputBehaviour=N, maxLength=11, sysNumber=3.0, core=false, t24Name=K.DATE, mandatory=false)
+    }
+}

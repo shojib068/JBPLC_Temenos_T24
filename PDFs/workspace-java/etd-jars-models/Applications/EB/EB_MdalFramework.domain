@@ -1,0 +1,96 @@
+# UTF-8
+/* Master Data Access Layer Framework */
+Domain EB_MdalFramework
+    @t24:i (module=EB)
+    @java:Package (value=com.temenos.t24.datamodel.eb.eb_mdalframework)
+namespace "http://www.temenos.com/t24/EB_MdalFramework"
+metamodelVersion 1.30.6
+Classes {
+    EB_MDAL_ENTITIES
+        @i18n:Description (en="")
+        @t24:i (t24Name=EB.MDAL.ENTITIES, level=I, type=H, allowedFunctions="A C D E H I L P Q R S", localRefAllowed=false)
+    {
+        APPLICATION -> byValue EB_MdalFramework:EB_MDAL_ENTITIES__APPLICATION *
+            @t24:i (t24Name=APPLICATION)
+        AUDITOR_CODE : T24BusinessTypes:A
+            @i18n:Label (en="Auditor Code")
+            @i18n:Tooltip (en="Auditor Code")
+            @t24:i (align=L, inputBehaviour=E, maxLength=16, sysNumber=16.0, core=true, t24Name=AUDITOR.CODE, mandatory=false)
+        AUDIT_DATE_TIME : T24BusinessTypes:RELTIME
+            @i18n:Label (en="Audit Date Time")
+            @i18n:Tooltip (en="Date and time when record was audited")
+            @t24:i (align=L, inputBehaviour=E, maxLength=15, sysNumber=17.0, core=true, t24Name=AUDIT.DATE.TIME, mask="RDD DD  DD ##:##", mandatory=false)
+        AUTHORISER : T24BusinessTypes:A
+            @i18n:Label (en=Authoriser)
+            @i18n:Tooltip (en="Indicates the User who Authorises the record")
+            @t24:i (align=L, inputBehaviour=N, maxLength=100, sysNumber=13.0, core=true, t24Name=AUTHORISER, mandatory=false)
+        CO_CODE -> ST_CompanyCreation:COMPANY
+            @i18n:Label (en=Company)
+            @t24:i (align=L, inputBehaviour=N, maxLength=11, sysNumber=14.0, core=true, businessType=A, t24Name=CO.CODE, mask="R##-###-####", mandatory=false)
+        CURR_NO : T24BusinessTypes:N
+            @i18n:Label (en="Curr No")
+            @t24:i (align=R, inputBehaviour=N, maxLength=6, sysNumber=10.0, core=true, t24Name=CURR.NO, mandatory=false)
+        DATE_TIME -> byValue EB_MdalFramework:EB_MDAL_ENTITIES__DATE_TIME *
+            @t24:i (t24Name=DATE.TIME)
+        DEPT_CODE -> ST_Config:DEPT_ACCT_OFFICER
+            @i18n:Label (en="Dept Code")
+            @t24:i (align=R, inputBehaviour=N, maxLength=6, sysNumber=15.0, core=true, t24Name=DEPT.CODE, mandatory=false)
+        ENTITY -> byValue EB_MdalFramework:EB_MDAL_ENTITIES__ENTITY *
+            @t24:i (t24Name=ENTITY)
+        EXTERNAL_ENTS -> byValue EB_MdalFramework:EB_MDAL_ENTITIES__EXTERNAL_ENTS *
+            @t24:i (t24Name=EXTERNAL.ENTS)
+        INPUTTER -> byValue EB_MdalFramework:EB_MDAL_ENTITIES__INPUTTER *
+            @t24:i (t24Name=INPUTTER)
+        MDAL_SPEC : EB_MdalFramework:EB_MDAL_ENTITIES__MDAL_SPEC PK required
+            @t24:i (align=L, inputBehaviour=I, maxLength=6, sysNumber=0.0, core=true, t24Name=MDAL.SPEC, mandatory=true)
+        RECORD_STATUS : T24BusinessTypes:STAT
+            @i18n:Label (en="Record Status")
+            @t24:i (align=L, inputBehaviour=N, maxLength=6, sysNumber=9.0, core=true, t24Name=RECORD.STATUS, mandatory=false)
+        RESERVED_1 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=8.0, core=true, t24Name=RESERVED.1, mandatory=false)
+        RESERVED_2 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=7.0, core=true, t24Name=RESERVED.2, mandatory=false)
+    }
+    EB_MDAL_ENTITIES__APPLICATION
+    {
+        APPLICATION -> EB_SystemTables:PGM_FILE
+            @i18n:Label (en=Application)
+            @t24:i (align=L, inputBehaviour=I, maxLength=40, sysNumber=4.0, core=true, businessType=PG, t24Name=APPLICATION, mandatory=false)
+        ENRI_COMPONENT : T24BusinessTypes:ANY
+            @t24:i (align=L, inputBehaviour=I, maxLength=65, sysNumber=5.0, core=true, t24Name=ENRI.COMPONENT, mandatory=false)
+        ENRI_METHOD : T24BusinessTypes:ANY
+            @t24:i (align=L, inputBehaviour=I, maxLength=65, sysNumber=6.0, core=true, t24Name=ENRI.METHOD, mandatory=false)
+    }
+    EB_MDAL_ENTITIES__DATE_TIME
+    {
+        DATE_TIME : T24BusinessTypes:RELTIME
+            @i18n:Label (en="Date time")
+            @i18n:Tooltip (en="Date and time when record was input or authorised")
+            @t24:i (align=L, inputBehaviour=N, maxLength=15, sysNumber=12.0, core=true, t24Name=DATE.TIME, mask="RDD DD  DD ##:##", mandatory=false)
+    }
+    EB_MDAL_ENTITIES__ENTITY
+    {
+        COMPONENT : T24BusinessTypes:ANY
+            @i18n:Label (en=Component)
+            @t24:i (align=L, inputBehaviour=I, maxLength=65, sysNumber=3.0, core=true, t24Name=COMPONENT, mandatory=false)
+        ENTITY : T24BusinessTypes:ANY
+            @i18n:Label (en=Entity)
+            @t24:i (align=L, inputBehaviour=I, maxLength=60, sysNumber=2.0, core=true, t24Name=ENTITY, mandatory=false)
+    }
+    EB_MDAL_ENTITIES__EXTERNAL_ENTS
+    {
+        EXTERNAL_ENTS : T24BusinessTypes:ANY
+            @t24:i (align=L, inputBehaviour=I, maxLength=60, sysNumber=1.0, core=true, t24Name=EXTERNAL.ENTS, mandatory=false)
+    }
+    EB_MDAL_ENTITIES__INPUTTER
+    {
+        INPUTTER : T24BusinessTypes:A
+            @i18n:Label (en=Inputter)
+            @i18n:Tooltip (en="The user who last updated the record")
+            @t24:i (align=L, inputBehaviour=N, maxLength=100, sysNumber=11.0, core=true, t24Name=INPUTTER, mandatory=false)
+    }
+}
+Enumerations {
+    EB_MDAL_ENTITIES__MDAL_SPEC : mml:string
+        SYSTEM=SYSTEM
+}

@@ -1,0 +1,13 @@
+use com.odcgroup.edge.t24ui
+use com.odcgroup.edge.t24ui.common
+use com.odcgroup.edge.t24ui.cos
+use com.odcgroup.edge.t24ui.cos.pattern
+use com.odcgroup.edge.t24ui.cos.bespoke
+use com.odcgroup.edge.t24ui.contextEnquiry 
+ AvailableTranslationLanguages {
+    languages: [
+        Language en {description: "English" }
+        Language fr {description: "French" }
+        Language de {description: "German" }
+    ]
+}

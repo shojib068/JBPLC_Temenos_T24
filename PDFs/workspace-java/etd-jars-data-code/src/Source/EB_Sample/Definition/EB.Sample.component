@@ -1,0 +1,13 @@
+component EB.Sample
+# Component Isolation Definition
+metamodelVersion 1.6
+# -------------------------------------------------
+public method EBVFtValidation ()
+
+{
+    jBC: EB.V.FT.VALIDATION
+    
+}
+ 
+
+

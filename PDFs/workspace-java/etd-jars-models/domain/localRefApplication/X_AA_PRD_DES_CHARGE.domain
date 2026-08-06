@@ -1,0 +1,171 @@
+# UTF-8
+Domain X_AA_PRD_DES_CHARGE
+    @t24:LocalFields (localRefApplications=true)
+    @java:Package (value=localRefApplication.x_aa_prd_des_charge)
+namespace "http://www.odcgroup.com/X_AA_PRD_DES_CHARGE"
+metamodelVersion 1.30.6
+Classes {
+    Group_FEE_CODE
+    {
+        /* unique code for the fee code */
+        FEE_CODE : T24BusinessTypes:A
+            @i18n:Label (en=FEE.CODE)
+            @t24:LocalFields (maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=FEE.CODE)
+        /* Fee type for AA.PRD.DES.CHARGE */
+        FEE_TYPE : LocalFieldsEnumeration:LocalField_FEE_TYPE
+            @i18n:Label (en=FEE.TYPE)
+            @t24:LocalFields (maxChars=50, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=MSO.FEE.TYPE)
+            @t24:i (t24Name=FEE.TYPE)
+    }
+    Group_ERC_BASIS
+    {
+        /* How the ERC will be calculated? */
+        ERC_BASIS : LocalFieldsEnumeration:LocalField_ERC_BASIS
+            @i18n:Label (en=ERC.BASIS)
+            @t24:LocalFields (maxChars=30, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=MSO.ERC.BASIS)
+            @t24:i (t24Name=ERC.BASIS)
+        /* Unique co Base asociat with rate */
+        BASERATE_TYPECODE : T24BusinessTypes:A
+            @i18n:Label (en=BASERATE.TYPECO)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=BASERATE.TYPECODE)
+    }
+    Group_USLEND_ESCROW_PAYEE
+    {
+        /* Escrow Payee */
+        USLEND_ESCROW_PAYEE -> ST_Customer:CUSTOMER
+            @i18n:Label (en=ESCROW.PAYEE)
+            @t24:LocalFields (applicationEnrich=SHORT_NAME, maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USLEND.ESCROW.PAYEE)
+        /* Escrow Reference Number */
+        USLEND_ESCROW_REFERENCE_NO : T24BusinessTypes:A
+            @i18n:Label (en=ESCROW.REF.NO)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USLEND.ESCROW.REFERENCE.NO)
+        /* Escrow Analysis Required */
+        USLEND_ANALYSIS_REQD : LocalFieldsEnumeration:LocalField_USLEND_ANALYSIS_REQD
+            @i18n:Label (en=ANALYSIS.REQD)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USLEND.ANALYSIS.REQD)
+        /* Escrow Payee Disbursement Amount */
+        USLEND_DISBURSE_AMOUNT : T24BusinessTypes:AMTLCCY
+            @i18n:Label (en=DISBURSE.AMT)
+            @t24:LocalFields (maxChars=19, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USLEND.DISBURSE.AMOUNT)
+        /* Escrow Payee Disbursement Date */
+        USLEND_DISBURSE_DATE : T24BusinessTypes:FQU_IGN
+            @i18n:Label (en=DISBURSE.DATE)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USLEND.DISBURSE.DATE)
+        /* New Escrow Amount Eff Date */
+        USLEND_NEW_AMT_EFF_DATE : T24BusinessTypes:ANY
+            @i18n:Label (en=NEW.AMT.EFF.DT)
+            @t24:LocalFields (maxChars=16, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USLEND.NEW.AMT.EFF.DATE)
+        /* Escrow Payee Property */
+        USLEND_PAYEE_PROPERTY -> AA_ProductFramework:AA_PROPERTY
+            @i18n:Label (en=PAYEE.PROP)
+            @t24:LocalFields (applicationEnrich=DESCRIPTION, maxChars=30, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USLEND.PAYEE.PROPERTY)
+    }
+    X_AA_PRD_DES_CHARGE extends AA_Fees:AA_PRD_DES_CHARGE
+    {
+        GroupSample_FEE_CODE -> byValue X_AA_PRD_DES_CHARGE:Group_FEE_CODE *
+            @t24:i (t24Name=GroupSample_FEE_CODE)
+        /* When the fee will be paid */
+        PAY_WHEN : LocalFieldsEnumeration:LocalField_PAY_WHEN
+            @i18n:Label (en=PAY.WHEN)
+            @t24:LocalFields (maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=MSO.PAY.WHEN)
+            @t24:i (t24Name=PAY.WHEN)
+        /* The fee is can be waived or Not */
+        CAN_WAIVE : T24BusinessTypes:A
+            @i18n:Label (en=CAN.WAIVE)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=CAN.WAIVE)
+        /* Fee is estimated (T) or not (F) */
+        IS_ESTIMATED : T24BusinessTypes:A
+            @i18n:Label (en=IS.ESTIMATED)
+            @t24:LocalFields (maxChars=30, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=IS.ESTIMATED)
+        /* How theit will be refunded? */
+        REFUNDABLE : LocalFieldsEnumeration:LocalField_REFUNDABLE
+            @i18n:Label (en=REFUNDABLE)
+            @t24:LocalFields (maxChars=25, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=MSO.REFUNDABLE)
+            @t24:i (t24Name=REFUNDABLE)
+        GroupSample_ERC_BASIS -> byValue X_AA_PRD_DES_CHARGE:Group_ERC_BASIS *
+            @t24:i (t24Name=GroupSample_ERC_BASIS)
+        /* Options for how to pay the fee */
+        HOWTO_PAYFEE : LocalFieldsEnumeration:LocalField_HOWTO_PAYFEE
+            @i18n:Label (en=HOWTO.PAYFEE)
+            @t24:LocalFields (maxChars=30, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=MSO.HOWTO.PAYFEE)
+            @t24:i (t24Name=HOWTO.PAYFEE)
+        /* The fee is can be varied(T)/ Not(F) */
+        CAN_VARY : T24BusinessTypes:A
+            @i18n:Label (en=CAN.VARY)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=CAN.VARY)
+        /* ELIGIBILITY.CODE for AA*CHARGE */
+        ELIGIBILITY_CODE -> UKMSOI_Foundation:AA_PRD_DES_XPOLICY
+            @i18n:Label (en=ELIGIBILITY.CO)
+            @t24:LocalFields (applicationEnrich=DESCRIPTION, maxChars=80, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=ELIGIBILITY.CODE)
+        /* Billing Element */
+        USLREG_BILL_ELEMENT : LocalFieldsEnumeration:LocalField_USLREG_BILL_ELEMENT
+            @i18n:Label (en=BILL.ELEMENT)
+            @t24:LocalFields (maxChars=1, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=REGAA)
+            @t24:i (t24Name=USLREG.BILL.ELEMENT)
+        /* Insurance Company */
+        USLREG_INS_COMP -> USLREG_RebatableInsurance:USLREG_INSURANCE_COMPANY
+            @i18n:Label (en=INS.COMP)
+            @t24:LocalFields (applicationEnrich=DESCRIPTION, maxChars=4, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USLREG.INS.COMP)
+        /* Insurance Type */
+        USLREG_INS_TYPE : LocalFieldsEnumeration:LocalField_USLREG_INS_TYPE
+            @i18n:Label (en=INS.TYPE)
+            @t24:LocalFields (maxChars=15, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=AA.INSURANCE.TYPE)
+            @t24:i (t24Name=USLREG.INS.TYPE)
+        GroupSample_USLEND_ESCROW_PAYEE -> byValue X_AA_PRD_DES_CHARGE:Group_USLEND_ESCROW_PAYEE *
+            @t24:i (t24Name=GroupSample_USLEND_ESCROW_PAYEE)
+        /* Number of Instalments */
+        USLEND_NO_OF_INSTALMENTS : T24BusinessTypes:N
+            @i18n:Label (en=NO.OF.INSTALMNT)
+            @t24:LocalFields (maxChars=2, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USLEND.NO.OF.INSTALMENTS)
+        /* Escrow Initial Analysis Required */
+        USLEND_INITIAL_ANALYSIS : LocalFieldsEnumeration:LocalField_USLEND_INITIAL_ANALYSIS
+            @i18n:Label (en=INIT.ANALYSIS)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USLEND.INITIAL.ANALYSIS)
+        /* Escrow Cushion Period */
+        USLEND_CUSHION_PERIOD : T24BusinessTypes:N
+            @i18n:Label (en=CUSHION.PERIOD)
+            @t24:LocalFields (maxChars=2, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USLEND.CUSHION.PERIOD)
+        /* Escrow Analysis Required */
+        USLEND_ANALYSIS_REQUIRED : LocalFieldsEnumeration:LocalField_USLEND_ANALYSIS_REQUIRED
+            @i18n:Label (en=REQ.ANALYSIS)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USLEND.ANALYSIS.REQUIRED)
+        /* OVERDRAW */
+        USLEND_OVERDRAW : LocalFieldsEnumeration:LocalField_USLEND_OVERDRAW
+            @i18n:Label (en=OVERDRAW)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USLEND.OVERDRAW)
+        /* FDIC Rate Key */
+        USRETL_FDIC_KEY -> ST_RateParameters:BASIC_RATE_TEXT
+            @i18n:Label (en=USRETL.FDIC.KEY)
+            @t24:LocalFields (applicationEnrich=DESCRIPTION, maxChars=4, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USRETL.FDIC.KEY)
+        /* Penalty Days/Mth */
+        USRETL_PEN_DAYS : T24BusinessTypes:A
+            @i18n:Label (en=PEN.DAYS)
+            @t24:LocalFields (maxChars=5, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USRETL.PEN.DAYS)
+        /* Rent Return Flag */
+        RENT_RETURN : LocalFieldsEnumeration:LocalField_RENT_RETURN
+            @i18n:Label (en=RENT.RETURN)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=RENT.RETURN)
+    }
+}

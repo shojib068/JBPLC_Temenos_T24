@@ -1,0 +1,66 @@
+# UTF-8
+Domain X_AA_PRD_DES_PAYMENT_SCHEDULE
+    @t24:LocalFields (localRefApplications=true)
+    @java:Package (value=localRefApplication.x_aa_prd_des_payment_schedule)
+namespace "http://www.odcgroup.com/X_AA_PRD_DES_PAYMENT_SCHEDULE"
+metamodelVersion 1.30.6
+Classes {
+    X_AA_PRD_DES_PAYMENT_SCHEDULE extends AA_PaymentSchedule:AA_PRD_DES_PAYMENT_SCHEDULE
+    {
+        /* Billing Method */
+        USCORE_BILLING_METHOD : LocalFieldsEnumeration:LocalField_USCORE_BILLING_METHOD
+            @i18n:Label (en=BILLING.METHOD)
+            @t24:LocalFields (maxChars=2, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=BILLING.METHOD)
+            @t24:i (t24Name=USCORE.BILLING.METHOD)
+        /* No. of Coupon */
+        USLEND_NO_OF_COUPON : T24BusinessTypes:N
+            @i18n:Label (en=NO.OF.COUPON)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USLEND.NO.OF.COUPON)
+        /* Initial Amount */
+        USLEND_INITIAL_AMOUNT : T24BusinessTypes:AMTLCCY
+            @i18n:Label (en=INITIAL.AMOUNT)
+            @t24:LocalFields (maxChars=19, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USLEND.INITIAL.AMOUNT)
+        /* Escrow Annual Analysis Freq */
+        USLEND_ANNUAL_ANALYSIS_FQU : T24BusinessTypes:FQU_IGN
+            @i18n:Label (en=ANNUAL.ANALYSIS)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USLEND.ANNUAL.ANALYSIS.FQU)
+        /* Next Schedule Frequency */
+        USLEND_NXT_SCHED_FQU : T24BusinessTypes:D
+            @i18n:Label (en=NXT.SCHED.FQU)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USLEND.NXT.SCHED.FQU)
+        /* Last Recalc Date */
+        USLEND_LAST_RECALC_DATE : T24BusinessTypes:D
+            @i18n:Label (en=LAST.RECALC.DT)
+            @t24:LocalFields (maxChars=12, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USLEND.LAST.RECALC.DATE)
+        /* Instalment Amount */
+        USLEND_INSTALMENT_AMT : T24BusinessTypes:AMTLCCY
+            @i18n:Label (en=INSTALL.AMOUNT)
+            @t24:LocalFields (maxChars=19, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USLEND.INSTALMENT.AMT)
+        /* Escrow Test Analysis Date */
+        USLEND_TEST_ANALYSIS_DATE : T24BusinessTypes:D
+            @i18n:Label (en=TEST.ANLYSIS.DT)
+            @t24:LocalFields (maxChars=12, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USLEND.TEST.ANALYSIS.DATE)
+        /* Reprint Coupon */
+        USLEND_REPRINT_COUPON : T24BusinessTypes:A
+            @i18n:Label (en=REPRINT.COUPON)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USLEND.REPRINT.COUPON)
+        /* Uslend New escrow amount */
+        USLEND_NEW_ESCROW_AMT : T24BusinessTypes:AMTLCCY
+            @i18n:Label (en=NEW.ESCROW.AMT)
+            @t24:LocalFields (maxChars=19, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USLEND.NEW.ESCROW.AMT)
+        /* Reprint Date */
+        USLEND_REPRINT_DATE : T24BusinessTypes:D
+            @i18n:Label (en=REPRINT.DATE)
+            @t24:LocalFields (maxChars=11, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USLEND.REPRINT.DATE)
+    }
+}

@@ -1,0 +1,31 @@
+# UTF-8
+Domain X_SC_BLOCK_SEC_POS
+    @t24:LocalFields (localRefApplications=true)
+    @java:Package (value=localRefApplication.x_sc_block_sec_pos)
+namespace "http://www.odcgroup.com/X_SC_BLOCK_SEC_POS"
+metamodelVersion 1.30.6
+Classes {
+    X_SC_BLOCK_SEC_POS extends SC_SctBlocking:SC_BLOCK_SEC_POS
+    {
+        /* Pledge Purpose */
+        RLGAAP_PLEDGE_PURPOSE : LocalFieldsEnumeration:LocalField_RLGAAP_PLEDGE_PURPOSE
+            @i18n:Label (en=PLEDGE.PURPOSE)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=PLEDGE.PURPOSE)
+            @t24:i (t24Name=RLGAAP.PLEDGE.PURPOSE)
+        /* Pledge Flag */
+        RLGAAP_PLEDGE_FLAG : LocalFieldsEnumeration:LocalField_RLGAAP_PLEDGE_FLAG
+            @i18n:Label (en=PLEDGE.FLAG)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=PLEDGE.FLAG)
+            @t24:i (t24Name=RLGAAP.PLEDGE.FLAG)
+        /* Pledge Original Face Value */
+        RLGAAP_ORG_FACE_VALUE : T24BusinessTypes:AMTLCCY
+            @i18n:Label (en=ORG.FACE.VALUE)
+            @t24:LocalFields (maxChars=15, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=RLGAAP.ORG.FACE.VALUE)
+        /* Blocked Nominals Id */
+        RLGAAP_PLEDGED_BLOCKS : T24BusinessTypes:A
+            @i18n:Label (en=PLEDGED.BLOCKS)
+            @t24:LocalFields (maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=RLGAAP.PLEDGED.BLOCKS)
+    }
+}

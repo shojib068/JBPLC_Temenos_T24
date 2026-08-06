@@ -1,0 +1,73 @@
+package com.temenos.t24;
+
+import java.util.List;
+
+import com.temenos.api.TStructure;
+import com.temenos.t24.api.complex.eb.templatehook.TransactionContext;
+import com.temenos.t24.api.hook.system.RecordLifecycle;
+import com.temenos.t24.api.records.account.AccountRecord;
+import com.temenos.t24.api.records.customer.CustomerRecord;
+import com.temenos.t24.api.records.customer.Phone1Class;
+import com.temenos.t24.api.records.fundstransfer.FundsTransferRecord;
+import com.temenos.t24.api.system.DataAccess;
+
+public class GbJblDFtMob extends RecordLifecycle {
+
+    @Override
+    public void defaultFieldValues(String application, String currentRecordId,
+            TStructure currentRecord, TStructure unauthorisedRecord,
+            TStructure liveRecord, TransactionContext transactionContext) {
+        DataAccess da = new DataAccess(this);
+        FundsTransferRecord ftRec = new FundsTransferRecord(currentRecord);
+        AccountRecord accRec = null;
+        CustomerRecord custRec = null;
+        
+        String debitAcc = "";
+        String custId = "";
+        String sms = "";
+        
+        List<Phone1Class> phoneList = null;
+        
+        if(ftRec != null){
+            try{
+                debitAcc = ftRec.getDebitAcctNo().getValue();
+            }catch(Exception e){}
+        }
+        if(!debitAcc.isEmpty()){
+            try{
+                accRec = new AccountRecord(da.getRecord("ACCOUNT", debitAcc));
+            }catch(Exception e){}
+        }
+        
+        if( accRec != null){
+            try{
+                custId = accRec.getCustomer().getValue();
+            }catch(Exception e){}
+            
+        }
+        
+        if(!custId.isEmpty()){
+            try{
+                custRec = new CustomerRecord(da.getRecord("CUSTOMER", custId)); 
+            }catch(Exception e){}
+        }
+        if(custRec != null){
+            try{
+                phoneList = custRec.getPhone1();
+            }catch(Exception e){}
+        }
+        if(phoneList != null){
+            for(int i=0; i<phoneList.size(); i++){
+                sms = phoneList.get(i).getSms1().getValue();
+            }
+        }
+        
+        if(!sms.isEmpty()){
+            ftRec.getLocalRefField("LT.MOBILE.NUM").setValue(sms);
+        }
+        
+        currentRecord.set(ftRec.toStructure());
+
+
+    }
+}

@@ -1,0 +1,125 @@
+package com.temenos.t24;
+
+import java.util.List;
+import com.temenos.api.TStructure;
+import com.temenos.t24.api.complex.eb.templatehook.TransactionContext;
+import com.temenos.t24.api.hook.system.RecordLifecycle;
+import com.temenos.t24.api.records.account.AccountRecord;
+import com.temenos.t24.api.records.customer.CustomerRecord;
+import com.temenos.t24.api.records.customer.Phone1Class;
+import com.temenos.t24.api.records.teller.TellerRecord;
+import com.temenos.t24.api.system.DataAccess;
+
+public class GbJblITpMob extends RecordLifecycle {
+
+    @Override
+    public void defaultFieldValues(String application, String currentRecordId,
+            TStructure currentRecord, TStructure unauthorisedRecord,
+            TStructure liveRecord, TransactionContext transactionContext) {
+
+        try {
+
+            DataAccess da = new DataAccess(this);
+            TellerRecord tellerRec = new TellerRecord(currentRecord);
+
+            String creditAcc = "";
+            String custId = "";
+            String sms = "";
+
+            // -------------------------
+            // GET CREDIT ACCOUNT
+            // -------------------------
+            try {
+                creditAcc = tellerRec.getAccount2().getValue();
+            } catch (Exception e) {
+                creditAcc = "";
+            }
+
+            // -------------------------
+            // FETCH ACCOUNT
+            // -------------------------
+            TStructure accStruct = null;
+            AccountRecord accRec = null;
+
+            try {
+                if (creditAcc != null && !creditAcc.trim().isEmpty()) {
+                    accStruct = da.getRecord("ACCOUNT", creditAcc);
+                    if (accStruct != null) {
+                        accRec = new AccountRecord(accStruct);
+                    }
+                }
+            } catch (Exception e) {
+                accRec = null;
+            }
+
+            // -------------------------
+            // GET CUSTOMER ID
+            // -------------------------
+            try {
+                if (accRec != null) {
+                    custId = accRec.getCustomer().getValue();
+                }
+            } catch (Exception e) {
+                custId = "";
+            }
+
+            // -------------------------
+            // FETCH CUSTOMER
+            // -------------------------
+            TStructure cusStruct = null;
+            CustomerRecord cusRec = null;
+
+            try {
+                if (custId != null && !custId.trim().isEmpty()) {
+                    cusStruct = da.getRecord("CUSTOMER", custId);
+                    if (cusStruct != null) {
+                        cusRec = new CustomerRecord(cusStruct);
+                    }
+                }
+            } catch (Exception e) {
+                cusRec = null;
+            }
+
+            // -------------------------
+            // GET PHONE LIST
+            // -------------------------
+            List<Phone1Class> phoneList = null;
+
+            try {
+                if (cusRec != null) {
+                    phoneList = cusRec.getPhone1();
+                }
+            } catch (Exception e) {
+                phoneList = null;
+            }
+
+            // -------------------------
+            // SAFE SMS FETCH (FIX FOR INDEX ERROR)
+            // -------------------------
+            sms = "";
+
+            if (phoneList != null && phoneList.size() > 0) {
+                try {
+                    sms = phoneList.get(0).getSms1().getValue();
+                } catch (Exception e) {
+                    sms = "";
+                }
+            }
+
+            // -------------------------
+            // ALWAYS UPDATE LOCAL REF
+            // -------------------------
+            try {
+                tellerRec.getLocalRefField("LT.MOBILE.NUM").set(
+                    sms != null ? sms : ""
+                );
+                currentRecord.set(tellerRec.toStructure());
+            } catch (Exception e) {
+                // ignore update failure
+            }
+
+        } catch (Exception e) {
+            // global safety net
+        }
+    }
+}

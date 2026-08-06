@@ -1,0 +1,61 @@
+# UTF-8
+Domain X_BENEFICIARY
+    @t24:LocalFields (localRefApplications=true)
+    @java:Package (value=localRefApplication.x_beneficiary)
+namespace "http://www.odcgroup.com/X_BENEFICIARY"
+metamodelVersion 1.30.6
+Classes {
+    Group_SIGNATORY
+    {
+        /* SIGNATORY */
+        SIGNATORY -> ST_Customer:CUSTOMER
+            @i18n:Label (en=SIGNATORY)
+            @t24:LocalFields (applicationEnrich=SHORT_NAME, maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=SIGNATORY)
+    }
+    X_BENEFICIARY extends ST_Payments:BENEFICIARY
+    {
+        /* Beneficiary Alternate Key */
+        BEN_ALT_KEY : T24BusinessTypes:A
+            @i18n:Label (en=BEN.ALT.KEY)
+            @t24:LocalFields (maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=BEN.ALT.KEY)
+        GroupSample_SIGNATORY -> byValue X_BENEFICIARY:Group_SIGNATORY *
+            @t24:i (t24Name=GroupSample_SIGNATORY)
+        /* ILBNKB.BANK.CODE */
+        ILBNKB_BANK_CODE : T24BusinessTypes:N
+            @i18n:Label (en=BANK.CODE)
+            @t24:LocalFields (maxChars=2, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=ILBNKB.BANK.CODE)
+        /* ILBNKB.BRANCH.COD */
+        ILBNKB_BRANCH_CODE : T24BusinessTypes:N
+            @i18n:Label (en=BRANCH.CODE)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=ILBNKB.BRANCH.CODE)
+        /* Zip +4 */
+        USCORE_ZIP4 : T24BusinessTypes:A
+            @i18n:Label (en=ZIP4)
+            @t24:LocalFields (maxChars=4, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USCORE.ZIP4)
+        /* Existing Customer */
+        USRETL_EXIST_CUST : T24BusinessTypes:A
+            @i18n:Label (en=CUST.EXIST)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USRETL.EXIST.CUST)
+        /* Route Number */
+        USRETL_ROUTE_NO : T24BusinessTypes:A
+            @i18n:Label (en=ROUTE.NO)
+            @t24:LocalFields (maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USRETL.ROUTE.NO)
+        /* Account Type */
+        USRETL_ACCT_TYPE : LocalFieldsEnumeration:LocalField_USRETL_ACCT_TYPE
+            @i18n:Label (en=ACCT.TYPE)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USRETL.ACCT.TYPE)
+        /* US State */
+        USREGS_US_STATE -> NACUST_Foundation:US_STATE
+            @i18n:Label (en=US.STATE)
+            @t24:LocalFields (applicationEnrich=DESCRIPTION, maxChars=2, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USREGS.US.STATE)
+    }
+}

@@ -1,0 +1,56 @@
+# UTF-8
+Domain X_SECURITY_MASTER
+    @t24:LocalFields (localRefApplications=true)
+    @java:Package (value=localRefApplication.x_security_master)
+namespace "http://www.odcgroup.com/X_SECURITY_MASTER"
+metamodelVersion 1.30.6
+Classes {
+    Group_PRIIP_KID
+    {
+        /* Stores the website link for KID */
+        PRIIP_KID : T24BusinessTypes:TEXT
+            @i18n:Label (en=PRIIP.KID)
+            @t24:LocalFields (maxChars=65, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=PRIIP.KID)
+    }
+    Group_INGAAP_SUB_ASSET
+    {
+        /* Sub Asset Types */
+        INGAAP_SUB_ASSET : T24BusinessTypes:A
+            @i18n:Label (en=SUB.ASSET)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=SUB.ASSET)
+            @t24:i (t24Name=INGAAP.SUB.ASSET)
+        /* Time Band */
+        INGAAP_TIME_BAND : LocalFieldsEnumeration:LocalField_INGAAP_TIME_BAND
+            @i18n:Label (en=TIME.BAND)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=INGAAP.TIME.BAND)
+    }
+    X_SECURITY_MASTER extends SC_ScoSecurityMasterMaintenance:SECURITY_MASTER
+    {
+        /* SEC.EFF.DATE */
+        SEC_EFF_DATE : T24BusinessTypes:D
+            @i18n:Label (en=SEC.EFF.DATE)
+            @t24:LocalFields (maxChars=11, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=SEC.EFF.DATE)
+        GroupSample_PRIIP_KID -> byValue X_SECURITY_MASTER:Group_PRIIP_KID *
+            @t24:i (t24Name=GroupSample_PRIIP_KID)
+        /* Tras */
+        TRASPASOS_ALLOWED : LocalFieldsEnumeration:LocalField_TRASPASOS_ALLOWED
+            @i18n:Label (en=TRASPASOS.ALLOW)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=TRASPASOS.ALLOWED)
+        GroupSample_INGAAP_SUB_ASSET -> byValue X_SECURITY_MASTER:Group_INGAAP_SUB_ASSET *
+            @t24:i (t24Name=GroupSample_INGAAP_SUB_ASSET)
+        /* Level */
+        INGAAP_LEVEL : T24BusinessTypes:N
+            @i18n:Label (en=LEVEL)
+            @t24:LocalFields (maxChars=5, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=LEVEL)
+            @t24:i (t24Name=INGAAP.LEVEL)
+        /* TDS.MESSAGE.ID */
+        TDS_MESSAGE_ID : T24BusinessTypes:A
+            @i18n:Label (en=TDS.MESSAGE.ID)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=TDS.MESSAGE.ID)
+    }
+}

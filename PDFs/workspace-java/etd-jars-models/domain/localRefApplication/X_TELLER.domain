@@ -1,0 +1,175 @@
+# UTF-8
+Domain X_TELLER
+    @t24:LocalFields (localRefApplications=true)
+    @java:Package (value=localRefApplication.x_teller)
+namespace "http://www.odcgroup.com/X_TELLER"
+metamodelVersion 1.30.6
+Classes {
+    Group_SIGNATORY
+    {
+        /* SIGNATORY */
+        SIGNATORY -> ST_Customer:CUSTOMER
+            @i18n:Label (en=SIGNATORY)
+            @t24:LocalFields (applicationEnrich=SHORT_NAME, maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=SIGNATORY)
+    }
+    Group_USRETL_ITEM_TYP
+    {
+        /* USRETL.ITEM.TYP */
+        USRETL_ITEM_TYP : LocalFieldsEnumeration:LocalField_USRETL_ITEM_TYP
+            @i18n:Label (en=USRETL.ITEM.TYP)
+            @t24:LocalFields (maxChars=25, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=AA.ACTIVITY.ITEM)
+            @t24:i (t24Name=USRETL.ITEM.TYP)
+        USRETL_ITEM_VAL : T24BusinessTypes:A
+            @i18n:Label (en=USRETL.ITEM.VAL)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USRETL.ITEM.VAL)
+    }
+    X_TELLER extends TT_Contract:TELLER
+    {
+        /* I.B.L.C. DEBIT */
+        151 : LocalFieldsEnumeration:LocalField_151
+            @i18n:Label (en="IBLC CODE-DR", fr="CODIFICAT. IBLC")
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=151)
+        /* I.B.L.C. CREDIT */
+        152 : LocalFieldsEnumeration:LocalField_152
+            @i18n:Label (en="IBLC CODE-CR", fr="CODIFICAT. IBLC")
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=152)
+        /* I.B.L.C. COUNTRY-DR */
+        171 : LocalFieldsEnumeration:LocalField_171
+            @i18n:Label (en="IBLC COUNTRY-DR", fr="PAY IBLC")
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=171)
+        /* I.B.L.C. COUNTRY-CR */
+        172 : LocalFieldsEnumeration:LocalField_172
+            @i18n:Label (en="IBLC COUNTRY-CR", fr="PAY IBLC")
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=172)
+        GroupSample_SIGNATORY -> byValue X_TELLER:Group_SIGNATORY *
+            @t24:i (t24Name=GroupSample_SIGNATORY)
+        /* Islamic Customer */
+        IS_CUSTOMER -> ST_Customer:CUSTOMER
+            @i18n:Label (en=IS.CUSTOMER)
+            @t24:LocalFields (applicationEnrich=SHORT_NAME, maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=IS.CUSTOMER)
+        /* Islamic Contract Reference */
+        IS_CONTRACT_REF -> IS_Purchase:IS_CONTRACT
+            @i18n:Label (en=IS.CONTRACT.REF)
+            @t24:LocalFields (applicationEnrich=DESCRIPTION, maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=IS.CONTRACT.REF)
+        /* Islamic Commodity Ref */
+        IS_COMM_REF -> IS_Config:IS_COMMODITY
+            @i18n:Label (en=IS.COMM.REF)
+            @t24:LocalFields (applicationEnrich=DESCRIPTION, maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=IS.COMM.REF)
+        /* Islamic Asset Reference */
+        IS_ASSET_REF : T24BusinessTypes:A
+            @i18n:Label (en=IS.ASSET.REF)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=IS.ASSET.REF)
+        /* Islamic Cost Ref */
+        IS_COST_REF -> IS_Config:IS_COST_TYPE
+            @i18n:Label (en=IS.COST.REF)
+            @t24:LocalFields (applicationEnrich=DESCRIPTION, maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=IS.COST.REF)
+        /* Commodity Sale Reference */
+        IS_COM_SALE_REF -> IS_Purchase:IS_COMMODITY_SALE
+            @i18n:Label (en=IS.COM.SALE.REF)
+            @t24:LocalFields (applicationEnrich=SALE_PRICE, maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=IS.COM.SALE.REF)
+        /* Cheque Number Control Digit */
+        CHQ_NO_DIGIT : T24BusinessTypes:A
+            @i18n:Label (en=CHQ.NO.DIGIT)
+            @t24:LocalFields (maxChars=1, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=CHQ.NO.DIGIT)
+        /* Cheque Account Number Control Digit */
+        CHQ_AC_NO_DIGIT : T24BusinessTypes:A
+            @i18n:Label (en=CHQ.AC.NO.DIGIT)
+            @t24:LocalFields (maxChars=1, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=CHQ.AC.NO.DIGIT)
+        /* Entity Code */
+        ENTITY_CODE : T24BusinessTypes:A
+            @i18n:Label (en=ENTITY.CODE)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=ENTITY.CODE)
+        /* House Code */
+        HOUSE_CODE : T24BusinessTypes:A
+            @i18n:Label (en=HOUSE.CODE)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=HOUSE.CODE)
+        /* Postal Code */
+        POSTAL_CODE : T24BusinessTypes:A
+            @i18n:Label (en=POSTAL.CODE)
+            @t24:LocalFields (maxChars=4, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=POSTAL.CODE)
+        /* First Line Control Digit */
+        FIRSTLINE_DIGIT : T24BusinessTypes:A
+            @i18n:Label (en=FIRSTLINE.DIGIT)
+            @t24:LocalFields (maxChars=1, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=FIRSTLINE.DIGIT)
+        /* Settlement Type */
+        LBRPTS_SETTLEMENT_TYPE : LocalFieldsEnumeration:LocalField_LBRPTS_SETTLEMENT_TYPE
+            @i18n:Label (en=SETTLEMENT.TYPE)
+            @t24:LocalFields (maxChars=9, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=LBRPTS.SETT.TYPE)
+            @t24:i (t24Name=LBRPTS.SETTLEMENT.TYPE)
+        /* Tax Payer Number */
+        LBRPTS_TAX_PAYER_NO : T24BusinessTypes:N
+            @i18n:Label (en=TAX.PAYER.NO)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=LBRPTS.TAX.PAYER.NO)
+        /* Sticker Number */
+        LBRPTS_STICKER_NO : T24BusinessTypes:N
+            @i18n:Label (en=STICKER.NO)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=LBRPTS.STICKER.NO)
+        /* Statement Number */
+        LBRPTS_STATEMENT_NO : T24BusinessTypes:N
+            @i18n:Label (en=STATEMENT.NO)
+            @t24:LocalFields (maxChars=15, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=LBRPTS.STATEMENT.NO)
+        /* Negotiable reference number */
+        NEG_REFERENCE -> LBACTR_Foundation:LBACTR_NEG_DEAL
+            @i18n:Label (en=NEG.REFERENCE)
+            @t24:LocalFields (applicationEnrich=NARRATIVE, maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=NEG.REFERENCE)
+        /* Military Combat */
+        USIRAC_MILITARY_COMBAT : LocalFieldsEnumeration:LocalField_USIRAC_MILITARY_COMBAT
+            @i18n:Label (en=MILITARY.COMBAT)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USIRAC.MILITARY.COMBAT)
+        /* Previous Year Contribution */
+        USIRAC_PREV_CONTR : LocalFieldsEnumeration:LocalField_USIRAC_PREV_CONTR
+            @i18n:Label (en=PREV.CONTR)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USIRAC.PREV.CONTR)
+        /* Employer Contribution */
+        USIRAC_EMP_CONTR : LocalFieldsEnumeration:LocalField_USIRAC_EMP_CONTR
+            @i18n:Label (en=EMP.CONTR)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USIRAC.EMP.CONTR)
+        /* EXCEPTION */
+        USREGS_EXCEPTION : LocalFieldsEnumeration:LocalField_USREGS_EXCEPTION
+            @i18n:Label (en=EXCEPTION)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USREGS.EXCEPTION)
+        /* Third Party */
+        USREGS_THIRD_PARTY : LocalFieldsEnumeration:LocalField_USREGS_THIRD_PARTY
+            @i18n:Label (en=THIRD.PARTY)
+            @t24:LocalFields (maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USREGS.THIRD.PARTY)
+        /* Third Party Legal ID */
+        USREGS_TP_LEGAL_ID : T24BusinessTypes:A
+            @i18n:Label (en=TP.LEGAL.ID)
+            @t24:LocalFields (maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USREGS.TP.LEGAL.ID)
+        /* USRETL.RESERVED.01 */
+        USRETL_NEW_CHRG_AMT : T24BusinessTypes:AMTLCCY
+            @i18n:Label (en=USRETL.RESERVED)
+            @t24:LocalFields (maxChars=16, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USRETL.NEW.CHRG.AMT)
+        GroupSample_USRETL_ITEM_TYP -> byValue X_TELLER:Group_USRETL_ITEM_TYP *
+            @t24:i (t24Name=GroupSample_USRETL_ITEM_TYP)
+    }
+}

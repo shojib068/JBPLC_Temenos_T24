@@ -1,0 +1,26 @@
+# UTF-8
+Domain X_PERSON_ENTITY
+    @t24:LocalFields (localRefApplications=true)
+    @java:Package (value=localRefApplication.x_person_entity)
+namespace "http://www.odcgroup.com/X_PERSON_ENTITY"
+metamodelVersion 1.30.6
+Classes {
+    X_PERSON_ENTITY extends ST_Customer:PERSON_ENTITY
+    {
+        /* Legal ID Expiry Date */
+        LEGAL_EXP_DATE : T24BusinessTypes:D
+            @i18n:Label (en=LEGAL.EXP.DATE)
+            @t24:LocalFields (maxChars=11, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=LEGAL.EXP.DATE)
+        /* Second Surname */
+        SECOND_SURNAME : T24BusinessTypes:A
+            @i18n:Label (en=SECOND.SURNAME)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=SECOND.SURNAME)
+        /* First Surname */
+        FIRST_SURNAME : T24BusinessTypes:A
+            @i18n:Label (en=FIRST.SURNAME)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=FIRST.SURNAME)
+    }
+}

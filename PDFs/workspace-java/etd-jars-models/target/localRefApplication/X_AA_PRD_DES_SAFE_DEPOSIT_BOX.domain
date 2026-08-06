@@ -1,0 +1,26 @@
+# UTF-8
+Domain X_AA_PRD_DES_SAFE_DEPOSIT_BOX
+    @t24:LocalFields (localRefApplications=true)
+    @java:Package (value=localRefApplication.x_aa_prd_des_safe_deposit_box)
+namespace "http://www.odcgroup.com/X_AA_PRD_DES_SAFE_DEPOSIT_BOX"
+metamodelVersion 1.30.6
+Classes {
+    Group_SDB_CONTENTS_FOUND
+    {
+        /* Contents Found */
+        SDB_CONTENTS_FOUND : T24BusinessTypes:TEXT
+            @i18n:Label (en=CONTENTS.FOUND)
+            @t24:LocalFields (maxChars=65, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=SDB.CONTENTS.FOUND)
+    }
+    X_AA_PRD_DES_SAFE_DEPOSIT_BOX extends AA_SafeDepositBox:AA_PRD_DES_SAFE_DEPOSIT_BOX
+    {
+        /* Safe Deposit Box drill date */
+        SDB_DRILL_DATE : T24BusinessTypes:D
+            @i18n:Label (en=DRILL.DATE)
+            @t24:LocalFields (maxChars=8, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=SDB.DRILL.DATE)
+        GroupSample_SDB_CONTENTS_FOUND -> byValue X_AA_PRD_DES_SAFE_DEPOSIT_BOX:Group_SDB_CONTENTS_FOUND *
+            @t24:i (t24Name=GroupSample_SDB_CONTENTS_FOUND)
+    }
+}

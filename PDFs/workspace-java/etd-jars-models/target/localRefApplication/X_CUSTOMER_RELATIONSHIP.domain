@@ -1,0 +1,31 @@
+# UTF-8
+Domain X_CUSTOMER_RELATIONSHIP
+    @t24:LocalFields (localRefApplications=true)
+    @java:Package (value=localRefApplication.x_customer_relationship)
+namespace "http://www.odcgroup.com/X_CUSTOMER_RELATIONSHIP"
+metamodelVersion 1.30.6
+Classes {
+    Group_PREV_CUST_REL_ID
+    {
+        /* PREV.CUST.REL.ID */
+        PREV_CUST_REL_ID : T24BusinessTypes:ANY
+            @i18n:Label (en=PREV.CUS.REL.ID)
+            @t24:LocalFields (maxChars=40, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=PREV.CUST.REL.ID)
+    }
+    Group_PORTFOLIO_ID
+    {
+        /* Holds Portfolio Id */
+        PORTFOLIO_ID : T24BusinessTypes:A
+            @i18n:Label (en=PORTFOLIO.ID)
+            @t24:LocalFields (maxChars=30, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=PORTFOLIO.ID)
+    }
+    X_CUSTOMER_RELATIONSHIP extends ST_Customer:CUSTOMER_RELATIONSHIP
+    {
+        GroupSample_PREV_CUST_REL_ID -> byValue X_CUSTOMER_RELATIONSHIP:Group_PREV_CUST_REL_ID *
+            @t24:i (t24Name=GroupSample_PREV_CUST_REL_ID)
+        GroupSample_PORTFOLIO_ID -> byValue X_CUSTOMER_RELATIONSHIP:Group_PORTFOLIO_ID *
+            @t24:i (t24Name=GroupSample_PORTFOLIO_ID)
+    }
+}

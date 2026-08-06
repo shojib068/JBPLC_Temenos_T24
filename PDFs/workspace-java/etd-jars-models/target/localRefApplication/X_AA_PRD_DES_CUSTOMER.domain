@@ -1,0 +1,46 @@
+# UTF-8
+Domain X_AA_PRD_DES_CUSTOMER
+    @t24:LocalFields (localRefApplications=true)
+    @java:Package (value=localRefApplication.x_aa_prd_des_customer)
+namespace "http://www.odcgroup.com/X_AA_PRD_DES_CUSTOMER"
+metamodelVersion 1.30.6
+Classes {
+    Group_USRETL_ACCT_TITLE
+    {
+        /* Account Title line */
+        USRETL_ACCT_TITLE : T24BusinessTypes:A
+            @i18n:Label (en=ACCT.TITLE)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USRETL.ACCT.TITLE)
+    }
+    X_AA_PRD_DES_CUSTOMER extends AA_Customer:AA_PRD_DES_CUSTOMER
+    {
+        /* Service Member */
+        USLREG_SER_MEMBER : LocalFieldsEnumeration:LocalField_USLREG_SER_MEMBER
+            @i18n:Label (en=SERVICE.MEMBER)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USLREG.SER.MEMBER)
+        /* Account Titling */
+        ACCT_TITLE_OPERAND : LocalFieldsEnumeration:LocalField_ACCT_TITLE_OPERAND
+            @i18n:Label (en=ACCT.TITLE.OPER)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=ACCT.TITLE.OPERAND)
+        GroupSample_USRETL_ACCT_TITLE -> byValue X_AA_PRD_DES_CUSTOMER:Group_USRETL_ACCT_TITLE *
+            @t24:i (t24Name=GroupSample_USRETL_ACCT_TITLE)
+        /* PEL/CEL account arrangement id */
+        PELCEL_ACCOUNT : T24BusinessTypes:A
+            @i18n:Label (en=PELCEL.ACCOUNT)
+            @t24:LocalFields (maxChars=17, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=PELCEL.ACCOUNT)
+        /* Number Of Dependents */
+        NO_OF_DEPENDANT : T24BusinessTypes:N
+            @i18n:Label (en=NO.OF.DEPENDANT)
+            @t24:LocalFields (maxChars=2, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=NO.OF.DEPENDANT)
+        /* Energy Efficient */
+        ENERGY_EFFICIENT : T24BusinessTypes:A
+            @i18n:Label (en=ENERGYEFFICIENT)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=ENERGY.EFFICIENT)
+    }
+}

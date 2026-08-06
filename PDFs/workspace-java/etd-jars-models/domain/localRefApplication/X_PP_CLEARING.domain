@@ -1,0 +1,36 @@
+# UTF-8
+Domain X_PP_CLEARING
+    @t24:LocalFields (localRefApplications=true)
+    @java:Package (value=localRefApplication.x_pp_clearing)
+namespace "http://www.odcgroup.com/X_PP_CLEARING"
+metamodelVersion 1.30.6
+Classes {
+    X_PP_CLEARING extends PP_LocalClearingGUI:PP_CLEARING
+    {
+        /* CLEARING.SETTLEMENT.SHIFT */
+        CLEARING_SETTLEMENT_SHIFT : T24BusinessTypes:N
+            @i18n:Label (en=SETTLEMNT.SHIFT)
+            @t24:LocalFields (maxChars=2, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=CLEARING.SETTLEMENT.SHIFT)
+        /* Processing Day Indicator */
+        PROCESSING_DAY_INDICATOR : T24BusinessTypes:A
+            @i18n:Label (en=PROCESS.DAY.IND)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=PROCESSING.DAY.INDICATOR)
+        /* Nominated Account Sort Code */
+        NOMINATED_AC_SORT_CODE : T24BusinessTypes:N
+            @i18n:Label (en=NOM.AC.SORT.COD)
+            @t24:LocalFields (maxChars=36, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=NOMINATED.AC.SORT.CODE)
+        /* Nominated Account Number */
+        NOMINATED_ACCOUNT_NUMBER : T24BusinessTypes:N
+            @i18n:Label (en=NOM.ACCT.NUM)
+            @t24:LocalFields (maxChars=34, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=NOMINATED.ACCOUNT.NUMBER)
+        /* Service User Number */
+        BACS_SUN_CLEARING : T24BusinessTypes:N
+            @i18n:Label (en=BACS.SUN)
+            @t24:LocalFields (maxChars=6, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=BACS.SUN.CLEARING)
+    }
+}

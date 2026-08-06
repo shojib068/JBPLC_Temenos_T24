@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><enquiry:Enquiry xmlns:enquiry="http://www.odcgroup.com/t24/Enquiry" xmlns:translationDsl="http://www.odcgroup.com/translation/TranslationDsl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" endLine="99" fileName="name:/ST_Customer:CUSTOMER#" metamodelVersion="1.30.6" name="CUSTOMER.ENQ" startLine="4">
+  <header column="1" line="1">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="CUSTOMER LIST"/>
+    </label>
+  </header>
+  <fields alignment="Right" length="10" name="CUSTOMER.CODE" singleMulti="Single">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="Customer"/>
+    </label>
+    <position column="2"/>
+    <operation field="CUSTOMER.CODE" xsi:type="enquiry:ApplicationFieldNameOperation"/>
+  </fields>
+  <fields alignment="Right" length="2" name="LANGUAGE" singleMulti="Single">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="Language"/>
+    </label>
+    <position column="3"/>
+    <operation field="LANGUAGE" xsi:type="enquiry:ApplicationFieldNameOperation"/>
+  </fields>
+  <fields alignment="Left" length="35" name="MNEMONIC" singleMulti="Single">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="# Customer Mnemonic"/>
+    </label>
+    <position column="4"/>
+    <operation field="MNEMONIC" xsi:type="enquiry:ApplicationFieldNameOperation"/>
+  </fields>
+  <fields alignment="Right" length="10" name="SECTOR" singleMulti="Single">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="Sector"/>
+    </label>
+    <position column="5"/>
+    <operation field="SECTOR" xsi:type="enquiry:ApplicationFieldNameOperation"/>
+  </fields>
+  <fields alignment="Left" length="16" name="ACCOUNT.NO" singleMulti="Single">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="Account"/>
+    </label>
+    <position column="6"/>
+    <operation field="ACCOUNT.NO" xsi:type="enquiry:ApplicationFieldNameOperation"/>
+  </fields>
+  <fields alignment="Left" length="2" name="RESIDENCE" singleMulti="Single">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="# Residence"/>
+    </label>
+    <position column="7"/>
+    <operation field="RESIDENCE" xsi:type="enquiry:ApplicationFieldNameOperation"/>
+  </fields>
+</enquiry:Enquiry>

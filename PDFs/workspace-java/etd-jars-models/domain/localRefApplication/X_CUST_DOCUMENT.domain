@@ -1,0 +1,46 @@
+# UTF-8
+Domain X_CUST_DOCUMENT
+    @t24:LocalFields (localRefApplications=true)
+    @java:Package (value=localRefApplication.x_cust_document)
+namespace "http://www.odcgroup.com/X_CUST_DOCUMENT"
+metamodelVersion 1.30.6
+Classes {
+    Group_USCORE_NOTES
+    {
+        /* NOTES */
+        USCORE_NOTES : T24BusinessTypes:TEXT
+            @i18n:Label (en=NOTES)
+            @t24:LocalFields (maxChars=55, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USCORE.NOTES)
+    }
+    X_CUST_DOCUMENT extends DM_Foundation:CUST_DOCUMENT
+    {
+        GroupSample_USCORE_NOTES -> byValue X_CUST_DOCUMENT:Group_USCORE_NOTES *
+            @t24:i (t24Name=GroupSample_USCORE_NOTES)
+        /* Country of Issue */
+        USCORE_COUNTRY -> ST_Config:COUNTRY
+            @i18n:Label (en=COUNTRY)
+            @t24:LocalFields (applicationEnrich=COUNTRY_NAME, maxChars=9, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USCORE.COUNTRY)
+        /* Issuing Authority */
+        USCORE_DOC_ISSUER : T24BusinessTypes:A
+            @i18n:Label (en=DOC.ISSUER)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USCORE.DOC.ISSUER)
+        /* Issue Date */
+        USCORE_DOC_ISSUE_DATE : T24BusinessTypes:D
+            @i18n:Label (en=DOC.ISSUE.DATE)
+            @t24:LocalFields (maxChars=11, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USCORE.DOC.ISSUE.DATE)
+        /* Doc Img Reference number */
+        USCORE_DOC_IMAGE_REF_NUMBER -> IM_Foundation:IM_DOCUMENT_UPLOAD
+            @i18n:Label (en=DOC.IMAGE.REF)
+            @t24:LocalFields (applicationEnrich=FILE_UPLOAD, maxChars=15, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USCORE.DOC.IMAGE.REF.NUMBER)
+        /* US State */
+        USREGS_US_STATE -> NACUST_Foundation:US_STATE
+            @i18n:Label (en=US.STATE)
+            @t24:LocalFields (applicationEnrich=DESCRIPTION, maxChars=2, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USREGS.US.STATE)
+    }
+}

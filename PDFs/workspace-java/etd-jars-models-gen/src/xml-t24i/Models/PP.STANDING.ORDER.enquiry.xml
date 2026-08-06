@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><enquiry:Enquiry xmlns:enquiry="http://www.odcgroup.com/t24/Enquiry" xmlns:translationDsl="http://www.odcgroup.com/translation/TranslationDsl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" endLine="99" fileName="name:/FT_StandingOrders:STANDING.ORDER#" metamodelVersion="1.30.6" name="PP.STANDING.ORDER" noSelection="true" showAllBooks="false" startLine="4" zeroRecordsDisplay="true">
+  <header column="15" line="0">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="Standing Order List"/>
+    </label>
+  </header>
+  <description xsi:type="translationDsl:LocalTranslations">
+    <translations locale="en" text="Standing Order Search"/>
+  </description>
+  <fixedSelections field="SUPPRESS.FT" operand="Equals">
+    <values>'Y'</values>
+  </fixedSelections>
+  <fixedSelections field="RECORD.STATUS" operand="Equals">
+    <values>''</values>
+  </fixedSelections>
+  <customSelection>
+    <selection field="STANDING.ORDER">
+      <label xsi:type="translationDsl:LocalTranslations">
+        <translations locale="en" text="@ID"/>
+      </label>
+    </selection>
+    <selection field="TYPE">
+      <label xsi:type="translationDsl:LocalTranslations">
+        <translations locale="en" text="Type"/>
+      </label>
+    </selection>
+    <selection field="PAY.METHOD">
+      <label xsi:type="translationDsl:LocalTranslations">
+        <translations locale="en" text="Pay Method"/>
+      </label>
+    </selection>
+    <selection field="BEN.ACCT.NO">
+      <label xsi:type="translationDsl:LocalTranslations">
+        <translations locale="en" text="Benificiary Acct No"/>
+      </label>
+    </selection>
+    <selection field="BENEFICIARY">
+      <label xsi:type="translationDsl:LocalTranslations">
+        <translations locale="en" text="Beneficiary"/>
+      </label>
+    </selection>
+    <selection field="CURRENCY">
+      <label xsi:type="translationDsl:LocalTranslations">
+        <translations locale="en" text="Credit Currency"/>
+      </label>
+    </selection>
+  <operator>AND</operator><operator>AND</operator><operator>AND</operator><operator>AND</operator><operator>AND</operator></customSelection>
+  <fields alignment="Left" commaSeparator="false" displaySection="Header" displayType="CLASS-ENQ.NORECS" name="ZERONORECORDS">
+    <breakCondition break="None"/>
+    <position column="1"/>
+    <operation value="&quot;No records available&quot;" xsi:type="enquiry:ConstantOperation"/>
+  </fields>
+  <fields alignment="Right" commaSeparator="false" length="35" name="STANDING.ORDER" singleMulti="Single">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="STO Reference"/>
+    </label>
+    <position column="1"/>
+    <operation field="STANDING.ORDER" xsi:type="enquiry:ApplicationFieldNameOperation"/>
+  </fields>
+  <fields alignment="Left" commaSeparator="false" length="35" name="TYPE" singleMulti="Single">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="Type"/>
+    </label>
+    <position column="2"/>
+    <operation field="TYPE" xsi:type="enquiry:ApplicationFieldNameOperation"/>
+    <conversion application="STO.TYPE" field="DESCRIPTION" xsi:type="enquiry:GetFromConversion"/>
+  </fields>
+  <fields alignment="Left" commaSeparator="false" length="4" name="PAY.METHOD" singleMulti="Single">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="Pay Method"/>
+    </label>
+    <position column="3"/>
+    <operation field="PAY.METHOD" xsi:type="enquiry:ApplicationFieldNameOperation"/>
+  </fields>
+  <fields alignment="Left" commaSeparator="false" length="50" name="CURRENT.FREQUENCY" singleMulti="Single">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="Frequency"/>
+    </label>
+    <position column="4"/>
+    <operation field="CURRENT.FREQUENCY" xsi:type="enquiry:ApplicationFieldNameOperation"/>
+    <conversion xsi:type="enquiry:CallRoutine">
+      <routine name="@ E.MB.FREQ.TEXT" xsi:type="enquiry:JBCRoutine"/>
+    </conversion>
+  </fields>
+  <fields alignment="Left" commaSeparator="false" length="34" name="BEN.ACCT.NO" singleMulti="Single">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="Benificiary Acct No"/>
+    </label>
+    <position column="5"/>
+    <operation field="BEN.ACCT.NO" xsi:type="enquiry:ApplicationFieldNameOperation"/>
+  </fields>
+  <fields alignment="Left" commaSeparator="false" length="35" name="BENEFICIARY" singleMulti="Multi">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="Beneficiary"/>
+    </label>
+    <position column="6"/>
+    <operation field="BENEFICIARY" xsi:type="enquiry:ApplicationFieldNameOperation"/>
+  </fields>
+  <fields alignment="Left" commaSeparator="false" length="3" name="CURRENCY" singleMulti="Single">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="Credit Currency"/>
+    </label>
+    <position column="7"/>
+    <operation field="CURRENCY" xsi:type="enquiry:ApplicationFieldNameOperation"/>
+  </fields>
+  <fields alignment="Right" commaSeparator="true" length="20" name="CURRENT.AMOUNT.BAL" singleMulti="Single">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="Credit Amount"/>
+    </label>
+    <format field="CURRENCY" format="Currency" pattern="-#"/>
+    <position column="8"/>
+    <operation field="CURRENT.AMOUNT.BAL" xsi:type="enquiry:ApplicationFieldNameOperation"/>
+  </fields>
+  <fields alignment="Left" commaSeparator="false" length="1" name="SUPPRESS.FT" singleMulti="Single">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="Suppress FT"/>
+    </label>
+    <position column="9"/>
+    <operation field="SUPPRESS.FT" xsi:type="enquiry:ApplicationFieldNameOperation"/>
+  </fields>
+  <fields alignment="Left" commaSeparator="false" hidden="true" length="40" name="INPUTTER" singleMulti="Multi">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="Inputter"/>
+    </label>
+    <position column="10"/>
+    <operation field="INPUTTER" xsi:type="enquiry:ApplicationFieldNameOperation"/>
+  </fields>
+  <fields alignment="Left" commaSeparator="false" hidden="true" length="4" name="RECORD.STATUS" singleMulti="Single">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="Record Status"/>
+    </label>
+    <position column="11"/>
+    <operation field="RECORD.STATUS" xsi:type="enquiry:ApplicationFieldNameOperation"/>
+  </fields>
+  <tools name="AM.ENQ.DETAIL">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="Create New Record"/>
+    </label>
+    <command>docommand("STANDING.ORDER,</command>
+    <command>TPS.FIXED.STO")</command>
+  </tools>
+  <drillDowns image="edit.gif" labelField="STANDING.ORDER" screen="STANDING.ORDER,TPS.AMEND">
+    <description xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="Modify"/>
+    </description>
+    <parameters function="Input">
+      <fieldName>STANDING.ORDER</fieldName>
+    </parameters>
+    
+  </drillDowns>
+  <drillDowns image="txnreverse.gif" labelField="STANDING.ORDER" screen="STANDING.ORDER,TPS.REVERSE">
+    <description xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="Reverse"/>
+    </description>
+    <parameters function="Reverse">
+      <fieldName>STANDING.ORDER</fieldName>
+    </parameters>
+    
+  </drillDowns>
+  <drillDowns image="view.gif" labelField="STANDING.ORDER" screen="STANDING.ORDER,TPS.VIEW">
+    <description xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="View"/>
+    </description>
+    <parameters function="See">
+      <fieldName>STANDING.ORDER</fieldName>
+    </parameters>
+    
+  </drillDowns>
+</enquiry:Enquiry>

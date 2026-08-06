@@ -1,0 +1,491 @@
+# UTF-8
+/* Framework of Arrangement Architecture */
+Domain AA_Framework
+    @t24:i (module=AA)
+    @java:Package (value=com.temenos.t24.datamodel.aa.aa_framework)
+namespace "http://www.temenos.com/t24/AA_Framework"
+metamodelVersion 1.30.6
+Classes {
+    AA_ARRANGEMENT
+        @i18n:Description (en="")
+        @t24:i (t24Name=AA.ARRANGEMENT, level=F, type=L, allowedFunctions="L P S", localRefAllowed=false)
+    {
+        ACTIVE_BRANCH -> ST_OrganizationStructure:ST_BRANCH
+            @t24:i (align=L, inputBehaviour=I, maxLength=16, sysNumber="83->78.0", core=true, businessType=BRANCH, t24Name=ACTIVE.BRANCH, mandatory=false)
+        ACTIVE_CHANNEL -> EB_ARC:EB_CHANNEL
+            @t24:i (align=L, inputBehaviour=I, maxLength=30, sysNumber="87->82.0", core=true, businessType=A, t24Name=ACTIVE.CHANNEL, mandatory=false)
+        ACTIVE_LINE_OF_BUSINESS -> ST_OrganizationStructure:ST_LINE_OF_BUSINESS
+            @t24:i (align=L, inputBehaviour=I, maxLength=4, sysNumber="84->79.0", core=true, businessType=A, t24Name=ACTIVE.LINE.OF.BUSINESS, mandatory=false)
+        ACTIVE_PRODUCT -> AA_ProductManagement:AA_PRODUCT
+            @t24:i (align=L, inputBehaviour=I, maxLength=30, sysNumber="49->46.0", core=true, businessType=A, t24Name=ACTIVE.PRODUCT, mandatory=false)
+        AGENT_ID -> byValue AA_Framework:AA_ARRANGEMENT__AGENT_ID *
+            @t24:i (t24Name=AGENT.ID)
+        ALT_ID_TYPE -> byValue AA_Framework:AA_ARRANGEMENT__ALT_ID_TYPE *
+            @t24:i (t24Name=ALT.ID.TYPE)
+        ARRANGEMENT_ID -> AA_Framework:AA_ARRANGEMENT PK required
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber=0.0, core=true, businessType=ARR, t24Name=ARRANGEMENT.ID, mandatory=true)
+        ARRANGEMENT_LINK_TYPE : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=15, sysNumber="55->50.0", core=true, t24Name=ARRANGEMENT.LINK.TYPE, mandatory=false)
+        ARR_STATUS : T24BusinessTypes:A
+            @i18n:Label (en="Arrangement Status")
+            @t24:i (align=L, inputBehaviour=I, maxLength=15, sysNumber="12->11.0", core=true, t24Name=ARR.STATUS, mandatory=false)
+        BALANCE_TREATMENT : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=15, sysNumber="93->89.0", core=true, t24Name=BALANCE.TREATMENT, mandatory=false)
+        BASE_CONTRACT_REFERENCE : T24BusinessTypes:ANY
+            @t24:i (align=L, inputBehaviour=I, maxLength=30, sysNumber="95->91.0", core=true, t24Name=BASE.CONTRACT.REFERENCE, mandatory=false)
+        BRANCH -> byValue AA_Framework:AA_ARRANGEMENT__BRANCH *
+            @t24:i (t24Name=BRANCH)
+        BUNDLE_ARR_ID : T24BusinessTypes:ARR
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber="79->74.0", core=true, t24Name=BUNDLE.ARR.ID, mandatory=false)
+        BUNDLE_LINK_DATE : T24BusinessTypes:D
+            @t24:i (align=R, inputBehaviour=I, maxLength=11, sysNumber="77->72.0", core=true, t24Name=BUNDLE.LINK.DATE, mandatory=false)
+        BUNDLE_LINK_TYPE : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=11, sysNumber="78->73.0", core=true, t24Name=BUNDLE.LINK.TYPE, mandatory=false)
+        CHANNEL -> byValue AA_Framework:AA_ARRANGEMENT__CHANNEL *
+            @t24:i (t24Name=CHANNEL)
+        CLOSURE_NOTES -> byValue AA_Framework:AA_ARRANGEMENT__CLOSURE_NOTES *
+            @t24:i (t24Name=CLOSURE.NOTES)
+        CLOSURE_REASON : AA_Framework:AA_ARRANGEMENT__CLOSURE_REASON
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber="47->44.0", core=true, t24Name=CLOSURE.REASON, mandatory=false)
+        CLOSURE_TYPE : T24BusinessTypes:A
+            @i18n:Label (en="Closure Type")
+            @i18n:Tooltip (en="Allowed values are MATURITY, BALANCE , NULL")
+            @t24:i (align=L, inputBehaviour=I, maxLength=20, sysNumber="113->113.0", core=true, t24Name=CLOSURE.TYPE, mandatory=false)
+        COMPANY_REFERENCE -> ST_CompanyCreation:COMPANY
+            @t24:i (align=L, inputBehaviour=I, maxLength=11, sysNumber="97->93.0", core=true, businessType=COM, t24Name=COMPANY.REFERENCE, mask="R##-###-####", mandatory=false)
+        CO_CODE -> ST_CompanyCreation:COMPANY
+            @i18n:Label (en=Company)
+            @t24:i (align=L, inputBehaviour=I, maxLength=11, sysNumber="10->9.0", core=true, businessType=COM, t24Name=CO.CODE, mask="R##-###-####", mandatory=false)
+        CRA_CUSTOMER -> byValue AA_Framework:AA_ARRANGEMENT__CRA_CUSTOMER *
+            @t24:i (t24Name=CRA.CUSTOMER)
+        CR_OPPORTUNITY -> CR_Operational:CR_OPPORTUNITY
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber="3->3.0", core=true, businessType=A, t24Name=CR.OPPORTUNITY, mandatory=false)
+        CURRENCY -> ST_CurrencyConfig:CURRENCY
+            @t24:i (align=L, inputBehaviour=I, maxLength=3, sysNumber="9->8.0", core=true, businessType=A, t24Name=CURRENCY, mandatory=false)
+        CUSTOMER -> byValue AA_Framework:AA_ARRANGEMENT__CUSTOMER *
+            @t24:i (t24Name=CUSTOMER)
+        EARLY_PROCESSING : AA_Framework:AA_ARRANGEMENT__EARLY_PROCESSING
+            @t24:i (align=L, inputBehaviour=I, maxLength=1, sysNumber="50->47.0", core=true, t24Name=EARLY.PROCESSING, mandatory=false)
+        ELIGIBILITY_REVIEW : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=9, sysNumber="41->38.0", core=true, t24Name=ELIGIBILITY.REVIEW, mandatory=false)
+        EPP_PRODUCT_GROUP : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=30, sysNumber="19->111.0", core=true, t24Name=EPP.PRODUCT.GROUP, mandatory=false)
+        EPP_PRODUCT_LINE : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=20, sysNumber="18->110.0", core=true, t24Name=EPP.PRODUCT.LINE, mandatory=false)
+        GROUP_LEVEL : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=20, sysNumber="91->86.0", core=true, t24Name=GROUP.LEVEL, mandatory=false)
+        INHERITANCE_DATE -> byValue AA_Framework:AA_ARRANGEMENT__INHERITANCE_DATE *
+            @t24:i (t24Name=INHERITANCE.DATE)
+        J_DORMANCY_STATUS : T24BusinessTypes:N
+            @t24:i (align=L, inputBehaviour=N, maxLength=10, core=false, t24Name=J.DORMANCY.STATUS, genOperation="@ID>AA.ACCOUNT.DETAILS>ARR.DORMANCY.STATUS", mandatory=false)
+        LAST_REVIEW_DATE -> byValue AA_Framework:AA_ARRANGEMENT__LAST_REVIEW_DATE *
+            @t24:i (t24Name=LAST.REVIEW.DATE)
+        LINE_OF_BUSINESS -> byValue AA_Framework:AA_ARRANGEMENT__LINE_OF_BUSINESS *
+            @t24:i (t24Name=LINE.OF.BUSINESS)
+        LINKED_APPL -> byValue AA_Framework:AA_ARRANGEMENT__LINKED_APPL *
+            @t24:i (t24Name=LINKED.APPL)
+        LINKED_DATE -> byValue AA_Framework:AA_ARRANGEMENT__LINKED_DATE *
+            @t24:i (t24Name=LINKED.DATE)
+        LINK_DATE -> byValue AA_Framework:AA_ARRANGEMENT__LINK_DATE *
+            @t24:i (t24Name=LINK.DATE)
+        MAINTAIN_LIMIT_BALANCE : AA_Framework:AA_ARRANGEMENT__MAINTAIN_LIMIT_BALANCE
+            @t24:i (align=L, inputBehaviour=I, maxLength=3, sysNumber="7->6.0", core=true, t24Name=MAINTAIN.LIMIT.BALANCE, mandatory=false)
+        MASTER_ARRANGEMENT -> AA_Framework:AA_ARRANGEMENT
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber="51->48.0", core=true, businessType=ARR, t24Name=MASTER.ARRANGEMENT, mandatory=false)
+        MASTER_CCY -> ST_CurrencyConfig:CURRENCY
+            @t24:i (align=L, inputBehaviour=I, maxLength=3, sysNumber="52->94.0", core=true, businessType=CCY, t24Name=MASTER.CCY, mandatory=false)
+        MASTER_TYPE : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=20, sysNumber="90->85.0", core=true, t24Name=MASTER.TYPE, mandatory=false)
+        NOTICE_ACCOUNT : AA_Framework:AA_ARRANGEMENT__NOTICE_ACCOUNT
+            @t24:i (align=L, inputBehaviour=I, maxLength=3, sysNumber="98->96.0", core=true, t24Name=NOTICE.ACCOUNT, mandatory=false)
+        OFFSET_TYPE : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=10, sysNumber="92->87.0", core=true, t24Name=OFFSET.TYPE, mandatory=false)
+        ORIG_CONTRACT_DATE : T24BusinessTypes:D
+            @t24:i (align=R, inputBehaviour=I, maxLength=11, sysNumber="27->24.0", core=true, t24Name=ORIG.CONTRACT.DATE, typeModifiers=1000, mandatory=false)
+        PARTICIPANT_ID : T24BusinessTypes:N
+            @i18n:Label (en="Participant Id")
+            @t24:i (align=L, inputBehaviour=N, core=false, t24Name=PARTICIPANT.ID, genOperation=E.AA.GET.PARTICIPANT.ARRANGEMENT, mandatory=false)
+        PLAN_SELECT_METHOD : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=10, sysNumber="40->37.0", core=true, t24Name=PLAN.SELECT.METHOD, mandatory=false)
+        POOL_DATE : T24BusinessTypes:D
+            @t24:i (align=R, inputBehaviour=I, maxLength=11, sysNumber="8->7.0", core=true, t24Name=POOL.DATE, mandatory=false)
+        POOL_EVENT_DATE -> byValue AA_Framework:AA_ARRANGEMENT__POOL_EVENT_DATE *
+            @t24:i (t24Name=POOL.EVENT.DATE)
+        POSTING_RESTRICT -> byValue AA_Framework:AA_ARRANGEMENT__POSTING_RESTRICT *
+            @t24:i (t24Name=POSTING.RESTRICT)
+        PROCESS_ONLINE -> byValue AA_Framework:AA_ARRANGEMENT__PROCESS_ONLINE *
+            @t24:i (t24Name=PROCESS.ONLINE)
+        PRODUCT -> byValue AA_Framework:AA_ARRANGEMENT__PRODUCT *
+            @t24:i (t24Name=PRODUCT)
+        PRODUCT_GROUP -> AA_ProductFramework:AA_PRODUCT_GROUP
+            @t24:i (align=L, inputBehaviour=I, maxLength=30, sysNumber="17->16.0", core=true, businessType=A, t24Name=PRODUCT.GROUP, mandatory=false)
+        PRODUCT_LINE -> AA_ProductFramework:AA_PRODUCT_LINE
+            @t24:i (align=L, inputBehaviour=I, maxLength=20, sysNumber="16->15.0", core=true, businessType=A, t24Name=PRODUCT.LINE, mandatory=false)
+        PROMO_ARR_ID -> byValue AA_Framework:AA_ARRANGEMENT__PROMO_ARR_ID *
+            @t24:i (t24Name=PROMO.ARR.ID)
+        PROPERTY_CONTROL_PROP -> byValue AA_Framework:AA_ARRANGEMENT__PROPERTY_CONTROL_PROP *
+            @t24:i (t24Name=PROPERTY.CONTROL.PROP)
+        RELATIONSHIP_DATE -> byValue AA_Framework:AA_ARRANGEMENT__RELATIONSHIP_DATE *
+            @t24:i (t24Name=RELATIONSHIP.DATE)
+        REMARKS : T24BusinessTypes:A
+            @i18n:Label (en=Remarks)
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber="76->71.0", core=true, t24Name=REMARKS, mandatory=false)
+        REWARDS_ARR_ID -> AA_Framework:AA_ARRANGEMENT
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber="46->43.0", core=true, businessType=ARR, t24Name=REWARDS.ARR.ID, mandatory=false)
+        SOURCE_REFERENCE -> byValue AA_Framework:AA_ARRANGEMENT__SOURCE_REFERENCE *
+            @t24:i (t24Name=SOURCE.REFERENCE)
+        SRC_LINK_KEY -> byValue AA_Framework:AA_ARRANGEMENT__SRC_LINK_KEY *
+            @t24:i (t24Name=SRC.LINK.KEY)
+        SRC_SOURCE_PROPERTY -> byValue AA_Framework:AA_ARRANGEMENT__SRC_SOURCE_PROPERTY *
+            @t24:i (t24Name=SRC.SOURCE.PROPERTY)
+        START_DATE : T24BusinessTypes:D
+            @t24:i (align=R, inputBehaviour=I, maxLength=8, sysNumber="13->12.0", core=true, t24Name=START.DATE, mandatory=false)
+        SUB_ARRANGEMENT -> byValue AA_Framework:AA_ARRANGEMENT__SUB_ARRANGEMENT *
+            @t24:i (t24Name=SUB.ARRANGEMENT)
+        SYSTEM_REFERENCE : T24BusinessTypes:ANY
+            @t24:i (align=L, inputBehaviour=I, maxLength=30, sysNumber="94->90.0", core=true, t24Name=SYSTEM.REFERENCE, mandatory=false)
+        S_BUNDLEID : T24BusinessTypes:ARR
+            @t24:i (align=L, inputBehaviour=N, maxLength=35, core=false, t24Name=S.BUNDLEID, mandatory=false)
+        S_DAYS : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=10, core=false, t24Name=S.DAYS, mandatory=false)
+        S_LINKTYPE : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=35, core=false, t24Name=S.LINKTYPE, mandatory=false)
+        TGT_TARGET_PROPERTY -> byValue AA_Framework:AA_ARRANGEMENT__TGT_TARGET_PROPERTY *
+            @t24:i (t24Name=TGT.TARGET.PROPERTY)
+        TRANSACTION_PROPERTY -> byValue AA_Framework:AA_ARRANGEMENT__TRANSACTION_PROPERTY *
+            @t24:i (t24Name=TRANSACTION.PROPERTY)
+    }
+    AA_ARRANGEMENT__AGENT_ID
+    {
+        AGENT_ARR_ID -> AA_Framework:AA_ARRANGEMENT
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber="44->41.0", core=true, businessType=ARR, t24Name=AGENT.ARR.ID, mandatory=false)
+        AGENT_ID -> ST_Customer:CUSTOMER
+            @t24:i (align=R, inputBehaviour=I, maxLength=10, sysNumber="43->40.0", core=true, businessType=CUS, t24Name=AGENT.ID, mandatory=false)
+        AGENT_ROLE : AA_Framework:AA_ARRANGEMENT__AGENT_ID__AGENT_ROLE
+            @t24:i (align=L, inputBehaviour=I, maxLength=30, sysNumber="45->42.0", core=true, t24Name=AGENT.ROLE, mandatory=false)
+    }
+    AA_ARRANGEMENT__ALT_ID_TYPE
+    {
+        ALTERNATE_ID : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=36, sysNumber="5->4.0", core=true, t24Name=ALTERNATE.ID, mandatory=false)
+        ALT_ID_TYPE : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=10, sysNumber="4->88.0", core=true, t24Name=ALT.ID.TYPE, mandatory=false)
+    }
+    AA_ARRANGEMENT__BRANCH
+    {
+        BRANCH -> ST_OrganizationStructure:ST_BRANCH
+            @t24:i (align=L, inputBehaviour=I, maxLength=16, sysNumber="85->80.0", core=true, businessType=A, t24Name=BRANCH, mandatory=false)
+    }
+    AA_ARRANGEMENT__CHANNEL
+    {
+        CHANNEL -> EB_ARC:EB_CHANNEL
+            @t24:i (align=L, inputBehaviour=I, maxLength=30, sysNumber="11->10.0", core=true, businessType=A, t24Name=CHANNEL, mandatory=false)
+    }
+    AA_ARRANGEMENT__CLOSURE_NOTES
+    {
+        CLOSURE_NOTES -> byValue AA_Framework:AA_ARRANGEMENT__CLOSURE_NOTES__CLOSURE_NOTES *
+            @t24:i (t24Name=CLOSURE.NOTES)
+    }
+    AA_ARRANGEMENT__CLOSURE_NOTES__CLOSURE_NOTES
+    {
+        CLOSURE_NOTES : T24BusinessTypes:A
+            @i18n:Label (en="Closure Notes")
+            @i18n:Tooltip (en=Notes)
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, multiLanguage=true, sysNumber="48->45.0", core=true, t24Name=CLOSURE.NOTES, mandatory=false)
+    }
+    AA_ARRANGEMENT__CRA_CUSTOMER
+    {
+        CRA_CUSTOMER -> ST_Customer:CUSTOMER
+            @t24:i (align=R, inputBehaviour=I, maxLength=10, sysNumber="112->112.0", core=true, businessType=CUS, t24Name=CRA.CUSTOMER, mandatory=false)
+    }
+    AA_ARRANGEMENT__CUSTOMER
+    {
+        CUSTOMER -> ST_Customer:CUSTOMER
+            @t24:i (align=R, inputBehaviour=I, maxLength=10, sysNumber="1->1.0", core=true, businessType=CUS, t24Name=CUSTOMER, mandatory=false)
+        CUSTOMER_ROLE -> AA_Customer:AA_CUSTOMER_ROLE
+            @t24:i (align=L, inputBehaviour=I, maxLength=30, sysNumber="2->2.0", core=true, businessType=A, t24Name=CUSTOMER.ROLE, mandatory=false)
+    }
+    AA_ARRANGEMENT__INHERITANCE_DATE
+    {
+        INHERITANCE_CHILD -> byValue AA_Framework:AA_ARRANGEMENT__INHERITANCE_DATE__INHERITANCE_CHILD *
+            @t24:i (t24Name=INHERITANCE.CHILD)
+        INHERITANCE_DATE : T24BusinessTypes:D
+            @t24:i (align=R, inputBehaviour=I, maxLength=11, sysNumber="72->67.0", core=true, t24Name=INHERITANCE.DATE, mandatory=false)
+        RESERVED_12 : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=8, sysNumber="74->69.0", core=true, t24Name=RESERVED.12, mandatory=false)
+        RESERVED_13 : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=8, sysNumber="75->70.0", core=true, t24Name=RESERVED.13, mandatory=false)
+    }
+    AA_ARRANGEMENT__INHERITANCE_DATE__INHERITANCE_CHILD
+    {
+        INHERITANCE_CHILD : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=20, sysNumber="73->68.0", core=true, t24Name=INHERITANCE.CHILD, mandatory=false)
+    }
+    AA_ARRANGEMENT__LAST_REVIEW_DATE
+    {
+        LAST_REVIEW_DATE : T24BusinessTypes:D
+            @t24:i (align=R, inputBehaviour=I, maxLength=8, sysNumber="42->39.0", core=true, t24Name=LAST.REVIEW.DATE, mandatory=false)
+    }
+    AA_ARRANGEMENT__LINE_OF_BUSINESS
+    {
+        LINE_OF_BUSINESS -> ST_OrganizationStructure:ST_LINE_OF_BUSINESS
+            @t24:i (align=L, inputBehaviour=I, maxLength=4, sysNumber="86->81.0", core=true, businessType=A, t24Name=LINE.OF.BUSINESS, mandatory=false)
+    }
+    AA_ARRANGEMENT__LINKED_APPL
+    {
+        LINKED_APPL : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber="14->13.0", core=true, t24Name=LINKED.APPL, mandatory=false)
+        LINKED_APPL_ID : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber="15->14.0", core=true, t24Name=LINKED.APPL.ID, mandatory=false)
+    }
+    AA_ARRANGEMENT__LINKED_DATE
+    {
+        LINKED_ARRANGEMENT_TYPE : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=20, sysNumber="100->98.0", core=true, t24Name=LINKED.ARRANGEMENT.TYPE, mandatory=false)
+        LINKED_DATE : T24BusinessTypes:D
+            @t24:i (align=R, inputBehaviour=I, maxLength=11, sysNumber="99->97.0", core=true, t24Name=LINKED.DATE, mandatory=false)
+        LINKED_RESERVED_1 : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=8, sysNumber="104->102.0", core=true, t24Name=LINKED.RESERVED.1, mandatory=false)
+        LINKED_TYPE -> byValue AA_Framework:AA_ARRANGEMENT__LINKED_DATE__LINKED_TYPE *
+            @t24:i (t24Name=LINKED.TYPE)
+    }
+    AA_ARRANGEMENT__LINKED_DATE__LINKED_TYPE
+    {
+        LINKED_ARRANGEMENT : T24BusinessTypes:ARR
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber="102->100.0", core=true, t24Name=LINKED.ARRANGEMENT, mandatory=false)
+        LINKED_RESERVED_2 : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=8, sysNumber="103->101.0", core=true, t24Name=LINKED.RESERVED.2, mandatory=false)
+        LINKED_TYPE : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=20, sysNumber="101->99.0", core=true, t24Name=LINKED.TYPE, mandatory=false)
+    }
+    AA_ARRANGEMENT__LINK_DATE
+    {
+        ARRANGEMENT_TYPE : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=20, sysNumber="35->32.0", core=true, t24Name=ARRANGEMENT.TYPE, mandatory=false)
+        LINK_DATE : T24BusinessTypes:D
+            @t24:i (align=R, inputBehaviour=I, maxLength=11, sysNumber="28->25.0", core=true, t24Name=LINK.DATE, mandatory=false)
+        LINK_TYPE -> byValue AA_Framework:AA_ARRANGEMENT__LINK_DATE__LINK_TYPE *
+            @t24:i (t24Name=LINK.TYPE)
+    }
+    AA_ARRANGEMENT__LINK_DATE__LINK_TYPE
+    {
+        LINKED_BALANCE_TYPE -> AC_SoftAccounting:AC_BALANCE_TYPE
+            @t24:i (align=L, inputBehaviour=I, maxLength=30, sysNumber="32->29.0", core=true, businessType=A, t24Name=LINKED.BALANCE.TYPE, mandatory=false)
+        LINKED_MAX_OFFSET : T24BusinessTypes:R
+            @t24:i (align=R, inputBehaviour=I, maxLength=12, sysNumber="34->31.0", core=true, t24Name=LINKED.MAX.OFFSET, mandatory=false)
+        LINKED_SOURCE_CALC_TYPE -> AA_Framework:AA_SOURCE_CALC_TYPE
+            @t24:i (align=L, inputBehaviour=I, maxLength=30, sysNumber="33->30.0", core=true, businessType=A, t24Name=LINKED.SOURCE.CALC.TYPE, mandatory=false)
+        LINK_ARRANGEMENT : T24BusinessTypes:ARR
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber="30->27.0", core=true, t24Name=LINK.ARRANGEMENT, mandatory=false)
+        LINK_PROPERTY : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=30, sysNumber="31->28.0", core=true, t24Name=LINK.PROPERTY, mandatory=false)
+        LINK_TYPE : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=20, sysNumber="29->26.0", core=true, t24Name=LINK.TYPE, mandatory=false)
+    }
+    AA_ARRANGEMENT__POOL_EVENT_DATE
+    {
+        POOL_EVENT : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber="81->76.0", core=true, t24Name=POOL.EVENT, mandatory=false)
+        POOL_EVENT_DATE : T24BusinessTypes:D
+            @t24:i (align=R, inputBehaviour=I, maxLength=11, sysNumber="80->75.0", core=true, t24Name=POOL.EVENT.DATE, mandatory=false)
+        RESERVED_14 : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=8, sysNumber="82->77.0", core=true, t24Name=RESERVED.14, mandatory=false)
+    }
+    AA_ARRANGEMENT__POSTING_RESTRICT
+    {
+        POSTING_RESTRICT -> AC_Config:POSTING_RESTRICT
+            @i18n:Label (en="Posting Restriction")
+            @t24:i (align=L, inputBehaviour=I, maxLength=4, sysNumber="96->92.0", core=true, businessType=POST, t24Name=POSTING.RESTRICT, mandatory=false)
+    }
+    AA_ARRANGEMENT__PROCESS_ONLINE
+    {
+        PROCESS_ONLINE : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber="105->103.0", core=true, t24Name=PROCESS.ONLINE, mandatory=false)
+    }
+    AA_ARRANGEMENT__PRODUCT
+    {
+        INHERITANCE_PROPERTY -> byValue AA_Framework:AA_ARRANGEMENT__PRODUCT__INHERITANCE_PROPERTY *
+            @t24:i (t24Name=INHERITANCE.PROPERTY)
+        PRODUCT -> AA_ProductManagement:AA_PRODUCT
+            @t24:i (align=L, inputBehaviour=I, maxLength=30, sysNumber="20->17.0", core=true, businessType=A, t24Name=PRODUCT, mandatory=false)
+        PRODUCT_STATUS : T24BusinessTypes:ANY
+            @t24:i (align=L, inputBehaviour=I, maxLength=15, sysNumber="22->19.0", core=true, t24Name=PRODUCT.STATUS, mandatory=false)
+        PROD_EFF_DATE : T24BusinessTypes:D
+            @t24:i (align=R, inputBehaviour=I, maxLength=8, sysNumber="21->18.0", core=true, t24Name=PROD.EFF.DATE, mandatory=false)
+        PROPERTY -> byValue AA_Framework:AA_ARRANGEMENT__PRODUCT__PROPERTY *
+            @t24:i (t24Name=PROPERTY)
+        VARIATION_EFF_DATE -> byValue AA_Framework:AA_ARRANGEMENT__PRODUCT__VARIATION_EFF_DATE *
+            @t24:i (t24Name=VARIATION.EFF.DATE)
+    }
+    AA_ARRANGEMENT__PRODUCT__INHERITANCE_PROPERTY
+    {
+        INHERITANCE_PROPERTY -> AA_ProductFramework:AA_PROPERTY
+            @t24:i (align=L, inputBehaviour=N, maxLength=30, sysNumber="24->21.0", core=true, businessType=A, t24Name=INHERITANCE.PROPERTY, mandatory=false)
+    }
+    AA_ARRANGEMENT__PRODUCT__PROPERTY
+    {
+        PROPERTY -> AA_ProductFramework:AA_PROPERTY
+            @i18n:Label (en=Property)
+            @i18n:Tooltip (en=Property)
+            @t24:i (align=L, inputBehaviour=N, maxLength=30, sysNumber="23->20.0", core=true, businessType=A, t24Name=PROPERTY, mandatory=false)
+    }
+    AA_ARRANGEMENT__PRODUCT__VARIATION_EFF_DATE
+    {
+        VARIATION : AA_Framework:AA_ARRANGEMENT__PRODUCT__VARIATION_EFF_DATE__VARIATION
+            @i18n:Label (en=Variation)
+            @t24:i (align=L, inputBehaviour=I, maxLength=30, sysNumber="26->23.0", core=true, t24Name=VARIATION, mandatory=false)
+        VARIATION_EFF_DATE : T24BusinessTypes:D
+            @t24:i (align=R, inputBehaviour=I, maxLength=11, sysNumber="25->22.0", core=true, t24Name=VARIATION.EFF.DATE, mandatory=false)
+    }
+    AA_ARRANGEMENT__PROMO_ARR_ID
+    {
+        PROMO_ARR_ID : T24BusinessTypes:ARR
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber="106->104.0", core=true, t24Name=PROMO.ARR.ID, mandatory=false)
+        PROMO_EFFECTIVE_DATE -> byValue AA_Framework:AA_ARRANGEMENT__PROMO_ARR_ID__PROMO_EFFECTIVE_DATE *
+            @t24:i (t24Name=PROMO.EFFECTIVE.DATE)
+        PROMO_PRODUCT -> AA_ProductManagement:AA_PRODUCT
+            @t24:i (align=L, inputBehaviour=I, maxLength=30, sysNumber="107->105.0", core=true, businessType=A, t24Name=PROMO.PRODUCT, mandatory=false)
+    }
+    AA_ARRANGEMENT__PROMO_ARR_ID__PROMO_EFFECTIVE_DATE
+    {
+        PROMO_BENEFIT_TYPE : AA_Framework:AA_ARRANGEMENT__PROMO_ARR_ID__PROMO_EFFECTIVE_DATE__PROMO_BENEFIT_TYPE
+            @t24:i (align=L, inputBehaviour=I, maxLength=9, sysNumber="110->108.0", core=true, t24Name=PROMO.BENEFIT.TYPE, mandatory=false)
+        PROMO_EFFECTIVE_DATE : T24BusinessTypes:D
+            @t24:i (align=R, inputBehaviour=I, maxLength=11, sysNumber="108->106.0", core=true, t24Name=PROMO.EFFECTIVE.DATE, mandatory=false)
+        PROMO_NAME : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber="109->107.0", core=true, t24Name=PROMO.NAME, mandatory=false)
+        RULE_PROCESS_TYPE : AA_Framework:AA_ARRANGEMENT__PROMO_ARR_ID__PROMO_EFFECTIVE_DATE__RULE_PROCESS_TYPE
+            @t24:i (align=L, inputBehaviour=I, maxLength=9, sysNumber="111->109.0", core=true, t24Name=RULE.PROCESS.TYPE, mandatory=false)
+    }
+    AA_ARRANGEMENT__PROPERTY_CONTROL_PROP
+    {
+        PROPERTY_CONTROL_PROP : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=30, sysNumber="88->83.0", core=true, t24Name=PROPERTY.CONTROL.PROP, mandatory=false)
+        PROPERTY_CONTROL_PROP_DATE : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=11, sysNumber="89->84.0", core=true, t24Name=PROPERTY.CONTROL.PROP.DATE, mandatory=false)
+    }
+    AA_ARRANGEMENT__RELATIONSHIP_DATE
+    {
+        RELATIONSHIP_ARR : T24BusinessTypes:ARR
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber="38->35.0", core=true, t24Name=RELATIONSHIP.ARR, mandatory=false)
+        RELATIONSHIP_DATE : T24BusinessTypes:D
+            @t24:i (align=R, inputBehaviour=I, maxLength=8, sysNumber="36->33.0", core=true, t24Name=RELATIONSHIP.DATE, mandatory=false)
+        RELATIONSHIP_PLAN : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber="37->34.0", core=true, t24Name=RELATIONSHIP.PLAN, mandatory=false)
+        RESERVED_5 : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=8, sysNumber="39->36.0", core=true, t24Name=RESERVED.5, mandatory=false)
+    }
+    AA_ARRANGEMENT__SOURCE_REFERENCE
+    {
+        SOURCE_REFERENCE : T24BusinessTypes:ANY
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber="6->5.0", core=true, t24Name=SOURCE.REFERENCE, mandatory=false)
+    }
+    AA_ARRANGEMENT__SRC_LINK_KEY
+    {
+        RESERVED_10 : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=8, sysNumber="70->65.0", core=true, t24Name=RESERVED.10, mandatory=false)
+        RESERVED_11 : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=8, sysNumber="71->66.0", core=true, t24Name=RESERVED.11, mandatory=false)
+        SRC_LINK_KEY : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=30, sysNumber="67->62.0", core=true, t24Name=SRC.LINK.KEY, mandatory=false)
+        SRC_TARGET_ARRANGEMENT -> byValue AA_Framework:AA_ARRANGEMENT__SRC_LINK_KEY__SRC_TARGET_ARRANGEMENT *
+            @t24:i (t24Name=SRC.TARGET.ARRANGEMENT)
+    }
+    AA_ARRANGEMENT__SRC_LINK_KEY__SRC_TARGET_ARRANGEMENT
+    {
+        SRC_TARGET_ARRANGEMENT : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=20, sysNumber="68->63.0", core=true, t24Name=SRC.TARGET.ARRANGEMENT, mandatory=false)
+        SRC_TARGET_PROPERTY : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=30, sysNumber="69->64.0", core=true, t24Name=SRC.TARGET.PROPERTY, mandatory=false)
+    }
+    AA_ARRANGEMENT__SRC_SOURCE_PROPERTY
+    {
+        RESERVED_8 : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=8, sysNumber="65->60.0", core=true, t24Name=RESERVED.8, mandatory=false)
+        RESERVED_9 : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=8, sysNumber="66->61.0", core=true, t24Name=RESERVED.9, mandatory=false)
+        SRC_LINK_DATE -> byValue AA_Framework:AA_ARRANGEMENT__SRC_SOURCE_PROPERTY__SRC_LINK_DATE *
+            @t24:i (t24Name=SRC.LINK.DATE)
+        SRC_SOURCE_PROPERTY : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=30, sysNumber="63->58.0", core=true, t24Name=SRC.SOURCE.PROPERTY, mandatory=false)
+    }
+    AA_ARRANGEMENT__SRC_SOURCE_PROPERTY__SRC_LINK_DATE
+    {
+        SRC_LINK_DATE : T24BusinessTypes:D
+            @t24:i (align=R, inputBehaviour=I, maxLength=11, sysNumber="64->59.0", core=true, t24Name=SRC.LINK.DATE, mandatory=false)
+    }
+    AA_ARRANGEMENT__SUB_ARRANGEMENT
+    {
+        SUB_ARRANGEMENT -> AA_Framework:AA_ARRANGEMENT
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber="53->49.0", core=true, businessType=ARR, t24Name=SUB.ARRANGEMENT, mandatory=false)
+        SUB_ARRANGEMENT_CCY : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=15, sysNumber="54->95.0", core=true, t24Name=SUB.ARRANGEMENT.CCY, mandatory=false)
+    }
+    AA_ARRANGEMENT__TGT_TARGET_PROPERTY
+    {
+        RESERVED_6 : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=8, sysNumber="61->56.0", core=true, t24Name=RESERVED.6, mandatory=false)
+        RESERVED_7 : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=8, sysNumber="62->57.0", core=true, t24Name=RESERVED.7, mandatory=false)
+        TGT_SOURCE_LINK_DATE -> byValue AA_Framework:AA_ARRANGEMENT__TGT_TARGET_PROPERTY__TGT_SOURCE_LINK_DATE *
+            @t24:i (t24Name=TGT.SOURCE.LINK.DATE)
+        TGT_TARGET_PROPERTY : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=30, sysNumber="56->51.0", core=true, t24Name=TGT.TARGET.PROPERTY, mandatory=false)
+    }
+    AA_ARRANGEMENT__TGT_TARGET_PROPERTY__TGT_SOURCE_LINK_DATE
+    {
+        TGT_ARR_LINK_TYPE : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=15, sysNumber="60->55.0", core=true, t24Name=TGT.ARR.LINK.TYPE, mandatory=false)
+        TGT_SOURCE_ARRANGEMENT : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=20, sysNumber="58->53.0", core=true, t24Name=TGT.SOURCE.ARRANGEMENT, mandatory=false)
+        TGT_SOURCE_LINK_DATE : T24BusinessTypes:D
+            @t24:i (align=R, inputBehaviour=I, maxLength=11, sysNumber="57->52.0", core=true, t24Name=TGT.SOURCE.LINK.DATE, mandatory=false)
+        TGT_SOURCE_PROPERTY : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=30, sysNumber="59->54.0", core=true, t24Name=TGT.SOURCE.PROPERTY, mandatory=false)
+    }
+    AA_ARRANGEMENT__TRANSACTION_PROPERTY
+    {
+        TRANSACTION_PROPERTY -> AA_ProductFramework:AA_PROPERTY
+            @t24:i (align=L, inputBehaviour=N, maxLength=30, sysNumber="114->114.0", core=true, businessType=A, t24Name=TRANSACTION.PROPERTY, mandatory=false)
+    }
+}
+Enumerations {
+    AA_ARRANGEMENT__AGENT_ID__AGENT_ROLE : mml:string
+        AFFILIATEDAGENT=AFFILIATEDAGENT
+        AGENT=AGENT
+        LEADAGENT=LEADAGENT
+        NONAFFILIATEDAGENT=NONAFFILIATEDAGENT
+    AA_ARRANGEMENT__CLOSURE_REASON : mml:string
+        ACCOUNT_TRANSFERRED=ACCOUNT.TRANSFERRED
+        CUSTOMER_REQUEST=CUSTOMER.REQUEST
+        DECEASED_CUSTOMER=DECEASED.CUSTOMER
+        DISSATISFIED_CUSTOMER=DISSATISFIED.CUSTOMER
+        UNDESIRABLE_CLIENT=UNDESIRABLE.CLIENT
+    AA_ARRANGEMENT__EARLY_PROCESSING : mml:string
+        NULL=NULL
+        Y=Y
+    AA_ARRANGEMENT__MAINTAIN_LIMIT_BALANCE : mml:string
+        NO=NO
+        NULL=NULL
+        YES=YES
+    AA_ARRANGEMENT__NOTICE_ACCOUNT : mml:string
+        NO=NO
+        NULL=NULL
+        YES=YES
+    AA_ARRANGEMENT__PRODUCT__VARIATION_EFF_DATE__VARIATION : mml:string
+        BRANCH=BRANCH
+        BRONZE=BRONZE
+        GOLD=GOLD
+        INTERNET=INTERNET
+        MOBILE=MOBILE
+        PLATINUM=PLATINUM
+        SILVER=SILVER
+    AA_ARRANGEMENT__PROMO_ARR_ID__PROMO_EFFECTIVE_DATE__PROMO_BENEFIT_TYPE : mml:string
+        CASHBACK=CASHBACK
+        PRICING=PRICING
+        REWARDS=REWARDS
+    AA_ARRANGEMENT__PROMO_ARR_ID__PROMO_EFFECTIVE_DATE__RULE_PROCESS_TYPE : mml:string
+        ONLINE=ONLINE
+        PROCESSED=PROCESSED
+        SCHEDULE=SCHEDULE
+}

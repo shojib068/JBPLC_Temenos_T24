@@ -1,0 +1,96 @@
+# UTF-8
+Domain X_STMT_ENTRY_DETAIL
+    @t24:LocalFields (localRefApplications=true)
+    @java:Package (value=localRefApplication.x_stmt_entry_detail)
+namespace "http://www.odcgroup.com/X_STMT_ENTRY_DETAIL"
+metamodelVersion 1.30.6
+Classes {
+    X_STMT_ENTRY_DETAIL extends AC_EntryCreation:STMT_ENTRY_DETAIL
+    {
+        /* BATCH.STATUS */
+        BATCH_STATUS : T24BusinessTypes:ANY
+            @i18n:Label (en=BATCH.STATUS)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=BATCH.STATUS)
+        /* BOOKED.DATE */
+        BOOKED_DATE : T24BusinessTypes:ANY
+            @i18n:Label (en=BOOKED.DATE)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=BOOKED.DATE)
+        /* DUPLICATE */
+        DUPLICATE : T24BusinessTypes:ANY
+            @i18n:Label (en=DUPLICATE)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=DUPLICATE)
+        /* MERCHANT */
+        MERCHANT : T24BusinessTypes:ANY
+            @i18n:Label (en=MERCHANT)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=MERCHANT)
+        /* BOOKED.TIME */
+        BOOKED_TIME : T24BusinessTypes:ANY
+            @i18n:Label (en=BOOKED.TIME)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=BOOKED.TIME)
+        /* PROCESS.TIME */
+        PROCESS_TIME : T24BusinessTypes:ANY
+            @i18n:Label (en=PROCESS.TIME)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=PROCESS.TIME)
+        /* ORIG.AMOUNT */
+        ORIG_AMOUNT : T24BusinessTypes:ANY
+            @i18n:Label (en=ORIG.AMOUNT)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=ORIG.AMOUNT)
+        /* ORIG.CCY */
+        ORIG_CCY : T24BusinessTypes:ANY
+            @i18n:Label (en=ORIG.CCY)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=ORIG.CCY)
+        /* ORIG.CATEG */
+        ORIG_CATEG : T24BusinessTypes:ANY
+            @i18n:Label (en=ORIG.CATEG)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=ORIG.CATEG)
+        /* ORIG.SUB.CATEG */
+        ORIG_SUB_CATEG : T24BusinessTypes:ANY
+            @i18n:Label (en=ORIG.SUB.CATEG)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=ORIG.SUB.CATEG)
+        /* CUST.CATEG.CODE */
+        CUST_CATEG_CODE : T24BusinessTypes:ANY
+            @i18n:Label (en=CUST.CATEG.CODE)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=CUST.CATEG.CODE)
+        /* CUST.CATEG.NAME */
+        CUST_CATEG_NAME : T24BusinessTypes:ANY
+            @i18n:Label (en=CUST.CATEG.NAME)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=CUST.CATEG.NAME)
+        /* CHQ.NUMBER */
+        CHQ_NUMBER : T24BusinessTypes:ANY
+            @i18n:Label (en=CHQ.NUMBER)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=CHQ.NUMBER)
+        /* ACCOUNT.BAL */
+        ACCOUNT_BAL : T24BusinessTypes:ANY
+            @i18n:Label (en=ACCOUNT.BAL)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=ACCOUNT.BAL)
+        /* ACC.BAL.AFTER */
+        ACC_BAL_AFTER : T24BusinessTypes:ANY
+            @i18n:Label (en=ACC.BAL.AFTER)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=ACC.BAL.AFTER)
+        /* ACC.BAL.BEFORE */
+        ACC_BAL_BEFORE : T24BusinessTypes:ANY
+            @i18n:Label (en=ACC.BAL.BEFORE)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=ACC.BAL.BEFORE)
+        /* TXN.LAST.UPD */
+        TXN_LAST_UPD : T24BusinessTypes:ANY
+            @i18n:Label (en=TXN.LAST.UPD)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=TXN.LAST.UPD)
+    }
+}

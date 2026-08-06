@@ -1,0 +1,158 @@
+package com.temenos.t24;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.temenos.api.TField;
+import com.temenos.t24.api.complex.eb.enquiryhook.EnquiryContext;
+import com.temenos.t24.api.complex.eb.enquiryhook.FilterCriteria;
+import com.temenos.t24.api.hook.system.Enquiry;
+import com.temenos.t24.api.records.enquiry.EnquiryRecord;
+import com.temenos.t24.api.records.standardselection.StandardSelectionRecord;
+import com.temenos.t24.api.records.standardselection.UsrFieldNameClass;
+import com.temenos.t24.api.records.version.FieldNoClass;
+import com.temenos.t24.api.records.version.ValidationFldClass;
+import com.temenos.t24.api.records.version.VersionRecord;
+import com.temenos.t24.api.system.DataAccess;
+
+/**
+ * TODO: Document me!
+ *
+ * @author kawsar
+ *
+ */
+
+
+public class NFEnqBackTrack extends Enquiry {
+
+    @Override
+    public List<String> setIds(List<FilterCriteria> filterCriteria, EnquiryContext enquiryContext) {
+
+        DataAccess da = new DataAccess(this);
+
+        String versionId = "";
+
+        List<String> returnList = new ArrayList<>();
+        List<String> verDropDownIdList = new ArrayList<>();
+        List<String> rtnList = new ArrayList<>();
+
+        // Get VERSION.NAME
+        for (FilterCriteria fc : filterCriteria) {
+            if ("VERSION.NAME".equals(fc.getFieldname())) {
+                versionId = fc.getValue();
+                break;
+            }
+        }
+
+        try {
+
+            VersionRecord verRec = new VersionRecord(da.getRecord("VERSION", versionId));
+
+            // Dropdown Enquiries
+            addDropDownValues(verRec.getFieldNo(), verDropDownIdList);
+
+            // Validation Routine
+            addValidationRoutines(verRec.getValidationFld(), rtnList);
+
+            // Other routines
+            addTFieldValues(verRec.getInputRoutine(), rtnList);
+            addTFieldValues(verRec.getAuthRoutine(), rtnList);
+            addTFieldValues(verRec.getIdRtn(), rtnList);
+            addTFieldValues(verRec.getCheckRecRtn(), rtnList);
+            addTFieldValues(verRec.getAfterUnauRtn(), rtnList);
+            addTFieldValues(verRec.getBeforeAuthRtn(), rtnList);
+
+            // Uncomment if your VersionRecord contains this method
+            // addTFieldValues(verRec.getDefaultRoutine(), rtnList);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if(verDropDownIdList!=null || !verDropDownIdList.isEmpty()){
+            for( String x : verDropDownIdList ){
+                EnquiryRecord enqRec = new EnquiryRecord(da.getRecord("ENQUIRY",x));
+                String fileName = enqRec.getFileName().getValue(); // name of ss
+                if(fileName.startsWith("NOFILE")){
+                   StandardSelectionRecord ssRec = new StandardSelectionRecord(da.getRecord("STANDARD.SELECTION", fileName));
+                   String ebApiId = ssRec.getUsrFieldName(0).getUsrFieldNo().get(0).getValue();
+                }
+                List<TField> buildRtnId = enqRec.getBuildRoutine();
+                
+            }
+        }
+        
+
+
+        return returnList;
+    }
+
+    /**
+     * Add values from List<TField> to target list.
+     */
+    private void addTFieldValues(List<TField> source, List<String> target) {
+
+        if (source == null || source.isEmpty()) {
+            return;
+        }
+
+        for (TField field : source) {
+
+            if (field == null) {
+                continue;
+            }
+
+            String value = field.getValue();
+
+            if (value != null && !value.trim().isEmpty()) {
+                target.add(value);
+            }
+        }
+    }
+
+    /**
+     * Add dropdown enquiry names.
+     */
+    private void addDropDownValues(List<FieldNoClass> source, List<String> target) {
+
+        if (source == null || source.isEmpty()) {
+            return;
+        }
+
+        for (FieldNoClass field : source) {
+
+            if (field == null) {
+                continue;
+            }
+
+            String value = field.getDropDown().getValue();
+
+            if (value != null && !value.trim().isEmpty()) {
+                target.add(value);
+            }
+        }
+    }
+
+    /**
+     * Add validation routines.
+     */
+    private void addValidationRoutines(List<ValidationFldClass> source, List<String> target) {
+
+        if (source == null || source.isEmpty()) {
+            return;
+        }
+
+        for (ValidationFldClass field : source) {
+
+            if (field == null) {
+                continue;
+            }
+
+            String value = field.getValidationRtn().getValue();
+
+            if (value != null && !value.trim().isEmpty()) {
+                target.add(value);
+            }
+        }
+    }
+
+}

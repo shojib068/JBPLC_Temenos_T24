@@ -1,0 +1,16 @@
+# UTF-8
+Domain X_DE_PRODUCT
+    @t24:LocalFields (localRefApplications=true)
+    @java:Package (value=localRefApplication.x_de_product)
+namespace "http://www.odcgroup.com/X_DE_PRODUCT"
+metamodelVersion 1.30.6
+Classes {
+    X_DE_PRODUCT extends PF_Config:DE_PRODUCT
+    {
+        /* Customer Mail Indicator */
+        CUSTOMER_MAIL_INDICATOR : LocalFieldsEnumeration:LocalField_CUSTOMER_MAIL_INDICATOR
+            @i18n:Label (en=CUS.MAIL.IND)
+            @t24:LocalFields (maxChars=1, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=CUSTOMER.MAIL.INDICATOR)
+            @t24:i (t24Name=CUSTOMER.MAIL.INDICATOR)
+    }
+}

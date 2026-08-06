@@ -1,0 +1,51 @@
+# UTF-8
+Domain X_DE_ADDRESS
+    @t24:LocalFields (localRefApplications=true)
+    @java:Package (value=localRefApplication.x_de_address)
+namespace "http://www.odcgroup.com/X_DE_ADDRESS"
+metamodelVersion 1.30.6
+Classes {
+    X_DE_ADDRESS extends PY_Config:DE_ADDRESS
+    {
+        /* NPAI Flag */
+        NPAI_FLAG : T24BusinessTypes:A
+            @i18n:Label (en=NPAI.FLAG)
+            @t24:LocalFields (maxChars=1, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=NPAI.FLAG)
+        /* City */
+        USCORE_CITY : T24BusinessTypes:A
+            @i18n:Label (en=CITY)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USCORE.CITY)
+        /* Zip +4 */
+        USCORE_ZIP4 : T24BusinessTypes:A
+            @i18n:Label (en=ZIP4)
+            @t24:LocalFields (maxChars=4, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USCORE.ZIP4)
+        /* County */
+        USCORE_COUNTY : T24BusinessTypes:A
+            @i18n:Label (en=COUNTY)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USCORE.COUNTY)
+        /* US State */
+        USREGS_US_STATE -> NACUST_Foundation:US_STATE
+            @i18n:Label (en=US.STATE)
+            @t24:LocalFields (applicationEnrich=DESCRIPTION, maxChars=2, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USREGS.US.STATE)
+        /* Address type */
+        USREGS_ADDRESS_TYPE : LocalFieldsEnumeration:LocalField_USREGS_ADDRESS_TYPE
+            @i18n:Label (en=ADDRESS.TYPE)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=IRS.ADDRESS.TYPE)
+            @t24:i (t24Name=USREGS.ADDRESS.TYPE)
+        /* Customer contact flag */
+        NACUST_CUS_CONTACT : LocalFieldsEnumeration:LocalField_NACUST_CUS_CONTACT
+            @i18n:Label (en=CUS.CONTACT)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=NACUST.CUS.CONTACT)
+        /* Customer Mail Indicator */
+        CUSTOMER_MAIL_INDICATOR : LocalFieldsEnumeration:LocalField_CUSTOMER_MAIL_INDICATOR
+            @i18n:Label (en=CUS.MAIL.IND)
+            @t24:LocalFields (maxChars=1, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=CUSTOMER.MAIL.INDICATOR)
+            @t24:i (t24Name=CUSTOMER.MAIL.INDICATOR)
+    }
+}
