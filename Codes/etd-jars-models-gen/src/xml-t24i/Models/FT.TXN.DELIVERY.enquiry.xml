@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><enquiry:Enquiry xmlns:enquiry="http://www.odcgroup.com/t24/Enquiry" xmlns:translationDsl="http://www.odcgroup.com/translation/TranslationDsl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" endLine="4" fileName="name:/DE_Messaging:DE.O.HANDOFF#" metamodelVersion="1.30.6" name="FT.TXN.DELIVERY" noSelection="true" showAllBooks="false" startLine="2" zeroRecordsDisplay="true">
+  <description xsi:type="translationDsl:LocalTranslations">
+    <translations locale="en" text="View Deposit Delivery Messages"/>
+  </description>
+  <buildRoutines name="E.MB.BUILD.DOH.FROM.FT" xsi:type="enquiry:JBCRoutine"/>
+  <customSelection>
+    <selection field="@ID" mandatory="true">
+      <label xsi:type="translationDsl:LocalTranslations">
+        <translations locale="en" text="Transaction Ref"/>
+      </label>
+    </selection>
+  </customSelection>
+  <fields alignment="Left" commaSeparator="false" displaySection="Header" displayType="CLASS-TITLE" name="HEADER">
+    <position column="1" line="0"/>
+    <operation value="&quot;View Delivery Messages&quot;" xsi:type="enquiry:ConstantOperation"/>
+  </fields>
+  <fields alignment="Left" commaSeparator="false" displaySection="Header" displayType="CLASS-ENQ.NORECS" name="ZERONORECORDS">
+    <breakCondition break="None"/>
+    <position column="1"/>
+    <operation value="&quot;No Delivery Message available for this Reference&quot;" xsi:type="enquiry:ConstantOperation"/>
+  </fields>
+  <fields alignment="Right" commaSeparator="false" length="16" name="FT.ID">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="Transaction Ref"/>
+    </label>
+    <format format="User"/>
+    <position column="1"/>
+    <operation field="@ID" xsi:type="enquiry:ApplicationFieldNameOperation"/>
+    <conversion application="DE.O.HEADER" field="TRANSACTION.REF" xsi:type="enquiry:GetFromConversion"/>
+  </fields>
+  <fields alignment="Left" commaSeparator="false" length="16" name="@ID">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="Delivery Ref"/>
+    </label>
+    <format format="User"/>
+    <position column="3"/>
+    <operation field="@ID" xsi:type="enquiry:ApplicationFieldNameOperation"/>
+  </fields>
+  <fields alignment="Left" commaSeparator="false" hidden="true" name="BANK.DATE">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="Bank date"/>
+    </label>
+    <format format="Date"/>
+    <position column="20"/>
+    <operation field="LINE1" xsi:type="enquiry:FieldExtractOperation"/>
+    <conversion delimiter="*" from="2" to="1" xsi:type="enquiry:ExtractConversion"/>
+    <conversion from="1" to="8" xsi:type="enquiry:ExtractConversion"/>
+    <conversion xsi:type="enquiry:JulianConversion"/>
+    <conversion instruction="D2E/" xsi:type="enquiry:BasicOConversion"/>
+  </fields>
+  <fields alignment="Left" commaSeparator="false" length="4" name="MESSAGE">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="Type"/>
+    </label>
+    <position column="30"/>
+    <operation field="LINE1" xsi:type="enquiry:FieldExtractOperation"/>
+    <conversion delimiter="*" from="1" to="1" xsi:type="enquiry:ExtractConversion"/>
+    <conversion delimiter="." from="1" to="1" xsi:type="enquiry:ExtractConversion"/>
+  </fields>
+  <fields alignment="Left" commaSeparator="false" name="MSG.TYPE">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="Description"/>
+    </label>
+    <format format="User"/>
+    <position column="35"/>
+    <operation field="MESSAGE" xsi:type="enquiry:FieldExtractOperation"/>
+    <conversion application="DE.MESSAGE" field="DESCRIPTION" xsi:type="enquiry:GetFromConversion"/>
+  </fields>
+  <fields alignment="Left" commaSeparator="false" length="12" name="DISP.TEXT" singleMulti="Multi">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="Status"/>
+    </label>
+    <position column="49"/>
+    <operation firstField="UNMAPPED" leftField="HEADER.DISP" operand="Equals" rightField="NULL" secondField="HEADER.DISP" xsi:type="enquiry:DecisionOperation"/>
+  </fields>
+  <fields alignment="Left" commaSeparator="false" name="HEADER.CARRIER" singleMulti="Multi">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="Carrier"/>
+    </label>
+    <position column="62"/>
+    <operation field="HEADER.CARRIER" xsi:type="enquiry:DescriptorOperation"/>
+  </fields>
+  <fields alignment="Left" commaSeparator="false" name="TO.ADDRESS" singleMulti="Multi">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="To address"/>
+    </label>
+    <position column="72"/>
+    <operation field="TO.ADDRESS" xsi:type="enquiry:DescriptorOperation"/>
+  </fields>
+  <fields alignment="Left" commaSeparator="false" name="LINE1">
+    <operation field="LINE1" xsi:type="enquiry:ApplicationFieldNameOperation"/>
+  </fields>
+  <fields alignment="Left" commaSeparator="false" length="12" name="HEADER.DISP">
+    <format format="User"/>
+    <operation field="HEADER.DISP1" xsi:type="enquiry:DescriptorOperation"/>
+  </fields>
+  <fields alignment="Left" commaSeparator="false" name="ENQ">
+    <operation value="&quot;DE.XML&quot;" xsi:type="enquiry:ConstantOperation"/>
+  </fields>
+  <fields alignment="Left" commaSeparator="false" name="NULL" singleMulti="Multi">
+    <operation value="&quot;&quot;" xsi:type="enquiry:ConstantOperation"/>
+  </fields>
+  <fields alignment="Left" commaSeparator="false" name="UNMAPPED">
+    <breakCondition break="Once"/>
+    <operation value="&quot;DATA UNMAPPED&quot;" xsi:type="enquiry:ConstantOperation"/>
+  </fields>
+  <fields alignment="Left" commaSeparator="false" name="REPAIR">
+    <operation value="&quot;REPAIR&quot;" xsi:type="enquiry:ConstantOperation"/>
+  </fields>
+  <fields alignment="Left" commaSeparator="false" comments="Next level enquiry separated by &gt; with criteria" name="DRILL1" singleMulti="Multi">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="Drill1"/>
+    </label>
+    <operation field="HEADER.CARRIER" xsi:type="enquiry:FieldExtractOperation"/>
+    <conversion xsi:type="enquiry:CallRoutine">
+      <routine name="@ E.DE.MSG.SUM.NEXT.LEVEL" xsi:type="enquiry:JBCRoutine"/>
+    </conversion>
+  </fields>
+  <fields alignment="Left" commaSeparator="false" name="DE.ID" singleMulti="Multi">
+    <operation field="DRILL1" xsi:type="enquiry:FieldExtractOperation"/>
+    <conversion delimiter="&gt;" from="2" to="1" xsi:type="enquiry:ExtractConversion"/>
+  </fields>
+  <fields alignment="Left" commaSeparator="false" comments="To get the carrier type" name="DRILL2" singleMulti="Multi">
+    <operation field="HEADER.CARRIER" xsi:type="enquiry:FieldExtractOperation"/>
+    <conversion delimiter="." from="1" to="1" xsi:type="enquiry:ExtractConversion"/>
+    <conversion newData="DE.XML" oldData="SMS" xsi:type="enquiry:ReplaceConversion"/>
+    <conversion newData="DE.XML" oldData="EMAIL" xsi:type="enquiry:ReplaceConversion"/>
+    <conversion newData="DE.XML" oldData="SECUREMSG" xsi:type="enquiry:ReplaceConversion"/>
+  </fields>
+  <fields alignment="Left" commaSeparator="false" name="TYPE" singleMulti="Multi">
+    <operation field="HEADER.CARRIER" xsi:type="enquiry:FieldExtractOperation"/>
+    <conversion delimiter="." from="1" to="1" xsi:type="enquiry:ExtractConversion"/>
+  </fields>
+  <fields alignment="Left" commaSeparator="false" name="DRILL3" singleMulti="Multi">
+    <operation firstField="DRILL2" leftField="DRILL2" operand="Equals" rightField="ENQ" secondField="DRILL1" xsi:type="enquiry:DecisionOperation"/>
+  </fields>
+  <fields alignment="Left" commaSeparator="false" name="NEXT.LEVEL" singleMulti="Multi">
+    <operation firstField="DRILL1" leftField="DISP.TEXT" operand="Equals" rightField="REPAIR" secondField="DRILL3" xsi:type="enquiry:DecisionOperation"/>
+  </fields>
+  <drillDowns fromField="NEXT.LEVEL" image="view.gif" labelField="DISP.TEXT">
+    <description xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="View Delivery"/>
+    </description>
+    <criteria field="KEY" operand="Equals">
+      <values>DE.ID</values>
+    </criteria>
+    <criteria field="MESSAGE.TEXT" operand="NotEquals">
+      <values>TYPE</values>
+    </criteria>
+    
+  </drillDowns>
+</enquiry:Enquiry>

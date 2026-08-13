@@ -1,0 +1,718 @@
+# UTF-8
+/* Taabs Automation */
+Domain EB_ProductConfig
+    @t24:i (module=EB)
+    @java:Package (value=com.temenos.t24.datamodel.eb.eb_productconfig)
+namespace "http://www.temenos.com/t24/EB_ProductConfig"
+metamodelVersion 1.30.6
+Classes {
+    EB_TAABS_CAPTURE_TXNS
+        @i18n:Description (en="")
+        @t24:i (t24Name=EB.TAABS.CAPTURE.TXNS, level=I, type=H, allowedFunctions="A C D E H I L P Q R S", localRefAllowed=false)
+    {
+        /* This field indicates the T24 Application for which the data has been captured for. */
+        APPLICATION : T24BusinessTypes:A
+            @i18n:Label (en=Application)
+            @t24:i (align=L, inputBehaviour=N, maxLength=40, sysNumber=3.0, core=true, t24Name=APPLICATION, mandatory=false)
+        AUDITOR_CODE : T24BusinessTypes:A
+            @i18n:Label (en="Auditor Code")
+            @i18n:Tooltip (en="Auditor Code")
+            @t24:i (align=L, inputBehaviour=E, maxLength=16, sysNumber=27.0, core=true, t24Name=AUDITOR.CODE, mandatory=false)
+        AUDIT_DATE_TIME : T24BusinessTypes:RELTIME
+            @i18n:Label (en="Audit Date Time")
+            @i18n:Tooltip (en="Date and time when record was audited")
+            @t24:i (align=L, inputBehaviour=E, maxLength=15, sysNumber=28.0, core=true, t24Name=AUDIT.DATE.TIME, mask="RDD DD  DD ##:##", mandatory=false)
+        AUTHORISER : T24BusinessTypes:A
+            @i18n:Label (en=Authoriser)
+            @i18n:Tooltip (en="Indicates the User who Authorises the record")
+            @t24:i (align=L, inputBehaviour=N, maxLength=100, sysNumber=24.0, core=true, t24Name=AUTHORISER, mandatory=false)
+/* This field contains unique reference to EB.TAABS.CAPTURE.TXNS record.
+Every transaction captured through TAABS has an entry in this table and if there are multiple operations captured for this transaction then they would be stored inside the multivalue references.
+This field value is made up of four components that are separated by '-'
+For Example:
+
+<Package Ref>-<Application Ref>-<Transaction Ref>-<Company Ref>
+
+Package Ref - is a valid EB.TAABS.PACKAGE.DETAILS reference.
+Application Ref - is a valid T24 Application Name.
+Transaction Ref - is the Transaction reference permitted by Application referenced earlier.
+Company Ref - is a valid Company code. */
+        CAP_TXN -> EB_ProductConfig:EB_TAABS_CAPTURE_TXNS PK required
+            @t24:i (align=L, inputBehaviour=I, maxLength=110, sysNumber=0.0, core=true, businessType=A, t24Name=CAP.TXN, mandatory=true)
+/* This field indicates the COMPANY record level at which the data has been captured for.
+In case the transaction was captured for a table classified as 'INT' then it would be the COMPANY code of the MASTER Company. */
+        COMPANY : T24BusinessTypes:A
+            @i18n:Label (en=Company)
+            @t24:i (align=L, inputBehaviour=N, maxLength=10, sysNumber=2.0, core=true, t24Name=COMPANY, mandatory=false)
+        CO_CODE -> ST_CompanyCreation:COMPANY
+            @i18n:Label (en=Company)
+            @t24:i (align=L, inputBehaviour=N, maxLength=11, sysNumber=25.0, core=true, businessType=A, t24Name=CO.CODE, mask="R##-###-####", mandatory=false)
+        CURR_NO : T24BusinessTypes:N
+            @i18n:Label (en="Curr No")
+            @t24:i (align=R, inputBehaviour=N, maxLength=6, sysNumber=21.0, core=true, t24Name=CURR.NO, mandatory=false)
+        DATE -> byValue EB_ProductConfig:EB_TAABS_CAPTURE_TXNS__DATE *
+            @t24:i (t24Name=DATE)
+        DATE_TIME -> byValue EB_ProductConfig:EB_TAABS_CAPTURE_TXNS__DATE_TIME *
+            @t24:i (t24Name=DATE.TIME)
+        DEPT_CODE -> ST_Config:DEPT_ACCT_OFFICER
+            @i18n:Label (en="Dept Code")
+            @t24:i (align=R, inputBehaviour=N, maxLength=6, sysNumber=26.0, core=true, t24Name=DEPT.CODE, mandatory=false)
+        /* This field indicates if this record has been excluded from releasing into the target system. */
+        EXCLUDE_TXN : T24BusinessTypes:A
+            @i18n:Label (en="Exclude Txn")
+            @t24:i (align=L, inputBehaviour=N, maxLength=5, sysNumber=19.0, core=true, t24Name=EXCLUDE.TXN, mandatory=false)
+        INPUTTER -> byValue EB_ProductConfig:EB_TAABS_CAPTURE_TXNS__INPUTTER *
+            @t24:i (t24Name=INPUTTER)
+        /* This field indicates the EB.TAABS.PACKAGE.DETAILS record to which the data has been captured for. */
+        PACKAGE_NAME : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=35, sysNumber=1.0, core=true, t24Name=PACKAGE.NAME, mandatory=false)
+        PACKAGE_REF -> byValue EB_ProductConfig:EB_TAABS_CAPTURE_TXNS__PACKAGE_REF *
+            @t24:i (t24Name=PACKAGE.REF)
+        RECORD_STATUS : T24BusinessTypes:STAT
+            @i18n:Label (en="Record Status")
+            @t24:i (align=L, inputBehaviour=N, maxLength=6, sysNumber=20.0, core=true, t24Name=RECORD.STATUS, mandatory=false)
+        /* This field indicates the transaction reference of Application that was captured. */
+        TXN_REF : T24BusinessTypes:A
+            @i18n:Label (en="Transaction Ref")
+            @t24:i (align=L, inputBehaviour=N, maxLength=20, sysNumber=4.0, core=true, t24Name=TXN.REF, mandatory=false)
+        /* This field indicates the authorisation status of the transaction due to the associated event. */
+        UNAUTHORISED : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=10, sysNumber=18.0, core=true, t24Name=UNAUTHORISED, mandatory=false)
+    }
+    EB_TAABS_CAPTURE_TXNS__DATE
+    {
+        /* This field indicates the date on which the transaction was recorded in the system. */
+        DATE : T24BusinessTypes:A
+            @i18n:Label (en=Date)
+            @t24:i (align=L, inputBehaviour=N, maxLength=10, sysNumber=5.0, core=true, t24Name=DATE, mandatory=false)
+        /* This field indicates the FUNCTION performed by the user for this transaction. */
+        FUNCTION : T24BusinessTypes:A
+            @i18n:Label (en="Function Allowed")
+            @t24:i (align=L, inputBehaviour=N, maxLength=1, sysNumber=14.0, core=true, t24Name=FUNCTION, mandatory=false)
+        REMARKS -> byValue EB_ProductConfig:EB_TAABS_CAPTURE_TXNS__DATE__REMARKS *
+            @t24:i (t24Name=REMARKS)
+        /* Reserved for future use. */
+        RESERVED_1 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=12.0, core=true, t24Name=RESERVED.1, mandatory=false)
+        /* Reserved for future use. */
+        RESERVED_2 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=11.0, core=true, t24Name=RESERVED.2, mandatory=false)
+        /* Reserved for future use. */
+        RESERVED_3 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=10.0, core=true, t24Name=RESERVED.3, mandatory=false)
+/* This field indicates the CURR.NO field value at the end of this event.
+It is updated only if the CURR.NO field value in the underlying transaction has a value greater than one. */
+        TXN_CURR_NO : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=5, sysNumber=16.0, core=true, t24Name=TXN.CURR.NO, mandatory=false)
+        UNIQ_REF_ID : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=25, sysNumber=13.0, core=true, t24Name=UNIQ.REF.ID, mandatory=false)
+        /* This field indicates the USER who performed this operation on this transaction. */
+        USER : T24BusinessTypes:A
+            @i18n:Label (en=User)
+            @i18n:Tooltip (en="Indicates teller id")
+            @t24:i (align=L, inputBehaviour=N, maxLength=16, sysNumber=7.0, core=true, t24Name=USER, mandatory=false)
+        /* This field indicates the COMPANY from which this transaction was recorded in the system. */
+        USER_COMPANY : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=10, sysNumber=9.0, core=true, t24Name=USER.COMPANY, mandatory=false)
+        /* This field indicates the EB.USER.ROLE for which the transaction was qualified to be accommodated into this package. */
+        USER_ROLE : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=35, sysNumber=8.0, core=true, t24Name=USER.ROLE, mandatory=false)
+        /* This field indicates the VERSION accessed to record the transaction. */
+        VERSION : T24BusinessTypes:A
+            @i18n:Label (en=Version)
+            @t24:i (align=L, inputBehaviour=N, maxLength=55, sysNumber=6.0, core=true, t24Name=VERSION, mandatory=false)
+    }
+    EB_TAABS_CAPTURE_TXNS__DATE_TIME
+    {
+        DATE_TIME : T24BusinessTypes:RELTIME
+            @i18n:Label (en="Date time")
+            @i18n:Tooltip (en="Date and time when record was input or authorised")
+            @t24:i (align=L, inputBehaviour=N, maxLength=15, sysNumber=23.0, core=true, t24Name=DATE.TIME, mask="RDD DD  DD ##:##", mandatory=false)
+    }
+    EB_TAABS_CAPTURE_TXNS__DATE__REMARKS
+    {
+        REMARKS : T24BusinessTypes:A
+            @i18n:Label (en=Remarks)
+            @t24:i (align=L, inputBehaviour=I, maxLength=300, sysNumber=15.0, core=true, t24Name=REMARKS, isTextarea=true, mandatory=false)
+    }
+    EB_TAABS_CAPTURE_TXNS__INPUTTER
+    {
+        INPUTTER : T24BusinessTypes:A
+            @i18n:Label (en=Inputter)
+            @i18n:Tooltip (en="The user who last updated the record")
+            @t24:i (align=L, inputBehaviour=N, maxLength=100, sysNumber=22.0, core=true, t24Name=INPUTTER, mandatory=false)
+    }
+    EB_TAABS_CAPTURE_TXNS__PACKAGE_REF
+    {
+        /* This field indicates the EB.TAABS.PACKAGE reference in which the transaction is recorded. */
+        PACKAGE_REF : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=35, sysNumber=17.0, core=true, t24Name=PACKAGE.REF, mandatory=false)
+    }
+    EB_TAABS_EXCLUDE_TXNS
+        @i18n:Description (en="")
+        @t24:i (t24Name=EB.TAABS.EXCLUDE.TXNS, level=I, type=H, additionalInfo=NOH, allowedFunctions="A C D E H I L P Q S", localRefApplicationSysNo=3.0, localRefAllowed=true)
+    {
+        AUDITOR_CODE : T24BusinessTypes:A
+            @i18n:Label (en="Auditor Code")
+            @i18n:Tooltip (en="Auditor Code")
+            @t24:i (align=L, inputBehaviour=E, maxLength=16, sysNumber=12.0, core=true, t24Name=AUDITOR.CODE, mandatory=false)
+        AUDIT_DATE_TIME : T24BusinessTypes:RELTIME
+            @i18n:Label (en="Audit Date Time")
+            @i18n:Tooltip (en="Date and time when record was audited")
+            @t24:i (align=L, inputBehaviour=E, maxLength=15, sysNumber=13.0, core=true, t24Name=AUDIT.DATE.TIME, mask="RDD DD  DD ##:##", mandatory=false)
+        AUTHORISER : T24BusinessTypes:A
+            @i18n:Label (en=Authoriser)
+            @i18n:Tooltip (en="Indicates the User who Authorises the record")
+            @t24:i (align=L, inputBehaviour=N, maxLength=100, sysNumber=9.0, core=true, t24Name=AUTHORISER, mandatory=false)
+        /* This field contains unique reference to EB.TAABS.EXCLUDE.TXNS record and should be a valid record in EB.TAABS.CAPTURE.TXNS. */
+        CAP_TXN -> EB_ProductConfig:EB_TAABS_EXCLUDE_TXNS PK required
+            @t24:i (align=L, inputBehaviour=I, maxLength=110, sysNumber=0.0, core=true, businessType=A, t24Name=CAP.TXN, mandatory=true)
+        CO_CODE -> ST_CompanyCreation:COMPANY
+            @i18n:Label (en=Company)
+            @t24:i (align=L, inputBehaviour=N, maxLength=11, sysNumber=10.0, core=true, businessType=A, t24Name=CO.CODE, mask="R##-###-####", mandatory=false)
+        CURR_NO : T24BusinessTypes:N
+            @i18n:Label (en="Curr No")
+            @t24:i (align=R, inputBehaviour=N, maxLength=6, sysNumber=6.0, core=true, t24Name=CURR.NO, mandatory=false)
+        DATE_TIME -> byValue EB_ProductConfig:EB_TAABS_EXCLUDE_TXNS__DATE_TIME *
+            @t24:i (t24Name=DATE.TIME)
+        DEPT_CODE -> ST_Config:DEPT_ACCT_OFFICER
+            @i18n:Label (en="Dept Code")
+            @t24:i (align=R, inputBehaviour=N, maxLength=6, sysNumber=11.0, core=true, t24Name=DEPT.CODE, mandatory=false)
+        /* This field indicates if the associated EB.TAABS.CAPTURE.TXNS record need to be excluded or included for release in the target system. */
+        EXCLUDE_TXN : EB_ProductConfig:EB_TAABS_EXCLUDE_TXNS__EXCLUDE_TXN
+            @i18n:Label (en="Exclude Txn")
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber=1.0, core=true, t24Name=EXCLUDE.TXN, mandatory=false)
+        INPUTTER -> byValue EB_ProductConfig:EB_TAABS_EXCLUDE_TXNS__INPUTTER *
+            @t24:i (t24Name=INPUTTER)
+        OVERRIDE -> byValue EB_ProductConfig:EB_TAABS_EXCLUDE_TXNS__OVERRIDE *
+            @t24:i (t24Name=OVERRIDE)
+        /* This field indicates the reason associated for tagging the record for exclusion or inclusion. */
+        REASON_FOR_EXCL : T24BusinessTypes:TEXT
+            @t24:i (align=L, inputBehaviour=I, maxLength=60, sysNumber=2.0, core=true, t24Name=REASON.FOR.EXCL, mandatory=false)
+        RECORD_STATUS : T24BusinessTypes:STAT
+            @i18n:Label (en="Record Status")
+            @t24:i (align=L, inputBehaviour=N, maxLength=6, sysNumber=5.0, core=true, t24Name=RECORD.STATUS, mandatory=false)
+    }
+    EB_TAABS_EXCLUDE_TXNS__DATE_TIME
+    {
+        DATE_TIME : T24BusinessTypes:RELTIME
+            @i18n:Label (en="Date time")
+            @i18n:Tooltip (en="Date and time when record was input or authorised")
+            @t24:i (align=L, inputBehaviour=N, maxLength=15, sysNumber=8.0, core=true, t24Name=DATE.TIME, mask="RDD DD  DD ##:##", mandatory=false)
+    }
+    EB_TAABS_EXCLUDE_TXNS__INPUTTER
+    {
+        INPUTTER : T24BusinessTypes:A
+            @i18n:Label (en=Inputter)
+            @i18n:Tooltip (en="The user who last updated the record")
+            @t24:i (align=L, inputBehaviour=N, maxLength=100, sysNumber=7.0, core=true, t24Name=INPUTTER, mandatory=false)
+    }
+    EB_TAABS_EXCLUDE_TXNS__OVERRIDE
+    {
+        OVERRIDE : T24BusinessTypes:N
+            @i18n:Label (en=Override)
+            @i18n:Tooltip (en="Overrides generated by this transaction")
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=4.0, core=true, t24Name=OVERRIDE, mandatory=false)
+    }
+    EB_TAABS_PACKAGE
+        @i18n:Description (en="")
+        @t24:i (t24Name=EB.TAABS.PACKAGE, level=I, type=L, allowedFunctions="L P S", localRefAllowed=false)
+    {
+        APPL_VERSION -> byValue EB_ProductConfig:EB_TAABS_PACKAGE__APPL_VERSION *
+            @t24:i (t24Name=APPL.VERSION)
+/* This field contains unique reference to EB.TAABS.PACKAGE record.
+The value consists of two components that are separated by '-'.
+The first component is a valid EB.TAABS.PACKAGE.DETAILS reference and the second component is a sequence number that can be a maximum of four digits. */
+        ID -> EB_ProductConfig:EB_TAABS_PACKAGE PK required
+            @i18n:Label (en="Transaction Ref")
+            @i18n:Tooltip (en="Transaction Reference")
+            @t24:i (align=L, inputBehaviour=I, maxLength=70, sysNumber=0.0, core=true, businessType=A, t24Name="@ID", mandatory=true)
+        /* This field indicates a 'Y' if it has already been included into a package. */
+        PACKAGED_IND : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=0, sysNumber=14.0, core=true, t24Name=PACKAGED.IND, mandatory=false)
+        /* This field indicates the date on which all the associated events captured in this record has been released into the target system. */
+        RELEASE_DATE : T24BusinessTypes:A
+            @i18n:Label (en="Release Date")
+            @t24:i (align=L, inputBehaviour=I, maxLength=8, sysNumber=15.0, core=true, t24Name=RELEASE.DATE, mandatory=false)
+    }
+    EB_TAABS_PACKAGE_DETAILS
+        @i18n:Description (en="")
+        @t24:i (t24Name=EB.TAABS.PACKAGE.DETAILS, level=I, type=H, additionalInfo=NOH, allowedFunctions="A C D E H I L P Q R S", localRefAllowed=false)
+    {
+        /* Specifies whether this package has been Audited and SignedOff or not. If the field is set to 'Yes' then it means it has been Audited and SignedOff */
+        AUDITED : EB_ProductConfig:EB_TAABS_PACKAGE_DETAILS__AUDITED
+            @t24:i (align=L, inputBehaviour=I, maxLength=3, sysNumber=9.0, core=true, t24Name=AUDITED, mandatory=false)
+        AUDITOR_CODE : T24BusinessTypes:A
+            @i18n:Label (en="Auditor Code")
+            @i18n:Tooltip (en="Auditor Code")
+            @t24:i (align=L, inputBehaviour=E, maxLength=16, sysNumber=22.0, core=true, t24Name=AUDITOR.CODE, mandatory=false)
+        AUDIT_DATE_TIME : T24BusinessTypes:RELTIME
+            @i18n:Label (en="Audit Date Time")
+            @i18n:Tooltip (en="Date and time when record was audited")
+            @t24:i (align=L, inputBehaviour=E, maxLength=15, sysNumber=23.0, core=true, t24Name=AUDIT.DATE.TIME, mask="RDD DD  DD ##:##", mandatory=false)
+        /* This field is used to record the detailed information during the Audit and SignOff process for this package. */
+        AUDIT_NOTES_DETAIL : T24BusinessTypes:TEXT
+            @t24:i (align=L, inputBehaviour=I, maxLength=65, sysNumber=8.0, core=true, t24Name=AUDIT.NOTES.DETAIL, mandatory=false)
+        /* Noinput field that stores the list of last 10 packages that were associated with this USER or EB.USER.ROLES record. */
+        AUDIT_SHORT_NOTE : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=65, sysNumber=7.0, core=true, t24Name=AUDIT.SHORT.NOTE, mandatory=false)
+        AUTHORISER : T24BusinessTypes:A
+            @i18n:Label (en=Authoriser)
+            @i18n:Tooltip (en="Indicates the User who Authorises the record")
+            @t24:i (align=L, inputBehaviour=N, maxLength=100, sysNumber=19.0, core=true, t24Name=AUTHORISER, mandatory=false)
+        CO_CODE -> ST_CompanyCreation:COMPANY
+            @i18n:Label (en=Company)
+            @t24:i (align=L, inputBehaviour=N, maxLength=11, sysNumber=20.0, core=true, businessType=A, t24Name=CO.CODE, mask="R##-###-####", mandatory=false)
+        CURR_NO : T24BusinessTypes:N
+            @i18n:Label (en="Curr No")
+            @t24:i (align=R, inputBehaviour=N, maxLength=6, sysNumber=16.0, core=true, t24Name=CURR.NO, mandatory=false)
+        DATE_TIME -> byValue EB_ProductConfig:EB_TAABS_PACKAGE_DETAILS__DATE_TIME *
+            @t24:i (t24Name=DATE.TIME)
+        DEPT_CODE -> ST_Config:DEPT_ACCT_OFFICER
+            @i18n:Label (en="Dept Code")
+            @t24:i (align=R, inputBehaviour=N, maxLength=6, sysNumber=21.0, core=true, t24Name=DEPT.CODE, mandatory=false)
+        DESCRIPTION -> byValue EB_ProductConfig:EB_TAABS_PACKAGE_DETAILS__DESCRIPTION *
+            @t24:i (t24Name=DESCRIPTION)
+        DETAIL_INFO -> byValue EB_ProductConfig:EB_TAABS_PACKAGE_DETAILS__DETAIL_INFO *
+            @t24:i (t24Name=DETAIL.INFO)
+        INPUTTER -> byValue EB_ProductConfig:EB_TAABS_PACKAGE_DETAILS__INPUTTER *
+            @t24:i (t24Name=INPUTTER)
+        /* This field indicates the total number of transactions that has been marked for exclusion. The transactions marked for exclusion will not be released to the target environment. */
+        NO_OF_EXCLUSIONS : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=5, sysNumber=6.0, core=true, t24Name=NO.OF.EXCLUSIONS, mandatory=false)
+        /* This field indicates the total number of events captured under this package. The details of the events will be available in EB.TAABS.PACKAGE records */
+        NO_OF_RECORDS : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=5, sysNumber=5.0, core=true, t24Name=NO.OF.RECORDS, mandatory=false)
+/* This field contains unique reference to EB.TAABS.PACKAGE.DETAILS Application.
+It could be any alphanumeric String of length upto 35 characters. */
+        PACKAGE_NAME -> EB_ProductConfig:EB_TAABS_PACKAGE_DETAILS PK required
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber=0.0, core=true, businessType=A, t24Name=PACKAGE.NAME, mandatory=true)
+        RECORD_STATUS : T24BusinessTypes:STAT
+            @i18n:Label (en="Record Status")
+            @t24:i (align=L, inputBehaviour=N, maxLength=6, sysNumber=15.0, core=true, t24Name=RECORD.STATUS, mandatory=false)
+        RESERVED_1 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=14.0, core=true, t24Name=RESERVED.1, mandatory=false)
+        RESERVED_2 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=13.0, core=true, t24Name=RESERVED.2, mandatory=false)
+        RESERVED_3 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=12.0, core=true, t24Name=RESERVED.3, mandatory=false)
+        RESERVED_4 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=11.0, core=true, t24Name=RESERVED.4, mandatory=false)
+        RESERVED_5 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=10.0, core=true, t24Name=RESERVED.5, mandatory=false)
+        ROLES -> byValue EB_ProductConfig:EB_TAABS_PACKAGE_DETAILS__ROLES *
+            @t24:i (t24Name=ROLES)
+        USERS -> byValue EB_ProductConfig:EB_TAABS_PACKAGE_DETAILS__USERS *
+            @t24:i (t24Name=USERS)
+    }
+    EB_TAABS_PACKAGE_DETAILS__DATE_TIME
+    {
+        DATE_TIME : T24BusinessTypes:RELTIME
+            @i18n:Label (en="Date time")
+            @i18n:Tooltip (en="Date and time when record was input or authorised")
+            @t24:i (align=L, inputBehaviour=N, maxLength=15, sysNumber=18.0, core=true, t24Name=DATE.TIME, mask="RDD DD  DD ##:##", mandatory=false)
+    }
+    EB_TAABS_PACKAGE_DETAILS__DESCRIPTION
+    {
+        /* This field is used to briefly describe EB.TAABS.USER.PACKAGES and is used for enrichment of the TAABS package. */
+        DESCRIPTION : T24BusinessTypes:A required
+            @i18n:Label (en=Description)
+            @i18n:Tooltip (en=Description)
+            @t24:i (align=L, inputBehaviour=I, maxLength=65, multiLanguage=true, sysNumber=1.0, core=true, t24Name=DESCRIPTION, mandatory=true)
+    }
+    EB_TAABS_PACKAGE_DETAILS__DETAIL_INFO
+    {
+        /* Text type field used to capture detailed information about the TAABS package */
+        DETAIL_INFO : T24BusinessTypes:TEXT
+            @t24:i (align=L, inputBehaviour=I, maxLength=65, sysNumber=2.0, core=true, t24Name=DETAIL.INFO, mandatory=false)
+    }
+    EB_TAABS_PACKAGE_DETAILS__INPUTTER
+    {
+        INPUTTER : T24BusinessTypes:A
+            @i18n:Label (en=Inputter)
+            @i18n:Tooltip (en="The user who last updated the record")
+            @t24:i (align=L, inputBehaviour=N, maxLength=100, sysNumber=17.0, core=true, t24Name=INPUTTER, mandatory=false)
+    }
+    EB_TAABS_PACKAGE_DETAILS__ROLES
+    {
+        /* This field indicates the EB.USER.ROLES who have been defined to contribute to this package through EB.TAABS.USER.PACKAGE record */
+        ROLES : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=35, sysNumber=4.0, core=true, t24Name=ROLES, mandatory=false)
+    }
+    EB_TAABS_PACKAGE_DETAILS__USERS
+    {
+        /* This field indicates the USERs who have been defined to contribute to this package through EB.TAABS.USER.PACKAGE record */
+        USERS : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=16, sysNumber=3.0, core=true, t24Name=USERS, mandatory=false)
+    }
+    EB_TAABS_PACKAGE__APPL_VERSION
+    {
+        /* This field indicates the VERSION used in the associated event captured in MSG.CAPTURED field. */
+        APPL_VERSION : T24BusinessTypes:A
+            @i18n:Label (en=Application)
+            @i18n:Tooltip (en="Holds the T24 application version ID")
+            @t24:i (align=L, inputBehaviour=I, maxLength=54, sysNumber=1.0, core=true, t24Name=APPL.VERSION, mandatory=false)
+        COMMENTS -> byValue EB_ProductConfig:EB_TAABS_PACKAGE__APPL_VERSION__COMMENTS *
+            @t24:i (t24Name=COMMENTS)
+        /* This field indicates whether the associated event captured in MSG.CAPTURED field needs to be excluded during the release of captured data into the target system. */
+        EXCL_FOR_RELEASE : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=3, sysNumber=13.0, core=true, t24Name=EXCL.FOR.RELEASE, mandatory=false)
+        /* This field indicates the FUNCTION used in the associated event captured in MSG.CAPTURED field. */
+        FUNCTION : T24BusinessTypes:A
+            @i18n:Label (en="Function Allowed")
+            @t24:i (align=L, inputBehaviour=I, maxLength=1, sysNumber=2.0, core=true, t24Name=FUNCTION, mandatory=false)
+        /* The field indicates the OFS string of the transaction event being captured. */
+        MSG_CAPTURED : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=300, sysNumber=6.0, core=true, t24Name=MSG.CAPTURED, mandatory=false)
+/* This field indicates the success or failure of the OFS string associated when released in the target system.
+In case of failure it would hold the failure reason and in case of success it would be stored as "SUCCESS". */
+        MSG_RESPONSE : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=300, sysNumber=7.0, core=true, t24Name=MSG.RESPONSE, mandatory=false)
+        /* Reserved for future use. */
+        RESERVED_1 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=12.0, core=true, t24Name=RESERVED.1, mandatory=false)
+        /* Reserved for future use. */
+        RESERVED_2 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=11.0, core=true, t24Name=RESERVED.2, mandatory=false)
+        /* Reserved for future use. */
+        RESERVED_3 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=10.0, core=true, t24Name=RESERVED.3, mandatory=false)
+        /* Reserved for future use. */
+        RESERVED_4 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=9.0, core=true, t24Name=RESERVED.4, mandatory=false)
+        /* This field indicates the Transaction reference of the associated event captured in MSG.CAPTURED field. */
+        TXN_ID : T24BusinessTypes:A
+            @i18n:Label (en="Transaction Ref")
+            @t24:i (align=L, inputBehaviour=I, maxLength=30, sysNumber=3.0, core=true, t24Name=TXN.ID, mandatory=false)
+        /* This field indicates the USER who is involved in the associated event captured in MSG.CAPTURED field. */
+        USER : T24BusinessTypes:A
+            @i18n:Label (en=User)
+            @i18n:Tooltip (en="Indicates teller id")
+            @t24:i (align=L, inputBehaviour=I, maxLength=30, sysNumber=4.0, core=true, t24Name=USER, mandatory=false)
+/* This field indicates the EB.USER.ROLE of the USER who is involved in the associated event captured in MSG.CAPTURED field.
+The USER.ROLE is updated only if the package was captured due to the EB.USER.ROLE definition in EB.TAABS.USER.PACKAGES. */
+        USER_ROLE : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber=5.0, core=true, t24Name=USER.ROLE, mandatory=false)
+    }
+    EB_TAABS_PACKAGE__APPL_VERSION__COMMENTS
+    {
+        COMMENTS : T24BusinessTypes:A
+            @i18n:Label (en=Comments)
+            @i18n:Tooltip (en="Comments if any")
+            @t24:i (align=L, inputBehaviour=I, maxLength=300, sysNumber=8.0, core=true, t24Name=COMMENTS, isTextarea=true, mandatory=false)
+    }
+    EB_TAABS_PACK_DETAILS
+        @i18n:Description (en="")
+        @t24:i (t24Name=EB.TAABS.PACK.DETAILS, level=I, type=L, allowedFunctions="L P S", localRefAllowed=false)
+    {
+        ID -> EB_ProductConfig:EB_TAABS_PACK_DETAILS PK required
+            @i18n:Label (en="Transaction Ref")
+            @i18n:Tooltip (en="Transaction Reference")
+            @t24:i (align=L, inputBehaviour=I, maxLength=110, sysNumber=0.0, core=true, businessType=A, t24Name="@ID", mandatory=true)
+        TXNS_ID : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=50, sysNumber=1.0, core=true, t24Name=TXNS.ID, mandatory=false)
+    }
+    EB_TAABS_PARAMETER
+        @i18n:Description (en="")
+        @t24:i (t24Name=EB.TAABS.PARAMETER, level=I, type=H, additionalInfo=NOH, allowedFunctions="A C D E H I L P Q R S", localRefApplicationSysNo=19.0, localRefAllowed=true)
+    {
+        AUDITOR_CODE : T24BusinessTypes:A
+            @i18n:Label (en="Auditor Code")
+            @i18n:Tooltip (en="Auditor Code")
+            @t24:i (align=L, inputBehaviour=E, maxLength=16, sysNumber=28.0, core=true, t24Name=AUDITOR.CODE, mandatory=false)
+        AUDIT_DATE_TIME : T24BusinessTypes:RELTIME
+            @i18n:Label (en="Audit Date Time")
+            @i18n:Tooltip (en="Date and time when record was audited")
+            @t24:i (align=L, inputBehaviour=E, maxLength=15, sysNumber=29.0, core=true, t24Name=AUDIT.DATE.TIME, mask="RDD DD  DD ##:##", mandatory=false)
+        AUTHORISER : T24BusinessTypes:A
+            @i18n:Label (en=Authoriser)
+            @i18n:Tooltip (en="Indicates the User who Authorises the record")
+            @t24:i (align=L, inputBehaviour=N, maxLength=100, sysNumber=25.0, core=true, t24Name=AUTHORISER, mandatory=false)
+/* This field contains reference to EB.API application.
+The BASIC routine defined here would get the contents of the data captured in the transaction as input argument and could amend its contents so that the modified OFS String is updated inTAABS.MESSAGE.QUEUE. */
+        CAPTURE_RTN -> EB_SystemTables:EB_API
+            @t24:i (align=L, inputBehaviour=I, maxLength=36, sysNumber=6.0, core=true, businessType=A, t24Name=CAPTURE.RTN, mandatory=false)
+        CO_CODE -> ST_CompanyCreation:COMPANY
+            @i18n:Label (en=Company)
+            @t24:i (align=L, inputBehaviour=N, maxLength=11, sysNumber=26.0, core=true, businessType=A, t24Name=CO.CODE, mask="R##-###-####", mandatory=false)
+        CURR_NO : T24BusinessTypes:N
+            @i18n:Label (en="Curr No")
+            @t24:i (align=R, inputBehaviour=N, maxLength=6, sysNumber=22.0, core=true, t24Name=CURR.NO, mandatory=false)
+        DATE_TIME -> byValue EB_ProductConfig:EB_TAABS_PARAMETER__DATE_TIME *
+            @t24:i (t24Name=DATE.TIME)
+        DEPT_CODE -> ST_Config:DEPT_ACCT_OFFICER
+            @i18n:Label (en="Dept Code")
+            @t24:i (align=R, inputBehaviour=N, maxLength=6, sysNumber=27.0, core=true, t24Name=DEPT.CODE, mandatory=false)
+        /* This field contains unique reference to the EB.TAABS.PARAMETER record. This field should contain one single record called SYSTEM */
+        ID : EB_ProductConfig:EB_TAABS_PARAMETER__ID PK required
+            @i18n:Label (en="Transaction Ref")
+            @i18n:Tooltip (en="Transaction Reference")
+            @t24:i (align=L, inputBehaviour=I, maxLength=6, sysNumber=0.0, core=true, t24Name="@ID", mandatory=true)
+        IGNORE_APP -> byValue EB_ProductConfig:EB_TAABS_PARAMETER__IGNORE_APP *
+            @t24:i (t24Name=IGNORE.APP)
+        IGNORE_USER -> byValue EB_ProductConfig:EB_TAABS_PARAMETER__IGNORE_USER *
+            @t24:i (t24Name=IGNORE.USER)
+        IGNORE_VERSION -> byValue EB_ProductConfig:EB_TAABS_PARAMETER__IGNORE_VERSION *
+            @t24:i (t24Name=IGNORE.VERSION)
+        INCLUDE_SERVICE -> byValue EB_ProductConfig:EB_TAABS_PARAMETER__INCLUDE_SERVICE *
+            @t24:i (t24Name=INCLUDE.SERVICE)
+        INPUTTER -> byValue EB_ProductConfig:EB_TAABS_PARAMETER__INPUTTER *
+            @t24:i (t24Name=INPUTTER)
+        /* This field contains the maximum number of OFS Strings that could be accommodated in a single TAABS.PACKAGE record. The default value is 50 and 50 is the maximum value permitted as well. */
+        MAX_RECORD_PACK : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=I, maxLength=4, sysNumber=7.0, core=true, t24Name=MAX.RECORD.PACK, mandatory=false)
+/* Defines the TAABS operation mode.
+Allowed Values - "CAPTURE", "PACKAGE", "RELEASE" */
+        OP_MODE : EB_ProductConfig:EB_TAABS_PARAMETER__OP_MODE
+            @t24:i (align=L, inputBehaviour=I, maxLength=7, sysNumber=1.0, core=true, t24Name=OP.MODE, mandatory=false)
+        OVERRIDE -> byValue EB_ProductConfig:EB_TAABS_PARAMETER__OVERRIDE *
+            @t24:i (t24Name=OVERRIDE)
+        RECORD_STATUS : T24BusinessTypes:STAT
+            @i18n:Label (en="Record Status")
+            @t24:i (align=L, inputBehaviour=N, maxLength=6, sysNumber=21.0, core=true, t24Name=RECORD.STATUS, mandatory=false)
+        /* This field contains reference to USER application. During the release of TAABS data this user if defined would supersede the actual USER captured in the OFS string. */
+        REL_USER -> EB_Security:USER
+            @t24:i (align=L, inputBehaviour=I, maxLength=16, sysNumber=8.0, core=true, businessType=A, t24Name=REL.USER, mandatory=false)
+        RESERVED_1 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=18.0, core=true, t24Name=RESERVED.1, mandatory=false)
+        RESERVED_2 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=17.0, core=true, t24Name=RESERVED.2, mandatory=false)
+        RESERVED_3 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=16.0, core=true, t24Name=RESERVED.3, mandatory=false)
+        RESERVED_4 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=15.0, core=true, t24Name=RESERVED.4, mandatory=false)
+        RESERVED_5 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=14.0, core=true, t24Name=RESERVED.5, mandatory=false)
+        RESERVED_6 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=13.0, core=true, t24Name=RESERVED.6, mandatory=false)
+        RESERVED_7 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=12.0, core=true, t24Name=RESERVED.7, mandatory=false)
+        RESERVED_8 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=11.0, core=true, t24Name=RESERVED.8, mandatory=false)
+        SINGLE_PACKAGE : EB_ProductConfig:EB_TAABS_PARAMETER__SINGLE_PACKAGE
+            @t24:i (align=L, inputBehaviour=I, maxLength=3, sysNumber=9.0, core=true, t24Name=SINGLE.PACKAGE, mandatory=false)
+        SINGLE_PACK_NAME : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=16, sysNumber=10.0, core=true, t24Name=SINGLE.PACK.NAME, mandatory=false)
+    }
+    EB_TAABS_PARAMETER__DATE_TIME
+    {
+        DATE_TIME : T24BusinessTypes:RELTIME
+            @i18n:Label (en="Date time")
+            @i18n:Tooltip (en="Date and time when record was input or authorised")
+            @t24:i (align=L, inputBehaviour=N, maxLength=15, sysNumber=24.0, core=true, t24Name=DATE.TIME, mask="RDD DD  DD ##:##", mandatory=false)
+    }
+    EB_TAABS_PARAMETER__IGNORE_APP
+    {
+        /* This field is used to indicate the applications that would be ignored by the TAABS capture mechanism. */
+        IGNORE_APP -> EB_SystemTables:PGM_FILE
+            @t24:i (align=L, inputBehaviour=I, maxLength=40, sysNumber=2.0, core=true, businessType=A, t24Name=IGNORE.APP, mandatory=false)
+    }
+    EB_TAABS_PARAMETER__IGNORE_USER
+    {
+        /* This field is used to indicate USERS that would be ignored by the TAABS capture mechanism. */
+        IGNORE_USER -> EB_Security:USER
+            @t24:i (align=L, inputBehaviour=I, maxLength=16, sysNumber=4.0, core=true, businessType=A, t24Name=IGNORE.USER, mandatory=false)
+    }
+    EB_TAABS_PARAMETER__IGNORE_VERSION
+    {
+        /* This field is used to indicate the application VERSIONs that would be ignored by the TAABS capture mechanism. */
+        IGNORE_VERSION -> EB_Versions:VERSION
+            @t24:i (align=L, inputBehaviour=I, maxLength=54, sysNumber=3.0, core=true, businessType=A, t24Name=IGNORE.VERSION, mandatory=false)
+    }
+    EB_TAABS_PARAMETER__INCLUDE_SERVICE
+    {
+/* This field is used to indicate TSA.SERVICE which needs to included during TAABS capture mechanism.
+Any data record created through this service would be captured unless they are specifically defined to be ignored. */
+        INCLUDE_SERVICE -> EB_Service:TSA_SERVICE
+            @t24:i (align=L, inputBehaviour=I, maxLength=50, sysNumber=5.0, core=true, businessType=A, t24Name=INCLUDE.SERVICE, mandatory=false)
+    }
+    EB_TAABS_PARAMETER__INPUTTER
+    {
+        INPUTTER : T24BusinessTypes:A
+            @i18n:Label (en=Inputter)
+            @i18n:Tooltip (en="The user who last updated the record")
+            @t24:i (align=L, inputBehaviour=N, maxLength=100, sysNumber=23.0, core=true, t24Name=INPUTTER, mandatory=false)
+    }
+    EB_TAABS_PARAMETER__OVERRIDE
+    {
+        OVERRIDE : T24BusinessTypes:N
+            @i18n:Label (en=Override)
+            @i18n:Tooltip (en="Overrides generated by this transaction")
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=20.0, core=true, t24Name=OVERRIDE, mandatory=false)
+    }
+    EB_TAABS_SIGNOFF_USER
+        @i18n:Description (en="")
+        @t24:i (t24Name=EB.TAABS.SIGNOFF.USER, nonStop=true, level=I, type=H, additionalInfo=NOH, allowedFunctions="A C D E H I L P Q S", localRefApplicationSysNo=2.0, localRefAllowed=true)
+    {
+        AUDITOR_CODE : T24BusinessTypes:A
+            @i18n:Label (en="Auditor Code")
+            @i18n:Tooltip (en="Auditor Code")
+            @t24:i (align=L, inputBehaviour=E, maxLength=16, sysNumber=11.0, core=true, t24Name=AUDITOR.CODE, mandatory=false)
+        AUDIT_DATE_TIME : T24BusinessTypes:RELTIME
+            @i18n:Label (en="Audit Date Time")
+            @i18n:Tooltip (en="Date and time when record was audited")
+            @t24:i (align=L, inputBehaviour=E, maxLength=15, sysNumber=12.0, core=true, t24Name=AUDIT.DATE.TIME, mask="RDD DD  DD ##:##", mandatory=false)
+        AUTHORISER : T24BusinessTypes:A
+            @i18n:Label (en=Authoriser)
+            @i18n:Tooltip (en="Indicates the User who Authorises the record")
+            @t24:i (align=L, inputBehaviour=N, maxLength=100, sysNumber=8.0, core=true, t24Name=AUTHORISER, mandatory=false)
+        CO_CODE -> ST_CompanyCreation:COMPANY
+            @i18n:Label (en=Company)
+            @t24:i (align=L, inputBehaviour=N, maxLength=11, sysNumber=9.0, core=true, businessType=A, t24Name=CO.CODE, mask="R##-###-####", mandatory=false)
+        CURR_NO : T24BusinessTypes:N
+            @i18n:Label (en="Curr No")
+            @t24:i (align=R, inputBehaviour=N, maxLength=6, sysNumber=5.0, core=true, t24Name=CURR.NO, mandatory=false)
+        DATE_TIME -> byValue EB_ProductConfig:EB_TAABS_SIGNOFF_USER__DATE_TIME *
+            @t24:i (t24Name=DATE.TIME)
+        DEPT_CODE -> ST_Config:DEPT_ACCT_OFFICER
+            @i18n:Label (en="Dept Code")
+            @t24:i (align=R, inputBehaviour=N, maxLength=6, sysNumber=10.0, core=true, t24Name=DEPT.CODE, mandatory=false)
+        INPUTTER -> byValue EB_ProductConfig:EB_TAABS_SIGNOFF_USER__INPUTTER *
+            @t24:i (t24Name=INPUTTER)
+        OVERRIDE -> byValue EB_ProductConfig:EB_TAABS_SIGNOFF_USER__OVERRIDE *
+            @t24:i (t24Name=OVERRIDE)
+        PACKAGE_NAME -> byValue EB_ProductConfig:EB_TAABS_SIGNOFF_USER__PACKAGE_NAME *
+            @t24:i (t24Name=PACKAGE.NAME)
+        RECORD_STATUS : T24BusinessTypes:STAT
+            @i18n:Label (en="Record Status")
+            @t24:i (align=L, inputBehaviour=N, maxLength=6, sysNumber=4.0, core=true, t24Name=RECORD.STATUS, mandatory=false)
+        /* This field contains unique reference to EB.TAABS.SIGNOFF.USER record. It needs to be a valid USER record. */
+        USER -> EB_ProductConfig:EB_TAABS_SIGNOFF_USER PK required
+            @i18n:Label (en=User)
+            @i18n:Tooltip (en="Indicates teller id")
+            @t24:i (align=L, inputBehaviour=I, maxLength=16, sysNumber=0.0, core=true, businessType=A, t24Name=USER, mandatory=true)
+    }
+    EB_TAABS_SIGNOFF_USER__DATE_TIME
+    {
+        DATE_TIME : T24BusinessTypes:RELTIME
+            @i18n:Label (en="Date time")
+            @i18n:Tooltip (en="Date and time when record was input or authorised")
+            @t24:i (align=L, inputBehaviour=N, maxLength=15, sysNumber=7.0, core=true, t24Name=DATE.TIME, mask="RDD DD  DD ##:##", mandatory=false)
+    }
+    EB_TAABS_SIGNOFF_USER__INPUTTER
+    {
+        INPUTTER : T24BusinessTypes:A
+            @i18n:Label (en=Inputter)
+            @i18n:Tooltip (en="The user who last updated the record")
+            @t24:i (align=L, inputBehaviour=N, maxLength=100, sysNumber=6.0, core=true, t24Name=INPUTTER, mandatory=false)
+    }
+    EB_TAABS_SIGNOFF_USER__OVERRIDE
+    {
+        OVERRIDE : T24BusinessTypes:N
+            @i18n:Label (en=Override)
+            @i18n:Tooltip (en="Overrides generated by this transaction")
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=3.0, core=true, t24Name=OVERRIDE, mandatory=false)
+    }
+    EB_TAABS_SIGNOFF_USER__PACKAGE_NAME
+    {
+/* This field contains reference to EB.TAABS.PACKAGE.DETAILS application.
+It indicates the packages that can be Audited and SignOff by this USER record. */
+        PACKAGE_NAME -> EB_ProductConfig:EB_TAABS_PACKAGE_DETAILS required
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber=1.0, core=true, businessType=A, t24Name=PACKAGE.NAME, mandatory=true)
+    }
+    EB_TAABS_UNIQUE_DETS
+        @i18n:Description (en="")
+        @t24:i (t24Name=EB.TAABS.UNIQUE.DETS, level=I, type=L, allowedFunctions="L P S", localRefAllowed=false)
+    {
+        ID -> EB_ProductConfig:EB_TAABS_UNIQUE_DETS PK required
+            @i18n:Label (en="Transaction Ref")
+            @i18n:Tooltip (en="Transaction Reference")
+            @t24:i (align=L, inputBehaviour=I, maxLength=110, sysNumber=0.0, core=true, businessType=A, t24Name="@ID", mandatory=true)
+        UNIQUE_REF_ID -> byValue EB_ProductConfig:EB_TAABS_UNIQUE_DETS__UNIQUE_REF_ID *
+            @t24:i (t24Name=UNIQUE.REF.ID)
+    }
+    EB_TAABS_UNIQUE_DETS__UNIQUE_REF_ID
+    {
+        UNIQUE_REF_ID : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=50, sysNumber=1.0, core=true, t24Name=UNIQUE.REF.ID, mandatory=false)
+    }
+    EB_TAABS_USER_PACKAGES
+        @i18n:Description (en="")
+        @t24:i (t24Name=EB.TAABS.USER.PACKAGES, level=I, type=H, additionalInfo=NOH, allowedFunctions="A C D E H I L P Q R S", localRefAllowed=false)
+    {
+        AUDITOR_CODE : T24BusinessTypes:A
+            @i18n:Label (en="Auditor Code")
+            @i18n:Tooltip (en="Auditor Code")
+            @t24:i (align=L, inputBehaviour=E, maxLength=16, sysNumber=15.0, core=true, t24Name=AUDITOR.CODE, mandatory=false)
+        AUDIT_DATE_TIME : T24BusinessTypes:RELTIME
+            @i18n:Label (en="Audit Date Time")
+            @i18n:Tooltip (en="Date and time when record was audited")
+            @t24:i (align=L, inputBehaviour=E, maxLength=15, sysNumber=16.0, core=true, t24Name=AUDIT.DATE.TIME, mask="RDD DD  DD ##:##", mandatory=false)
+        AUTHORISER : T24BusinessTypes:A
+            @i18n:Label (en=Authoriser)
+            @i18n:Tooltip (en="Indicates the User who Authorises the record")
+            @t24:i (align=L, inputBehaviour=N, maxLength=100, sysNumber=12.0, core=true, t24Name=AUTHORISER, mandatory=false)
+        CO_CODE -> ST_CompanyCreation:COMPANY
+            @i18n:Label (en=Company)
+            @t24:i (align=L, inputBehaviour=N, maxLength=11, sysNumber=13.0, core=true, businessType=A, t24Name=CO.CODE, mask="R##-###-####", mandatory=false)
+        CURR_NO : T24BusinessTypes:N
+            @i18n:Label (en="Curr No")
+            @t24:i (align=R, inputBehaviour=N, maxLength=6, sysNumber=9.0, core=true, t24Name=CURR.NO, mandatory=false)
+        DATE_TIME -> byValue EB_ProductConfig:EB_TAABS_USER_PACKAGES__DATE_TIME *
+            @t24:i (t24Name=DATE.TIME)
+        DEPT_CODE -> ST_Config:DEPT_ACCT_OFFICER
+            @i18n:Label (en="Dept Code")
+            @t24:i (align=R, inputBehaviour=N, maxLength=6, sysNumber=14.0, core=true, t24Name=DEPT.CODE, mandatory=false)
+        INPUTTER -> byValue EB_ProductConfig:EB_TAABS_USER_PACKAGES__INPUTTER *
+            @t24:i (t24Name=INPUTTER)
+        PACKAGE_HISTORY -> byValue EB_ProductConfig:EB_TAABS_USER_PACKAGES__PACKAGE_HISTORY *
+            @t24:i (t24Name=PACKAGE.HISTORY)
+/* This field contains reference to EB.TAABS.PACKAGE.DETAILS application.
+It indicates the packages that are associated with this USER or EB.USER.ROLES record. */
+        PACKAGE_NAME -> EB_ProductConfig:EB_TAABS_PACKAGE_DETAILS required
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber=1.0, core=true, businessType=A, t24Name=PACKAGE.NAME, mandatory=true)
+        RECORD_STATUS : T24BusinessTypes:STAT
+            @i18n:Label (en="Record Status")
+            @t24:i (align=L, inputBehaviour=N, maxLength=6, sysNumber=8.0, core=true, t24Name=RECORD.STATUS, mandatory=false)
+        RESERVED_1 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=7.0, core=true, t24Name=RESERVED.1, mandatory=false)
+        RESERVED_2 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=6.0, core=true, t24Name=RESERVED.2, mandatory=false)
+        RESERVED_3 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=5.0, core=true, t24Name=RESERVED.3, mandatory=false)
+        RESERVED_4 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=4.0, core=true, t24Name=RESERVED.4, mandatory=false)
+        RESERVED_5 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=3.0, core=true, t24Name=RESERVED.5, mandatory=false)
+        /* This field contains unique reference to EB.TAABS.USER.PACKAGES record.  It needs to be a valid USER or EB.USER.ROLES record */
+        USER_ROLE_ID -> EB_ProductConfig:EB_TAABS_USER_PACKAGES PK required
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber=0.0, core=true, businessType=A, t24Name=USER.ROLE.ID, mandatory=true)
+    }
+    EB_TAABS_USER_PACKAGES__DATE_TIME
+    {
+        DATE_TIME : T24BusinessTypes:RELTIME
+            @i18n:Label (en="Date time")
+            @i18n:Tooltip (en="Date and time when record was input or authorised")
+            @t24:i (align=L, inputBehaviour=N, maxLength=15, sysNumber=11.0, core=true, t24Name=DATE.TIME, mask="RDD DD  DD ##:##", mandatory=false)
+    }
+    EB_TAABS_USER_PACKAGES__INPUTTER
+    {
+        INPUTTER : T24BusinessTypes:A
+            @i18n:Label (en=Inputter)
+            @i18n:Tooltip (en="The user who last updated the record")
+            @t24:i (align=L, inputBehaviour=N, maxLength=100, sysNumber=10.0, core=true, t24Name=INPUTTER, mandatory=false)
+    }
+    EB_TAABS_USER_PACKAGES__PACKAGE_HISTORY
+    {
+        /* Noinput field that stores the list of last 10 packages that were associated with this USER or EB.USER.ROLES record. */
+        PACKAGE_HISTORY : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=35, sysNumber=2.0, core=true, t24Name=PACKAGE.HISTORY, mandatory=false)
+    }
+}
+Enumerations {
+    EB_TAABS_EXCLUDE_TXNS__EXCLUDE_TXN : mml:string
+        NO=NO
+        YES=YES
+    EB_TAABS_PACKAGE_DETAILS__AUDITED : mml:string
+        NULL=NULL
+        YES=YES
+    EB_TAABS_PARAMETER__ID : mml:string
+        SYSTEM=SYSTEM
+    EB_TAABS_PARAMETER__OP_MODE : mml:string
+        CAPTURE=CAPTURE
+        PACKAGE=PACKAGE
+        RELEASE=RELEASE
+    EB_TAABS_PARAMETER__SINGLE_PACKAGE : mml:string
+        NULL=NULL
+        YES=YES
+}

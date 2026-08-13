@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localReferenceApplication:LocalReferenceApplication xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:localReferenceApplication="http://www.odcgroup.com/t24/application/localRefApplication/model/LocalReferenceApplication"
+    xmlns:translationDsl="http://www.odcgroup.com/translation/TranslationDsl" forApplication="name://EB_Security:USER#">
+  <localField groupName="No" localRefID="USER.CUSTOMER">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="USER.CUSTOMER"/>
+    </label>
+    <toolTip xsi:type="translationDsl:LocalTranslations"/>
+  </localField>
+  <localField groupName="NSF_DESK" localRefID="NSF.DESK">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="NSF.DESK"/>
+    </label>
+    <toolTip xsi:type="translationDsl:LocalTranslations"/>
+  </localField>
+  <localField groupName="NSF_GROUP" localRefID="NSF.GROUP">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="NSF.GROUP"/>
+    </label>
+    <toolTip xsi:type="translationDsl:LocalTranslations"/>
+  </localField>
+  <localField groupName="No" localRefID="TAX.ID">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="TAX.ID"/>
+    </label>
+    <toolTip xsi:type="translationDsl:LocalTranslations"/>
+  </localField>
+</localReferenceApplication:LocalReferenceApplication>

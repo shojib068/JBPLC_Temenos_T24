@@ -1,0 +1,36 @@
+# UTF-8
+Domain X_AA_PRD_DES_PERIODIC_CHARGES
+    @t24:LocalFields (localRefApplications=true)
+    @java:Package (value=localRefApplication.x_aa_prd_des_periodic_charges)
+namespace "http://www.odcgroup.com/X_AA_PRD_DES_PERIODIC_CHARGES"
+metamodelVersion 1.30.6
+Classes {
+    Group_USRETL_MAX_CHG_AMT
+    {
+        /* Periodic Charge MAX.CHG.AMOUNT */
+        USRETL_MAX_CHG_AMT : T24BusinessTypes:AMTLCCY
+            @i18n:Label (en=USRETL.CHG.AMT)
+            @t24:LocalFields (maxChars=19, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NOINPUT)
+            @t24:i (t24Name=USRETL.MAX.CHG.AMT)
+        /* Periodic Charges MAX.CHG.AMOUNT.CR */
+        USRETL_MAX_CHG_AMT_CR : T24BusinessTypes:AMTLCCY
+            @i18n:Label (en=USRETL.AMT.CR)
+            @t24:LocalFields (maxChars=19, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NOINPUT)
+            @t24:i (t24Name=USRETL.MAX.CHG.AMT.CR)
+        /* Periodic Charge CCY */
+        USRETL_CHG_CCY : T24BusinessTypes:A
+            @i18n:Label (en=USRETL.CHG.CCY)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NOINPUT)
+            @t24:i (t24Name=USRETL.CHG.CCY)
+    }
+    X_AA_PRD_DES_PERIODIC_CHARGES extends AA_PeriodicCharges:AA_PRD_DES_PERIODIC_CHARGES
+    {
+        /* Analysis Flag */
+        USRETL_ANL_FLAG : LocalFieldsEnumeration:LocalField_USRETL_ANL_FLAG
+            @i18n:Label (en=USRETL.ANL.FLAG)
+            @t24:LocalFields (maxChars=2, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USRETL.ANL.FLAG)
+        GroupSample_USRETL_MAX_CHG_AMT -> byValue X_AA_PRD_DES_PERIODIC_CHARGES:Group_USRETL_MAX_CHG_AMT *
+            @t24:i (t24Name=GroupSample_USRETL_MAX_CHG_AMT)
+    }
+}

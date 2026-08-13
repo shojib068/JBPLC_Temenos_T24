@@ -1,0 +1,109 @@
+package com.temenos.t24;
+ 
+import java.util.ArrayList;
+import java.util.List;
+ 
+import com.temenos.api.TField;
+import com.temenos.t24.api.complex.eb.enquiryhook.EnquiryContext;
+import com.temenos.t24.api.complex.eb.enquiryhook.FilterCriteria;
+import com.temenos.t24.api.hook.system.Enquiry;
+import com.temenos.t24.api.records.ebbdcompanydetails.EbBdCompanyDetailsRecord;
+import com.temenos.t24.api.records.ebbdsanclimitstaff.EbBdSancLimitStaffRecord;
+import com.temenos.t24.api.records.user.UserRecord;
+import com.temenos.t24.api.system.DataAccess;
+import com.temenos.t24.api.system.Session;
+ 
+/**
+* TODO: Document me!
+*
+* @author kawsar
+*
+*/
+public class CrJblNoFileStfArEntry extends Enquiry {
+ 
+    @Override
+    public List<String> setIds(List<FilterCriteria> filterCriteria, EnquiryContext enquiryContext) {
+        DataAccess da = new DataAccess(this);
+        Session ss = new Session(this);
+        String coCode = ss.getCompanyId();
+        String user = ss.getUserId();
+ 
+        EbBdSancLimitStaffRecord ebBdSancLimitStaffRecord = null;
+        EbBdCompanyDetailsRecord ebBdCompanyDetailsRec = null;
+        UserRecord userRec = null;
+        String JblAreaCode = "";
+ 
+        String limitId = "";
+        for (FilterCriteria filcrit : filterCriteria) {
+            String selectionFieldName = filcrit.getFieldname();
+            switch (selectionFieldName) {
+ 
+            case "LIMIT.ID":
+                limitId = filcrit.getValue().toString();
+            default:
+                break;
+            }
+        }
+        List<String> listofRecId = new ArrayList<>();
+ 
+        if (!limitId.isEmpty()) {
+            try {
+                ebBdSancLimitStaffRecord = new EbBdSancLimitStaffRecord(
+                        da.getRecord("EB.BD.SANC.LIMIT", limitId));
+            } catch (Exception e) {}
+            try {
+            coCode=ebBdSancLimitStaffRecord.getCoCode();
+            } catch (Exception e) {}
+            try {
+            ebBdCompanyDetailsRec = new EbBdCompanyDetailsRecord(
+                    da.getRecord("EB.BD.COMPANY.DETAILS", coCode));
+            } catch (Exception e) {}
+            try {
+            JblAreaCode = ebBdCompanyDetailsRec.getJblAreaCode().getValue();
+            } catch (Exception e) {}
+            listofRecId = da.selectRecords("BNK", "EB.BD.SANC.LIMIT", "",
+                    "WITH @ID EQ" + limitId +  
+                            " AND CO.CODE EQ " + coCode + 
+                            " AND AREA.CODE EQ " + JblAreaCode + 
+                            " AND AR.ACPT.REJ.FLAG EQ 'PENDING'");
+ 
+ 
+        }
+        else{
+            try {
+                ebBdSancLimitStaffRecord = new EbBdSancLimitStaffRecord(
+                        da.getRecord("EB.BD.SANC.LIMIT", limitId));
+                } catch (Exception e) {}
+                try {
+                coCode=ebBdSancLimitStaffRecord.getCoCode();
+                } catch (Exception e) {}
+                try {
+                ebBdCompanyDetailsRec = new EbBdCompanyDetailsRecord(
+                        da.getRecord("EB.BD.COMPANY.DETAILS", coCode));
+                } catch (Exception e) {}
+                JblAreaCode = ebBdCompanyDetailsRec.getJblAreaCode().getValue();
+                userRec = new UserRecord(da.getRecord("USER", user));
+                List<TField> userCompanyCodeList = userRec.getCompanyCode();
+                boolean existCompanyCode = false;
+                for(int i=0; i<userCompanyCodeList.size(); i++){
+                    String x = userCompanyCodeList.get(i).getValue();
+                    if(x.equals(coCode)){
+                        existCompanyCode = true;
+                        break;
+                    }
+                }
+                if(userCompanyCodeList.contains("ALL") || existCompanyCode == true){
+                    listofRecId = da.selectRecords("BNK", "EB.BD.SANC.LIMIT", "",
+
+                    " AND CO.CODE EQ " + coCode + 
+                    " AND AREA.CODE EQ " + JblAreaCode + 
+                    " AND AR.ACPT.REJ.FLAG EQ 'PENDING'");
+ 
+                }
+        }
+
+ 
+        return listofRecId;
+    }
+ 
+}

@@ -1,0 +1,238 @@
+# UTF-8
+/* Foundation for Core */
+Domain EB_Foundation
+    @t24:i (module=EB)
+    @java:Package (value=com.temenos.t24.datamodel.eb.eb_foundation)
+namespace "http://www.temenos.com/t24/EB_Foundation"
+metamodelVersion 1.30.6
+Classes {
+    AA_GB_LOCKER_PARAM
+        @i18n:Description (en="")
+        @t24:i (t24Name=AA.GB.LOCKER.PARAM, level=C, type=D, allowedFunctions="A C D E H I L P Q R S", localApplication=true, localRefAllowed=false)
+    {
+        AUDITOR_CODE : T24BusinessTypes:A
+            @i18n:Label (en="Auditor Code")
+            @i18n:Tooltip (en="Auditor Code")
+            @t24:i (align=L, inputBehaviour=E, maxLength=16, sysNumber="31->31.0", core=true, t24Name=AUDITOR.CODE, mandatory=false)
+        AUDIT_DATE_TIME : T24BusinessTypes:RELTIME
+            @i18n:Label (en="Audit Date Time")
+            @i18n:Tooltip (en="Date and time when record was audited")
+            @t24:i (align=L, inputBehaviour=E, maxLength=15, sysNumber="32->32.0", core=true, t24Name=AUDIT.DATE.TIME, mask="RDD DD  DD ##:##", mandatory=false)
+        AUTHORISER : T24BusinessTypes:A
+            @i18n:Label (en=Authoriser)
+            @i18n:Tooltip (en="Indicates the User who Authorises the record")
+            @t24:i (align=L, inputBehaviour=N, maxLength=100, sysNumber="28->28.0", core=true, t24Name=AUTHORISER, mandatory=false)
+        CO_CODE : T24BusinessTypes:A
+            @i18n:Label (en=Company)
+            @t24:i (align=L, inputBehaviour=N, maxLength=11, sysNumber="29->29.0", core=true, t24Name=CO.CODE, mask="R##-###-####", mandatory=false)
+        CURR_NO : T24BusinessTypes:N
+            @i18n:Label (en="Curr No")
+            @t24:i (align=R, inputBehaviour=N, maxLength=6, sysNumber="25->25.0", core=true, t24Name=CURR.NO, mandatory=false)
+        DATE_TIME -> byValue EB_Foundation:AA_GB_LOCKER_PARAM__DATE_TIME *
+            @t24:i (t24Name=DATE.TIME)
+        DEAL_NO -> EB_Foundation:AA_GB_LOCKER_PARAM PK required
+            @i18n:Label (en="Deal Number")
+            @t24:i (align=L, inputBehaviour=I, maxLength=60, sysNumber=0.0, core=true, businessType=A, t24Name=DEAL.NO, mandatory=true)
+        DEPT_CODE : T24BusinessTypes:A
+            @i18n:Label (en="Dept Code")
+            @t24:i (align=L, inputBehaviour=N, maxLength=4, sysNumber="30->30.0", core=true, t24Name=DEPT.CODE, mandatory=false)
+        INPUTTER -> byValue EB_Foundation:AA_GB_LOCKER_PARAM__INPUTTER *
+            @t24:i (t24Name=INPUTTER)
+        INSURANCE_YEAR : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=10, sysNumber="2->2.0", core=true, t24Name=INSURANCE.YEAR, mandatory=false)
+        LOCKER_KEY_CHARGE : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=I, maxLength=20, sysNumber="1->1.0", core=true, t24Name=LOCKER.KEY.CHARGE, mandatory=false)
+        OVERRIDE -> byValue EB_Foundation:AA_GB_LOCKER_PARAM__OVERRIDE *
+            @t24:i (t24Name=OVERRIDE)
+        RECORD_STATUS : T24BusinessTypes:STAT
+            @i18n:Label (en="Record Status")
+            @t24:i (align=L, inputBehaviour=N, maxLength=6, sysNumber="24->24.0", core=true, t24Name=RECORD.STATUS, mandatory=false)
+        RESERVED1 : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=35, sysNumber="3->3.0", core=true, t24Name=RESERVED1, mandatory=false)
+        RESERVED10 : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=35, sysNumber="12->12.0", core=true, t24Name=RESERVED10, mandatory=false)
+        RESERVED11 : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=35, sysNumber="13->13.0", core=true, t24Name=RESERVED11, mandatory=false)
+        RESERVED12 : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=35, sysNumber="14->14.0", core=true, t24Name=RESERVED12, mandatory=false)
+        RESERVED13 : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=35, sysNumber="15->15.0", core=true, t24Name=RESERVED13, mandatory=false)
+        RESERVED14 : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=35, sysNumber="16->16.0", core=true, t24Name=RESERVED14, mandatory=false)
+        RESERVED15 : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=35, sysNumber="17->17.0", core=true, t24Name=RESERVED15, mandatory=false)
+        RESERVED16 : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=35, sysNumber="18->18.0", core=true, t24Name=RESERVED16, mandatory=false)
+        RESERVED17 : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=35, sysNumber="19->19.0", core=true, t24Name=RESERVED17, mandatory=false)
+        RESERVED18 : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=35, sysNumber="20->20.0", core=true, t24Name=RESERVED18, mandatory=false)
+        RESERVED19 : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=35, sysNumber="21->21.0", core=true, t24Name=RESERVED19, mandatory=false)
+        RESERVED2 : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=35, sysNumber="4->4.0", core=true, t24Name=RESERVED2, mandatory=false)
+        RESERVED20 : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=35, sysNumber="22->22.0", core=true, t24Name=RESERVED20, mandatory=false)
+        RESERVED3 : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=35, sysNumber="5->5.0", core=true, t24Name=RESERVED3, mandatory=false)
+        RESERVED4 : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=35, sysNumber="6->6.0", core=true, t24Name=RESERVED4, mandatory=false)
+        RESERVED5 : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=35, sysNumber="7->7.0", core=true, t24Name=RESERVED5, mandatory=false)
+        RESERVED6 : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=35, sysNumber="8->8.0", core=true, t24Name=RESERVED6, mandatory=false)
+        RESERVED7 : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=35, sysNumber="9->9.0", core=true, t24Name=RESERVED7, mandatory=false)
+        RESERVED8 : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=35, sysNumber="10->10.0", core=true, t24Name=RESERVED8, mandatory=false)
+        RESERVED9 : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=35, sysNumber="11->11.0", core=true, t24Name=RESERVED9, mandatory=false)
+    }
+    AA_GB_LOCKER_PARAM__DATE_TIME
+    {
+        DATE_TIME : T24BusinessTypes:RELTIME
+            @i18n:Label (en="Date time")
+            @i18n:Tooltip (en="Date and time when record was input or authorised")
+            @t24:i (align=L, inputBehaviour=N, maxLength=15, sysNumber="27->27.0", core=true, t24Name=DATE.TIME, mask="RDD DD  DD ##:##", mandatory=false)
+    }
+    AA_GB_LOCKER_PARAM__INPUTTER
+    {
+        INPUTTER : T24BusinessTypes:A
+            @i18n:Label (en=Inputter)
+            @i18n:Tooltip (en="The user who last updated the record")
+            @t24:i (align=L, inputBehaviour=N, maxLength=100, sysNumber="26->26.0", core=true, t24Name=INPUTTER, mandatory=false)
+    }
+    AA_GB_LOCKER_PARAM__OVERRIDE
+    {
+        OVERRIDE : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=35, sysNumber="23->23.0", core=true, t24Name=OVERRIDE, mandatory=false)
+    }
+    AA_JBL_LOCKER_ACCESS
+        @i18n:Description (en="")
+        @t24:i (t24Name=AA.JBL.LOCKER.ACCESS, level=C, type=D, allowedFunctions="A C D E H I L P Q R S", localApplication=true, localRefAllowed=false)
+    {
+        AUDITOR_CODE : T24BusinessTypes:A
+            @i18n:Label (en="Auditor Code")
+            @i18n:Tooltip (en="Auditor Code")
+            @t24:i (align=L, inputBehaviour=E, maxLength=16, sysNumber="15->15.0", core=true, t24Name=AUDITOR.CODE, mandatory=false)
+        AUDIT_DATE_TIME : T24BusinessTypes:RELTIME
+            @i18n:Label (en="Audit Date Time")
+            @i18n:Tooltip (en="Date and time when record was audited")
+            @t24:i (align=L, inputBehaviour=E, maxLength=15, sysNumber="16->16.0", core=true, t24Name=AUDIT.DATE.TIME, mask="RDD DD  DD ##:##", mandatory=false)
+        AUTHORISER : T24BusinessTypes:A
+            @i18n:Label (en=Authoriser)
+            @i18n:Tooltip (en="Indicates the User who Authorises the record")
+            @t24:i (align=L, inputBehaviour=N, maxLength=100, sysNumber="12->12.0", core=true, t24Name=AUTHORISER, mandatory=false)
+        CO_CODE : T24BusinessTypes:A
+            @i18n:Label (en=Company)
+            @t24:i (align=L, inputBehaviour=N, maxLength=11, sysNumber="13->13.0", core=true, t24Name=CO.CODE, mask="R##-###-####", mandatory=false)
+        CURR_NO : T24BusinessTypes:N
+            @i18n:Label (en="Curr No")
+            @t24:i (align=R, inputBehaviour=N, maxLength=6, sysNumber="9->9.0", core=true, t24Name=CURR.NO, mandatory=false)
+        CUSTOMER : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=I, maxLength=20, sysNumber="2->2.0", core=true, t24Name=CUSTOMER, mandatory=false)
+        DATE : T24BusinessTypes:D
+            @i18n:Label (en=Date)
+            @t24:i (align=R, inputBehaviour=I, maxLength=8, sysNumber="3->3.0", core=true, t24Name=DATE, mandatory=false)
+        DATE_TIME -> byValue EB_Foundation:AA_JBL_LOCKER_ACCESS__DATE_TIME *
+            @t24:i (t24Name=DATE.TIME)
+        DEAL_NO -> EB_Foundation:AA_JBL_LOCKER_ACCESS PK required
+            @i18n:Label (en="Deal Number")
+            @t24:i (align=L, inputBehaviour=I, maxLength=60, sysNumber=0.0, core=true, businessType=A, t24Name=DEAL.NO, mandatory=true)
+        DEPT_CODE : T24BusinessTypes:A
+            @i18n:Label (en="Dept Code")
+            @t24:i (align=L, inputBehaviour=N, maxLength=4, sysNumber="14->14.0", core=true, t24Name=DEPT.CODE, mandatory=false)
+        INPUTTER -> byValue EB_Foundation:AA_JBL_LOCKER_ACCESS__INPUTTER *
+            @t24:i (t24Name=INPUTTER)
+        LOCKER_ID -> EB_Foundation:AA_JBL_LOCKER_ACCT
+            @t24:i (align=L, inputBehaviour=I, maxLength=30, sysNumber="1->1.0", core=true, businessType=A, t24Name=LOCKER.ID, mandatory=false)
+        NARRATIVE_FIELD : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=50, sysNumber="6->6.0", core=true, t24Name=NARRATIVE.FIELD, isTextarea=true, mandatory=false)
+        OVERRIDE -> byValue EB_Foundation:AA_JBL_LOCKER_ACCESS__OVERRIDE *
+            @t24:i (t24Name=OVERRIDE)
+        RECORD_STATUS : T24BusinessTypes:STAT
+            @i18n:Label (en="Record Status")
+            @t24:i (align=L, inputBehaviour=N, maxLength=6, sysNumber="8->8.0", core=true, t24Name=RECORD.STATUS, mandatory=false)
+        TIME_IN : T24BusinessTypes:T
+            @t24:i (align=L, inputBehaviour=I, maxLength=15, sysNumber="4->4.0", core=true, t24Name=TIME.IN, mandatory=false)
+        TIME_OUT : T24BusinessTypes:T
+            @t24:i (align=L, inputBehaviour=I, maxLength=15, sysNumber="5->5.0", core=true, t24Name=TIME.OUT, mandatory=false)
+    }
+    AA_JBL_LOCKER_ACCESS__DATE_TIME
+    {
+        DATE_TIME : T24BusinessTypes:RELTIME
+            @i18n:Label (en="Date time")
+            @i18n:Tooltip (en="Date and time when record was input or authorised")
+            @t24:i (align=L, inputBehaviour=N, maxLength=15, sysNumber="11->11.0", core=true, t24Name=DATE.TIME, mask="RDD DD  DD ##:##", mandatory=false)
+    }
+    AA_JBL_LOCKER_ACCESS__INPUTTER
+    {
+        INPUTTER : T24BusinessTypes:A
+            @i18n:Label (en=Inputter)
+            @i18n:Tooltip (en="The user who last updated the record")
+            @t24:i (align=L, inputBehaviour=N, maxLength=100, sysNumber="10->10.0", core=true, t24Name=INPUTTER, mandatory=false)
+    }
+    AA_JBL_LOCKER_ACCESS__OVERRIDE
+    {
+        OVERRIDE : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=35, sysNumber="7->7.0", core=true, t24Name=OVERRIDE, mandatory=false)
+    }
+    AA_JBL_LOCKER_ACCT
+        @i18n:Description (en="")
+        @t24:i (t24Name=AA.JBL.LOCKER.ACCT, level=F, type=D, allowedFunctions="A C D E H I L P Q R S", localApplication=true, localRefAllowed=false)
+    {
+        ACCT_NAME : T24BusinessTypes:A
+            @i18n:Label (en=Name)
+            @t24:i (align=L, inputBehaviour=I, maxLength=30, sysNumber="2->2.0", core=true, t24Name=ACCT.NAME, mandatory=false)
+        ACCT_NO : T24BusinessTypes:N
+            @i18n:Label (en="Account Number")
+            @t24:i (align=R, inputBehaviour=I, maxLength=13, sysNumber="1->1.0", core=true, t24Name=ACCT.NO, mandatory=false)
+        AUDITOR_CODE : T24BusinessTypes:A
+            @i18n:Label (en="Auditor Code")
+            @i18n:Tooltip (en="Auditor Code")
+            @t24:i (align=L, inputBehaviour=E, maxLength=16, sysNumber="42->42.0", core=true, t24Name=AUDITOR.CODE, mandatory=false)
+        AUDIT_DATE_TIME : T24BusinessTypes:RELTIME
+            @i18n:Label (en="Audit Date Time")
+            @i18n:Tooltip (en="Date and time when record was audited")
+            @t24:i (align=L, inputBehaviour=E, maxLength=15, sysNumber="43->43.0", core=true, t24Name=AUDIT.DATE.TIME, mask="RDD DD  DD ##:##", mandatory=false)
+        AUTHORISER : T24BusinessTypes:A
+            @i18n:Label (en=Authoriser)
+            @i18n:Tooltip (en="Indicates the User who Authorises the record")
+            @t24:i (align=L, inputBehaviour=N, maxLength=100, sysNumber="39->39.0", core=true, t24Name=AUTHORISER, mandatory=false)
+        CHARGE_WAIVE : EB_Foundation:AA_JBL_LOCKER_ACCT__CHARGE_WAIVE
+            @t24:i (align=L, inputBehaviour=I, maxLength=3, sysNumber="11->11.0", core=true, t24Name=CHARGE.WAIVE, mandatory=false)
+        CLOSING_DATE : T24BusinessTypes:D
+            @i18n:Label (en="Closing Date")
+            @t24:i (align=R, inputBehaviour=I, maxLength=8, sysNumber="9->9.0", core=true, t24Name=CLOSING.DATE, mandatory=false)
+        CLOSURE_REASON : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=50, sysNumber="10->10.0", core=true, t24Name=CLOSURE.REASON, isTextarea=true, mandatory=false)
+        CO_CODE : T24BusinessTypes:A
+            @i18n:Label (en=Company)
+            @t24:i (align=L, inputBehaviour=N, maxLength=11, sysNumber="40->40.0", core=true, t24Name=CO.CODE, mask="R##-###-####", mandatory=false)
+        CURR_NO : T24BusinessTypes:N
+            @i18n:Label (en="Curr No")
+            @t24:i (align=R, inputBehaviour=N, maxLength=6, sysNumber="36->36.0", core=true, t24Name=CURR.NO, mandatory=false)
+        CUSTOMER -> ST_Customer:CUSTOMER
+            @t24:i (align=R, inputBehaviour=I, maxLength=10, sysNumber="3->3.0", core=true, businessType=CUS, t24Name=CUSTOMER, mandatory=false)
+        DAMAGE_DETAILS : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=50, sysNumber="7->7.0", core=true, t24Name=DAMAGE.DETAILS, isTextarea=true, mandatory=false)
+        DATE_TIME -> byValue EB_Foundation:AA_JBL_LOCKER_ACCT__DATE_TIME *
+            @t24:i (t24Name=DATE.TIME)
+        DEAL_NO -> EB_Foundation:AA_JBL_LOCKER_ACCT PK required
+            @i18n:Label (en="Deal Number")
+            @t24:i (align=L, inputBehaviour=I, maxLength=60, sysNumber=0.0, core=true, businessType=A, t24Name=DEAL.NO, mandatory=true)
+        DEPT_CODE : T24BusinessTypes:A
+            @i18n:Label (en="Dept Code")
+            @t24:i (align=L, inputBehaviour=N, maxLength=4, sysNumber="41->41.0", core=true, t24Name=DEPT.CODE, mandatory=false)
+        INPUTTER -> byValue EB_Foundation:AA_JBL_LOCKER_ACCT__INPUTTER *
+            @t24:i (t24Name=INPUTTER)
+        INSURANCE : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=3, sysNumber="22->22.0", core=true, t24Name=INSURANCE, mandatory=false)
+        KEY_CHARGE : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=I, maxLength=14, sysNumber="25->25.0", core=true, t24Name=KEY.CHARGE, mandatory=false)
+        LAST_DUE_YEAR : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber="24->24.0", core=true, t24Name=LAST.DUE.YEAR, mandatory=false)
+        LEASING_DATE : T24BusinessTypes:D
+            @t24:i (align=R, inputBehaviour=I, maxLength=8, sysNumber="6->6.0", core=true, t24Name=LEASING.DATE, mandatory=false)
+        LOCKER_ID : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=20, sysNumber="4->4.0", core=true, t24Name=LO

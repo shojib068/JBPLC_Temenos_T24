@@ -1,0 +1,21 @@
+# UTF-8
+Domain X_PAYMENT_ORDER_PRODUCT
+    @t24:LocalFields (localRefApplications=true)
+    @java:Package (value=localRefApplication.x_payment_order_product)
+namespace "http://www.odcgroup.com/X_PAYMENT_ORDER_PRODUCT"
+metamodelVersion 1.30.6
+Classes {
+    X_PAYMENT_ORDER_PRODUCT extends PI_Config:PAYMENT_ORDER_PRODUCT
+    {
+        /* Minimum Amount */
+        USRETL_MIN_AMOUNT : T24BusinessTypes:AMTLCCY
+            @i18n:Label (en=MIN.AMOUNT)
+            @t24:LocalFields (maxChars=19, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USRETL.MIN.AMOUNT)
+        /* Check Gen Indicator */
+        USRETL_CHECK_GEN : T24BusinessTypes:A
+            @i18n:Label (en=CHECK.GEN)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USRETL.CHECK.GEN)
+    }
+}

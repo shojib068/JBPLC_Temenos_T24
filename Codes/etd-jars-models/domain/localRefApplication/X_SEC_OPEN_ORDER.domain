@@ -1,0 +1,41 @@
+# UTF-8
+Domain X_SEC_OPEN_ORDER
+    @t24:LocalFields (localRefApplications=true)
+    @java:Package (value=localRefApplication.x_sec_open_order)
+namespace "http://www.odcgroup.com/X_SEC_OPEN_ORDER"
+metamodelVersion 1.30.6
+Classes {
+    X_SEC_OPEN_ORDER extends SC_SctOrderCapture:SEC_OPEN_ORDER
+    {
+        /* Triple A Reference */
+        TAP_REF_ID : T24BusinessTypes:A
+            @i18n:Label (en=TAP.REF.ID)
+            @t24:LocalFields (maxChars=50, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=TAP.REF.ID)
+        /* Triple A Event Identifier */
+        TAP_EVENT_ID : T24BusinessTypes:A
+            @i18n:Label (en=TAP.EVENT.ID)
+            @t24:LocalFields (maxChars=50, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=TAP.EVENT.ID)
+        /* AFB Reference ID */
+        AFB_REF_ID : T24BusinessTypes:A
+            @i18n:Label (en=AFB.REF.ID)
+            @t24:LocalFields (maxChars=17, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=AFB.REF.ID)
+        /* EXTERNAL.REF */
+        EXTERNAL_REFERENCE : T24BusinessTypes:A
+            @i18n:Label (en=EXTERNAL.REF)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=EXTERNAL.REFERENCE)
+        /* Triple A Order Nature */
+        TAP_ORDER_NATURE : LocalFieldsEnumeration:LocalField_TAP_ORDER_NATURE
+            @i18n:Label (en=TAP.ORD.NATURE)
+            @t24:LocalFields (maxChars=4, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=TAP.ORDER.NATURE)
+        /* Redeem All */
+        REDEEM_ALL : LocalFieldsEnumeration:LocalField_REDEEM_ALL
+            @i18n:Label (en=REDEEM.ALL)
+            @t24:LocalFields (maxChars=1, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=REDEEM.ALL)
+    }
+}

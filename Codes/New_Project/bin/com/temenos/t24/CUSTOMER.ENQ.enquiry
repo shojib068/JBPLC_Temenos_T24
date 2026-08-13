@@ -1,0 +1,120 @@
+Enquiry "CUSTOMER.ENQ" for "name:/ST_Customer:CUSTOMER#" {
+    metamodelVersion: "1.30.6"
+    header {
+        label {
+            en = "CUSTOMER LIST"
+        }
+
+        column: 1
+        line: 1
+    }
+
+    start-line: 4
+    end-line: 99
+
+    field "CUSTOMER.CODE" {
+        label {
+            en = "Customer"
+        }
+
+        length: 10
+        alignment: Right
+        position {
+            column: 1
+        }
+
+        processing-mode: Single
+        operation: application-field-name "CUSTOMER.CODE"
+    }
+
+    field "SHORT.NAME" {
+        label {
+            en = "Short Name"
+        }
+
+        length: 70
+        alignment: Left
+        position {
+            column: 2
+        }
+
+        processing-mode: Multi
+        operation: application-field-name "SHORT.NAME"
+    }
+
+    field "MNEMONIC" {
+        label {
+            en = "# Customer Mnemonic"
+        }
+
+        length: 35
+        alignment: Left
+        position {
+            column: 3
+        }
+
+        processing-mode: Single
+        operation: application-field-name "MNEMONIC"
+    }
+
+    field "SECTOR" {
+        label {
+            en = "Sector"
+        }
+
+        length: 10
+        alignment: Right
+        position {
+            column: 4
+        }
+
+        processing-mode: Single
+        operation: application-field-name "SECTOR"
+    }
+
+    field "NATIONALITY" {
+        label {
+            en = "# Nationality"
+        }
+
+        length: 2
+        alignment: Left
+        position {
+            column: 5
+        }
+
+        processing-mode: Single
+        operation: application-field-name "NATIONALITY"
+    }
+
+field "RESIDENCE" {
+        label {
+            en = "# Residence"
+        }
+
+        length: 2
+        alignment: Left
+        position {
+            column: 6
+        }
+
+        processing-mode: Single
+        operation: application-field-name "RESIDENCE"
+    }
+
+    field "LANGUAGE" {
+        label {
+            en = "Language"
+        }
+
+        length: 2
+        alignment: Right
+        position {
+            column: 7
+        }
+
+        processing-mode: Single
+        operation: application-field-name "LANGUAGE"
+    }
+
+}

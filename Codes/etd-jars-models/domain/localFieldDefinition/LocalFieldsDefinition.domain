@@ -1,0 +1,2262 @@
+# UTF-8
+Domain LocalFieldsDefinition
+    @java:Package (value=com.temenos.t24.datamodel.businesstypes)
+    @t24:LocalFields (localFieldsDefinition=true)
+namespace "http://www.odcgroup.com/local-fields-definition"
+metamodelVersion 1.30.6
+Classes {
+    LocalFields
+    {
+        /* Fee is estimated (T) or not (F) */
+        IS.ESTIMATED : T24BusinessTypes:A
+            @i18n:Label (en=IS.ESTIMATED)
+            @t24:LocalFields (maxChars=30, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Escrow Payee Disbursement Date */
+        USLEND.DISBURSE.DATE : T24BusinessTypes:FQU_IGN
+            @i18n:Label (en=DISBURSE.DATE)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* The fee is can be varied(T)/ Not(F) */
+        CAN.VARY : T24BusinessTypes:A
+            @i18n:Label (en=CAN.VARY)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Collateral Liquidation Account */
+        USRETL.COL.LIQ.ACCT -> AC_AccountOpening:ACCOUNT
+            @i18n:Label (en=COL.LIQ.ACCT)
+            @t24:LocalFields (applicationEnrich=ACCOUNT_TITLE_1, maxChars=36, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* AFB Reference ID */
+        AFB.REF.ID : T24BusinessTypes:A
+            @i18n:Label (en=AFB.REF.ID)
+            @t24:LocalFields (maxChars=17, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Commn Device Number */
+        USREGS.DEVICE.NO : T24BusinessTypes:ANY
+            @i18n:Label (en=DEVICE.NO)
+            @t24:LocalFields (maxChars=50, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Receiving DFI Identification */
+        ACHFRM.RDFI.ID : T24BusinessTypes:A
+            @i18n:Label (en=RDFI.ID)
+            @t24:LocalFields (maxChars=34, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* ARRANGEMENT ID */
+        ARRANGEMENT.ID : T24BusinessTypes:ANY
+            @i18n:Label (en=ARRANGEMENT)
+            @t24:LocalFields (maxChars=16, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Transfer Cancellation */
+        TRANSFER.CANCELLATION : LocalFieldsEnumeration:LocalField_TRANSFER_CANCELLATION
+            @i18n:Label (en=TRANSFER.CANCEL)
+            @t24:LocalFields (maxChars=25, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=TRANSFER.CANCELLATION)
+        /* Tap FX rate direction */
+        TAP.FX.RATE.DIR : T24BusinessTypes:A
+            @i18n:Label (en=TAP.FX.RATE.DIR)
+            @t24:LocalFields (maxChars=1, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Escrow Payee Disbursement Amount */
+        USLEND.DISBURSE.AMOUNT : T24BusinessTypes:AMTLCCY
+            @i18n:Label (en=DISBURSE.AMT)
+            @t24:LocalFields (maxChars=19, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Printing Code */
+        LBACTR.PRINTING.CODE : LocalFieldsEnumeration:LocalField_LBACTR_PRINTING_CODE
+            @i18n:Label (en=PRINTING.CODE)
+            @t24:LocalFields (maxChars=6, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=LBACTR.PRINTING.CODE)
+        /* FAT Percentage */
+        FAT : T24BusinessTypes:R
+            @i18n:Label (en=FAT)
+            @t24:LocalFields (maxChars=11, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Legal Entity Platform ID */
+        LEGAL.ENTITY.PF.ID -> AULEFS_Foundation:AULEFS_LEGAL_ENTITY_PLATFORM
+            @i18n:Label (en=LE.PF.ID)
+            @t24:LocalFields (applicationEnrich=FUND_NAME, maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* SEPA.MANDATE.ID */
+        SEPA.MANDATE.ID : T24BusinessTypes:A
+            @i18n:Label (en=SEPA.MANDATE.ID)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Perc Subrogation/cancellation */
+        PERCENTAGE.SUBROGATION/CANCEL : T24BusinessTypes:N
+            @i18n:Label (en=PER.SUBR.CAN)
+            @t24:LocalFields (maxChars=9, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* End to End Identification */
+        END.TO.END.ID : T24BusinessTypes:A
+            @i18n:Label (en=END.TO.END.ID)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Negotiable reference number */
+        NEG.REFERENCE -> LBACTR_Foundation:LBACTR_NEG_DEAL
+            @i18n:Label (en=NEG.REFERENCE)
+            @t24:LocalFields (applicationEnrich=NARRATIVE, maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Periodic Charges MAX.CHG.AMOUNT.CR */
+        USRETL.MAX.CHG.AMT.CR : T24BusinessTypes:AMTLCCY
+            @i18n:Label (en=USRETL.AMT.CR)
+            @t24:LocalFields (maxChars=19, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NOINPUT)
+        /* unique code for the Feature profile */
+        PRODUCT.FEATURE.PROFILE.CODE : T24BusinessTypes:A
+            @i18n:Label (en=FEATURE.PROF.CO)
+            @t24:LocalFields (maxChars=50, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Tax Certification Date */
+        USREGS.TX.CERT.DATE : T24BusinessTypes:D
+            @i18n:Label (en=TX.CERT.DATE)
+            @t24:LocalFields (maxChars=12, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Islamic Payout Option */
+        IS.PAYOUT : T24BusinessTypes:A
+            @i18n:Label (en=IS.PAYOUT)
+            @t24:LocalFields (maxChars=30, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* FX.EXCH.REFERENCE */
+        ACHFRM.FX.EXCH.REF : T24BusinessTypes:A
+            @i18n:Label (en=FX.EXCH.REF)
+            @t24:LocalFields (maxChars=15, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* TAP.OPER.NATURE */
+        TAP.OPER.NATURE : T24BusinessTypes:A
+            @i18n:Label (en=TAP.OPER.NATURE)
+            @t24:LocalFields (maxChars=2, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* ACCT.WITH.BR.COUNTRY */
+        ACHFRM.ACCT.WITH.BR.COUNTRY -> ST_Config:COUNTRY
+            @i18n:Label (en=AC.WITH.BR.CTRY)
+            @t24:LocalFields (applicationEnrich=COUNTRY_NAME, maxChars=9, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Benefit Number of the account */
+        TAX.BENEFICIARY.NUMBER : LocalFieldsEnumeration:LocalField_TAX_BENEFICIARY_NUMBER
+            @i18n:Label (en=TX.BEN.NUM)
+            @t24:LocalFields (maxChars=2, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=AA.TX.BENEFIT.NUMBER)
+        /* Collateral Liquidation Method */
+        USRETL.COL.LIQ.METHOD : LocalFieldsEnumeration:LocalField_USRETL_COL_LIQ_METHOD
+            @i18n:Label (en=COL.LIQ.METHOD)
+            @t24:LocalFields (maxChars=4, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Repay Principal Amount */
+        IS.PRINCIPAL : T24BusinessTypes:AMTLCCY
+            @i18n:Label (en=IS.PRINCIPAL)
+            @t24:LocalFields (maxChars=18, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Business ID */
+        BUSINESS.ID : T24BusinessTypes:TEXT
+            @i18n:Label (en=BUSINESS.ID)
+            @t24:LocalFields (maxChars=65, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Rebate Claim Period End */
+        CLAIM.PERIOD.END : T24BusinessTypes:D
+            @i18n:Label (en=CLAIM.END)
+            @t24:LocalFields (maxChars=11, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Triple A Event Identifier */
+        TAP.EVENT.ID : T24BusinessTypes:A
+            @i18n:Label (en=TAP.EVENT.ID)
+            @t24:LocalFields (maxChars=50, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Tax Withholding Reason */
+        USREGS.WHT.REASON : LocalFieldsEnumeration:LocalField_USREGS_WHT_REASON
+            @i18n:Label (en=WHT.REASON)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=WHT.REASON)
+        /* Safe Deposit Box drill date */
+        SDB.DRILL.DATE : T24BusinessTypes:D
+            @i18n:Label (en=DRILL.DATE)
+            @t24:LocalFields (maxChars=8, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Risk Rating */
+        RLGAAP.RISK.RATING : T24BusinessTypes:ANY
+            @i18n:Label (en=RISK.RATING)
+            @t24:LocalFields (maxChars=4, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=RISK.RATING)
+        /* Escrow Analysis Required */
+        USLEND.ANALYSIS.REQUIRED : LocalFieldsEnumeration:LocalField_USLEND_ANALYSIS_REQUIRED
+            @i18n:Label (en=REQ.ANALYSIS)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Next Schedule Frequency */
+        USLEND.NXT.SCHED.FQU : T24BusinessTypes:D
+            @i18n:Label (en=NXT.SCHED.FQU)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Manufacturer */
+        MANUFACTURER : T24BusinessTypes:A
+            @i18n:Label (en=MANUFACTURER)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Instalment Amount */
+        USLEND.INSTALMENT.AMT : T24BusinessTypes:AMTLCCY
+            @i18n:Label (en=INSTALL.AMOUNT)
+            @t24:LocalFields (maxChars=19, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Preferential Product */
+        USRETL.PREF.PRODUCT : LocalFieldsEnumeration:LocalField_USRETL_PREF_PRODUCT
+            @i18n:Label (en=PREF.PRODUCT)
+            @t24:LocalFields (maxChars=1, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Penalty Days/Mth */
+        USRETL.PEN.DAYS : T24BusinessTypes:A
+            @i18n:Label (en=PEN.DAYS)
+            @t24:LocalFields (maxChars=5, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* CREDITOR.ID */
+        CREDITOR.ID : T24BusinessTypes:A
+            @i18n:Label (en=CREDITOR.ID)
+            @t24:LocalFields (maxChars=25, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Tras */
+        TRASPASOS.ALLOWED : LocalFieldsEnumeration:LocalField_TRASPASOS_ALLOWED
+            @i18n:Label (en=TRASPASOS.ALLOW)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Sub Asset Types */
+        INGAAP.SUB.ASSET : T24BusinessTypes:A
+            @i18n:Label (en=SUB.ASSET)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=SUB.ASSET)
+        /* Frequency of Renewal */
+        LBCORP.RENEWAL.FREQUENCY : T24BusinessTypes:FQU_IGN
+            @i18n:Label (en=RENEW.FREQUENCY)
+            @t24:LocalFields (maxChars=17, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Header Business ID */
+        HDR.BUSS.ID : T24BusinessTypes:A
+            @i18n:Label (en=HDR.BUSS.ID)
+            @t24:LocalFields (maxChars=64, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* ORIG.CCY */
+        ORIG.CCY : T24BusinessTypes:ANY
+            @i18n:Label (en=ORIG.CCY)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Islamic Cost Ref */
+        IS.COST.REF -> IS_Config:IS_COST_TYPE
+            @i18n:Label (en=IS.COST.REF)
+            @t24:LocalFields (applicationEnrich=DESCRIPTION, maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* How the ERC will be calculated? */
+        ERC.BASIS : LocalFieldsEnumeration:LocalField_ERC_BASIS
+            @i18n:Label (en=ERC.BASIS)
+            @t24:LocalFields (maxChars=30, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=MSO.ERC.BASIS)
+        /* Holds Portfolio Id */
+        PORTFOLIO.ID : T24BusinessTypes:A
+            @i18n:Label (en=PORTFOLIO.ID)
+            @t24:LocalFields (maxChars=30, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Uncollected funds for excep ac */
+        NSF.UNCOLLECT.FUNDS : T24BusinessTypes:AMTLCCY
+            @i18n:Label (en=UNCOLLECT.FUNDS)
+            @t24:LocalFields (maxChars=19, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* SEPA.OPPOSITION */
+        SEPA.OPPOSITION : LocalFieldsEnumeration:LocalField_SEPA_OPPOSITION
+            @i18n:Label (en=SEPA.OPPOSITION)
+            @t24:LocalFields (maxChars=2, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* ANNUAL PRIVACY NOTICE */
+        USREGS.ANNUAL.PRIVACY : T24BusinessTypes:FQU
+            @i18n:Label (en=ANNUAL.PRIVACY)
+            @t24:LocalFields (maxChars=15, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* SY Exclude Valuation */
+        SYEXVAL : LocalFieldsEnumeration:LocalField_SYEXVAL
+            @i18n:Label (en=SYEXVAL)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Institution Roles */
+        INSTITUTION.ROLES : T24BusinessTypes:N
+            @i18n:Label (en=INST.ROLES)
+            @t24:LocalFields (maxChars=4, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Task Instance Id */
+        TASK.ID : T24BusinessTypes:A
+            @i18n:Label (en=TASK.ID)
+            @t24:LocalFields (maxChars=50, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NOINPUT)
+        /* unique code for the fee code */
+        FEE.CODE : T24BusinessTypes:A
+            @i18n:Label (en=FEE.CODE)
+            @t24:LocalFields (maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Account Title line */
+        USRETL.ACCT.TITLE : T24BusinessTypes:A
+            @i18n:Label (en=ACCT.TITLE)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Postal Code */
+        POSTAL.CODE : T24BusinessTypes:A
+            @i18n:Label (en=POSTAL.CODE)
+            @t24:LocalFields (maxChars=4, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Allow Withdraw */
+        WAIVE.CHARGES : LocalFieldsEnumeration:LocalField_WAIVE_CHARGES
+            @i18n:Label (en=WAIVE.CHARGES)
+            @t24:LocalFields (maxChars=1, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Header Customer ID */
+        HDR.CUST.ID : T24BusinessTypes:A
+            @i18n:Label (en=HDR.CUST.ID)
+            @t24:LocalFields (maxChars=11, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Unique code for eligibility policy */
+        PRODUCT.ELIGIBILITY.POLICY.CODE : T24BusinessTypes:A
+            @i18n:Label (en=ELI.POLICY.CODE)
+            @t24:LocalFields (maxChars=50, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Collection Padron */
+        TO.COLLECTION.PADRON : T24BusinessTypes:A
+            @i18n:Label (en=TO.COLL.PADRON)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Recovery Fees */
+        LBRPTS.RECOVERY.FEES : T24BusinessTypes:A
+            @i18n:Label (en=RECOVERY.FEES)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Parent portfolio ID */
+        PARENT.PF.ID -> SC_ScoPortfolioMaintenance:SEC_ACC_MASTER
+            @i18n:Label (en=PARENT.PF.ID)
+            @t24:LocalFields (applicationEnrich=ACCOUNT_NAME, maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Locked Reference */
+        LOCKED.ID : T24BusinessTypes:A
+            @i18n:Label (en=LOCKED.ID)
+            @t24:LocalFields (maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Trading venue transaction identification code */
+        TRD.VENUE.TXNID : T24BusinessTypes:N
+            @i18n:Label (en=TRD.VENUE.TXNID)
+            @t24:LocalFields (maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* I.B.L.C. COUNTRY-DR */
+        171 : LocalFieldsEnumeration:LocalField_171
+            @i18n:Label (en="IBLC COUNTRY-DR", fr="PAY IBLC")
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Ethnicity */
+        USCORE.ETHNICITY : LocalFieldsEnumeration:LocalField_USCORE_ETHNICITY
+            @i18n:Label (en=ETHNICITY)
+            @t24:LocalFields (maxChars=1, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=ETHNICITY)
+        /* Pledge Original Face Value */
+        RLGAAP.ORG.FACE.VALUE : T24BusinessTypes:AMTLCCY
+            @i18n:Label (en=ORG.FACE.VALUE)
+            @t24:LocalFields (maxChars=15, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* ILBNKB.BANK.CODE */
+        ILBNKB.BANK.CODE : T24BusinessTypes:N
+            @i18n:Label (en=BANK.CODE)
+            @t24:LocalFields (maxChars=2, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Number Of Dependents */
+        NO.OF.DEPENDANT : T24BusinessTypes:N
+            @i18n:Label (en=NO.OF.DEPENDANT)
+            @t24:LocalFields (maxChars=2, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Chassis Number */
+        CHASSIS.NUMBER : T24BusinessTypes:A
+            @i18n:Label (en=CHASSIS.NUMBER)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Customer Segment */
+        CUSTOMER.SEGMENT -> EB_ModelBank:EB_CUSTOMER_SEGMENT
+            @i18n:Label (en=SEGMENT)
+            @t24:LocalFields (applicationEnrich=DESCRIPTION, maxChars=6, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Analysis Flag */
+        USRETL.ANL.FLAG : LocalFieldsEnumeration:LocalField_USRETL_ANL_FLAG
+            @i18n:Label (en=USRETL.ANL.FLAG)
+            @t24:LocalFields (maxChars=2, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* SDB Box Number */
+        SDB.BOX.NUMBER : T24BusinessTypes:A
+            @i18n:Label (en=BOX.NUMBER)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* When the fee will be paid */
+        PAY.WHEN : LocalFieldsEnumeration:LocalField_PAY_WHEN
+            @i18n:Label (en=PAY.WHEN)
+            @t24:LocalFields (maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=MSO.PAY.WHEN)
+        /* Cus Elect Tax Rate */
+        USREGS.CUS.ELECT.TAX.RATE : T24BusinessTypes:R
+            @i18n:Label (en=CUS.EL.TX.RATE)
+            @t24:LocalFields (maxChars=6, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* IS Profit FT Reference */
+        IS.PFT.FT.REF -> FT_Contract:FUNDS_TRANSFER
+            @i18n:Label (en=IS.PFT.FT.REF)
+            @t24:LocalFields (applicationEnrich=CREDIT_ACCT_NO, maxChars=25, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* I.B.L.C. COUNTRY-CH */
+        173 : LocalFieldsEnumeration:LocalField_173
+            @i18n:Label (en="IBLC COUNTRY-CH", fr="PAY IBLC")
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Header Process ID */
+        HDR.PRCS.ID : T24BusinessTypes:A
+            @i18n:Label (en=HDR.PRCS.ID)
+            @t24:LocalFields (maxChars=64, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Server Node */
+        SERVER.NODE : T24BusinessTypes:A
+            @i18n:Label (en=SERVER.NODE)
+            @t24:LocalFields (maxChars=15, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Escrow Initial Analysis Required */
+        USLEND.INITIAL.ANALYSIS : LocalFieldsEnumeration:LocalField_USLEND_INITIAL_ANALYSIS
+            @i18n:Label (en=INIT.ANALYSIS)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Minimum tax threshold */
+        MINIMUM.TAX.THRESHOLD : T24BusinessTypes:A
+            @i18n:Label (en=MIN.TAX.THR)
+            @t24:LocalFields (maxChars=14, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* SEPA Inward Files ID */
+        SEPA.INWARD.FILES.ID : T24BusinessTypes:ANY
+            @i18n:Label (en=INWARD.FILES.ID)
+            @t24:LocalFields (maxChars=65, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* WHT Exempt */
+        WHT.EXEMPT : LocalFieldsEnumeration:LocalField_WHT_EXEMPT
+            @i18n:Label (en=WHT.EXEMPT)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Account Titling */
+        ACCT.TITLE.OPERAND : LocalFieldsEnumeration:LocalField_ACCT_TITLE_OPERAND
+            @i18n:Label (en=ACCT.TITLE.OPER)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Insurance Company */
+        USLREG.INS.COMP -> USLREG_RebatableInsurance:USLREG_INSURANCE_COMPANY
+            @i18n:Label (en=INS.COMP)
+            @t24:LocalFields (applicationEnrich=DESCRIPTION, maxChars=4, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Subscription Maximum Amount */
+        SUB.MAX.AMOUNT : T24BusinessTypes:AMTLCCY
+            @i18n:Label (en=SUB.MAX.AMOUNT)
+            @t24:LocalFields (maxChars=19, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* ACH Benificiary Details */
+        USREGS.ACH.BEN -> USREGS_ACH:USREGS_ACH_BEN_DETAILS
+            @i18n:Label (en=USREGS.ACH.BEN)
+            @t24:LocalFields (applicationEnrich=CUSTOMER, maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Payment Extracted */
+        USRETL.PYMT.EXTRACTED : T24BusinessTypes:A
+            @i18n:Label (en=PYMT.EXTRACTED)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Pref Interest Prprty */
+        USRETL.PREF.INT.PROP -> AA_ProductFramework:AA_PROPERTY
+            @i18n:Label (en=PREF.INT.PROP)
+            @t24:LocalFields (applicationEnrich=DESCRIPTION, maxChars=30, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Statement Number */
+        LBRPTS.STATEMENT.NO : T24BusinessTypes:N
+            @i18n:Label (en=STATEMENT.NO)
+            @t24:LocalFields (maxChars=15, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Cash Bundles Deposited */
+        USRETL.CASH.BUND.DEP : T24BusinessTypes:N
+            @i18n:Label (en=CASH.BUND.DEP)
+            @t24:LocalFields (maxChars=7, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Options for how to pay the fee */
+        HOWTO.PAYFEE : LocalFieldsEnumeration:LocalField_HOWTO_PAYFEE
+            @i18n:Label (en=HOWTO.PAYFEE)
+            @t24:LocalFields (maxChars=30, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=MSO.HOWTO.PAYFEE)
+        /* Arrangement Reference */
+        AA.REFERENCE -> AA_Framework:AA_ARRANGEMENT
+            @i18n:Label (en=AA.REFERENCE)
+            @t24:LocalFields (applicationEnrich=LINKED_APPL_ID, maxChars=17, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Stock Exchange Recognition */
+        FINMA : LocalFieldsEnumeration:LocalField_FINMA
+            @i18n:Label (en=FINMA)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Insurance Type */
+        USLREG.INS.TYPE : LocalFieldsEnumeration:LocalField_USLREG_INS_TYPE
+            @i18n:Label (en=INS.TYPE)
+            @t24:LocalFields (maxChars=15, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=AA.INSURANCE.TYPE)
+        /* Account Number */
+        ACCOUNT.NO -> AC_AccountOpening:ACCOUNT
+            @i18n:Label (en=ACCOUNT.NO)
+            @t24:LocalFields (applicationEnrich=CUSTOMER, maxChars=36, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* SEPA.PURPOSE */
+        SEPA.PURPOSE : T24BusinessTypes:A
+            @i18n:Label (en=SEPA.PURPOSE)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* USRETL.ITEM.TYP */
+        USRETL.ITEM.TYP : LocalFieldsEnumeration:LocalField_USRETL_ITEM_TYP
+            @i18n:Label (en=USRETL.ITEM.TYP)
+            @t24:LocalFields (maxChars=25, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=AA.ACTIVITY.ITEM)
+        /* FX.EXCH.IND */
+        ACHFRM.FX.EXCH.IND : LocalFieldsEnumeration:LocalField_ACHFRM_FX_EXCH_IND
+            @i18n:Label (en=FX.EXCH.IND)
+            @t24:LocalFields (maxChars=2, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* GoodsNew */
+        GOODS.NEW : T24BusinessTypes:A
+            @i18n:Label (en=GOODS.NEW)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Date of Death */
+        USIRAC.DATE.OF.DEATH : T24BusinessTypes:D
+            @i18n:Label (en=DATE.OF.DEATH)
+            @t24:LocalFields (maxChars=11, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* NSF Group ID */
+        NSF.GROUP -> NSFDES_DeskMgmt:NSF_DESK_GROUP
+            @i18n:Label (en=NSF.GROUP)
+            @t24:LocalFields (applicationEnrich=DESCRIPTION, maxChars=16, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* County */
+        USCORE.COUNTY : T24BusinessTypes:A
+            @i18n:Label (en=COUNTY)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Number of Instalments to Pay */
+        IS.NUM.INSTAL : T24BusinessTypes:N
+            @i18n:Label (en=IS.NUM.INSTAL)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* APP.FORM.ID */
+        APP.FORM.ID : T24BusinessTypes:ANY
+            @i18n:Label (en=APP.FORM.ID)
+            @t24:LocalFields (maxChars=25, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* I.B.L.C. CHARGES */
+        153 : LocalFieldsEnumeration:LocalField_153
+            @i18n:Label (en="IBLC CODE-CH", fr="CODIFICAT. IBLC")
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* SEPA.THEIR.ACCT */
+        SEPA.THEIR.ACCT : T24BusinessTypes:A
+            @i18n:Label (en=SEPA.THEIR.ACCT)
+            @t24:LocalFields (maxChars=34, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* A unique code for the fee profile */
+        PRODUCT.FEE.PROFILE.CODE : T24BusinessTypes:A
+            @i18n:Label (en=FEE.PROFIL.CODE)
+            @t24:LocalFields (maxChars=50, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* On Us Checks Count */
+        USRETL.ONUS.CHK.DEP : T24BusinessTypes:N
+            @i18n:Label (en=ONUS.CHK.DEP)
+            @t24:LocalFields (maxChars=7, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* IS Principal FT Reference */
+        IS.PRIN.FT.REF -> FT_Contract:FUNDS_TRANSFER
+            @i18n:Label (en=IS.PRIN.FT.REF)
+            @t24:LocalFields (applicationEnrich=CREDIT_ACCT_NO, maxChars=25, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Tax Treaty Country */
+        USREGS.TX.TTY.CTRY -> ST_Config:COUNTRY
+            @i18n:Label (en=TX.TTY.CTRY)
+            @t24:LocalFields (applicationEnrich=COUNTRY_NAME, maxChars=9, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* IAT.TXN.TYPE.CODE */
+        ACHFRM.IAT.TXN.TYPE.CODE : LocalFieldsEnumeration:LocalField_ACHFRM_IAT_TXN_TYPE_CODE
+            @i18n:Label (en=IAT.TXN.TYPE)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=IAT.TXN.TYPE.CODE)
+        /* How theit will be refunded? */
+        REFUNDABLE : LocalFieldsEnumeration:LocalField_REFUNDABLE
+            @i18n:Label (en=REFUNDABLE)
+            @t24:LocalFields (maxChars=25, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=MSO.REFUNDABLE)
+        /* Doc Img Reference number */
+        USCORE.DOC.IMAGE.REF.NUMBER -> IM_Foundation:IM_DOCUMENT_UPLOAD
+            @i18n:Label (en=DOC.IMAGE.REF)
+            @t24:LocalFields (applicationEnrich=FILE_UPLOAD, maxChars=15, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* WAIVE.CHARGE */
+        USRETL.WAIVE.CHARGE : LocalFieldsEnumeration:LocalField_USRETL_WAIVE_CHARGE
+            @i18n:Label (en=WAIVE.CHARGE)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Collateral Agreement */
+        COLLATERAL.AGREEMENT : LocalFieldsEnumeration:LocalField_COLLATERAL_AGREEMENT
+            @i18n:Label (en=COLLAT.AGREEMT)
+            @t24:LocalFields (maxChars=65, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=COLLATERAL.AGREEMENT)
+        /* Product set belong to the product */
+        PRODUCT.SET : T24BusinessTypes:A
+            @i18n:Label (en=PRODUCT.SET)
+            @t24:LocalFields (maxChars=30, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Periodic Charge CCY */
+        USRETL.CHG.CCY : T24BusinessTypes:A
+            @i18n:Label (en=USRETL.CHG.CCY)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NOINPUT)
+        /* No of Protetcted Homes */
+        NO.PROTECTED.HOUSES : T24BusinessTypes:N
+            @i18n:Label (en=NO.PROTEC.HOUSE)
+            @t24:LocalFields (maxChars=4, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* NPAI Flag */
+        NPAI.FLAG : T24BusinessTypes:A
+            @i18n:Label (en=NPAI.FLAG)
+            @t24:LocalFields (maxChars=1, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* TT PURPOSE OF TRADE */
+        PURPOSE.OF.TRADE : T24BusinessTypes:A
+            @i18n:Label (en=PURPOSE.OF.TRAN)
+            @t24:LocalFields (maxChars=15, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* CU.EFF.DATE */
+        CU.EFF.DATE : T24BusinessTypes:D
+            @i18n:Label (en=CU.EFF.DATE)
+            @t24:LocalFields (maxChars=11, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Credit Bureau Reporting */
+        USLREG.CBR.REPORT : LocalFieldsEnumeration:LocalField_USLREG_CBR_REPORT
+            @i18n:Label (en=CBR.REPORT)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* FDIC Deposit class code */
+        USREGS.DEPOSIT.CLASS.CODE -> USREGS_FDIC:USREGS_FDIC_DEPOSIT_CLASS_CODE
+            @i18n:Label (en=FDIC.CLASS.CODE)
+            @t24:LocalFields (applicationEnrich=DEPOSIT_CLASS_TYPE, maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* SEPA.CHANNEL */
+        SEPA.CHANNEL : T24BusinessTypes:A
+            @i18n:Label (en=SEPA.CHANNEL)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Header Server Node */
+        HDR.SER.NDE : T24BusinessTypes:A
+            @i18n:Label (en=HDR.SER.NDE)
+            @t24:LocalFields (maxChars=65, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Remittance Country */
+        REMITTANCE.COUNTRY -> ST_Config:COUNTRY
+            @i18n:Label (en=REMIT.COUNTRY)
+            @t24:LocalFields (applicationEnrich=COUNTRY_NAME, maxChars=9, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* CUST.CATEG.NAME */
+        CUST.CATEG.NAME : T24BusinessTypes:ANY
+            @i18n:Label (en=CUST.CATEG.NAME)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* No owners own more than 25% enquiry */
+        FINCEN.25.PRCT.NONE : LocalFieldsEnumeration:LocalField_FINCEN_25_PRCT_NONE
+            @i18n:Label (en=25.PRCT.NONE)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* ILBNKB.BRANCH.COD */
+        ILBNKB.BRANCH.CODE : T24BusinessTypes:N
+            @i18n:Label (en=BRANCH.CODE)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* ACC.BAL.AFTER */
+        ACC.BAL.AFTER : T24BusinessTypes:ANY
+            @i18n:Label (en=ACC.BAL.AFTER)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Uslend New escrow amount */
+        USLEND.NEW.ESCROW.AMT : T24BusinessTypes:AMTLCCY
+            @i18n:Label (en=NEW.ESCROW.AMT)
+            @t24:LocalFields (maxChars=19, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* FUTURE.DATE */
+        FUTURE.DATE : T24BusinessTypes:D
+            @i18n:Label (en=FUTURE.DATE)
+            @t24:LocalFields (maxChars=15, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Property Status */
+        PROPERTY.STATUS : LocalFieldsEnumeration:LocalField_PROPERTY_STATUS
+            @i18n:Label (en=PROPERTY.STATUS)
+            @t24:LocalFields (maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=COLL.PROPERTY.STATUS)
+        /* Exempt Reason */
+        USREGS.EXEMPT.REASON : LocalFieldsEnumeration:LocalField_USREGS_EXEMPT_REASON
+            @i18n:Label (en=EXEMPT.REASON)
+            @t24:LocalFields (maxChars=45, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Islamic Product */
+        IS.PRODUCT -> IS_Config:IS_PARAMETER
+            @i18n:Label (en=IS.PRODUCT)
+            @t24:LocalFields (applicationEnrich=DESCRIPTION, maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Bank code */
+        CLABE.BANK.CODE : T24BusinessTypes:A
+            @i18n:Label (en=CLB.BANK.CODE)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=CLB.BANK.CODE)
+        /* SDD.STATUS */
+        SDD.STATUS : T24BusinessTypes:A
+            @i18n:Label (en=SDD.STATUS)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* RBM Rate */
+        RLGAAP.RBM.RATE : T24BusinessTypes:R
+            @i18n:Label (en=RBM.RATE)
+            @t24:LocalFields (maxChars=16, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* I.B.L.C. DEBIT */
+        151 : LocalFieldsEnumeration:LocalField_151
+            @i18n:Label (en="IBLC CODE-DR", fr="CODIFICAT. IBLC")
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Affiliate marketing status date */
+        USREGS.AFFL.MKT.STATUS.DATE : T24BusinessTypes:D
+            @i18n:Label (en=AFL.MKT.STSDATE)
+            @t24:LocalFields (maxChars=11, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* FX.EXCH.REF.IND */
+        ACHFRM.FX.EXCH.REF.IND : LocalFieldsEnumeration:LocalField_ACHFRM_FX_EXCH_REF_IND
+            @i18n:Label (en=FX.EXCH.REF.IND)
+            @t24:LocalFields (maxChars=1, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=FX.EXCH.REF.IND)
+        /* Islamic Contract Reference */
+        IS.CONTRACT.REF -> IS_Purchase:IS_CONTRACT
+            @i18n:Label (en=IS.CONTRACT.REF)
+            @t24:LocalFields (applicationEnrich=DESCRIPTION, maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* SEPA.THEIR.NAME */
+        SEPA.THEIR.NAME : T24BusinessTypes:A
+            @i18n:Label (en=SEPA.THEIR.NAME)
+            @t24:LocalFields (maxChars=65, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Tax Cert */
+        TAX.CERT : LocalFieldsEnumeration:LocalField_TAX_CERT
+            @i18n:Label (en=TAX.CERT)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* ACC.BAL.BEFORE */
+        ACC.BAL.BEFORE : T24BusinessTypes:ANY
+            @i18n:Label (en=ACC.BAL.BEFORE)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Issue Date */
+        USCORE.DOC.ISSUE.DATE : T24BusinessTypes:D
+            @i18n:Label (en=DOC.ISSUE.DATE)
+            @t24:LocalFields (maxChars=11, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Certifier title */
+        FINCEN.CERTIFIER.TITLE : LocalFieldsEnumeration:LocalField_FINCEN_CERTIFIER_TITLE
+            @i18n:Label (en=CERTIFIER.TITLE)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=CERTIFIER.TITLE)
+        /* Secondary Market Loan ID */
+        USLEND.SECONDARY.MARKET.LOAN.ID : T24BusinessTypes:A
+            @i18n:Label (en=SEC.MKT.LOAN.ID)
+            @t24:LocalFields (maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* I.B.L.C. COUNTRY-CR */
+        172 : LocalFieldsEnumeration:LocalField_172
+            @i18n:Label (en="IBLC COUNTRY-CR", fr="PAY IBLC")
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Settlement Type */
+        LBRPTS.SETTLEMENT.TYPE : LocalFieldsEnumeration:LocalField_LBRPTS_SETTLEMENT_TYPE
+            @i18n:Label (en=SETTLEMENT.TYPE)
+            @t24:LocalFields (maxChars=9, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=LBRPTS.SETT.TYPE)
+        /* Tax Certification expiry Date */
+        USREGS.TX.CERT.EX.DATE : T24BusinessTypes:D
+            @i18n:Label (en=TX.CERT.EX.DATE)
+            @t24:LocalFields (maxChars=12, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Positive Pay Waive Charge */
+        POSPAY.POS.PAY.WV.CHG : LocalFieldsEnumeration:LocalField_POSPAY_POS_PAY_WV_CHG
+            @i18n:Label (en=POS.PAY.WV.CHG)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* VISIT CUSTOMER */
+        SDB.VISIT.CUSTOMER -> ST_Customer:CUSTOMER
+            @i18n:Label (en=VISIT.CUSTOMER)
+            @t24:LocalFields (applicationEnrich=NAME_1, maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* FATCA Status Code (Chapter 4) */
+        USREGS.FATCA.STATUS.CD : LocalFieldsEnumeration:LocalField_USREGS_FATCA_STATUS_CD
+            @i18n:Label (en=FATCA.STATUS.CD)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=FATCA.STATUS.CODE)
+        /* Header Branch Code */
+        HDR.BRCH.CD : T24BusinessTypes:A
+            @i18n:Label (en=HDR.BRCH.CD)
+            @t24:LocalFields (maxChars=4, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* First Line Control Digit */
+        FIRSTLINE.DIGIT : T24BusinessTypes:A
+            @i18n:Label (en=FIRSTLINE.DIGIT)
+            @t24:LocalFields (maxChars=1, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* OBCB.PAGE */
+        OBCB.PAGE : T24BusinessTypes:ANY
+            @i18n:Label (en=OBCB.PAGE)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* MERCHANT */
+        MERCHANT : T24BusinessTypes:ANY
+            @i18n:Label (en=MERCHANT)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Exemption type */
+        FINCEN.EXEMPTION.TYPE -> USREGS_FinCENBeneficialOwner:FINCEN_EXEMPT_CONTROL_PARAM
+            @i18n:Label (en=EXEMPTION.TYPE)
+            @t24:LocalFields (applicationEnrich=EXEMPTION_TYPE, maxChars=2, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Borrower */
+        BORROWER -> ST_Customer:CUSTOMER
+            @i18n:Label (en=BORROWER)
+            @t24:LocalFields (applicationEnrich=SHORT_NAME, maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* DEALER.NAME */
+        DEALER.NAME : T24BusinessTypes:A
+            @i18n:Label (en=DEALER.NAME)
+            @t24:LocalFields (maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* COMPANY.ID */
+        ACHFRM.COMPANY.ID : T24BusinessTypes:A
+            @i18n:Label (en=COMPANY.ID)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Escrow Test Analysis Date */
+        USLEND.TEST.ANALYSIS.DATE : T24BusinessTypes:D
+            @i18n:Label (en=TEST.ANLYSIS.DT)
+            @t24:LocalFields (maxChars=12, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* FT.TXN.TYPE */
+        FT.TXN.TYPE -> FT_Config:FT_TXN_TYPE_CONDITION
+            @i18n:Label (en=FT.TXN.TYPE)
+            @t24:LocalFields (applicationEnrich=TXN_CODE_CR, maxChars=4, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Global Intermediary Id Number */
+        USREGS.GIIN : T24BusinessTypes:A
+            @i18n:Label (en=GIIN)
+            @t24:LocalFields (maxChars=19, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* BEN.ACCT.NUMBER */
+        ACHFRM.BEN.ACCT.NUMBER : T24BusinessTypes:A
+            @i18n:Label (en=BEN.ACCT.NUMBER)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* What action to take when Stop Exist */
+        US.STOP.EXIST : T24BusinessTypes:A
+            @i18n:Label (en=STOP.EXIST)
+            @t24:LocalFields (maxChars=7, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=STOP.EXIST)
+        /* Cheque Account Number Control Digit */
+        CHQ.AC.NO.DIGIT : T24BusinessTypes:A
+            @i18n:Label (en=CHQ.AC.NO.DIGIT)
+            @t24:LocalFields (maxChars=1, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Triple A Order Nature */
+        TAP.ORDER.NATURE : LocalFieldsEnumeration:LocalField_TAP_ORDER_NATURE
+            @i18n:Label (en=TAP.ORD.NATURE)
+            @t24:LocalFields (maxChars=4, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Escrow Payee */
+        USLEND.ESCROW.PAYEE -> ST_Customer:CUSTOMER
+            @i18n:Label (en=ESCROW.PAYEE)
+            @t24:LocalFields (applicationEnrich=SHORT_NAME, maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Viability */
+        VIABILITY : LocalFieldsEnumeration:LocalField_VIABILITY
+            @i18n:Label (en=Viability)
+            @t24:LocalFields (maxChars=40, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Zip +4 */
+        USCORE.ZIP4 : T24BusinessTypes:A
+            @i18n:Label (en=ZIP4)
+            @t24:LocalFields (maxChars=4, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* SEPA.THEIR.CTRY */
+        SEPA.THEIR.CTRY -> ST_Config:COUNTRY
+            @i18n:Label (en=SEPA.THEIR.CTRY)
+            @t24:LocalFields (applicationEnrich=COUNTRY_NAME, maxChars=9, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Second Surname */
+        SECOND.SURNAME : T24BusinessTypes:A
+            @i18n:Label (en=SECOND.SURNAME)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* ISO.DEST.CCY.CODE */
+        ACHFRM.ISO.DEST.CCY.CODE -> ST_CurrencyConfig:CURRENCY
+            @i18n:Label (en=ISO.DES.CCYCODE)
+            @t24:LocalFields (applicationEnrich=_ID, maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Perm Est */
+        PERM.EST : LocalFieldsEnumeration:LocalField_PERM_EST
+            @i18n:Label (en=PERM.EST)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* ALLOWED.SEPA.TXN */
+        ALLOW.SEPA.TXN : T24BusinessTypes:A
+            @i18n:Label (en=ALLOW.SEPA.TXN)
+            @t24:LocalFields (maxChars=16, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* SY.UNIT */
+        SY.UNIT : T24BusinessTypes:A
+            @i18n:Label (en=SY.UNIT)
+            @t24:LocalFields (maxChars=52, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* No. of Coupon */
+        USLEND.NO.OF.COUPON : T24BusinessTypes:N
+            @i18n:Label (en=NO.OF.COUPON)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* SY.ID */
+        SY.ID : T24BusinessTypes:A
+            @i18n:Label (en=SY.ID)
+            @t24:LocalFields (maxChars=15, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Escrow Payee Property */
+        USLEND.PAYEE.PROPERTY -> AA_ProductFramework:AA_PROPERTY
+            @i18n:Label (en=PAYEE.PROP)
+            @t24:LocalFields (applicationEnrich=DESCRIPTION, maxChars=30, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Cheque Number Control Digit */
+        CHQ.NO.DIGIT : T24BusinessTypes:A
+            @i18n:Label (en=CHQ.NO.DIGIT)
+            @t24:LocalFields (maxChars=1, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Party Identifier */
+        USRETL.PARTY.IDENTIFIER : T24BusinessTypes:A
+            @i18n:Label (en=PRTY.IDENTIFIER)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* TFN Status */
+        TFN.STATUS : LocalFieldsEnumeration:LocalField_TFN_STATUS
+            @i18n:Label (en=TFN.STATUS)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=AUWHTX.TFN.STATUS)
+        /* Hold Fund */
+        HOLD.FUND : LocalFieldsEnumeration:LocalField_HOLD_FUND
+            @i18n:Label (en=HOLD.FUND)
+            @t24:LocalFields (maxChars=1, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Time Band */
+        INGAAP.TIME.BAND : LocalFieldsEnumeration:LocalField_INGAAP_TIME_BAND
+            @i18n:Label (en=TIME.BAND)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* BPM Process Instance Id */
+        BPM.PROCESS.ID : T24BusinessTypes:A
+            @i18n:Label (en=BPM.PROCESS.ID)
+            @t24:LocalFields (maxChars=55, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NOINPUT)
+        /* Chequebook Print Type */
+        LBACTR.PRINT.TYPE : LocalFieldsEnumeration:LocalField_LBACTR_PRINT_TYPE
+            @i18n:Label (en=PRINTING.TYPE)
+            @t24:LocalFields (maxChars=4, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=LBACTR.PRINT)
+        /* Fund decision maker identifier */
+        FLOAT.HOLD.TYPE : T24BusinessTypes:A
+            @i18n:Label (en=FLOAT.HOLD.TYPE)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* SEPA.CUSTOMER */
+        SEPA.CUSTOMER -> EP_InwardProcess:SEPA_CUSTOMER
+            @i18n:Label (en=SEPA.CUSTOMER)
+            @t24:LocalFields (applicationEnrich=NAME, maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Investor Payout Account */
+        USLEND.INV.PAYOUT.ACCT -> AC_AccountOpening:ACCOUNT
+            @i18n:Label (en=INV.PAYOUT.ACCT)
+            @t24:LocalFields (applicationEnrich=CUSTOMER, maxChars=36, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* ESBASE BIRTH PROVINCE */
+        ESBASE.BIRTH.PROVINCE : T24BusinessTypes:AAA
+            @i18n:Label (en=BIRTH.PROVINCE)
+            @t24:LocalFields (maxChars=2, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Islamic Customer */
+        IS.CUSTOMER -> ST_Customer:CUSTOMER
+            @i18n:Label (en=IS.CUSTOMER)
+            @t24:LocalFields (applicationEnrich=SHORT_NAME, maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Billing Method */
+        USLREG.BILLING.METHOD : LocalFieldsEnumeration:LocalField_USLREG_BILLING_METHOD
+            @i18n:Label (en=BILLING.METHOD)
+            @t24:LocalFields (maxChars=2, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=BILLING.METHOD)
+        /* ADJUST.OPTION */
+        ADJUST.OPTION : LocalFieldsEnumeration:LocalField_ADJUST_OPTION
+            @i18n:Label (en=ADJUST.OPTION)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Rebate Claim Period Start */
+        CLAIM.PERIOD.START : T24BusinessTypes:D
+            @i18n:Label (en=CLAIM.START)
+            @t24:LocalFields (maxChars=11, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* SIGNATORY */
+        SIGNATORY -> ST_Customer:CUSTOMER
+            @i18n:Label (en=SIGNATORY)
+            @t24:LocalFields (applicationEnrich=SHORT_NAME, maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* NOTES */
+        USCORE.NOTES : T24BusinessTypes:TEXT
+            @i18n:Label (en=NOTES)
+            @t24:LocalFields (maxChars=55, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Divisible Building */
+        DIVISIBLE.BUILDING : T24BusinessTypes:A
+            @i18n:Label (en=DIVISIBLE.BUILD)
+            @t24:LocalFields (maxChars=5, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Period for beneficiary */
+        BENE.RATE.PERIOD : LocalFieldsEnumeration:LocalField_BENE_RATE_PERIOD
+            @i18n:Label (en=BEN.RATE.PERIOD)
+            @t24:LocalFields (maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=MSO.BENE.RATE.PERIOD)
+        /* Number of Instalments */
+        USLEND.NO.OF.INSTALMENTS : T24BusinessTypes:N
+            @i18n:Label (en=NO.OF.INSTALMNT)
+            @t24:LocalFields (maxChars=2, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Customer Mail Indicator */
+        CUSTOMER.MAIL.INDICATOR : LocalFieldsEnumeration:LocalField_CUSTOMER_MAIL_INDICATOR
+            @i18n:Label (en=CUS.MAIL.IND)
+            @t24:LocalFields (maxChars=1, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=CUSTOMER.MAIL.INDICATOR)
+        /* Issuing Authority */
+        USCORE.DOC.ISSUER : T24BusinessTypes:A
+            @i18n:Label (en=DOC.ISSUER)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* ESCHEAT */
+        USRETL.ESCHEAT : LocalFieldsEnumeration:LocalField_USRETL_ESCHEAT
+            @i18n:Label (en=ESCHEAT)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* SEPA.OUT.CLEAR */
+        SEPA.OUT.CLEAR : T24BusinessTypes:A
+            @i18n:Label (en=SEPA.OUT.CLEAR)
+            @t24:LocalFields (maxChars=50, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NOINPUT)
+        /* Public real state Registration ref */
+        PRSR.REFERENCE : T24BusinessTypes:ANY
+            @i18n:Label (en=PRSR.REFERENCE)
+            @t24:LocalFields (maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* A unique code for this rate profile */
+        PRODUCT.RATE.PROFILE.CODE : T24BusinessTypes:A
+            @i18n:Label (en=RATE.PROF.CO)
+            @t24:LocalFields (maxChars=50, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Pay by Check */
+        USRETL.PAY.BY.CHECK : T24BusinessTypes:A
+            @i18n:Label (en=PAY.BY.CHECK)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Backup Withhold */
+        USREGS.BACKUP.WITHHOLD : LocalFieldsEnumeration:LocalField_USREGS_BACKUP_WITHHOLD
+            @i18n:Label (en=BACKUP.WITHHOLD)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=USREGS.OPTION)
+        /* TF Reference Linked to the Loan */
+        LINKED.TFDR.REF : T24BusinessTypes:A
+            @i18n:Label (en=LINKED.TFDR.REF)
+            @t24:LocalFields (maxChars=16, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Check Image Reference */
+        CHECK.IMAGE.REF : T24BusinessTypes:ANY
+            @i18n:Label (en=CHECK.IMG.REF)
+            @t24:LocalFields (maxChars=45, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Fund Manager Rebate */
+        FUND.MGR.REBATE : T24BusinessTypes:A
+            @i18n:Label (en=FUND.MGR.REBATE)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Local Checks Count */
+        USRETL.LCL.CHK.DEP : T24BusinessTypes:N
+            @i18n:Label (en=LCL.CHK.DEP)
+            @t24:LocalFields (maxChars=7, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Maximum Legal Rate Code */
+        FRTAEG.MLR.CODE -> FRTAEG_Foundation:FRTAEG_MAX_LEGAL_RATE_PRODUCT
+            @i18n:Label (en=MLR.CODE)
+            @t24:LocalFields (applicationEnrich=DESCRIPTION, maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Principal Residency */
+        PRINCIPAL.RESIDENCY : LocalFieldsEnumeration:LocalField_PRINCIPAL_RESIDENCY
+            @i18n:Label (en=PR.RESIDENCY)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* SVC.CLASS.CODE */
+        ACHFRM.SVC.CLASS.CODE : T24BusinessTypes:N
+            @i18n:Label (en=SVC.CLASS.CODE)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Purpose of Goods */
+        PURPOSE.GOODS : LocalFieldsEnumeration:LocalField_PURPOSE_GOODS
+            @i18n:Label (en=PURPOSE.GOODS)
+            @t24:LocalFields (maxChars=40, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=PURPOSE.GOODS)
+        /* Type of Building */
+        TYPE.BUILDING : LocalFieldsEnumeration:LocalField_TYPE_BUILDING
+            @i18n:Label (en=TYPE.BUILDING)
+            @t24:LocalFields (maxChars=40, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=TYPE.BUILDING)
+        /* Update Schedule */
+        UPDATE.SCHEDULE : LocalFieldsEnumeration:LocalField_UPDATE_SCHEDULE
+            @i18n:Label (en=UPDATE.SCHEDULE)
+            @t24:LocalFields (maxChars=30, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=UPDATE.SCHEDULE)
+        /* Insurance Expiry Date */
+        INSURANCE.EXPIRY.DT : T24BusinessTypes:DD
+            @i18n:Label (en=INS.EXPIRY.DT)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* DFT.CCY.UNIT */
+        DFT.CCY.UNIT : T24BusinessTypes:A
+            @i18n:Label (en=DFT.CCY.UNIT)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* IMMEDIATELY */
+        IMMEDIATELY : LocalFieldsEnumeration:LocalField_IMMEDIATELY
+            @i18n:Label (en=IMMEDIATELY)
+            @t24:LocalFields (maxChars=15, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Race */
+        USCORE.RACE : LocalFieldsEnumeration:LocalField_USCORE_RACE
+            @i18n:Label (en=RACE)
+            @t24:LocalFields (maxChars=1, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=RACE)
+        /* Agency Id */
+        LBRPTS.AGENCY.ID -> CL_Contract:CL_EXTERNAL_AGENCY
+            @i18n:Label (en=AGENCY.ID)
+            @t24:LocalFields (applicationEnrich=AGENCY_NAME, maxChars=15, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Last Recalc Date */
+        USLEND.LAST.RECALC.DATE : T24BusinessTypes:D
+            @i18n:Label (en=LAST.RECALC.DT)
+            @t24:LocalFields (maxChars=12, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* OBCB.ACCTID */
+        OBCB.ACCTID : T24BusinessTypes:ANY
+            @i18n:Label (en=OBCB.ACCTID)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Third Party Legal ID */
+        USREGS.TP.LEGAL.ID : T24BusinessTypes:A
+            @i18n:Label (en=TP.LEGAL.ID)
+            @t24:LocalFields (maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* SEPA.PEACH */
+        SEPA.PEACH -> EP_Config:SEPA_PEACH
+            @i18n:Label (en=SEPA.PEACH)
+            @t24:LocalFields (applicationEnrich=NAME, maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* OPT.IN */
+        USRETL.OPT.IN : LocalFieldsEnumeration:LocalField_USRETL_OPT_IN
+            @i18n:Label (en=OPT.IN)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* IAT.PAYINFO.TWO */
+        ACHFRM.IAT.PAYINFO.TWO : T24BusinessTypes:TEXT
+            @i18n:Label (en=IAT.PAYINFO.TWO)
+            @t24:LocalFields (maxChars=65, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Flat amount for tax */
+        FLAT.AMOUNT : T24BusinessTypes:AMTLCCY
+            @i18n:Label (en=FLAT.AMOUNT)
+            @t24:LocalFields (maxChars=16, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Account Type */
+        USREGS.ACCOUNT.TYPE : LocalFieldsEnumeration:LocalField_USREGS_ACCOUNT_TYPE
+            @i18n:Label (en=ACCOUNT.TYPE)
+            @t24:LocalFields (maxChars=15, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* W9 Payee Exemption Code */
+        USREGS.W9.PAYE.EXM.CD : LocalFieldsEnumeration:LocalField_USREGS_W9_PAYE_EXM_CD
+            @i18n:Label (en=W9.PAYE.EXM.CDE)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=W9.PAYE.EXM.CDE)
+        /* Certifier name */
+        FINCEN.CERTIFIER : T24BusinessTypes:A
+            @i18n:Label (en=CERTIFIER)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Disp. or not the image in main SCV */
+        USCORE.DISPLAY.IN.MAIN.TAB : LocalFieldsEnumeration:LocalField_USCORE_DISPLAY_IN_MAIN_TAB
+            @i18n:Label (en=DISPLAY.IN.MAIN)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Owner occupied */
+        USLREG.OWNER.OCCUPIED : LocalFieldsEnumeration:LocalField_USLREG_OWNER_OCCUPIED
+            @i18n:Label (en=OWNER.OCCUPIED)
+            @t24:LocalFields (maxChars=1, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=OWN.OCCUPIED)
+        /* NSF Desk ID */
+        NSF.DESK -> NSFDES_DeskMgmt:NSF_DESK_DEFINITION
+            @i18n:Label (en=NSF.DESK)
+            @t24:LocalFields (applicationEnrich=DESCRIPTION, maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Country of Issue */
+        USCORE.COUNTRY -> ST_Config:COUNTRY
+            @i18n:Label (en=COUNTRY)
+            @t24:LocalFields (applicationEnrich=COUNTRY_NAME, maxChars=9, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Flag if repeated OD happens */
+        NACUST.REPEAT.OD : LocalFieldsEnumeration:LocalField_NACUST_REPEAT_OD
+            @i18n:Label (en=REPEAT.OD)
+            @t24:LocalFields (maxChars=8, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Product Expiration Period */
+        USRETL.PRODUCT.EXP.PRD : T24BusinessTypes:PERIOD
+            @i18n:Label (en=PRODUCT.EXP.PRD)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Verifying Individual */
+        KYC.VERIFIER : T24BusinessTypes:A
+            @i18n:Label (en=KYC.VERIFIER)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* FORWARDED.ACCOUNT */
+        FORWARDED.ACCOUNT -> AC_AccountOpening:ACCOUNT
+            @i18n:Label (en=FORWARD.ACCOUNT)
+            @t24:LocalFields (applicationEnrich=ACCOUNT_TITLE_1, maxChars=36, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* ONS SIC 2007 Code */
+        BOE.SIC -> UKSTAT_Foundation:BOE_SIC
+            @i18n:Label (en=BOE.SIC)
+            @t24:LocalFields (applicationEnrich=DESCRIPTION, maxChars=5, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* FGN.CORR.BR.COCODE */
+        ACHFRM.FGN.CORR.BR.COCODE -> ST_Config:COUNTRY
+            @i18n:Label (en=FC.BR.COCODE)
+            @t24:LocalFields (applicationEnrich=_ID, maxChars=9, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* SEC.EFF.DATE */
+        SEC.EFF.DATE : T24BusinessTypes:D
+            @i18n:Label (en=SEC.EFF.DATE)
+            @t24:LocalFields (maxChars=11, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Employer Contribution */
+        USIRAC.EMP.CONTR : LocalFieldsEnumeration:LocalField_USIRAC_EMP_CONTR
+            @i18n:Label (en=EMP.CONTR)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* SEPA.ADDRESS */
+        SEPA.ADDRESS : T24BusinessTypes:A
+            @i18n:Label (en=SEPA.ADDRESS)
+            @t24:LocalFields (maxChars=65, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Linked Deposit/Account */
+        USRETL.COL.ARRANGEMENT -> AA_Framework:AA_ARRANGEMENT
+            @i18n:Label (en=COL.ARRANGEMENT)
+            @t24:LocalFields (applicationEnrich=CO_CODE, maxChars=17, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* STO.FUTURE.NOTICE */
+        STO.FUTURE.NOTICE : T24BusinessTypes:A
+            @i18n:Label (en=FUTURE.NOTICE)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* TIN TYPE */
+        USREGS.TIN.TYPE : LocalFieldsEnumeration:LocalField_USREGS_TIN_TYPE
+            @i18n:Label (en=TIN.TYPE)
+            @t24:LocalFields (maxChars=2, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=TIN.TYPE)
+        /* Pledge Purpose */
+        RLGAAP.PLEDGE.PURPOSE : LocalFieldsEnumeration:LocalField_RLGAAP_PLEDGE_PURPOSE
+            @i18n:Label (en=PLEDGE.PURPOSE)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=PLEDGE.PURPOSE)
+        /* Escrow Analysis Required */
+        USLEND.ANALYSIS.REQD : LocalFieldsEnumeration:LocalField_USLEND_ANALYSIS_REQD
+            @i18n:Label (en=ANALYSIS.REQD)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Unique co Base asociat with rate */
+        BASERATE.TYPECODE : T24BusinessTypes:A
+            @i18n:Label (en=BASERATE.TYPECO)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Bank Branch Code */
+        CLABE.BRANCH.CODE : T24BusinessTypes:A
+            @i18n:Label (en=CLB.BRANCH.CODE)
+            @t24:LocalFields (maxChars=4, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=CLB.BRANCH.CODE)
+        /* Redeem All */
+        REDEEM.ALL : LocalFieldsEnumeration:LocalField_REDEEM_ALL
+            @i18n:Label (en=REDEEM.ALL)
+            @t24:LocalFields (maxChars=1, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* DUPLICATE */
+        DUPLICATE : T24BusinessTypes:ANY
+            @i18n:Label (en=DUPLICATE)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Vehicle Registration Reference */
+        REGISTRATION.NO : T24BusinessTypes:A
+            @i18n:Label (en=REGISTRATION.NO)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* OBCB.FROM.ID */
+        OBCB.FROM.ID : T24BusinessTypes:ANY
+            @i18n:Label (en=OBCB.FROM.ID)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Reprint Coupon */
+        USLEND.REPRINT.COUPON : T24BusinessTypes:A
+            @i18n:Label (en=REPRINT.COUPON)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* The fee is can be waived or Not */
+        CAN.WAIVE : T24BusinessTypes:A
+            @i18n:Label (en=CAN.WAIVE)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Repayment Frequency (mnths) */
+        REPAY.FQY : T24BusinessTypes:N
+            @i18n:Label (en="Repay Freq")
+            @t24:LocalFields (maxChars=2, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* FDIC Ownership code */
+        USREGS.OWNERSHIP.CODE : LocalFieldsEnumeration:LocalField_USREGS_OWNERSHIP_CODE
+            @i18n:Label (en=OWNERSHIP.CODE)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=FDIC.OWNERSHIP.CODE)
+        /* Customer number for the User */
+        USER.CUSTOMER -> ST_Customer:CUSTOMER
+            @i18n:Label (en=USER.CUSTOMER)
+            @t24:LocalFields (applicationEnrich=MNEMONIC, maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* TDS.MESSAGE.ID */
+        TDS.MESSAGE.ID : T24BusinessTypes:A
+            @i18n:Label (en=TDS.MESSAGE.ID)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Suppress notice */
+        USRETL.SUPPRESS.NOTICE : LocalFieldsEnumeration:LocalField_USRETL_SUPPRESS_NOTICE
+            @i18n:Label (en=SUPPRESS.NOTICE)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Commodity Base for DXtrade */
+        COMMODITY.BASE : LocalFieldsEnumeration:LocalField_COMMODITY_BASE
+            @i18n:Label (en=COMMODITY.BASE)
+            @t24:LocalFields (maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=COMMODITY.BASE)
+        /* Repurchase Date */
+        USLEND.REPURCHASE.DATE : T24BusinessTypes:D
+            @i18n:Label (en=REPURCHASE.DATE)
+            @t24:LocalFields (maxChars=11, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* PRINTING */
+        USRETL.PRINTING : LocalFieldsEnumeration:LocalField_USRETL_PRINTING
+            @i18n:Label (en=PRINTING)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=PRINT.TYPE)
+        /* Legal Entity Sub Type */
+        LEGAL.ENTITY.SUB.TYPE : LocalFieldsEnumeration:LocalField_LEGAL_ENTITY_SUB_TYPE
+            @i18n:Label (en=LE.SUB.TYPE)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=AULEFS.LEGAL.ENTITY.SUB.TYPE)
+        /* TREASURY TRADER REF. NO. */
+        TT.REF.NO : T24BusinessTypes:A
+            @i18n:Label (en=TT.REF.NO)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Collateral Priority */
+        USRETL.COL.PRIORITY : T24BusinessTypes:N
+            @i18n:Label (en=COL.PRIORITY)
+            @t24:LocalFields (maxChars=2, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* ODP.AMOUNT */
+        USRETL.ODP.AMOUNT : T24BusinessTypes:AMTLCCY
+            @i18n:Label (en=ODP.AMOUNT)
+            @t24:LocalFields (maxChars=15, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Insurance Coverage Held */
+        INSURANCE.COVERAGE : T24BusinessTypes:A
+            @i18n:Label (en=INS.COVERAGE)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Loan Sold Date */
+        USLEND.SOLD.DATE : T24BusinessTypes:D
+            @i18n:Label (en=SOLD.DATE)
+            @t24:LocalFields (maxChars=11, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* W8 BEN */
+        USREGS.W8.BEN : LocalFieldsEnumeration:LocalField_USREGS_W8_BEN
+            @i18n:Label (en=W8.BEN)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=USREGS.OPTION)
+        /* I.B.L.C. CREDIT */
+        152 : LocalFieldsEnumeration:LocalField_152
+            @i18n:Label (en="IBLC CODE-CR", fr="CODIFICAT. IBLC")
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* No of Homes */
+        NO.HOMES : T24BusinessTypes:N
+            @i18n:Label (en=NO.HOMES)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* CHQ.NUMBER */
+        CHQ.NUMBER : T24BusinessTypes:ANY
+            @i18n:Label (en=CHQ.NUMBER)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Check Gen Indicator */
+        USRETL.CHECK.GEN : T24BusinessTypes:A
+            @i18n:Label (en=CHECK.GEN)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Census Tract */
+        USLREG.CENSUS.TRACT : T24BusinessTypes:A
+            @i18n:Label (en=CENSUS.TRACT)
+            @t24:LocalFields (maxChars=7, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* BPM Task Instance Id */
+        BPM.TASK.ID : T24BusinessTypes:A
+            @i18n:Label (en=BPM.TASK.ID)
+            @t24:LocalFields (maxChars=50, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NOINPUT)
+        /* Islamic Asset Reference */
+        IS.ASSET.REF : T24BusinessTypes:A
+            @i18n:Label (en=IS.ASSET.REF)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Hold Type */
+        USCORE.HOLD.TYPE -> USCORE_Holds:USCORE_HOLD_PARAMETER
+            @i18n:Label (en=HOLD.TYPE)
+            @t24:LocalFields (applicationEnrich=DESCRIPTION, maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Year of Manufacture */
+        YR.OF.MANUFACTURE : T24BusinessTypes:A
+            @i18n:Label (en=MANUFACTURE.YR)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Deposit Value Date */
+        VALUE.DATE : T24BusinessTypes:D
+            @i18n:Label (en=VALUE.DATE)
+            @t24:LocalFields (maxChars=11, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Surplus Rate */
+        SURPLUS.RATE : T24BusinessTypes:R
+            @i18n:Label (en=SURPLUS.RATE)
+            @t24:LocalFields (maxChars=6, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Repay Profit Amount */
+        IS.PROFIT : T24BusinessTypes:AMTLCCY
+            @i18n:Label (en=IS.PROFIT)
+            @t24:LocalFields (maxChars=18, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* North American Industry Class Sys */
+        USCORE.NAICS -> USCORE_Foundation:USCORE_NAICS
+            @i18n:Label (en=NAICS)
+            @t24:LocalFields (applicationEnrich=DESCRIPTION, maxChars=6, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Misceleneous title */
+        FINCEN.MISC.TITLE : T24BusinessTypes:A
+            @i18n:Label (en=MISC.TITLE)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Beneficiary Alternate Key */
+        BEN.ALT.KEY : T24BusinessTypes:A
+            @i18n:Label (en=BEN.ALT.KEY)
+            @t24:LocalFields (maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* SEPA.SDD.TYPE */
+        SEPA.SDD.TYPE : T24BusinessTypes:A
+            @i18n:Label (en=SEPA.SDD.TYPE)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Date of certification */
+        FINCEN.CERTIFIED.DATE : T24BusinessTypes:D
+            @i18n:Label (en=CERTIFIED.DATE)
+            @t24:LocalFields (maxChars=15, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* ATM Transaction information */
+        ATM.TXN.INFO : T24BusinessTypes:ANY
+            @i18n:Label (en=ATM.TXN.INFO)
+            @t24:LocalFields (maxChars=50, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* SEPA.OUR.BRANCH */
+        SEPA.OUR.BRANCH : T24BusinessTypes:A
+            @i18n:Label (en=SEPA.OUR.BRANCH)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* RECEIVING.DFI.NAME */
+        ACHFRM.RECEIVING.DFI.NAME : T24BusinessTypes:A
+            @i18n:Label (en=RDFI.NAME)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Welcome Pack */
+        WELCOME.PACK : T24BusinessTypes:A
+            @i18n:Label (en=WELCOME.PACK)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Yr Of Construction */
+        YEAR.CONSTRUCTION : T24BusinessTypes:N
+            @i18n:Label (en=YEAR.CONSTRUCT)
+            @t24:LocalFields (maxChars=4, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Minimum Amount */
+        USRETL.MIN.AMOUNT : T24BusinessTypes:AMTLCCY
+            @i18n:Label (en=MIN.AMOUNT)
+            @t24:LocalFields (maxChars=19, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* BOE Industry Classification */
+        BOE.INDUSTRY -> UKSTAT_Foundation:BOE_INDUSTRY
+            @i18n:Label (en=BOE.INDUSTRY)
+            @t24:LocalFields (applicationEnrich=DESCRIPTION, maxChars=5, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* FGN.PAYMENT.AMOUNT */
+        ACHFRM.FGN.PAYMENT.AMOUNT : T24BusinessTypes:AMTLCCY
+            @i18n:Label (en=FGN.PAYMENT.AMT)
+            @t24:LocalFields (maxChars=19, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Affiliate marketing customer option */
+        USREGS.AFFL.MKT.STATUS : LocalFieldsEnumeration:LocalField_USREGS_AFFL_MKT_STATUS
+            @i18n:Label (en=AFFL.MKT.STATUS)
+            @t24:LocalFields (maxChars=11, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Communication Device */
+        USREGS.COMM.DEVICE : LocalFieldsEnumeration:LocalField_USREGS_COMM_DEVICE
+            @i18n:Label (en=COMM.DEVICE)
+            @t24:LocalFields (maxChars=12, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* MSA/MD */
+        USLREG.MSA.MD : T24BusinessTypes:A
+            @i18n:Label (en=MSA.MD)
+            @t24:LocalFields (maxChars=5, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Availability of Customer VAT/GST ID */
+        VAT.GST.ID : T24BusinessTypes:A
+            @i18n:Label (en=VAT.GST.ID)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* IRA Benf Share */
+        USIRAC.BEN.SHARE : T24BusinessTypes:N
+            @i18n:Label (en=IRA.BEN.SHARE)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Legal Status */
+        USLREG.LEGAL.STATUS : LocalFieldsEnumeration:LocalField_USLREG_LEGAL_STATUS
+            @i18n:Label (en=LEGAL.STATUS)
+            @t24:LocalFields (maxChars=1, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=LEGAL.STATUS)
+        /* Benf Relation */
+        USIRAC.BEN.RELATION : T24BusinessTypes:A
+            @i18n:Label (en=BEN.RELATION)
+            @t24:LocalFields (maxChars=11, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Exemption Category */
+        TFN.EXEM.CATEG : LocalFieldsEnumeration:LocalField_TFN_EXEM_CATEG
+            @i18n:Label (en=TFN.EXEM.CATEG)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=TFN.EXCEMPTION.CODE)
+        /* SEPA.PAYMENT.REFERENCE */
+        SEPA.PAYMENT.REF : T24BusinessTypes:A
+            @i18n:Label (en=PAYMENT.REF)
+            @t24:LocalFields (maxChars=65, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* FFIEC.CODE */
+        USRETL.FFIEC.CODE : T24BusinessTypes:A
+            @i18n:Label (en=FFIEC.CODE)
+            @t24:LocalFields (maxChars=8, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* TAX.CODE */
+        TAX.CODE : T24BusinessTypes:N
+            @i18n:Label (en=TAX.CODE)
+            @t24:LocalFields (maxChars=16, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* W9 Tax Classification Code */
+        USREGS.W9.TX.CLASS.CD : LocalFieldsEnumeration:LocalField_USREGS_W9_TX_CLASS_CD
+            @i18n:Label (en=W9.TX.CLASS.CD)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=W9.TAX.CLASS.CODE)
+        /* Nominated Account Number */
+        NOMINATED.ACCOUNT.NUMBER : T24BusinessTypes:N
+            @i18n:Label (en=NOM.ACCT.NUM)
+            @t24:LocalFields (maxChars=34, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Header Source ID */
+        HDR.SOURCE : T24BusinessTypes:A
+            @i18n:Label (en=HDR.SOURCE)
+            @t24:LocalFields (maxChars=8, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Entity Type Code (Chapter 3) */
+        USREGS.ENT.TYPE.CODE : LocalFieldsEnumeration:LocalField_USREGS_ENT_TYPE_CODE
+            @i18n:Label (en=ENT.TYPE.CODE)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=TX.ENT.TYPE.CODE)
+        /* Commodity Sale Reference */
+        IS.COM.SALE.REF -> IS_Purchase:IS_COMMODITY_SALE
+            @i18n:Label (en=IS.COM.SALE.REF)
+            @t24:LocalFields (applicationEnrich=SALE_PRICE, maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* FGN.CORR.BANK.QUALIFIER */
+        ACHFRM.FGN.CORR.BANK.QUALIFIER : LocalFieldsEnumeration:LocalField_ACHFRM_FGN_CORR_BANK_QUALIFIER
+            @i18n:Label (en=FC.BANK.QFR)
+            @t24:LocalFields (maxChars=2, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=ACH.ID.QUALIFIER)
+        /* Policy Id */
+        AULMOI.POLICY.ID -> AA_Framework:AA_ARRANGEMENT
+            @i18n:Label (en=POLICY.ID)
+            @t24:LocalFields (applicationEnrich=PRODUCT, maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Tax Withholding applied */
+        USREGS.WHT.APPLIED : LocalFieldsEnumeration:LocalField_USREGS_WHT_APPLIED
+            @i18n:Label (en=WHT.APPLIED)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=WHT.APPLIED)
+        /* Goods Status */
+        STATUS.GOOD : LocalFieldsEnumeration:LocalField_STATUS_GOOD
+            @i18n:Label (en=STATUS.GOOD)
+            @t24:LocalFields (maxChars=15, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=STATUS.GOOD)
+        /* Holds SAM and CUSTOMER RELATION ID */
+        SAM.CUST.REL.ID : T24BusinessTypes:N
+            @i18n:Label (en=SAM.CUST.REL.ID)
+            @t24:LocalFields (maxChars=40, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Renewal Cooling Period */
+        USRETL.RENEWAL.COOLINGPERIOD : T24BusinessTypes:A
+            @i18n:Label (en=RENEWAL.COOLING)
+            @t24:LocalFields (maxChars=4, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* MD Text */
+        MD.TEXT : T24BusinessTypes:TEXT
+            @i18n:Label (en=MD.TEXT)
+            @t24:LocalFields (maxChars=50, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Alternate Id for the SAM */
+        SAM.ALTERNATE.KEY : T24BusinessTypes:A
+            @i18n:Label (en=PORT.ALT.ID)
+            @t24:LocalFields (maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* BoE Sector Classification */
+        BOE.SECTOR -> UKSTAT_Foundation:BOE_SECTOR
+            @i18n:Label (en=BOE.SECTOR)
+            @t24:LocalFields (applicationEnrich=DESCRIPTION, maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* OFS Source for NSF Returns process */
+        NSF.REJECT.OFS -> EB_Interface:OFS_SOURCE
+            @i18n:Label (en=NSF.REJECT.OFS)
+            @t24:LocalFields (applicationEnrich=DESCRIPTION, maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* COMMUNICATION MODE */
+        USREGS.COMMN.MODE : LocalFieldsEnumeration:LocalField_USREGS_COMMN_MODE
+            @i18n:Label (en=COMMN.MODE)
+            @t24:LocalFields (maxChars=18, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* SEPA.MSG.ID */
+        SEPA.MSG.ID : T24BusinessTypes:A
+            @i18n:Label (en=SEPA.MSG.ID)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* EXTERNAL.REF */
+        EXTERNAL.REFERENCE : T24BusinessTypes:A
+            @i18n:Label (en=EXTERNAL.REF)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Date of Death */
+        ACHFRM.DATEOFDEATH : T24BusinessTypes:D
+            @i18n:Label (en=DateofDeath)
+            @t24:LocalFields (maxChars=11, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* To group risk classification */
+        STAGE : T24BusinessTypes:A
+            @i18n:Label (en=STAGE)
+            @t24:LocalFields (maxChars=2, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* SEPA.CREDITOR */
+        SEPA.CREDITOR : T24BusinessTypes:A
+            @i18n:Label (en=SEPA.CREDITOR)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* SEPA.CUST.DTLS */
+        SEPA.CUST.DTLS : T24BusinessTypes:A
+            @i18n:Label (en=SEPA.CUST.DTLS)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* FSCS.ELIGIBLE */
+        FSCS.ELIGIBLE -> UKFSCS_Reporting:FSCS_ELIGIBILITY
+            @i18n:Label (en=FSCS.ELIGIBLE)
+            @t24:LocalFields (applicationEnrich=DESCRIPTION, maxChars=2, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* SEPA Outward Files ID */
+        SEPA.OUTWARD.FILES.ID : T24BusinessTypes:ANY
+            @i18n:Label (en=OUTWRD.FILES.ID)
+            @t24:LocalFields (maxChars=60, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* CBR CI Indicator */
+        CBR.CI.INDICATR : T24BusinessTypes:A
+            @i18n:Label (en=CI.INDICATOR)
+            @t24:LocalFields (maxChars=2, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Tax Treaty Benefit */
+        USREGS.TTY.BFIT : LocalFieldsEnumeration:LocalField_USREGS_TTY_BFIT
+            @i18n:Label (en=TX.TTY.BFIT)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Commodity Details */
+        COMMODITY.DETAILS : LocalFieldsEnumeration:LocalField_COMMODITY_DETAILS
+            @i18n:Label (en=COMMODITY.DET)
+            @t24:LocalFields (maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=COMMODITY.DETAILS)
+        /* No Storage Room */
+        NO.STORAGE.ROOM : T24BusinessTypes:N
+            @i18n:Label (en=NO.STORAGE.ROOM)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Foreign Checks Count */
+        USRETL.FGN.CHK.DEP : T24BusinessTypes:N
+            @i18n:Label (en=FGN.CHK.DEP)
+            @t24:LocalFields (maxChars=7, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Escrow Payee Type */
+        USLEND.ESCROW.PAYEE.TYPE : LocalFieldsEnumeration:LocalField_USLEND_ESCROW_PAYEE_TYPE
+            @i18n:Label (en=PAYEE.TYPE)
+            @t24:LocalFields (maxChars=45, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=USLEND.PAYEE.TYPE)
+        /* Source of KYC Verification */
+        KYC.SOURCE : LocalFieldsEnumeration:LocalField_KYC_SOURCE
+            @i18n:Label (en=KYC.SOURCE)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=KYC.VERIFY.SOURCE)
+        /* Fiscal Benefits Padron Indicator */
+        TAX.FISCAL.BENEFIT : T24BusinessTypes:A
+            @i18n:Label (en=FISCAL.BENEFIT)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Earliest Date for Deposit Redemp */
+        EARLY.TERMINATE : T24BusinessTypes:D
+            @i18n:Label (en=EARLY.TERMINATE)
+            @t24:LocalFields (maxChars=11, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* PEL/CEL account arrangement id */
+        PELCEL.ACCOUNT : T24BusinessTypes:A
+            @i18n:Label (en=PELCEL.ACCOUNT)
+            @t24:LocalFields (maxChars=17, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Islamic Disbursement Ref */
+        IS.DISBURSE.REF : T24BusinessTypes:A
+            @i18n:Label (en=IS.DISBURSE.REF)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* SEPA.THEIR.BANK */
+        SEPA.THEIR.BANK : T24BusinessTypes:A
+            @i18n:Label (en=SEPA.THEIR.BANK)
+            @t24:LocalFields (maxChars=11, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Defines the type of product */
+        PRODUCT.TYPE : LocalFieldsEnumeration:LocalField_PRODUCT_TYPE
+            @i18n:Label (en=PRODUCT.TYPE)
+            @t24:LocalFields (maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=MSO.PRODUCT.TYPE)
+        /* SEPA.CODE.OPE */
+        SEPA.CODE.OPE : T24BusinessTypes:N
+            @i18n:Label (en=SEPA.CODE.OPE)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Islamic Commodity Ref */
+        IS.COMM.REF -> IS_Config:IS_COMMODITY
+            @i18n:Label (en=IS.COMM.REF)
+            @t24:LocalFields (applicationEnrich=DESCRIPTION, maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* FDIC Rate Key */
+        USRETL.FDIC.KEY -> ST_RateParameters:BASIC_RATE_TEXT
+            @i18n:Label (en=USRETL.FDIC.KEY)
+            @t24:LocalFields (applicationEnrich=DESCRIPTION, maxChars=4, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Lookback Period */
+        USRETL.LOOK.BACK.PRD : T24BusinessTypes:N
+            @i18n:Label (en=LOOK.BACK.PRD)
+            @t24:LocalFields (maxChars=2, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Restricted */
+        USCORE.RESTRICTED : LocalFieldsEnumeration:LocalField_USCORE_RESTRICTED
+            @i18n:Label (en=RESTRICTED)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* First Surname */
+        FIRST.SURNAME : T24BusinessTypes:A
+            @i18n:Label (en=FIRST.SURNAME)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Legal ID Expiry Date */
+        LEGAL.EXP.DATE : T24BusinessTypes:D
+            @i18n:Label (en=LEGAL.EXP.DATE)
+            @t24:LocalFields (maxChars=11, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Co for single chanel assign to prod */
+        CHANNEL.CODE : LocalFieldsEnumeration:LocalField_CHANNEL_CODE
+            @i18n:Label (en=CHANNEL.CODE)
+            @t24:LocalFields (maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=MSO.CHANNEL.CODE)
+        /* Legal Fee */
+        LBRPTS.LEGAL.FEES : T24BusinessTypes:A
+            @i18n:Label (en=LEGAL.FEES)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Spread Operand */
+        USRETL.SPREAD.OPERAND : LocalFieldsEnumeration:LocalField_USRETL_SPREAD_OPERAND
+            @i18n:Label (en=SPREAD.OPERAND)
+            @t24:LocalFields (maxChars=8, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* W8 to W9 Status Change */
+        USREGS.W8.TO.W9 : LocalFieldsEnumeration:LocalField_USREGS_W8_TO_W9
+            @i18n:Label (en=W8.TO.W9)
+            @t24:LocalFields (maxChars=13, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* LOAN RIGHTS */
+        LOAN.RIGHTS : T24BusinessTypes:AMTLCCY
+            @i18n:Label (en=LOAN.RIGHTS)
+            @t24:LocalFields (maxChars=19, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Level */
+        INGAAP.LEVEL : T24BusinessTypes:N
+            @i18n:Label (en=LEVEL)
+            @t24:LocalFields (maxChars=5, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=LEVEL)
+        /* VISIT TIME */
+        SDB.VISIT.TIME : T24BusinessTypes:TIME
+            @i18n:Label (en=VISIT.TIME)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Primary Account for Reserve */
+        RSRV.PRIMARY.AC : T24BusinessTypes:A
+            @i18n:Label (en=RSRV.PRIMARY.AC)
+            @t24:LocalFields (maxChars=15, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* PRIVACY STATUS */
+        USREGS.PRIVACY.STATUS : LocalFieldsEnumeration:LocalField_USREGS_PRIVACY_STATUS
+            @i18n:Label (en=PRIVACY.STATUS)
+            @t24:LocalFields (maxChars=7, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* EXCEPTION */
+        USREGS.EXCEPTION : LocalFieldsEnumeration:LocalField_USREGS_EXCEPTION
+            @i18n:Label (en=EXCEPTION)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Escrow Disbursement Account */
+        USLEND.DISBURSE.ACCOUNT -> AC_AccountOpening:ACCOUNT
+            @i18n:Label (en=DISBURSE.ACCT)
+            @t24:LocalFields (applicationEnrich=ACCOUNT_TITLE_1, maxChars=36, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* ACH.CLASS */
+        ACH.CLASS : LocalFieldsEnumeration:LocalField_ACH_CLASS
+            @i18n:Label (en=ACH.CLASS)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=ACH.CLASS.CODE)
+        /* CLEARING.SETTLEMENT.SHIFT */
+        CLEARING.SETTLEMENT.SHIFT : T24BusinessTypes:N
+            @i18n:Label (en=SETTLEMNT.SHIFT)
+            @t24:LocalFields (maxChars=2, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* City */
+        USCORE.CITY : T24BusinessTypes:A
+            @i18n:Label (en=CITY)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Addenda Information */
+        ACHFRM.ADDENDAINFO : T24BusinessTypes:ANY
+            @i18n:Label (en=AddendaInfo)
+            @t24:LocalFields (maxChars=65, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Record the Risk Type */
+        RISK.TYPE : LocalFieldsEnumeration:LocalField_RISK_TYPE
+            @i18n:Label (en=RISK.TYPE)
+            @t24:LocalFields (maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=ESPVRC.RISK.TYPE)
+        /* Date and Time of Registration */
+        REGISTRATION.DATE.TIME : T24BusinessTypes:A
+            @i18n:Label (en=REG.DATE.TIME)
+            @t24:LocalFields (maxChars=30, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NOINPUT)
+        /* Exempted Entities Padron Indicator */
+        TAX.EXEMPTED.ENTITY : T24BusinessTypes:A
+            @i18n:Label (en=EXEMPTED.ENTITY)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Third Party */
+        USREGS.THIRD.PARTY : LocalFieldsEnumeration:LocalField_USREGS_THIRD_PARTY
+            @i18n:Label (en=THIRD.PARTY)
+            @t24:LocalFields (maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Acc class for Reversals */
+        REVERSE.CLASS -> AC_Config:ACCOUNT_CLASS
+            @i18n:Label (en=REVERSE.CLASS)
+            @t24:LocalFields (applicationEnrich=DESCRIPTION, maxChars=15, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Limit Rejection */
+        LIMIT.REJECT : T24BusinessTypes:A
+            @i18n:Label (en=LIMIT.REJECT)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Type of Guarantor */
+        GUARANTOR : LocalFieldsEnumeration:LocalField_GUARANTOR
+            @i18n:Label (en=TYPE.GUARANT)
+            @t24:LocalFields (maxChars=40, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* PROCESS.TIME */
+        PROCESS.TIME : T24BusinessTypes:ANY
+            @i18n:Label (en=PROCESS.TIME)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* FREQUENCY */
+        FREQUENCY : LocalFieldsEnumeration:LocalField_FREQUENCY
+            @i18n:Label (en=FREQUENCY)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=FREQUENCY)
+        /* Credit Bureau. */
+        CREDIT.BUREAU : LocalFieldsEnumeration:LocalField_CREDIT_BUREAU
+            @i18n:Label (en=CREDIT.BUREAU)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=CREDIT.BUREAU)
+        /* FGN.CORR.BANK.ID */
+        ACHFRM.FGN.CORR.BANK.ID : T24BusinessTypes:A
+            @i18n:Label (en=FC.BANK.ID)
+            @t24:LocalFields (maxChars=34, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* SEPA.OUR.IBAN */
+        SEPA.OUR.IBAN : T24BusinessTypes:A
+            @i18n:Label (en=SEPA.OUR.IBAN)
+            @t24:LocalFields (maxChars=34, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Effective From date for Channel */
+        EFFECTIVE.FROM : T24BusinessTypes:D
+            @i18n:Label (en=EFFECTIVE.FROM)
+            @t24:LocalFields (maxChars=11, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Positive Pay Action */
+        POSPAY.POS.PAY.ACTION : LocalFieldsEnumeration:LocalField_POSPAY_POS_PAY_ACTION
+            @i18n:Label (en=POS.PAY.ACTION)
+            @t24:LocalFields (maxChars=6, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Regulation GG Cerification */
+        USREGS.REG.GG.CERT : LocalFieldsEnumeration:LocalField_USREGS_REG_GG_CERT
+            @i18n:Label (en=REG.GG.CERT)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Maximum Renewal Allowed */
+        LBCORP.MAXIMUM.RENEWAL.ALLOW : T24BusinessTypes:N
+            @i18n:Label (en=MAX.RENEW.ALLOW)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Party Name */
+        USRETL.PARTY.NAME : T24BusinessTypes:A
+            @i18n:Label (en=PARTY.NAME)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* To identify Asset Class for DXtrade */
+        ASSET.CLASS : LocalFieldsEnumeration:LocalField_ASSET_CLASS
+            @i18n:Label (en=ASSET.CLASS)
+            @t24:LocalFields (maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=ASSET.CLASS)
+        /* Islamic Payment Ref */
+        IS.PAYMENT.REF : T24BusinessTypes:A
+            @i18n:Label (en=IS.PAYMENT.REF)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Collateral Linked Loan Ref */
+        USRETL.COL.LINKED.LOAN -> AA_Framework:AA_ARRANGEMENT
+            @i18n:Label (en=COL.LINKED.LOAN)
+            @t24:LocalFields (applicationEnrich=CO_CODE, maxChars=17, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Useful Area */
+        USEFUL.AREA : T24BusinessTypes:N
+            @i18n:Label (en=USEFUL.AREA)
+            @t24:LocalFields (maxChars=8, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* TXN.CODE */
+        ACHFRM.TXN.CODE : LocalFieldsEnumeration:LocalField_ACHFRM_TXN_CODE
+            @i18n:Label (en=TXN.CODE)
+            @t24:LocalFields (maxChars=2, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Credit Score Date */
+        CREDIT.SCORE.DATE : T24BusinessTypes:D
+            @i18n:Label (en=SCORE.DATE)
+            @t24:LocalFields (maxChars=11, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* ELIGIBILITY.CODE for AA*CHARGE */
+        ELIGIBILITY.CODE -> UKMSOI_Foundation:AA_PRD_DES_XPOLICY
+            @i18n:Label (en=ELIGIBILITY.CO)
+            @t24:LocalFields (applicationEnrich=DESCRIPTION, maxChars=80, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Claim Lodged Custome */
+        CL.LODGED.CUST : T24BusinessTypes:A
+            @i18n:Label (en=CL.LODGED.CUST)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* SEPA.IN.CLEAR */
+        SEPA.IN.CLEAR : T24BusinessTypes:A
+            @i18n:Label (en=SEPA.IN.CLEAR)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NOINPUT)
+        /* Escrow Annual Analysis Freq */
+        USLEND.ANNUAL.ANALYSIS.FQU : T24BusinessTypes:FQU_IGN
+            @i18n:Label (en=ANNUAL.ANALYSIS)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Portfolio Residence */
+        PORTFOLIO.RESIDENCE -> ST_Config:COUNTRY
+            @i18n:Label (en=PF.RESIDENCE)
+            @t24:LocalFields (applicationEnrich=COUNTRY_NAME, maxChars=9, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* PREV.CUST.REL.ID */
+        PREV.CUST.REL.ID : T24BusinessTypes:ANY
+            @i18n:Label (en=PREV.CUS.REL.ID)
+            @t24:LocalFields (maxChars=40, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Tracking date for pending tax val */
+        USREGS.CERT.PEND.VAL.DATE : T24BusinessTypes:D
+            @i18n:Label (en=W9.CER.PEND)
+            @t24:LocalFields (maxChars=12, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* SEPA.PMTINF.ID */
+        SEPA.PMTINF.ID : T24BusinessTypes:A
+            @i18n:Label (en=SEPA.PMTINF.ID)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* W9 Tax Classification Code Other */
+        USREGS.W9.TX.CLS.OT : T24BusinessTypes:A
+            @i18n:Label (en=W9.TX.CLS.OT)
+            @t24:LocalFields (maxChars=50, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Subscription End Date */
+        SUBS.END.DATE : T24BusinessTypes:D
+            @i18n:Label (en=SUBS.END.DATE)
+            @t24:LocalFields (maxChars=11, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* SEPA.THEIR.AGCY */
+        SEPA.THEIR.AGCY : T24BusinessTypes:A
+            @i18n:Label (en=SEPA.THEIR.AGCY)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* CHKG.ACCOUNT */
+        INT.LIQ.ACCOUNT : T24BusinessTypes:N
+            @i18n:Label (en=CHKG.ACCOUNT)
+            @t24:LocalFields (maxChars=15, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Drivers licence No */
+        LICENCE.NO : T24BusinessTypes:A
+            @i18n:Label (en=LICENCE.NO)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Service User Number */
+        BACS.SUN.CLEARING : T24BusinessTypes:N
+            @i18n:Label (en=BACS.SUN)
+            @t24:LocalFields (maxChars=6, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Billing Element */
+        USLREG.BILL.ELEMENT : LocalFieldsEnumeration:LocalField_USLREG_BILL_ELEMENT
+            @i18n:Label (en=BILL.ELEMENT)
+            @t24:LocalFields (maxChars=1, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=REGAA)
+        /* W9 Exempt from FATCA Reporting */
+        USREGS.W9.EXEM.FATCA : LocalFieldsEnumeration:LocalField_USREGS_W9_EXEM_FATCA
+            @i18n:Label (en=W9.EXEM.FATCA)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=W9.EXEM.FATCA)
+        /* All other owners own less than 25% */
+        FINCEN.OTHER.LT.25.PRCNT : LocalFieldsEnumeration:LocalField_FINCEN_OTHER_LT_25_PRCNT
+            @i18n:Label (en=OTHER.LT.25.PRC)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Energy Efficient */
+        ENERGY.EFFICIENT : T24BusinessTypes:A
+            @i18n:Label (en=ENERGYEFFICIENT)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Route Number */
+        USRETL.ROUTE.NO : T24BusinessTypes:A
+            @i18n:Label (en=ROUTE.NO)
+            @t24:LocalFields (maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Clearing Channel identifier for NSF */
+        NSF.CLEARING.CHANNEL : T24BusinessTypes:A
+            @i18n:Label (en=CLRNG.CHANNEL)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Fund decision maker identifier */
+        NSF.FLOAT.COMPONENT : T24BusinessTypes:A
+            @i18n:Label (en=NSF.FLOAT.COMP)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Military Combat */
+        USIRAC.MILITARY.COMBAT : LocalFieldsEnumeration:LocalField_USIRAC_MILITARY_COMBAT
+            @i18n:Label (en=MILITARY.COMBAT)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* INDUSTRY CLASSIFICATION */
+        ESBASE.INDUSTRY.CLASSIFICATION : T24BusinessTypes:A
+            @i18n:Label (en=INDUS.CLASSIFY)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* PNIF.REQD */
+        PNIF.REQD : T24BusinessTypes:A
+            @i18n:Label (en=PNIF.REQD)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Process Id */
+        PROCESS.IDENTIFIER : T24BusinessTypes:A
+            @i18n:Label (en=PROCESS.ID)
+            @t24:LocalFields (maxChars=65, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Vehicle Model */
+        VEHICLE.MODEL : T24BusinessTypes:A
+            @i18n:Label (en=VEHICLE.MODEL)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Foreign TIN missing reason */
+        USREGS.FTIN.MIS.REASON : LocalFieldsEnumeration:LocalField_USREGS_FTIN_MIS_REASON
+            @i18n:Label (en=FTIN.MIS.REASON)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=FTIN.MIS.REASON)
+        /* SDB Box Type */
+        SDB.BOX.TYPE : T24BusinessTypes:A
+            @i18n:Label (en=BOX.TYPE)
+            @t24:LocalFields (maxChars=7, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=SDB.BOX.TYPE)
+        /* Repayment Amount */
+        REPAY.AMT : T24BusinessTypes:N
+            @i18n:Label (en="Repayment Amt")
+            @t24:LocalFields (maxChars=18, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Regulation UCCC */
+        USLREG.REG.UCCC : LocalFieldsEnumeration:LocalField_USLREG_REG_UCCC
+            @i18n:Label (en=REG.UCCC)
+            @t24:LocalFields (maxChars=1, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* New Escrow Amount Eff Date */
+        USLEND.NEW.AMT.EFF.DATE : T24BusinessTypes:ANY
+            @i18n:Label (en=NEW.AMT.EFF.DT)
+            @t24:LocalFields (maxChars=16, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* CUSTOMER GROUP FOR NACUST */
+        NACUST.HOLD.GROUP : LocalFieldsEnumeration:LocalField_NACUST_HOLD_GROUP
+            @i18n:Label (en=HOLD.GROUP)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=HOLD.GROUP)
+        /* ORIG.SUB.CATEG */
+        ORIG.SUB.CATEG : T24BusinessTypes:ANY
+            @i18n:Label (en=ORIG.SUB.CATEG)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Previous Year Contribution */
+        USIRAC.PREV.CONTR : LocalFieldsEnumeration:LocalField_USIRAC_PREV_CONTR
+            @i18n:Label (en=PREV.CONTR)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Rebate Invoice Number */
+        INVOICE.NO : T24BusinessTypes:N
+            @i18n:Label (en=INVOICE.NO)
+            @t24:LocalFields (maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Collection Percentage of Exemption */
+        TO.COLLECTION.PADRON.RATE : T24BusinessTypes:R
+            @i18n:Label (en=COLLPADRON.RATE)
+            @t24:LocalFields (maxChars=6, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Investor Deposit */
+        USLEND.INV.DEPOSIT -> AA_Framework:AA_ARRANGEMENT
+            @i18n:Label (en=INV.DEPOSIT)
+            @t24:LocalFields (applicationEnrich=CUSTOMER, maxChars=17, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* SECURITY.MASTER record */
+        SEC.MASTER.RECORD -> SC_ScoSecurityMasterMaintenance:SECURITY_MASTER
+            @i18n:Label (en=SECURITY.ID)
+            @t24:LocalFields (applicationEnrich=NO_OF_PAYMENTS, maxChars=12, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Spread Type */
+        USRETL.SPREAD.TYPE : LocalFieldsEnumeration:LocalField_USRETL_SPREAD_TYPE
+            @i18n:Label (en=SPREAD.TYPE)
+            @t24:LocalFields (maxChars=8, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Customer Jurisdiction */
+        TAX.JURISDICTION : LocalFieldsEnumeration:LocalField_TAX_JURISDICTION
+            @i18n:Label (en=JURISDICTION)
+            @t24:LocalFields (maxChars=2, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=PROVINCE)
+        /* COMP.ENT.DESC */
+        ACHFRM.COMP.ENT.DESC : T24BusinessTypes:A
+            @i18n:Label (en=COMP.ENT.DESC)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* FDIC Deposit class type */
+        USREGS.DEPOSIT.CLASS.TYPE : T24BusinessTypes:A
+            @i18n:Label (en=FDIC.CLASS.TYPE)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Fee type for AA.PRD.DES.CHARGE */
+        FEE.TYPE : LocalFieldsEnumeration:LocalField_FEE_TYPE
+            @i18n:Label (en=FEE.TYPE)
+            @t24:LocalFields (maxChars=50, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=MSO.FEE.TYPE)
+        /* Risk Segment */
+        PV.RISK.SEGMENT -> PV_Config:PV_RISK_SEGMENT
+            @i18n:Label (en=PV.RISK.SEGMENT)
+            @t24:LocalFields (applicationEnrich=DESCRIPTION, maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        USRETL.ITEM.VAL : T24BusinessTypes:A
+            @i18n:Label (en=USRETL.ITEM.VAL)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* BOOKED.DATE */
+        BOOKED.DATE : T24BusinessTypes:ANY
+            @i18n:Label (en=BOOKED.DATE)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Inward Reference */
+        IN.MSG.REF : T24BusinessTypes:A
+            @i18n:Label (en=IN.MSG.REF)
+            @t24:LocalFields (maxChars=22, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Credit Score */
+        CREDIT.SCORE : T24BusinessTypes:N
+            @i18n:Label (en=CREDIT.SCORE)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* CTR Exempt */
+        USREGS.CTR.EXEMPT : LocalFieldsEnumeration:LocalField_USREGS_CTR_EXEMPT
+            @i18n:Label (en=CTR.EXEMPT)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Regulation GG Cerification Date */
+        USREGS.REG.GG.CERT.DATE : T24BusinessTypes:D
+            @i18n:Label (en=REG.GG.CERTDATE)
+            @t24:LocalFields (maxChars=11, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* IAT.PAYINFO.ONE */
+        ACHFRM.IAT.PAYINFO.ONE : T24BusinessTypes:TEXT
+            @i18n:Label (en=IAT.PAYINFO.ONE)
+            @t24:LocalFields (maxChars=65, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* ACH.ENTRY */
+        ACH.ENTRY : T24BusinessTypes:ANY
+            @i18n:Label (en=ACH.ENTRY)
+            @t24:LocalFields (maxChars=65, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* MODULE */
+        SEPA.MODULE : T24BusinessTypes:A
+            @i18n:Label (en=MODULE)
+            @t24:LocalFields (maxChars=25, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Service Member */
+        USLREG.SER.MEMBER : LocalFieldsEnumeration:LocalField_USLREG_SER_MEMBER
+            @i18n:Label (en=SERVICE.MEMBER)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* RBM Accum.Dep */
+        RLGAAP.RBM.ACCUM.DEP : T24BusinessTypes:AMTLCCY
+            @i18n:Label (en=RBM.ACCUM.DEP)
+            @t24:LocalFields (maxChars=19, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Image Options */
+        USRETL.IMAGE.OPTIONS -> USRETL_CombinedStatement:USRETL_IMAGE_OPTIONS
+            @i18n:Label (en=IMAGE.OPTIONS)
+            @t24:LocalFields (applicationEnrich=_ID, maxChars=15, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* ACH Addenda Payment Information */
+        ACH.NOTES : T24BusinessTypes:A
+            @i18n:Label (en=ACH.NOTES)
+            @t24:LocalFields (maxChars=40, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Spread Offset Details */
+        USRETL.LINK.OFFSET.DETAILS : T24BusinessTypes:A
+            @i18n:Label (en=OFFSET.DETAILS)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* CARD NAME */
+        CARD.NAME : T24BusinessTypes:A
+            @i18n:Label (en=CARD.NAME)
+            @t24:LocalFields (maxChars=8, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Escrow Reference Number */
+        USLEND.ESCROW.REFERENCE.NO : T24BusinessTypes:A
+            @i18n:Label (en=ESCROW.REF.NO)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* SEPA.FOLLOW.UP */
+        SEPA.FOLLOW.UP : T24BusinessTypes:A
+            @i18n:Label (en=SEPA.FOLLOW.UP)
+            @t24:LocalFields (maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NOINPUT)
+        /* Percentage of exemption */
+        VAT.EXEMPT.RG17.VALUE : T24BusinessTypes:R
+            @i18n:Label (en=EXEMPT.RG17.VAL)
+            @t24:LocalFields (maxChars=5, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Perc Formailzed Sale */
+        PERCENTAGE.FORMALIZED.SALE : T24BusinessTypes:N
+            @i18n:Label (en=PERC.FORM.SALE)
+            @t24:LocalFields (maxChars=9, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Foreign TIN missing reason - other */
+        USREGS.FTIN.OTH.REASON : T24BusinessTypes:A
+            @i18n:Label (en=FTIN.OTH.REASON)
+            @t24:LocalFields (maxChars=50, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* IAT.COMPANY.ID */
+        ACHFRM.IAT.COMPANY.ID : T24BusinessTypes:A
+            @i18n:Label (en=IAT.COMPANY.ID)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Customer Middle Name */
+        USREGS.MIDDLE.NAME : T24BusinessTypes:ANY
+            @i18n:Label (en=MIDDLE.NAME)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* ACCOUNT.BAL */
+        ACCOUNT.BAL : T24BusinessTypes:ANY
+            @i18n:Label (en=ACCOUNT.BAL)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Reprint Date */
+        USLEND.REPRINT.DATE : T24BusinessTypes:D
+            @i18n:Label (en=REPRINT.DATE)
+            @t24:LocalFields (maxChars=11, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* RDFI.IDNUM.QUALIFIER */
+        ACHFRM.RDFI.IDNUM.QUALIFIER : LocalFieldsEnumeration:LocalField_ACHFRM_RDFI_IDNUM_QUALIFIER
+            @i18n:Label (en=RDFI.IDNUM.QFR)
+            @t24:LocalFields (maxChars=2, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=ACH.ID.QUALIFIER)
+        /* Account Type */
+        USRETL.ACCT.TYPE : LocalFieldsEnumeration:LocalField_USRETL_ACCT_TYPE
+            @i18n:Label (en=ACCT.TYPE)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* SEPA.CLR.HOUSE */
+        SEPA.CLR.HOUSE : T24BusinessTypes:A
+            @i18n:Label (en=SEPA.CLR.HOUSE)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* House Code */
+        HOUSE.CODE : T24BusinessTypes:A
+            @i18n:Label (en=HOUSE.CODE)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* TAX.ID */
+        TAX.ID : T24BusinessTypes:N
+            @i18n:Label (en=TAX.ID)
+            @t24:LocalFields (maxChars=9, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Spread Rate */
+        USRETL.SPREAD.RATE : T24BusinessTypes:R
+            @i18n:Label (en=SPREAD.RATE)
+            @t24:LocalFields (maxChars=19, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Transaction Document Reference */
+        AA.DOC : T24BusinessTypes:ANY
+            @i18n:Label (en=TXNID)
+            @t24:LocalFields (maxChars=65, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Blocked Nominals Id */
+        RLGAAP.PLEDGED.BLOCKS : T24BusinessTypes:A
+            @i18n:Label (en=PLEDGED.BLOCKS)
+            @t24:LocalFields (maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Billing Method */
+        USCORE.BILLING.METHOD : LocalFieldsEnumeration:LocalField_USCORE_BILLING_METHOD
+            @i18n:Label (en=BILLING.METHOD)
+            @t24:LocalFields (maxChars=2, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=BILLING.METHOD)
+        /* Processing Day Indicator */
+        PROCESSING.DAY.INDICATOR : T24BusinessTypes:A
+            @i18n:Label (en=PROCESS.DAY.IND)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* No of Floor */
+        NO.FLOOR : T24BusinessTypes:N
+            @i18n:Label (en=NO.FLOOR)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* ACTION.TYPE */
+        ACTION.TYPE : T24BusinessTypes:A
+            @i18n:Label (en=ACTION.TYPE)
+            @t24:LocalFields (maxChars=15, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Excempted Entities Padron indicator */
+        VAT.CONTRIBUTOR.AFIP : T24BusinessTypes:A
+            @i18n:Label (en=CONTRIB.AFIP)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* AA Product */
+        USRETL.STOP.PAYMENT.PROD -> AA_ProductManagement:AA_PRODUCT
+            @i18n:Label (en=STOP.PAY.PROD)
+            @t24:LocalFields (applicationEnrich=DESCRIPTION, maxChars=30, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Escrow Disbursement Type */
+        USLEND.DISBURSE.TYPE : LocalFieldsEnumeration:LocalField_USLEND_DISBURSE_TYPE
+            @i18n:Label (en=ESC.DISB.TYPE)
+            @t24:LocalFields (maxChars=25, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=USLEND.DISBURSE.TYPE)
+        /* Rate Lock Agreement ID */
+        AURLOC.RATE.LOCK.ID : T24BusinessTypes:A
+            @i18n:Label (en=RATE.LOCK.ID)
+            @t24:LocalFields (maxChars=15, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Applied Certified */
+        USREGS.APPLIED.CERTIFIED : LocalFieldsEnumeration:LocalField_USREGS_APPLIED_CERTIFIED
+            @i18n:Label (en=APPLY.CERTIFIED)
+            @t24:LocalFields (maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=USREGS.TAX)
+        /* Reserve Sweep Reference */
+        RSRV.SWEEP.REF : LocalFieldsEnumeration:LocalField_RSRV_SWEEP_REF
+            @i18n:Label (en=RSRV.SWEEP.REF)
+            @t24:LocalFields (maxChars=65, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=RETSWEEPPGM)
+        /* Tax Payer Number */
+        LBRPTS.TAX.PAYER.NO : T24BusinessTypes:N
+            @i18n:Label (en=TAX.PAYER.NO)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Initial Amount */
+        USLEND.INITIAL.AMOUNT : T24BusinessTypes:AMTLCCY
+            @i18n:Label (en=INITIAL.AMOUNT)
+            @t24:LocalFields (maxChars=19, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Affiliate marketing status exp date */
+        USREGS.AFFL.MKT.STATUS.EXP.DATE : T24BusinessTypes:D
+            @i18n:Label (en=AFL.STS.EXPDATE)
+            @t24:LocalFields (maxChars=11, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Version for posting NSF Returns */
+        NSF.REJECT.TXN.VERSION -> EB_Versions:VERSION
+            @i18n:Label (en=NSF.REJ.VERSION)
+            @t24:LocalFields (applicationEnrich=PRINT_ONLY, maxChars=54, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* W8 to W9 Status Change Date */
+        USREGS.W8.TO.W9.DATE : T24BusinessTypes:D
+            @i18n:Label (en=W8.TO.W9.DATE)
+            @t24:LocalFields (maxChars=12, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Collection Rating */
+        COLLECTION.RATING : LocalFieldsEnumeration:LocalField_COLLECTION_RATING
+            @i18n:Label (en=Coll.rating)
+            @t24:LocalFields (maxChars=40, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* TRANS.REFERENCE */
+        TRANS.REFERENCE : T24BusinessTypes:A
+            @i18n:Label (en=TRANS.REFERECE)
+            @t24:LocalFields (maxChars=30, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Nominated Account Sort Code */
+        NOMINATED.AC.SORT.CODE : T24BusinessTypes:N
+            @i18n:Label (en=NOM.AC.SORT.COD)
+            @t24:LocalFields (maxChars=36, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* RG17 Padron indicator */
+        VAT.EXEMPT.RG17 : T24BusinessTypes:A
+            @i18n:Label (en=EXEMPT.RG17)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Inward Message Type */
+        IN.MSG.TYPE : T24BusinessTypes:A
+            @i18n:Label (en=IN.MSG.TYPE)
+            @t24:LocalFields (maxChars=4, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* START.DATE */
+        STDATE : T24BusinessTypes:D
+            @i18n:Label (en=START.DATE)
+            @t24:LocalFields (maxChars=11, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* MANUAL.REVIEW */
+        MANUAL.REVIEW : LocalFieldsEnumeration:LocalField_MANUAL_REVIEW
+            @i18n:Label (en=MANUAL.REVIEW)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Header User ID */
+        HDR.USER.ID : T24BusinessTypes:A
+            @i18n:Label (en=HDR.USER.ID)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* BATCH.STATUS */
+        BATCH.STATUS : T24BusinessTypes:ANY
+            @i18n:Label (en=BATCH.STATUS)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* TXN.RETURN.CODE */
+        TXN.RETURN.CODE : LocalFieldsEnumeration:LocalField_TXN_RETURN_CODE
+            @i18n:Label (en=TXN.RETURN.CODE)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=TXN.RETURN.CODE)
+        /* LAST ACTIVITY DATE */
+        USRETL.LAST.ACT.DATE : T24BusinessTypes:D
+            @i18n:Label (en=LAST.ACT.DATE)
+            @t24:LocalFields (maxChars=8, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Type of Loan and Deposits */
+        TYPE.OF.LOAN.DEP : LocalFieldsEnumeration:LocalField_TYPE_OF_LOAN_DEP
+            @i18n:Label (en=TRAN.TYPE)
+            @t24:LocalFields (maxChars=50, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Address type */
+        USREGS.ADDRESS.TYPE : LocalFieldsEnumeration:LocalField_USREGS_ADDRESS_TYPE
+            @i18n:Label (en=ADDRESS.TYPE)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=IRS.ADDRESS.TYPE)
+        /* Reserve Rate */
+        USRETL.RSRV.KEY -> ST_RateParameters:BASIC_RATE_TEXT
+            @i18n:Label (en=USRETL.RSRV.KEY)
+            @t24:LocalFields (applicationEnrich=DESCRIPTION, maxChars=4, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* GRACE.AMOUNT */
+        USRETL.GRACE.AMOUNT : T24BusinessTypes:AMTLCCY
+            @i18n:Label (en=GRACE.AMOUNT)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Land Type */
+        LAND.TYPE : LocalFieldsEnumeration:LocalField_LAND_TYPE
+            @i18n:Label (en=LAND.TYPE)
+            @t24:LocalFields (maxChars=40, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=LAND.TYPE)
+        /* Escrow Cushion Period */
+        USLEND.CUSHION.PERIOD : T24BusinessTypes:N
+            @i18n:Label (en=CUSHION.PERIOD)
+            @t24:LocalFields (maxChars=2, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Built Area */
+        BUILT.AREA : T24BusinessTypes:N
+            @i18n:Label (en=BUILT.AREA)
+            @t24:LocalFields (maxChars=8, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Effective To date for Channel */
+        EFFECTIVE.TO : T24BusinessTypes:D
+            @i18n:Label (en=EFFECTIVE.TO)
+            @t24:LocalFields (maxChars=11, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* County Code */
+        USLREG.COUNTY.CODE : T24BusinessTypes:A
+            @i18n:Label (en=COUNTY.CODE)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* CUSTOMER.ID */
+        CUSTOMER.ID : T24BusinessTypes:N
+            @i18n:Label (en=CUSTOMER.ID)
+            @t24:LocalFields (maxChars=15, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Process Instance Id */
+        PROCESS.ID : T24BusinessTypes:A
+            @i18n:Label (en=PROCESS.ID)
+            @t24:LocalFields (maxChars=55, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NOINPUT)
+        /* BOOKED.TIME */
+        BOOKED.TIME : T24BusinessTypes:ANY
+            @i18n:Label (en=BOOKED.TIME)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Engine Number */
+        ENGINE.NUMBER : T24BusinessTypes:A
+            @i18n:Label (en=ENGINE.NUMBER)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* SDD.DATE.SIGN */
+        SDD.DATE.SIGN : T24BusinessTypes:D
+            @i18n:Label (en=SDD.DATE.SIGN)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Ground Area */
+        GROUND.AREA : T24BusinessTypes:N
+            @i18n:Label (en=GROUND.AREA)
+            @t24:LocalFields (maxChars=8, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Publically Available Info */
+        USREGS.DEVICE.PRIVACY : LocalFieldsEnumeration:LocalField_USREGS_DEVICE_PRIVACY
+            @i18n:Label (en=DEVICE.PRIVACY)
+            @t24:LocalFields (maxChars=9, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* ORIG.AMOUNT */
+        ORIG.AMOUNT : T24BusinessTypes:ANY
+            @i18n:Label (en=ORIG.AMOUNT)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Sma Apir */
+        SMA.APIR : T24BusinessTypes:A
+            @i18n:Label (en=SMA.APIR)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NOCHANGE)
+        /* Loan or Deposit Purpose Code */
+        USCORE.PURPOSE.CODE : T24BusinessTypes:N
+            @i18n:Label (en=PURPOSE.CODE)
+            @t24:LocalFields (maxChars=32, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=PURPOSE.CODE)
+        /* TRANS.INSTR */
+        TRANS.INSTR : T24BusinessTypes:A
+            @i18n:Label (en=TRANS.INSTR)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* FGN.CORR.BANK.NAME */
+        ACHFRM.FGN.CORR.BANK.NAME : T24BusinessTypes:A
+            @i18n:Label (en=FC.BANK.NAME)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* NSF Charge reversal date */
+        USRETL.CHG.REVERSE.DATE : T24BusinessTypes:D
+            @i18n:Label (en=CHG.REVE.DATE)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* EXTERNAL REFERENCE */
+        EXTERNAL.REFERENCE.NO : T24BusinessTypes:N
+            @i18n:Label (en=EXT.REF)
+            @t24:LocalFields (maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* STP.STATUS */
+        SEPA.STP.STATUS : T24BusinessTypes:A
+            @i18n:Label (en=STP.STATUS)
+            @t24:LocalFields (maxChars=15, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Registration Date */
+        REGISTRATION.DATE : T24BusinessTypes:D
+            @i18n:Label (en=REGISTER.DATE)
+            @t24:LocalFields (maxChars=8, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Customer Suffix */
+        USREGS.SUFFIX : LocalFieldsEnumeration:LocalField_USREGS_SUFFIX
+            @i18n:Label (en=SUFFIX)
+            @t24:LocalFields (maxChars=5, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=USREGS.CUS.SUFFIX)
+        /* Stores the website link for KID */
+        PRIIP.KID : T24BusinessTypes:TEXT
+            @i18n:Label (en=PRIIP.KID)
+            @t24:LocalFields (maxChars=65, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Investor Percentage */
+        USLEND.INV.PERCENTAGE : T24BusinessTypes:R
+            @i18n:Label (en=INV.PERCENTAGE)
+            @t24:LocalFields (maxChars=5, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Transaction Type */
+        TRANS.TYPE : LocalFieldsEnumeration:LocalField_TRANS_TYPE
+            @i18n:Label (en=TRANS.TYPE)
+            @t24:LocalFields (maxChars=15, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* CUST.CATEG.CODE */
+        CUST.CATEG.CODE : T24BusinessTypes:ANY
+            @i18n:Label (en=CUST.CATEG.CODE)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Service Member relief act flag */
+        SCRA.CUSTOMER : LocalFieldsEnumeration:LocalField_SCRA_CUSTOMER
+            @i18n:Label (en=SCRA.CUSTOMER)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* SEPA.CATEG.PURPOSE */
+        SEPA.CATEG : T24BusinessTypes:A
+            @i18n:Label (en=SEPA.CATEG)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Exempted Padron indicator */
+        TO.EXEMPT.PADRON : T24BusinessTypes:A
+            @i18n:Label (en=TO.EXEM.PADRON)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Foreign TIN Number */
+        USREGS.FOREIGN.TIN : T24BusinessTypes:A
+            @i18n:Label (en=FOREIGN.TIN)
+            @t24:LocalFields (maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* IRA Beneficiary */
+        USIRAC.RA.BENEFICIARY : T24BusinessTypes:A
+            @i18n:Label (en=RA.BENEFICIARY)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* US State */
+        USREGS.US.STATE -> NACUST_Foundation:US_STATE
+            @i18n:Label (en=US.STATE)
+            @t24:LocalFields (applicationEnrich=DESCRIPTION, maxChars=2, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* DEAL NOTES FROM TT */
+        DEALNOTES : T24BusinessTypes:A
+            @i18n:Label (en=DEAL.NOTES)
+            @t24:LocalFields (maxChars=65, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* CREATION.DATE */
+        CREATION.DATE : T24BusinessTypes:A
+            @i18n:Label (en=CREATION.DATE)
+            @t24:LocalFields (maxChars=15, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* SDD.SEQUENCE */
+        SDD.SEQUENCE : T24BusinessTypes:A
+            @i18n:Label (en=SDD.SEQUENCE)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* SEC.CODE */
+        ACHFRM.SEC.CODE : LocalFieldsEnumeration:LocalField_ACHFRM_SEC_CODE
+            @i18n:Label (en=SEC.CODE)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Tax Treaty Limitation Type */
+        USREGS.TAX.TTY.LIM.TYPE : LocalFieldsEnumeration:LocalField_USREGS_TAX_TTY_LIM_TYPE
+            @i18n:Label (en=TX.TTY.LIM.TYPE)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=TX.TREATY.LIM.TYPE)
+        /* OVERDRAW */
+        USLEND.OVERDRAW : LocalFieldsEnumeration:LocalField_USLEND_OVERDRAW
+            @i18n:Label (en=OVERDRAW)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* ORIG.CATEG */
+        ORIG.CATEG : T24BusinessTypes:ANY
+            @i18n:Label (en=ORIG.CATEG)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* MERS ID */
+        USLEND.MERS.ID : T24BusinessTypes:A
+            @i18n:Label (en=MERS.ID)
+            @t24:LocalFields (maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Periodic Charge MAX.CHG.AMOUNT */
+        USRETL.MAX.CHG.AMT : T24BusinessTypes:AMTLCCY
+            @i18n:Label (en=USRETL.CHG.AMT)
+            @t24:LocalFields (maxChars=19, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NOINPUT)
+        /* Contents Found */
+        SDB.CONTENTS.FOUND : T24BusinessTypes:TEXT
+            @i18n:Label (en=CONTENTS.FOUND)
+            @t24:LocalFields (maxChars=65, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Customer contact flag */
+        NACUST.CUS.CONTACT : LocalFieldsEnumeration:LocalField_NACUST_CUS_CONTACT
+            @i18n:Label (en=CUS.CONTACT)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Tax Certification Type */
+        USREGS.TX.CERT.TYPE : LocalFieldsEnumeration:LocalField_USREGS_TX_CERT_TYPE
+            @i18n:Label (en=TX.CERT.TYPE)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=TAX.CERT.TYPE)
+        /* HUD Loan */
+        USLREG.HUD.LOAN : LocalFieldsEnumeration:LocalField_USLREG_HUD_LOAN
+            @i18n:Label (en=HUD.LOAN)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* I.B.L.C. COUNTRY */
+        170 : LocalFieldsEnumeration:LocalField_170
+            @i18n:Label (en="IBLC COUNTRY", fr="PAY IBLC")
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Tenant */
+        TENANT : T24BusinessTypes:A
+            @i18n:Label (en=TENANT)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Sticker Number */
+        LBRPTS.STICKER.NO : T24BusinessTypes:N
+            @i18n:Label (en=STICKER.NO)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Tax Treaty Rate */
+        USREGS.TX.TTY.RATE : T24BusinessTypes:R
+            @i18n:Label (en=TX.TTY.RATE)
+            @t24:LocalFields (maxChars=5, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Triple A Reference */
+        TAP.REF.ID : T24BusinessTypes:A
+            @i18n:Label (en=TAP.REF.ID)
+            @t24:LocalFields (maxChars=50, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* A unique code for this ERC profile */
+        PRODUCT.ERC.PROFILE.CODE : T24BusinessTypes:A
+            @i18n:Label (en=ERC.PROFILE.CO)
+            @t24:LocalFields (maxChars=50, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Existing Customer */
+        USRETL.EXIST.CUST : T24BusinessTypes:A
+            @i18n:Label (en=CUST.EXIST)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* USRETL.RESERVED.01 */
+        USRETL.NEW.CHRG.AMT : T24BusinessTypes:AMTLCCY
+            @i18n:Label (en=USRETL.RESERVED)
+            @t24:LocalFields (maxChars=16, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* TXN.LAST.UPD */
+        TXN.LAST.UPD : T24BusinessTypes:ANY
+            @i18n:Label (en=TXN.LAST.UPD)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Entity Code */
+        ENTITY.CODE : T24BusinessTypes:A
+            @i18n:Label (en=ENTITY.CODE)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* PRIVACY DATE */
+        USREGS.PRIVACY.DATE : T24BusinessTypes:D
+            @i18n:Label (en=PRIVACY.DATE)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Investor Linked Loan */
+        USLEND.INV.LINKED.LOAN -> AA_Framework:AA_ARRANGEMENT
+            @i18n:Label (en=INV.LINKED.LOAN)
+            @t24:LocalFields (applicationEnrich=CUSTOMER, maxChars=17, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Classification of the AC / contract */
+        FSCS.ACCT.STATUS -> UKFSCS_Reporting:FSCS_ACCOUNT_STATUS
+            @i18n:Label (en=FSCS.AC.STATUS)
+            @t24:LocalFields (applicationEnrich=DESCRIPTION, maxChars=6, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Rent Return Flag */
+        RENT.RETURN : LocalFieldsEnumeration:LocalField_RENT_RETURN
+            @i18n:Label (en=RENT.RETURN)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Cheque Leaves Range */
+        LBACTR.CHEQUE.RANGE : T24BusinessTypes:A
+            @i18n:Label (en=CHEQUE.RANGE)
+            @t24:LocalFields (maxChars=16, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+        /* Pledge Flag */
+        RLGAAP.PLEDGE.FLAG : LocalFieldsEnumeration:LocalField_RLGAAP_PLEDGE_FLAG
+            @i18n:Label (en=PLEDGE.FLAG)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=PLEDGE.FLAG)
+    }
+}

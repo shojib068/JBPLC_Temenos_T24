@@ -1,0 +1,46 @@
+# UTF-8
+Domain X_AA_PRD_DES_TERM_AMOUNT
+    @t24:LocalFields (localRefApplications=true)
+    @java:Package (value=localRefApplication.x_aa_prd_des_term_amount)
+namespace "http://www.odcgroup.com/X_AA_PRD_DES_TERM_AMOUNT"
+metamodelVersion 1.30.6
+Classes {
+    Group_USLEND_INV_DEPOSIT
+    {
+        /* Investor Deposit */
+        USLEND_INV_DEPOSIT -> AA_Framework:AA_ARRANGEMENT
+            @i18n:Label (en=INV.DEPOSIT)
+            @t24:LocalFields (applicationEnrich=CUSTOMER, maxChars=17, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USLEND.INV.DEPOSIT)
+        /* Investor Percentage */
+        USLEND_INV_PERCENTAGE : T24BusinessTypes:R
+            @i18n:Label (en=INV.PERCENTAGE)
+            @t24:LocalFields (maxChars=5, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USLEND.INV.PERCENTAGE)
+        /* Investor Payout Account */
+        USLEND_INV_PAYOUT_ACCT -> AC_AccountOpening:ACCOUNT
+            @i18n:Label (en=INV.PAYOUT.ACCT)
+            @t24:LocalFields (applicationEnrich=CUSTOMER, maxChars=36, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USLEND.INV.PAYOUT.ACCT)
+    }
+    X_AA_PRD_DES_TERM_AMOUNT extends AA_TermAmount:AA_PRD_DES_TERM_AMOUNT
+    {
+        GroupSample_USLEND_INV_DEPOSIT -> byValue X_AA_PRD_DES_TERM_AMOUNT:Group_USLEND_INV_DEPOSIT *
+            @t24:i (t24Name=GroupSample_USLEND_INV_DEPOSIT)
+        /* Investor Linked Loan */
+        USLEND_INV_LINKED_LOAN -> AA_Framework:AA_ARRANGEMENT
+            @i18n:Label (en=INV.LINKED.LOAN)
+            @t24:LocalFields (applicationEnrich=CUSTOMER, maxChars=17, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USLEND.INV.LINKED.LOAN)
+        /* Renewal Cooling Period */
+        USRETL_RENEWAL_COOLINGPERIOD : T24BusinessTypes:A
+            @i18n:Label (en=RENEWAL.COOLING)
+            @t24:LocalFields (maxChars=4, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USRETL.RENEWAL.COOLINGPERIOD)
+        /* LOAN RIGHTS */
+        LOAN_RIGHTS : T24BusinessTypes:AMTLCCY
+            @i18n:Label (en=LOAN.RIGHTS)
+            @t24:LocalFields (maxChars=19, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=LOAN.RIGHTS)
+    }
+}

@@ -1,0 +1,36 @@
+# UTF-8
+Domain X_AC_FUNDS_AUTHORISATION
+    @t24:LocalFields (localRefApplications=true)
+    @java:Package (value=localRefApplication.x_ac_funds_authorisation)
+namespace "http://www.odcgroup.com/X_AC_FUNDS_AUTHORISATION"
+metamodelVersion 1.30.6
+Classes {
+    X_AC_FUNDS_AUTHORISATION extends AC_AccountOpening:AC_FUNDS_AUTHORISATION
+    {
+        /* NSF Desk ID */
+        NSF_DESK -> NSFDES_DeskMgmt:NSF_DESK_DEFINITION
+            @i18n:Label (en=NSF.DESK)
+            @t24:LocalFields (applicationEnrich=DESCRIPTION, maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=NSF.DESK)
+        /* TXN.RETURN.CODE */
+        TXN_RETURN_CODE : LocalFieldsEnumeration:LocalField_TXN_RETURN_CODE
+            @i18n:Label (en=TXN.RETURN.CODE)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=TXN.RETURN.CODE)
+            @t24:i (t24Name=TXN.RETURN.CODE)
+        /* Clearing Channel identifier for NSF */
+        NSF_CLEARING_CHANNEL : T24BusinessTypes:A
+            @i18n:Label (en=CLRNG.CHANNEL)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=NSF.CLEARING.CHANNEL)
+        /* Uncollected funds for excep ac */
+        NSF_UNCOLLECT_FUNDS : T24BusinessTypes:AMTLCCY
+            @i18n:Label (en=UNCOLLECT.FUNDS)
+            @t24:LocalFields (maxChars=19, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=NSF.UNCOLLECT.FUNDS)
+        /* MANUAL.REVIEW */
+        MANUAL_REVIEW : LocalFieldsEnumeration:LocalField_MANUAL_REVIEW
+            @i18n:Label (en=MANUAL.REVIEW)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=MANUAL.REVIEW)
+    }
+}

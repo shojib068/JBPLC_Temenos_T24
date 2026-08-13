@@ -1,0 +1,21 @@
+use com.odcgroup.edge.t24ui
+use com.odcgroup.edge.t24ui.common
+use com.odcgroup.edge.t24ui.cos
+use com.odcgroup.edge.t24ui.cos.pattern
+use com.odcgroup.edge.t24ui.cos.bespoke
+use com.odcgroup.edge.t24ui.contextEnquiry
+ AvailableCOSPatterns {
+    patterns: [
+        COSPattern Accordions {
+            patternSpecificAttributeNames: [
+                "accordionPatternMultiExpandable"
+            ]
+        }
+        COSPattern Columns { }
+        COSPattern Master { }
+        COSPattern MasterTopDetailBottom { }
+        COSPattern Rows { }
+        COSPattern Tabs { }
+        COSPattern VerticalTabs { }
+    ]
+ }

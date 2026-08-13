@@ -1,0 +1,107 @@
+package com.temenos.t24;
+
+import com.temenos.api.exceptions.T24CoreException;
+import com.temenos.t24.api.complex.eb.templatehook.TransactionContext;
+import com.temenos.t24.api.hook.system.RecordLifecycle;
+import com.temenos.t24.api.records.customer.CustomerRecord;
+import com.temenos.t24.api.records.ebbdsanclimitstaffseqno.EbBdSancLimitStaffSeqnoRecord;
+import com.temenos.t24.api.system.DataAccess;
+import com.temenos.t24.api.tables.ebbdsanclimitstaffseqno.EbBdSancLimitStaffSeqnoTable;
+
+/**
+ * ROUTINE.TYPE: ID.ROUTINE
+ * Routine Attached :
+ *      EB.BD.SANC.LIMIT.STAFF,JBL.STF.BR.INT
+        EB.BD.SANC.LIMIT.STAFF,JBL.STF.AR.INT
+        EB.BD.SANC.LIMIT.STAFF,JBL.STF.DIV.INT
+        EB.BD.SANC.LIMIT.STAFF,JBL.STF.HO.DEP.INT
+        
+Business Logic:
+    ID = CUSID.PARENT.SEQNO
+    CUSID – Staff Cus – Customer Status 7 if not throw Error.
+    PARENT – Must be 3900 if not throw error
+    SeqNo – 000001. Incremental.
+    Update on EB.BD.SANC.LIMIT.STAFF.SEQNO Template.(Ex. ID= 102030.3900, Content - 102030.3900.000001)
+ *
+ * @author kawsar
+ * date: 0.1-> 12 August 2026
+ */
+public class CrJblIdStaffSanc extends RecordLifecycle {
+
+    @Override
+    public String checkId(String currentRecordId, TransactionContext transactionContext) {
+        DataAccess da = new DataAccess(this);
+        String cusId = currentRecordId.split("\\.")[0];
+        String parent = currentRecordId.split("\\.")[1];
+        String cusStatus = "";
+        String limSancIdNew= "";
+        CustomerRecord cusRec = null;
+        
+        try{
+            cusRec = new CustomerRecord(da.getRecord("CUSTOMER", cusId));
+            cusStatus = cusRec.getCustomerStatus().getValue();
+            if(!cusStatus.isEmpty() && !"7".equals(cusStatus)){
+                throw new T24CoreException("EB.ERROR", "CR-CUS-STATUS");
+            }
+        }catch(Exception e){
+            throw new T24CoreException("EB.ERROR", "CR-CUS.REC.NOT.FOUND");
+        }
+        if(!"3900".equals(parent)){
+            throw new T24CoreException("EB.ERROR", "CR-LIMIT-STAFF-INVALID-PARENT");
+        }
+        if(currentRecordId.contains(".")){
+            try{
+                da.getRecord("AA.JBL.LOCKER.ACCT", currentRecordId);
+                return currentRecordId;
+            }catch(Exception e1){
+                try{
+                    da.getRecord("AA.JBL.LOCKER.ACCT$NAU", currentRecordId);
+                    return currentRecordId;
+                }catch(Exception e2){
+                    try{
+                        da.getRecord("AA.JBL.LOCKER.ACCT$HIS", currentRecordId);
+                        return currentRecordId;
+                    }catch(Exception e3){
+                        throw new T24CoreException("", "AA-LOCKER-ID");
+                    }
+                }
+
+            }
+        }
+        
+        EbBdSancLimitStaffSeqnoRecord seqNoRec = null;
+        EbBdSancLimitStaffSeqnoTable seqNoTable = null; 
+        String content = "";
+        String[] curSeq = null;
+        int LastValue = 0;
+        int NextValue = 0;
+        try{
+            String staffSeqNoId = cusId+ "."+parent;
+            
+            try{
+                try{
+                    seqNoRec = new EbBdSancLimitStaffSeqnoRecord(
+                            da.getRecord("EB.BD.SANC.LIMIT.STAFF.SEQNO", staffSeqNoId));
+                    content = seqNoRec.getContent().getValue();
+                }catch(Exception e){}
+                if(content != null && !content.isEmpty()){
+                    curSeq = content.split("\\."); 
+                    if (curSeq.length == 3){
+                        LastValue  = Integer.parseInt(curSeq[2]);
+                        NextValue = LastValue + 1; 
+                    }
+                } else{
+                    seqNoRec = new EbBdSancLimitStaffSeqnoRecord();
+                    NextValue = 1;
+                }
+            }catch(Exception e){}           
+            String propSeqNo = String.format("%06d", NextValue);    
+            limSancIdNew = cusId+"."+parent+"."+propSeqNo;
+            seqNoRec.setContent(limSancIdNew);
+            seqNoTable = new EbBdSancLimitStaffSeqnoTable(this);
+            seqNoTable.write(staffSeqNoId, seqNoRec);
+        }catch(Exception e){}       
+        return limSancIdNew;
+    }
+
+}

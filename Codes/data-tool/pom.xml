@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.temenos.maven</groupId>
+        <artifactId>t24-core</artifactId>
+        <version>22.3</version>
+        <relativePath>../../t24-core/pom.xml</relativePath>
+    </parent>
+
+    <groupId>com.temenos.ds.t24.data</groupId>
+    <artifactId>launcher</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.temenos.ds.t24.data</groupId>
+            <artifactId>utility</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+    </dependencies>
+</project>

@@ -1,0 +1,50 @@
+# UTF-8
+Domain X_AA_ARRANGEMENT_ACTIVITY
+    @t24:LocalFields (localRefApplications=true)
+    @java:Package (value=localRefApplication.x_aa_arrangement_activity)
+namespace "http://www.odcgroup.com/X_AA_ARRANGEMENT_ACTIVITY"
+metamodelVersion 1.30.6
+Classes {
+    Group_IS_COM_SALE_REF
+    {
+        /* Commodity Sale Reference */
+        IS_COM_SALE_REF -> IS_Purchase:IS_COMMODITY_SALE
+            @i18n:Label (en=IS.COM.SALE.REF)
+            @t24:LocalFields (applicationEnrich=SALE_PRICE, maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=IS.COM.SALE.REF)
+    }
+    Group_USRETL_ITEM_TYP
+    {
+        /* USRETL.ITEM.TYP */
+        USRETL_ITEM_TYP : LocalFieldsEnumeration:LocalField_USRETL_ITEM_TYP
+            @i18n:Label (en=USRETL.ITEM.TYP)
+            @t24:LocalFields (maxChars=25, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=AA.ACTIVITY.ITEM)
+            @t24:i (t24Name=USRETL.ITEM.TYP)
+        USRETL_ITEM_VAL : T24BusinessTypes:A
+            @i18n:Label (en=USRETL.ITEM.VAL)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USRETL.ITEM.VAL)
+    }
+    X_AA_ARRANGEMENT_ACTIVITY extends AA_Framework:AA_ARRANGEMENT_ACTIVITY
+    {
+        /* Islamic Contract Reference */
+        IS_CONTRACT_REF -> IS_Purchase:IS_CONTRACT
+            @i18n:Label (en=IS.CONTRACT.REF)
+            @t24:LocalFields (applicationEnrich=DESCRIPTION, maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=IS.CONTRACT.REF)
+        /* Islamic Product */
+        IS_PRODUCT -> IS_Config:IS_PARAMETER
+            @i18n:Label (en=IS.PRODUCT)
+            @t24:LocalFields (applicationEnrich=DESCRIPTION, maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=IS.PRODUCT)
+        GroupSample_IS_COM_SALE_REF -> byValue X_AA_ARRANGEMENT_ACTIVITY:Group_IS_COM_SALE_REF *
+            @t24:i (t24Name=GroupSample_IS_COM_SALE_REF)
+        /* Islamic Disbursement Ref */
+        IS_DISBURSE_REF : T24BusinessTypes:A
+            @i18n:Label (en=IS.DISBURSE.REF)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=IS.DISBURSE.REF)
+        GroupSample_USRETL_ITEM_TYP -> byValue X_AA_ARRANGEMENT_ACTIVITY:Group_USRETL_ITEM_TYP *
+            @t24:i (t24Name=GroupSample_USRETL_ITEM_TYP)
+    }
+}

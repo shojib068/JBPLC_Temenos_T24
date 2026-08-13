@@ -1,0 +1,283 @@
+# UTF-8
+/* Infrastructure Support For T24 Desktop */
+Domain EB_Desktop
+    @t24:i (module=EB)
+    @java:Package (value=com.temenos.t24.datamodel.eb.eb_desktop)
+namespace "http://www.temenos.com/t24/EB_Desktop"
+metamodelVersion 1.30.6
+Classes {
+    /* If REALTIMEENQUIRY is provided, it will update the real time files.  Accepts 'REALTIMEENQUIRY' value only. */
+    DESKTOP_PARAMETER
+        @i18n:Description (en="")
+        @t24:i (t24Name=DESKTOP.PARAMETER, level=I, type=H, additionalInfo="Installation specific variants", allowedFunctions="A C D E H I L P Q R S", localRefAllowed=false)
+    {
+        24x7_ENABLE : EB_Desktop:DESKTOP_PARAMETER__24x7_ENABLE
+            @t24:i (align=L, inputBehaviour=I, maxLength=4, sysNumber=13.0, core=true, t24Name=24x7.ENABLE, mandatory=false)
+        24x7_STARTUP_RTN : EB_Desktop:DESKTOP_PARAMETER__24x7_STARTUP_RTN
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber=14.0, core=true, t24Name=24x7.STARTUP.RTN, mandatory=false)
+        /* In Classic or Desktop sessions, the ACTIVITY file would be updated only when this field is set to YES. Otherwise it would be turned off by default. */
+        ACTIVITY_LOG : EB_Desktop:DESKTOP_PARAMETER__ACTIVITY_LOG
+            @t24:i (align=L, inputBehaviour=I, maxLength=3, sysNumber=15.0, core=true, t24Name=ACTIVITY.LOG, mandatory=false)
+        ATTRIBUTES -> byValue EB_Desktop:DESKTOP_PARAMETER__ATTRIBUTES *
+            @t24:i (t24Name=ATTRIBUTES)
+        AUDITOR_CODE : T24BusinessTypes:A
+            @i18n:Label (en="Auditor Code")
+            @i18n:Tooltip (en="Auditor Code")
+            @t24:i (align=L, inputBehaviour=E, maxLength=16, sysNumber=24.0, core=true, t24Name=AUDITOR.CODE, mandatory=false)
+        AUDIT_DATE_TIME : T24BusinessTypes:RELTIME
+            @i18n:Label (en="Audit Date Time")
+            @i18n:Tooltip (en="Date and time when record was audited")
+            @t24:i (align=L, inputBehaviour=E, maxLength=15, sysNumber=25.0, core=true, t24Name=AUDIT.DATE.TIME, mask="RDD DD  DD ##:##", mandatory=false)
+        AUTHORISER : T24BusinessTypes:A
+            @i18n:Label (en=Authoriser)
+            @i18n:Tooltip (en="Indicates the User who Authorises the record")
+            @t24:i (align=L, inputBehaviour=N, maxLength=100, sysNumber=21.0, core=true, t24Name=AUTHORISER, mandatory=false)
+        BANNED_DELIM -> byValue EB_Desktop:DESKTOP_PARAMETER__BANNED_DELIM *
+            @t24:i (t24Name=BANNED.DELIM)
+        /* Specific for Desktop interface;Note : Not in use. */
+        COMPILE_COMMAND : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber=7.0, core=true, t24Name=COMPILE.COMMAND, mandatory=false)
+        CO_CODE -> ST_CompanyCreation:COMPANY
+            @i18n:Label (en=Company)
+            @t24:i (align=L, inputBehaviour=N, maxLength=11, sysNumber=22.0, core=true, businessType=A, t24Name=CO.CODE, mask="R##-###-####", mandatory=false)
+        CURR_NO : T24BusinessTypes:N
+            @i18n:Label (en="Curr No")
+            @t24:i (align=R, inputBehaviour=N, maxLength=6, sysNumber=18.0, core=true, t24Name=CURR.NO, mandatory=false)
+        DATE_TIME -> byValue EB_Desktop:DESKTOP_PARAMETER__DATE_TIME *
+            @t24:i (t24Name=DATE.TIME)
+        DEPT_CODE -> ST_Config:DEPT_ACCT_OFFICER
+            @i18n:Label (en="Dept Code")
+            @t24:i (align=R, inputBehaviour=N, maxLength=6, sysNumber=23.0, core=true, t24Name=DEPT.CODE, mandatory=false)
+        DEV_FILES -> byValue EB_Desktop:DESKTOP_PARAMETER__DEV_FILES *
+            @t24:i (t24Name=DEV.FILES)
+        INPUTTER -> byValue EB_Desktop:DESKTOP_PARAMETER__INPUTTER *
+            @t24:i (t24Name=INPUTTER)
+        /* If this field is YES, Authoriser information is not added to the INPUTTER audit field. This acts as a switch to decide if we need to record the intermediate USERS who provide approvals for overrides, dispo items, etc., in the INPUTTER audit field of the contract or not. */
+        MAINTAIN_AUTH_FIELDS : EB_Desktop:DESKTOP_PARAMETER__MAINTAIN_AUTH_FIELDS
+            @t24:i (align=L, inputBehaviour=I, maxLength=4, sysNumber=16.0, core=true, t24Name=MAINTAIN.AUTH.FIELDS, mandatory=false)
+        /* To define the ports for real time updates.  '/dev/pts' */
+        REAL_TIME_TRIGGER : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=25, sysNumber=2.0, core=true, t24Name=REAL.TIME.TRIGGER, mandatory=false)
+        RECORD_STATUS : T24BusinessTypes:STAT
+            @i18n:Label (en="Record Status")
+            @t24:i (align=L, inputBehaviour=N, maxLength=6, sysNumber=17.0, core=true, t24Name=RECORD.STATUS, mandatory=false)
+        REMAP_ID -> byValue EB_Desktop:DESKTOP_PARAMETER__REMAP_ID *
+            @t24:i (t24Name=REMAP.ID)
+        /* Obsolete */
+        SYSTEM_SPEC : EB_Desktop:DESKTOP_PARAMETER__SYSTEM_SPEC PK required
+            @t24:i (align=L, inputBehaviour=I, maxLength=6, sysNumber=0.0, core=true, t24Name=SYSTEM.SPEC, mandatory=true)
+        /* Specific for Desktop interface;Note : Not in use. */
+        TEXT_STYLE : EB_Desktop:DESKTOP_PARAMETER__TEXT_STYLE
+            @t24:i (align=L, inputBehaviour=I, maxLength=25, sysNumber=5.0, core=true, t24Name=TEXT.STYLE, mandatory=false)
+    }
+    DESKTOP_PARAMETER__ATTRIBUTES
+    {
+        /* The real time functionality is available. When updates to the T24 database are made, this attribute tells GLOBUS to update the file that triggers the real time enquiry processing. Values permitted in REALTIMEENQUIRY. */
+        ATTRIBUTES : EB_Desktop:DESKTOP_PARAMETER__ATTRIBUTES__ATTRIBUTES
+            @t24:i (align=L, inputBehaviour=I, maxLength=25, sysNumber=1.0, core=true, t24Name=ATTRIBUTES, mandatory=false)
+    }
+    DESKTOP_PARAMETER__BANNED_DELIM
+    {
+        /* The character that needs to be banned. */
+        BANNED_DELIM : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=I, maxLength=4, sysNumber=3.0, core=true, t24Name=BANNED.DELIM, mandatory=false)
+        /* The character that Desktop will use in place of the banned delimiter defined in the previous field. */
+        REPLACE_DELIM : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=I, maxLength=4, sysNumber=4.0, core=true, t24Name=REPLACE.DELIM, mandatory=false)
+    }
+    DESKTOP_PARAMETER__DATE_TIME
+    {
+        DATE_TIME : T24BusinessTypes:RELTIME
+            @i18n:Label (en="Date time")
+            @i18n:Tooltip (en="Date and time when record was input or authorised")
+            @t24:i (align=L, inputBehaviour=N, maxLength=15, sysNumber=20.0, core=true, t24Name=DATE.TIME, mask="RDD DD  DD ##:##", mandatory=false)
+    }
+    DESKTOP_PARAMETER__DEV_FILES
+    {
+        /* Specific for Desktop interface;Note : Not in use. */
+        DEV_FILES : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber=6.0, core=true, t24Name=DEV.FILES, mandatory=false)
+    }
+    DESKTOP_PARAMETER__INPUTTER
+    {
+        INPUTTER : T24BusinessTypes:A
+            @i18n:Label (en=Inputter)
+            @i18n:Tooltip (en="The user who last updated the record")
+            @t24:i (align=L, inputBehaviour=N, maxLength=100, sysNumber=19.0, core=true, t24Name=INPUTTER, mandatory=false)
+    }
+    DESKTOP_PARAMETER__REMAP_ID
+    {
+        INPUT_CHAR -> byValue EB_Desktop:DESKTOP_PARAMETER__REMAP_ID__INPUT_CHAR *
+            @t24:i (t24Name=INPUT.CHAR)
+        /* Description for the conversion. */
+        REMAP_DESC : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber=9.0, core=true, t24Name=REMAP.DESC, mandatory=false)
+        /* Numeric ID for this conversion.  Must be unique i.e. Cannot have another REMAP.ID of same value. */
+        REMAP_ID : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=I, maxLength=10, sysNumber=8.0, core=true, t24Name=REMAP.ID, mandatory=false)
+    }
+    DESKTOP_PARAMETER__REMAP_ID__INPUT_CHAR
+    {
+        /* The input character from the keyboard that needs to be translated or stored. */
+        INPUT_CHAR : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=I, maxLength=4, sysNumber=10.0, core=true, t24Name=INPUT.CHAR, mandatory=false)
+        /* The character that the INPUT.CHAR or STORE.CHAR will be stored as. */
+        STORE_CHAR : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=I, maxLength=4, sysNumber=12.0, core=true, t24Name=STORE.CHAR, mandatory=false)
+        /* The character to be transported by telnet for the input character entered in previous field. */
+        TRANS_CHAR : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=I, maxLength=4, sysNumber=11.0, core=true, t24Name=TRANS.CHAR, mandatory=false)
+    }
+    DESKTOP_USER_SETTINGS
+        @i18n:Description (en="")
+        @t24:i (t24Name=DESKTOP.USER.SETTINGS, level=F, type=H, allowedFunctions="A C D E H I L P Q R S", localRefApplicationSysNo=18.0, localRefAllowed=true)
+    {
+        AUDITOR_CODE : T24BusinessTypes:A
+            @i18n:Label (en="Auditor Code")
+            @i18n:Tooltip (en="Auditor Code")
+            @t24:i (align=L, inputBehaviour=E, maxLength=16, sysNumber=27.0, core=true, t24Name=AUDITOR.CODE, mandatory=false)
+        AUDIT_DATE_TIME : T24BusinessTypes:RELTIME
+            @i18n:Label (en="Audit Date Time")
+            @i18n:Tooltip (en="Date and time when record was audited")
+            @t24:i (align=L, inputBehaviour=E, maxLength=15, sysNumber=28.0, core=true, t24Name=AUDIT.DATE.TIME, mask="RDD DD  DD ##:##", mandatory=false)
+        AUTHORISER : T24BusinessTypes:A
+            @i18n:Label (en=Authoriser)
+            @i18n:Tooltip (en="Indicates the User who Authorises the record")
+            @t24:i (align=L, inputBehaviour=N, maxLength=100, sysNumber=24.0, core=true, t24Name=AUTHORISER, mandatory=false)
+        CO_CODE -> ST_CompanyCreation:COMPANY
+            @i18n:Label (en=Company)
+            @t24:i (align=L, inputBehaviour=N, maxLength=11, sysNumber=25.0, core=true, businessType=A, t24Name=CO.CODE, mask="R##-###-####", mandatory=false)
+        CURR_NO : T24BusinessTypes:N
+            @i18n:Label (en="Curr No")
+            @t24:i (align=R, inputBehaviour=N, maxLength=6, sysNumber=21.0, core=true, t24Name=CURR.NO, mandatory=false)
+        DATE_TIME -> byValue EB_Desktop:DESKTOP_USER_SETTINGS__DATE_TIME *
+            @t24:i (t24Name=DATE.TIME)
+        DEPT_CODE -> ST_Config:DEPT_ACCT_OFFICER
+            @i18n:Label (en="Dept Code")
+            @t24:i (align=R, inputBehaviour=N, maxLength=6, sysNumber=26.0, core=true, t24Name=DEPT.CODE, mandatory=false)
+        INPUTTER -> byValue EB_Desktop:DESKTOP_USER_SETTINGS__INPUTTER *
+            @t24:i (t24Name=INPUTTER)
+        ITEM_NAME -> byValue EB_Desktop:DESKTOP_USER_SETTINGS__ITEM_NAME *
+            @t24:i (t24Name=ITEM.NAME)
+        OVERRIDE -> byValue EB_Desktop:DESKTOP_USER_SETTINGS__OVERRIDE *
+            @t24:i (t24Name=OVERRIDE)
+        RECORD_STATUS : T24BusinessTypes:STAT
+            @i18n:Label (en="Record Status")
+            @t24:i (align=L, inputBehaviour=N, maxLength=6, sysNumber=20.0, core=true, t24Name=RECORD.STATUS, mandatory=false)
+        RESERVED_1 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=1, sysNumber=17.0, core=true, t24Name=RESERVED.1, mandatory=false)
+        RESERVED_2 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=1, sysNumber=16.0, core=true, t24Name=RESERVED.2, mandatory=false)
+        RESERVED_3 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=1, sysNumber=15.0, core=true, t24Name=RESERVED.3, mandatory=false)
+        RESERVED_4 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=1, sysNumber=14.0, core=true, t24Name=RESERVED.4, mandatory=false)
+        RESERVED_5 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=1, sysNumber=13.0, core=true, t24Name=RESERVED.5, mandatory=false)
+        RESERVED_6 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=1, sysNumber=12.0, core=true, t24Name=RESERVED.6, mandatory=false)
+        RESERVED_7 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=1, sysNumber=11.0, core=true, t24Name=RESERVED.7, mandatory=false)
+        RESERVED_8 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=1, sysNumber=10.0, core=true, t24Name=RESERVED.8, mandatory=false)
+        RESERVED_9 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=1, sysNumber=9.0, core=true, t24Name=RESERVED.9, mandatory=false)
+        /* DESKTOP.USER.SETTINGS will be updated by the system, when the T24 Desktop options are saved to the server. The ID of the field is format COMPANY CODE-USERNAME of the USER logged in. */
+        USER_APP_ID -> EB_Desktop:DESKTOP_USER_SETTINGS PK required
+            @i18n:Label (en="Application ID")
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber=0.0, core=true, businessType=A, t24Name=USER.APP.ID, mandatory=true)
+    }
+    DESKTOP_USER_SETTINGS__DATE_TIME
+    {
+        DATE_TIME : T24BusinessTypes:RELTIME
+            @i18n:Label (en="Date time")
+            @i18n:Tooltip (en="Date and time when record was input or authorised")
+            @t24:i (align=L, inputBehaviour=N, maxLength=15, sysNumber=23.0, core=true, t24Name=DATE.TIME, mask="RDD DD  DD ##:##", mandatory=false)
+    }
+    DESKTOP_USER_SETTINGS__INPUTTER
+    {
+        INPUTTER : T24BusinessTypes:A
+            @i18n:Label (en=Inputter)
+            @i18n:Tooltip (en="The user who last updated the record")
+            @t24:i (align=L, inputBehaviour=N, maxLength=100, sysNumber=22.0, core=true, t24Name=INPUTTER, mandatory=false)
+    }
+    DESKTOP_USER_SETTINGS__ITEM_NAME
+    {
+        /* To save the character set selected by the USER. */
+        CHAR_SET : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=20, sysNumber=8.0, core=true, t24Name=CHAR.SET, mandatory=false)
+        /* To indicate if the font is to be displayed in BOLD. */
+        FONT_BOLD : EB_Desktop:DESKTOP_USER_SETTINGS__ITEM_NAME__FONT_BOLD
+            @t24:i (align=L, inputBehaviour=I, maxLength=6, sysNumber=4.0, core=true, t24Name=FONT.BOLD, mandatory=false)
+        /* To indicate if the font is to be displayed in italic. */
+        FONT_ITALIC : EB_Desktop:DESKTOP_USER_SETTINGS__ITEM_NAME__FONT_ITALIC
+            @t24:i (align=L, inputBehaviour=I, maxLength=6, sysNumber=5.0, core=true, t24Name=FONT.ITALIC, mandatory=false)
+        /* Name of the font that USER has selected. */
+        FONT_NAME : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=25, sysNumber=2.0, core=true, t24Name=FONT.NAME, mandatory=false)
+        /* Size of the font that USER has selected. */
+        FONT_SIZE : T24BusinessTypes:AMT
+            @t24:i (align=R, inputBehaviour=I, maxLength=5, sysNumber=3.0, core=true, t24Name=FONT.SIZE, mandatory=false)
+        /* Background color that USER has selected for the item. */
+        ITEM_BGCOLOR : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=15, sysNumber=6.0, core=true, t24Name=ITEM.BGCOLOR, mandatory=false)
+        /* Foreground color that USER has selected for the item. */
+        ITEM_FRCOLOR : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=15, sysNumber=7.0, core=true, t24Name=ITEM.FRCOLOR, mandatory=false)
+        /* Specifies the ITEM available in the 'User preferences' of T24 Desktop options. */
+        ITEM_NAME : EB_Desktop:DESKTOP_USER_SETTINGS__ITEM_NAME__ITEM_NAME
+            @t24:i (align=L, inputBehaviour=I, maxLength=25, sysNumber=1.0, core=true, t24Name=ITEM.NAME, mandatory=false)
+    }
+    DESKTOP_USER_SETTINGS__OVERRIDE
+    {
+        OVERRIDE : T24BusinessTypes:A
+            @i18n:Label (en=Override)
+            @i18n:Tooltip (en="Overrides generated by this transaction")
+            @t24:i (align=L, inputBehaviour=N, maxLength=35, sysNumber=19.0, core=true, t24Name=OVERRIDE, mandatory=false)
+    }
+}
+Enumerations {
+    DESKTOP_PARAMETER__24x7_ENABLE : mml:string
+        NO=NO
+        YES=YES
+    DESKTOP_PARAMETER__24x7_STARTUP_RTN : mml:string
+        ONLY=ONLY
+        SUB=SUB
+    DESKTOP_PARAMETER__ACTIVITY_LOG : mml:string
+        NO=NO
+        YES=YES
+    DESKTOP_PARAMETER__ATTRIBUTES__ATTRIBUTES : mml:string
+        REALTIMEENQUIRY=REALTIMEENQUIRY
+        SINGLELINEDISPLAY=SINGLELINEDISPLAY
+    DESKTOP_PARAMETER__MAINTAIN_AUTH_FIELDS : mml:string
+        YES=YES
+    DESKTOP_PARAMETER__SYSTEM_SPEC : mml:string
+        SYSTEM=SYSTEM
+    DESKTOP_PARAMETER__TEXT_STYLE : mml:string
+        NORMAL=NORMAL
+        RICHTEXT=RICHTEXT
+    DESKTOP_USER_SETTINGS__ITEM_NAME__FONT_BOLD : mml:string
+        False=False
+        True=True
+    DESKTOP_USER_SETTINGS__ITEM_NAME__FONT_ITALIC : mml:string
+        False=False
+        True=True
+    DESKTOP_USER_SETTINGS__ITEM_NAME__ITEM_NAME : mml:string
+        Display_Field="Display Field"
+        Enquiry_Data="Enquiry Data"
+        Enquiry_Grid_Data="Enquiry Grid Data"
+        Enquiry_Header="Enquiry Header"
+        Enrichment=Enrichment
+        Error=Error
+        Field_Prompt="Field Prompt"
+        Header=Header
+        Input_Data="Input Data"
+        Input_Field="Input Field"
+        Mandatory_Field="Mandatory Field"
+        Message_Text="Message Text"
+        Noinput_Field="Noinput Field"
+        Old_Data="Old Data"
+        Report_Data="Report Data"
+        TextBox_Data="TextBox Data"
+        Version_View="Version View"
+}

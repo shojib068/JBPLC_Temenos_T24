@@ -1,0 +1,140 @@
+# UTF-8
+/* Channels EB Information of Structured Products */
+Domain EB_Channels
+    @t24:i (module=EB)
+    @java:Package (value=com.temenos.t24.datamodel.eb.eb_channels)
+namespace "http://www.temenos.com/t24/EB_Channels"
+metamodelVersion 1.30.6
+Classes {
+    AA_ARRANGEMENT_EXTUSER
+        @i18n:Description (en="")
+        @t24:i (t24Name=AA.ARRANGEMENT.EXTUSER, level=I, type=L, allowedFunctions="L P S", localRefAllowed=false)
+    {
+        ARRANGEMENT_ID -> EB_Channels:AA_ARRANGEMENT_EXTUSER PK required
+            @i18n:Label (en="Arrangement Id")
+            @t24:i (align=L, inputBehaviour=I, maxLength=20, sysNumber=0.0, core=true, businessType=A, t24Name=ARRANGEMENT.ID, mandatory=true)
+        EXT_USER_ID -> byValue EB_Channels:AA_ARRANGEMENT_EXTUSER__EXT_USER_ID *
+            @t24:i (t24Name=EXT.USER.ID)
+        SUB_ARRANGEMENT_ID -> byValue EB_Channels:AA_ARRANGEMENT_EXTUSER__SUB_ARRANGEMENT_ID *
+            @t24:i (t24Name=SUB.ARRANGEMENT.ID)
+    }
+    AA_ARRANGEMENT_EXTUSER__EXT_USER_ID
+    {
+        EXT_USER_ID : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=70, sysNumber=1.0, core=true, t24Name=EXT.USER.ID, mandatory=false)
+        EXT_USER_REBUILD : EB_Channels:AA_ARRANGEMENT_EXTUSER__EXT_USER_ID__EXT_USER_REBUILD
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber=3.0, core=true, t24Name=EXT.USER.REBUILD, mandatory=false)
+        EXT_USER_STATUS : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=10, sysNumber=2.0, core=true, t24Name=EXT.USER.STATUS, mandatory=false)
+    }
+    AA_ARRANGEMENT_EXTUSER__SUB_ARRANGEMENT_ID
+    {
+        SUB_ARRANGEMENT_ID : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=17, sysNumber=4.0, core=true, t24Name=SUB.ARRANGEMENT.ID, mandatory=false)
+        SUB_EXT_USER_ID -> byValue EB_Channels:AA_ARRANGEMENT_EXTUSER__SUB_ARRANGEMENT_ID__SUB_EXT_USER_ID *
+            @t24:i (t24Name=SUB.EXT.USER.ID)
+    }
+    AA_ARRANGEMENT_EXTUSER__SUB_ARRANGEMENT_ID__SUB_EXT_USER_ID
+    {
+        SUB_EXT_USER_ID : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=70, sysNumber=5.0, core=true, t24Name=SUB.EXT.USER.ID, mandatory=false)
+        SUB_EXT_USER_REBUILD : EB_Channels:AA_ARRANGEMENT_EXTUSER__SUB_ARRANGEMENT_ID__SUB_EXT_USER_ID__SUB_EXT_USER_REBUILD
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber=7.0, core=true, t24Name=SUB.EXT.USER.REBUILD, mandatory=false)
+        SUB_EXT_USER_STATUS : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=10, sysNumber=6.0, core=true, t24Name=SUB.EXT.USER.STATUS, mandatory=false)
+    }
+    CUST_EXTUSER
+        @i18n:Description (en="")
+        @t24:i (t24Name=CUST.EXTUSER, level=C, type=L, allowedFunctions="L P S", localRefAllowed=false)
+    {
+        CUSTOMER_ID -> EB_Channels:CUST_EXTUSER PK required
+            @i18n:Label (en="Customer Id")
+            @i18n:Tooltip (en="Identifies the Customer for the transaction.")
+            @t24:i (align=R, inputBehaviour=I, maxLength=10, sysNumber=0.0, core=true, t24Name=CUSTOMER.ID, mandatory=true)
+        EB_EXTERNAL_USER -> byValue EB_Channels:CUST_EXTUSER__EB_EXTERNAL_USER *
+            @t24:i (t24Name=EB.EXTERNAL.USER)
+        TIMESTAMP : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=10, sysNumber=2.0, core=true, t24Name=TIMESTAMP, mandatory=false)
+    }
+    CUST_EXTUSER__EB_EXTERNAL_USER
+    {
+        EB_EXTERNAL_USER -> EB_ARC:EB_EXTERNAL_USER required
+            @t24:i (align=L, inputBehaviour=I, maxLength=70, sysNumber=1.0, core=true, businessType=A, t24Name=EB.EXTERNAL.USER, mandatory=true)
+    }
+    NOFILE_TC_AUTH_UNAUTH_RECORD_COUNT
+        @i18n:Description (en="")
+        @t24:i (t24Name=NOFILE.TC.AUTH.UNAUTH.RECORD.COUNT, level=I, type=T, allowedFunctions="L P S", localRefAllowed=false)
+    {
+        APPLICATION_NAME : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, core=false, t24Name=APPLICATION.NAME, mandatory=false)
+        RECORD_COUNT : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=1.0, core=true, t24Name=RECORD.COUNT, mandatory=false)
+        RECORD_STATUS : T24BusinessTypes:N
+            @i18n:Label (en="Record Status")
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, core=false, t24Name=RECORD.STATUS, mandatory=false)
+        RETURN_DATA : T24BusinessTypes:N
+            @t24:i (align=L, inputBehaviour=N, maxLength=100, core=false, t24Name=RETURN.DATA, genOperation=E.NOFILE.TC.RECORD.COUNT, mandatory=true)
+    }
+    NOFILE_TC_DESCRIPTION
+        @i18n:Description (en="")
+        @t24:i (t24Name=NOFILE.TC.DESCRIPTION, level=I, type=T, allowedFunctions="L P S", localRefAllowed=false)
+    {
+        APPLICATION_NAME : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, core=false, t24Name=APPLICATION.NAME, mandatory=false)
+        RECORD_ID : T24BusinessTypes:N
+            @i18n:Label (en="Record Id")
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, core=false, t24Name=RECORD.ID, mandatory=false)
+        RETURN_DATA : T24BusinessTypes:N
+            @t24:i (align=L, inputBehaviour=N, maxLength=100, core=false, t24Name=RETURN.DATA, genOperation=E.NOFILE.TC.DESCRIPTION, mandatory=true)
+    }
+    NOFILE_TC_GET_ELIGIBLE_EVENTS
+        @i18n:Description (en="")
+        @t24:i (t24Name=NOFILE.TC.GET.ELIGIBLE.EVENTS, level=I, type=T, allowedFunctions="L P S", localRefAllowed=false)
+    {
+        ACCOUNT_NO : T24BusinessTypes:N
+            @i18n:Label (en=Account)
+            @i18n:Tooltip (en="Indicates Customer Account Number")
+            @t24:i (align=R, inputBehaviour=N, maxLength=19, core=false, t24Name=ACCOUNT.NO, mandatory=false)
+        RESULT_SET : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=19, core=false, t24Name=RESULT.SET, genOperation=E.NOFILE.TC.GET.ELIGIBLE.EVENTS, mandatory=true)
+    }
+    NOFILE_TC_PRODUCT_DETAILS
+        @i18n:Description (en="")
+        @t24:i (t24Name=NOFILE.TC.PRODUCT.DETAILS, level=I, type=T, allowedFunctions="L P S", localRefAllowed=false)
+    {
+        ALLOWED_PRODUCTS : T24BusinessTypes:N
+            @t24:i (align=L, inputBehaviour=N, maxLength=1000, core=false, t24Name=ALLOWED.PRODUCTS, genOperation=E.NOFILE.TC.PRODUCT.DETAILS, mandatory=true)
+        COMPANY_ID -> byValue EB_Channels:NOFILE_TC_PRODUCT_DETAILS__COMPANY_ID *
+            @t24:i (t24Name=COMPANY.ID)
+        CUSTOMER_NO : T24BusinessTypes:N
+            @i18n:Label (en="Customer No")
+            @i18n:Tooltip (en="Identifies the Customer for the transaction.")
+            @t24:i (align=R, inputBehaviour=N, maxLength=100, core=false, t24Name=CUSTOMER.NO, mandatory=false)
+        ONLINE_SERVICE_PRODUCT : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=100, core=false, t24Name=ONLINE.SERVICE.PRODUCT, mandatory=false)
+        PRODUCT_GROUP : T24BusinessTypes:N
+            @i18n:Label (en="Product Group")
+            @t24:i (align=R, inputBehaviour=N, maxLength=100, core=false, t24Name=PRODUCT.GROUP, mandatory=false)
+        PRODUCT_ID -> byValue EB_Channels:NOFILE_TC_PRODUCT_DETAILS__PRODUCT_ID *
+            @t24:i (t24Name=PRODUCT.ID)
+    }
+    NOFILE_TC_PRODUCT_DETAILS__COMPANY_ID
+    {
+        COMPANY_ID : T24BusinessTypes:N
+            @i18n:Label (en=Company)
+            @t24:i (align=R, inputBehaviour=N, maxLength=100, core=false, t24Name=COMPANY.ID, mandatory=false)
+    }
+    NOFILE_TC_PRODUCT_DETAILS__PRODUCT_ID
+    {
+        PRODUCT_ID : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=100, core=false, t24Name=PRODUCT.ID, mandatory=false)
+    }
+}
+Enumerations {
+    AA_ARRANGEMENT_EXTUSER__EXT_USER_ID__EXT_USER_REBUILD : mml:string
+        No=No
+        Yes=Yes
+    AA_ARRANGEMENT_EXTUSER__SUB_ARRANGEMENT_ID__SUB_EXT_USER_ID__SUB_EXT_USER_REBUILD : mml:string
+        No=No
+        Yes=Yes
+}

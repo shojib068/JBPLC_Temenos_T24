@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<localReferenceApplication:LocalReferenceApplication xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:localReferenceApplication="http://www.odcgroup.com/t24/application/localRefApplication/model/LocalReferenceApplication"
+    xmlns:translationDsl="http://www.odcgroup.com/translation/TranslationDsl" forApplication="name://TT_Contract:TELLER#">
+  <localField groupName="No" localRefID="151">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="IBLC CODE-DR"/>
+      <translations locale="fr" text="CODIFICAT. IBLC"/>
+    </label>
+    <toolTip xsi:type="translationDsl:LocalTranslations"/>
+  </localField>
+  <localField groupName="No" localRefID="152">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="IBLC CODE-CR"/>
+      <translations locale="fr" text="CODIFICAT. IBLC"/>
+    </label>
+    <toolTip xsi:type="translationDsl:LocalTranslations"/>
+  </localField>
+  <localField groupName="No" localRefID="171">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="IBLC COUNTRY-DR"/>
+      <translations locale="fr" text="PAY IBLC"/>
+    </label>
+    <toolTip xsi:type="translationDsl:LocalTranslations"/>
+  </localField>
+  <localField groupName="No" localRefID="172">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="IBLC COUNTRY-CR"/>
+      <translations locale="fr" text="PAY IBLC"/>
+    </label>
+    <toolTip xsi:type="translationDsl:LocalTranslations"/>
+  </localField>
+  <localField groupName="SIGNATORY" localRefID="SIGNATORY">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="SIGNATORY"/>
+    </label>
+    <toolTip xsi:type="translationDsl:LocalTranslations"/>
+  </localField>
+  <localField groupName="No" localRefID="IS.CUSTOMER">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="IS.CUSTOMER"/>
+    </label>
+    <toolTip xsi:type="translationDsl:LocalTranslations"/>
+  </localField>
+  <localField groupName="No" localRefID="IS.CONTRACT.REF">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="IS.CONTRACT.REF"/>
+    </label>
+    <toolTip xsi:type="translationDsl:LocalTranslations"/>
+  </localField>
+  <localField groupName="No" localRefID="IS.COMM.REF">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="IS.COMM.REF"/>
+    </label>
+    <toolTip xsi:type="translationDsl:LocalTranslations"/>
+  </localField>
+  <localField groupName="No" localRefID="IS.ASSET.REF">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="IS.ASSET.REF"/>
+    </label>
+    <toolTip xsi:type="translationDsl:LocalTranslations"/>
+  </localField>
+  <localField groupName="No" localRefID="IS.COST.REF">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="IS.COST.REF"/>
+    </label>
+    <toolTip xsi:type="translationDsl:LocalTranslations"/>
+  </localField>
+  <localField groupName="No" localRefID="IS.COM.SALE.REF">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="IS.COM.SALE.REF"/>
+    </label>
+    <toolTip xsi:type="translationDsl:LocalTranslations"/>
+  </localField>
+  <localField groupName="No" localRefID="CHQ.NO.DIGIT">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="CHQ.NO.DIGIT"/>
+    </label>
+    <toolTip xsi:type="translationDsl:LocalTranslations"/>
+  </localField>
+  <localField groupName="No" localRefID="CHQ.AC.NO.DIGIT">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="CHQ.AC.NO.DIGIT"/>
+    </label>
+    <toolTip xsi:type="translationDsl:LocalTranslations"/>
+  </localField>
+  <localField groupName="No" localRefID="ENTITY.CODE">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="ENTITY.CODE"/>
+    </label>
+    <toolTip xsi:type="translationDsl:LocalTranslations"/>
+  </localField>
+  <localField groupName="No" localRefID="HOUSE.CODE">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="HOUSE.CODE"/>
+    </label>
+    <toolTip xsi:type="translationDsl:LocalTranslations"/>
+  </localField>
+  <localField groupName="No" localRefID="POSTAL.CODE">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="POSTAL.CODE"/>
+    </label>
+    <toolTip xsi:type="translationDsl:LocalTranslations"/>
+  </localField>
+  <localField groupName="No" localRefID="FIRSTLINE.DIGIT">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="FIRSTLINE.DIGIT"/>
+    </label>
+    <toolTip xsi:type="translationDsl:LocalTranslations"/>
+  </localField>
+  <localField groupName="No" localRefID="LBRPTS.SETTLEMENT.TYPE">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="SETTLEMENT.TYPE"/>
+    </label>
+    <toolTip xsi:type="translationDsl:LocalTranslations"/>
+  </localField>
+  <localField groupName="No" localRefID="LBRPTS.TAX.PAYER.NO">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="TAX.PAYER.NO"/>
+    </label>
+    <toolTip xsi:type="translationDsl:LocalTranslations"/>
+  </localField>
+  <localField groupName="No" localRefID="LBRPTS.STICKER.NO">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="STICKER.NO"/>
+    </label>
+    <toolTip xsi:type="translationDsl:LocalTranslations"/>
+  </localField>
+  <localField groupName="No" localRefID="LBRPTS.STATEMENT.NO">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="STATEMENT.NO"/>
+    </label>
+    <toolTip xsi:type="translationDsl:LocalTranslations"/>
+  </localField>
+  <localField groupName="No" localRefID="NEG.REFERENCE">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="NEG.REFERENCE"/>
+    </label>
+    <toolTip xsi:type="translationDsl:LocalTranslations"/>
+  </localField>
+  <localField groupName="No" localRefID="USIRAC.MILITARY.COMBAT">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="MILITARY.COMBAT"/>
+    </label>
+    <toolTip xsi:type="translationDsl:LocalTranslations"/>
+  </localField>
+  <localField groupName="No" localRefID="USIRAC.PREV.CONTR">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="PREV.CONTR"/>
+    </label>
+    <toolTip xsi:type="translationDsl:LocalTranslations"/>
+  </localField>
+  <localField groupName="No" localRefID="USIRAC.EMP.CONTR">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="EMP.CONTR"/>
+    </label>
+    <toolTip xsi:type="translationDsl:LocalTranslations"/>
+  </localField>
+  <localField groupName="No" localRefID="USREGS.EXCEPTION">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="EXCEPTION"/>
+    </label>
+    <toolTip xsi:type="translationDsl:LocalTranslations"/>
+  </localField>
+  <localField groupName="No" localRefID="USREGS.THIRD.PARTY">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="THIRD.PARTY"/>
+    </label>
+    <toolTip xsi:type="translationDsl:LocalTranslations"/>
+  </localField>
+  <localField groupName="No" localRefID="USREGS.TP.LEGAL.ID">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="TP.LEGAL.ID"/>
+    </label>
+    <toolTip xsi:type="translationDsl:LocalTranslations"/>
+  </localField>
+  <localField groupName="No" localRefID="USRETL.NEW.CHRG.AMT">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="USRETL.RESERVED"/>
+    </label>
+    <toolTip xsi:type="translationDsl:LocalTranslations"/>
+  </localField>
+  <localField groupName="USRETL_ITEM_TYP" localRefID="USRETL.ITEM.TYP">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="USRETL.ITEM.TYP"/>
+    </label>
+    <toolTip xsi:type="translationDsl:LocalTranslations"/>
+  </localField>
+  <localField groupName="USRETL_ITEM_TYP" localRefID="USRETL.ITEM.VAL">
+    <label xsi:type="translationDsl:LocalTranslations">
+      <translations locale="en" text="USRETL.ITEM.VAL"/>
+    </label>
+    <toolTip xsi:type="translationDsl:LocalTranslations"/>
+  </localField>
+</localReferenceApplication:LocalReferenceApplication>

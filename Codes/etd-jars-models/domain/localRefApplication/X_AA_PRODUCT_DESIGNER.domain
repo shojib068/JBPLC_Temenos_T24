@@ -1,0 +1,106 @@
+# UTF-8
+Domain X_AA_PRODUCT_DESIGNER
+    @t24:LocalFields (localRefApplications=true)
+    @java:Package (value=localRefApplication.x_aa_product_designer)
+namespace "http://www.odcgroup.com/X_AA_PRODUCT_DESIGNER"
+metamodelVersion 1.30.6
+Classes {
+    Group_CHANNEL_CODE
+    {
+        /* Co for single chanel assign to prod */
+        CHANNEL_CODE : LocalFieldsEnumeration:LocalField_CHANNEL_CODE
+            @i18n:Label (en=CHANNEL.CODE)
+            @t24:LocalFields (maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=MSO.CHANNEL.CODE)
+            @t24:i (t24Name=CHANNEL.CODE)
+        /* Effective From date for Channel */
+        EFFECTIVE_FROM : T24BusinessTypes:D
+            @i18n:Label (en=EFFECTIVE.FROM)
+            @t24:LocalFields (maxChars=11, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=EFFECTIVE.FROM)
+        /* Effective To date for Channel */
+        EFFECTIVE_TO : T24BusinessTypes:D
+            @i18n:Label (en=EFFECTIVE.TO)
+            @t24:LocalFields (maxChars=11, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=EFFECTIVE.TO)
+    }
+    X_AA_PRODUCT_DESIGNER extends AA_ProductManagement:AA_PRODUCT_DESIGNER
+    {
+        /* Deposit Value Date */
+        VALUE_DATE : T24BusinessTypes:D
+            @i18n:Label (en=VALUE.DATE)
+            @t24:LocalFields (maxChars=11, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=VALUE.DATE)
+        /* Subscription Maximum Amount */
+        SUB_MAX_AMOUNT : T24BusinessTypes:AMTLCCY
+            @i18n:Label (en=SUB.MAX.AMOUNT)
+            @t24:LocalFields (maxChars=19, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=SUB.MAX.AMOUNT)
+        /* Earliest Date for Deposit Redemp */
+        EARLY_TERMINATE : T24BusinessTypes:D
+            @i18n:Label (en=EARLY.TERMINATE)
+            @t24:LocalFields (maxChars=11, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=EARLY.TERMINATE)
+        /* Allow Withdraw */
+        WAIVE_CHARGES : LocalFieldsEnumeration:LocalField_WAIVE_CHARGES
+            @i18n:Label (en=WAIVE.CHARGES)
+            @t24:LocalFields (maxChars=1, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=WAIVE.CHARGES)
+        /* Subscription End Date */
+        SUBS_END_DATE : T24BusinessTypes:D
+            @i18n:Label (en=SUBS.END.DATE)
+            @t24:LocalFields (maxChars=11, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=SUBS.END.DATE)
+        /* Product set belong to the product */
+        PRODUCT_SET : T24BusinessTypes:A
+            @i18n:Label (en=PRODUCT.SET)
+            @t24:LocalFields (maxChars=30, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=PRODUCT.SET)
+        /* Period for beneficiary */
+        BENE_RATE_PERIOD : LocalFieldsEnumeration:LocalField_BENE_RATE_PERIOD
+            @i18n:Label (en=BEN.RATE.PERIOD)
+            @t24:LocalFields (maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=MSO.BENE.RATE.PERIOD)
+            @t24:i (t24Name=BENE.RATE.PERIOD)
+        /* Defines the type of product */
+        PRODUCT_TYPE : LocalFieldsEnumeration:LocalField_PRODUCT_TYPE
+            @i18n:Label (en=PRODUCT.TYPE)
+            @t24:LocalFields (maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=MSO.PRODUCT.TYPE)
+            @t24:i (t24Name=PRODUCT.TYPE)
+        GroupSample_CHANNEL_CODE -> byValue X_AA_PRODUCT_DESIGNER:Group_CHANNEL_CODE *
+            @t24:i (t24Name=GroupSample_CHANNEL_CODE)
+        /* Unique code for eligibility policy */
+        PRODUCT_ELIGIBILITY_POLICY_CODE : T24BusinessTypes:A
+            @i18n:Label (en=ELI.POLICY.CODE)
+            @t24:LocalFields (maxChars=50, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=PRODUCT.ELIGIBILITY.POLICY.CODE)
+        /* A unique code for the fee profile */
+        PRODUCT_FEE_PROFILE_CODE : T24BusinessTypes:A
+            @i18n:Label (en=FEE.PROFIL.CODE)
+            @t24:LocalFields (maxChars=50, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=PRODUCT.FEE.PROFILE.CODE)
+        /* unique code for the Feature profile */
+        PRODUCT_FEATURE_PROFILE_CODE : T24BusinessTypes:A
+            @i18n:Label (en=FEATURE.PROF.CO)
+            @t24:LocalFields (maxChars=50, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=PRODUCT.FEATURE.PROFILE.CODE)
+        /* A unique code for this rate profile */
+        PRODUCT_RATE_PROFILE_CODE : T24BusinessTypes:A
+            @i18n:Label (en=RATE.PROF.CO)
+            @t24:LocalFields (maxChars=50, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=PRODUCT.RATE.PROFILE.CODE)
+        /* A unique code for this ERC profile */
+        PRODUCT_ERC_PROFILE_CODE : T24BusinessTypes:A
+            @i18n:Label (en=ERC.PROFILE.CO)
+            @t24:LocalFields (maxChars=50, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=PRODUCT.ERC.PROFILE.CODE)
+        /* Preferential Product */
+        USRETL_PREF_PRODUCT : LocalFieldsEnumeration:LocalField_USRETL_PREF_PRODUCT
+            @i18n:Label (en=PREF.PRODUCT)
+            @t24:LocalFields (maxChars=1, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USRETL.PREF.PRODUCT)
+        /* Pref Interest Prprty */
+        USRETL_PREF_INT_PROP -> AA_ProductFramework:AA_PROPERTY
+            @i18n:Label (en=PREF.INT.PROP)
+            @t24:LocalFields (applicationEnrich=DESCRIPTION, maxChars=30, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USRETL.PREF.INT.PROP)
+    }
+}

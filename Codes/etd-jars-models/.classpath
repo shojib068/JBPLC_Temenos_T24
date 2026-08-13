@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="Applications"/>
+	<classpathentry kind="src" path="domain"/>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/74AALocker"/>
+	<classpathentry kind="lib" path="E:/R22/T24-ETD-JAR/T24_API-Tables.jar"/>
+	<classpathentry kind="output" path="target"/>
+</classpath>

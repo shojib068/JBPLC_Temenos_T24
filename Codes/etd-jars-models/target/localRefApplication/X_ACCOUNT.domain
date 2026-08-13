@@ -1,0 +1,76 @@
+# UTF-8
+Domain X_ACCOUNT
+    @t24:LocalFields (localRefApplications=true)
+    @java:Package (value=localRefApplication.x_account)
+namespace "http://www.odcgroup.com/X_ACCOUNT"
+metamodelVersion 1.30.6
+Classes {
+    X_ACCOUNT extends AC_AccountOpening:ACCOUNT
+    {
+        /* Welcome Pack */
+        WELCOME_PACK : T24BusinessTypes:A
+            @i18n:Label (en=WELCOME.PACK)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=WELCOME.PACK)
+        /* ALLOWED.SEPA.TXN */
+        ALLOW_SEPA_TXN : T24BusinessTypes:A
+            @i18n:Label (en=ALLOW.SEPA.TXN)
+            @t24:LocalFields (maxChars=16, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=ALLOW.SEPA.TXN)
+        /* Printing Code */
+        LBACTR_PRINTING_CODE : LocalFieldsEnumeration:LocalField_LBACTR_PRINTING_CODE
+            @i18n:Label (en=PRINTING.CODE)
+            @t24:LocalFields (maxChars=6, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=LBACTR.PRINTING.CODE)
+            @t24:i (t24Name=LBACTR.PRINTING.CODE)
+        /* Pledge Purpose */
+        RLGAAP_PLEDGE_PURPOSE : LocalFieldsEnumeration:LocalField_RLGAAP_PLEDGE_PURPOSE
+            @i18n:Label (en=PLEDGE.PURPOSE)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=PLEDGE.PURPOSE)
+            @t24:i (t24Name=RLGAAP.PLEDGE.PURPOSE)
+        /* Pledge Flag */
+        RLGAAP_PLEDGE_FLAG : LocalFieldsEnumeration:LocalField_RLGAAP_PLEDGE_FLAG
+            @i18n:Label (en=PLEDGE.FLAG)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=PLEDGE.FLAG)
+            @t24:i (t24Name=RLGAAP.PLEDGE.FLAG)
+        /* Loan Sold Date */
+        USLEND_SOLD_DATE : T24BusinessTypes:D
+            @i18n:Label (en=SOLD.DATE)
+            @t24:LocalFields (maxChars=11, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USLEND.SOLD.DATE)
+        /* Repurchase Date */
+        USLEND_REPURCHASE_DATE : T24BusinessTypes:D
+            @i18n:Label (en=REPURCHASE.DATE)
+            @t24:LocalFields (maxChars=11, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USLEND.REPURCHASE.DATE)
+        /* MERS ID */
+        USLEND_MERS_ID : T24BusinessTypes:A
+            @i18n:Label (en=MERS.ID)
+            @t24:LocalFields (maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USLEND.MERS.ID)
+        /* Secondary Market Loan ID */
+        USLEND_SECONDARY_MARKET_LOAN_ID : T24BusinessTypes:A
+            @i18n:Label (en=SEC.MKT.LOAN.ID)
+            @t24:LocalFields (maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USLEND.SECONDARY.MARKET.LOAN.ID)
+        /* Collateral Linked Loan Ref */
+        USRETL_COL_LINKED_LOAN -> AA_Framework:AA_ARRANGEMENT
+            @i18n:Label (en=COL.LINKED.LOAN)
+            @t24:LocalFields (applicationEnrich=CO_CODE, maxChars=17, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USRETL.COL.LINKED.LOAN)
+        /* FFIEC.CODE */
+        USRETL_FFIEC_CODE : T24BusinessTypes:A
+            @i18n:Label (en=FFIEC.CODE)
+            @t24:LocalFields (maxChars=8, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USRETL.FFIEC.CODE)
+        /* Primary Account for Reserve */
+        RSRV_PRIMARY_AC : T24BusinessTypes:A
+            @i18n:Label (en=RSRV.PRIMARY.AC)
+            @t24:LocalFields (maxChars=15, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=RSRV.PRIMARY.AC)
+        /* Benefit Number of the account */
+        TAX_BENEFICIARY_NUMBER : LocalFieldsEnumeration:LocalField_TAX_BENEFICIARY_NUMBER
+            @i18n:Label (en=TX.BEN.NUM)
+            @t24:LocalFields (maxChars=2, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=AA.TX.BENEFIT.NUMBER)
+            @t24:i (t24Name=TAX.BENEFICIARY.NUMBER)
+    }
+}

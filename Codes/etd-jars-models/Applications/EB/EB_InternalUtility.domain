@@ -1,0 +1,716 @@
+# UTF-8
+/* For Internal Purpose */
+Domain EB_InternalUtility
+    @t24:i (module=EB)
+    @java:Package (value=com.temenos.t24.datamodel.eb.eb_internalutility)
+namespace "http://www.temenos.com/t24/EB_InternalUtility"
+metamodelVersion 1.30.6
+Classes {
+    EB_SCALABILITY_GROUPS
+        @i18n:Description (en="")
+        @t24:i (t24Name=EB.SCALABILITY.GROUPS, level=I, type=H, allowedFunctions="A C D E H I L P Q R S", localRefAllowed=false)
+    {
+        AUDITOR_CODE : T24BusinessTypes:A
+            @i18n:Label (en="Auditor Code")
+            @i18n:Tooltip (en="Auditor Code")
+            @t24:i (align=L, inputBehaviour=E, maxLength=16, sysNumber=17.0, core=true, t24Name=AUDITOR.CODE, mandatory=false)
+        AUDIT_DATE_TIME : T24BusinessTypes:RELTIME
+            @i18n:Label (en="Audit Date Time")
+            @i18n:Tooltip (en="Date and time when record was audited")
+            @t24:i (align=L, inputBehaviour=E, maxLength=15, sysNumber=18.0, core=true, t24Name=AUDIT.DATE.TIME, mask="RDD DD  DD ##:##", mandatory=false)
+        AUTHORISER : T24BusinessTypes:A
+            @i18n:Label (en=Authoriser)
+            @i18n:Tooltip (en="Indicates the User who Authorises the record")
+            @t24:i (align=L, inputBehaviour=N, maxLength=100, sysNumber=14.0, core=true, t24Name=AUTHORISER, mandatory=false)
+        CO_CODE -> ST_CompanyCreation:COMPANY
+            @i18n:Label (en=Company)
+            @t24:i (align=L, inputBehaviour=N, maxLength=11, sysNumber=15.0, core=true, businessType=A, t24Name=CO.CODE, mask="R##-###-####", mandatory=false)
+        CURR_NO : T24BusinessTypes:N
+            @i18n:Label (en="Curr No")
+            @t24:i (align=R, inputBehaviour=N, maxLength=6, sysNumber=11.0, core=true, t24Name=CURR.NO, mandatory=false)
+        DATE_TIME -> byValue EB_InternalUtility:EB_SCALABILITY_GROUPS__DATE_TIME *
+            @t24:i (t24Name=DATE.TIME)
+        DEPT_CODE -> ST_Config:DEPT_ACCT_OFFICER
+            @i18n:Label (en="Dept Code")
+            @t24:i (align=R, inputBehaviour=N, maxLength=6, sysNumber=16.0, core=true, t24Name=DEPT.CODE, mandatory=false)
+        DESCRIPTION : T24BusinessTypes:A required
+            @i18n:Label (en=Description)
+            @i18n:Tooltip (en=Description)
+            @t24:i (align=L, inputBehaviour=I, maxLength=70, sysNumber=1.0, core=true, t24Name=DESCRIPTION, mandatory=true)
+        EB_SCALABILITY_GROUPS_ID -> EB_InternalUtility:EB_SCALABILITY_GROUPS PK required
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber=0.0, core=true, businessType=A, t24Name=EB.SCALABILITY.GROUPS.ID, mandatory=true)
+        INPUTTER -> byValue EB_InternalUtility:EB_SCALABILITY_GROUPS__INPUTTER *
+            @t24:i (t24Name=INPUTTER)
+        RECORD_STATUS : T24BusinessTypes:STAT
+            @i18n:Label (en="Record Status")
+            @t24:i (align=L, inputBehaviour=N, maxLength=6, sysNumber=10.0, core=true, t24Name=RECORD.STATUS, mandatory=false)
+        RESERVED_1 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=9.0, core=true, t24Name=RESERVED.1, mandatory=false)
+        RESERVED_2 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=8.0, core=true, t24Name=RESERVED.2, mandatory=false)
+        RESERVED_3 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=7.0, core=true, t24Name=RESERVED.3, mandatory=false)
+        RESERVED_4 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=6.0, core=true, t24Name=RESERVED.4, mandatory=false)
+        RESERVED_5 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=5.0, core=true, t24Name=RESERVED.5, mandatory=false)
+        RESERVED_6 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=4.0, core=true, t24Name=RESERVED.6, mandatory=false)
+        RESERVED_7 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=3.0, core=true, t24Name=RESERVED.7, mandatory=false)
+        RESERVED_8 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=2.0, core=true, t24Name=RESERVED.8, mandatory=false)
+    }
+    EB_SCALABILITY_GROUPS__DATE_TIME
+    {
+        DATE_TIME : T24BusinessTypes:RELTIME
+            @i18n:Label (en="Date time")
+            @i18n:Tooltip (en="Date and time when record was input or authorised")
+            @t24:i (align=L, inputBehaviour=N, maxLength=15, sysNumber=13.0, core=true, t24Name=DATE.TIME, mask="RDD DD  DD ##:##", mandatory=false)
+    }
+    EB_SCALABILITY_GROUPS__INPUTTER
+    {
+        INPUTTER : T24BusinessTypes:A
+            @i18n:Label (en=Inputter)
+            @i18n:Tooltip (en="The user who last updated the record")
+            @t24:i (align=L, inputBehaviour=N, maxLength=100, sysNumber=12.0, core=true, t24Name=INPUTTER, mandatory=false)
+    }
+    EB_SCALABILITY_JOBS
+        @i18n:Description (en="")
+        @t24:i (t24Name=EB.SCALABILITY.JOBS, level=I, type=H, allowedFunctions="A C D E H I L P Q R S", localRefAllowed=false)
+    {
+        AUDITOR_CODE : T24BusinessTypes:A
+            @i18n:Label (en="Auditor Code")
+            @i18n:Tooltip (en="Auditor Code")
+            @t24:i (align=L, inputBehaviour=E, maxLength=16, sysNumber=18.0, core=true, t24Name=AUDITOR.CODE, mandatory=false)
+        AUDIT_DATE_TIME : T24BusinessTypes:RELTIME
+            @i18n:Label (en="Audit Date Time")
+            @i18n:Tooltip (en="Date and time when record was audited")
+            @t24:i (align=L, inputBehaviour=E, maxLength=15, sysNumber=19.0, core=true, t24Name=AUDIT.DATE.TIME, mask="RDD DD  DD ##:##", mandatory=false)
+        AUTHORISER : T24BusinessTypes:A
+            @i18n:Label (en=Authoriser)
+            @i18n:Tooltip (en="Indicates the User who Authorises the record")
+            @t24:i (align=L, inputBehaviour=N, maxLength=100, sysNumber=15.0, core=true, t24Name=AUTHORISER, mandatory=false)
+        CO_CODE -> ST_CompanyCreation:COMPANY
+            @i18n:Label (en=Company)
+            @t24:i (align=L, inputBehaviour=N, maxLength=11, sysNumber=16.0, core=true, businessType=A, t24Name=CO.CODE, mask="R##-###-####", mandatory=false)
+        CURR_NO : T24BusinessTypes:N
+            @i18n:Label (en="Curr No")
+            @t24:i (align=R, inputBehaviour=N, maxLength=6, sysNumber=12.0, core=true, t24Name=CURR.NO, mandatory=false)
+        DATE_TIME -> byValue EB_InternalUtility:EB_SCALABILITY_JOBS__DATE_TIME *
+            @t24:i (t24Name=DATE.TIME)
+        DEPT_CODE -> ST_Config:DEPT_ACCT_OFFICER
+            @i18n:Label (en="Dept Code")
+            @t24:i (align=R, inputBehaviour=N, maxLength=6, sysNumber=17.0, core=true, t24Name=DEPT.CODE, mandatory=false)
+        DESCRIPTION : T24BusinessTypes:A required
+            @i18n:Label (en=Description)
+            @i18n:Tooltip (en=Description)
+            @t24:i (align=L, inputBehaviour=I, maxLength=70, sysNumber=1.0, core=true, t24Name=DESCRIPTION, mandatory=true)
+        EB_SCALABILITY_JOBS_ID -> EB_InternalUtility:EB_SCALABILITY_JOBS PK required
+            @t24:i (align=L, inputBehaviour=I, maxLength=70, sysNumber=0.0, core=true, businessType=A, t24Name=EB.SCALABILITY.JOBS.ID, mandatory=true)
+        INPUTTER -> byValue EB_InternalUtility:EB_SCALABILITY_JOBS__INPUTTER *
+            @t24:i (t24Name=INPUTTER)
+        RECORD_STATUS : T24BusinessTypes:STAT
+            @i18n:Label (en="Record Status")
+            @t24:i (align=L, inputBehaviour=N, maxLength=6, sysNumber=11.0, core=true, t24Name=RECORD.STATUS, mandatory=false)
+        RESERVED_1 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=10.0, core=true, t24Name=RESERVED.1, mandatory=false)
+        RESERVED_2 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=9.0, core=true, t24Name=RESERVED.2, mandatory=false)
+        RESERVED_3 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=8.0, core=true, t24Name=RESERVED.3, mandatory=false)
+        RESERVED_4 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=7.0, core=true, t24Name=RESERVED.4, mandatory=false)
+        RESERVED_5 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=6.0, core=true, t24Name=RESERVED.5, mandatory=false)
+        RESERVED_6 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=5.0, core=true, t24Name=RESERVED.6, mandatory=false)
+        RESERVED_7 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=4.0, core=true, t24Name=RESERVED.7, mandatory=false)
+        RESERVED_8 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=3.0, core=true, t24Name=RESERVED.8, mandatory=false)
+        SCALABILITY_GROUPS -> byValue EB_InternalUtility:EB_SCALABILITY_JOBS__SCALABILITY_GROUPS *
+            @t24:i (t24Name=SCALABILITY.GROUPS)
+    }
+    EB_SCALABILITY_JOBS__DATE_TIME
+    {
+        DATE_TIME : T24BusinessTypes:RELTIME
+            @i18n:Label (en="Date time")
+            @i18n:Tooltip (en="Date and time when record was input or authorised")
+            @t24:i (align=L, inputBehaviour=N, maxLength=15, sysNumber=14.0, core=true, t24Name=DATE.TIME, mask="RDD DD  DD ##:##", mandatory=false)
+    }
+    EB_SCALABILITY_JOBS__INPUTTER
+    {
+        INPUTTER : T24BusinessTypes:A
+            @i18n:Label (en=Inputter)
+            @i18n:Tooltip (en="The user who last updated the record")
+            @t24:i (align=L, inputBehaviour=N, maxLength=100, sysNumber=13.0, core=true, t24Name=INPUTTER, mandatory=false)
+    }
+    EB_SCALABILITY_JOBS__SCALABILITY_GROUPS
+    {
+        SCALABILITY_GROUPS -> EB_InternalUtility:EB_SCALABILITY_GROUPS required
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber=2.0, core=true, businessType=A, t24Name=SCALABILITY.GROUPS, mandatory=true)
+    }
+    EB_SCALABILITY_TXN_DATA
+        @i18n:Description (en="")
+        @t24:i (t24Name=EB.SCALABILITY.TXN.DATA, level=I, type=L, allowedFunctions="L P S", localRefAllowed=false)
+    {
+        APPLICATION : T24BusinessTypes:A
+            @i18n:Label (en=Application)
+            @t24:i (align=L, inputBehaviour=I, maxLength=70, sysNumber=1.0, core=true, t24Name=APPLICATION, mandatory=false)
+        BATCH_ID : T24BusinessTypes:A
+            @i18n:Label (en=Batch)
+            @t24:i (align=L, inputBehaviour=I, maxLength=70, sysNumber=4.0, core=true, t24Name=BATCH.ID, mandatory=false)
+        COMPANY : T24BusinessTypes:A
+            @i18n:Label (en=Company)
+            @t24:i (align=L, inputBehaviour=I, maxLength=70, sysNumber=5.0, core=true, t24Name=COMPANY, mandatory=false)
+        EB_SCALABILITY_TXN_DATA_ID -> EB_InternalUtility:EB_SCALABILITY_TXN_DATA PK required
+            @t24:i (align=L, inputBehaviour=I, maxLength=90, sysNumber=0.0, core=true, businessType=A, t24Name=EB.SCALABILITY.TXN.DATA.ID, mandatory=true)
+        JOBNAME : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=70, sysNumber=3.0, core=true, t24Name=JOBNAME, mandatory=false)
+        RESERVED_1 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=30.0, core=true, t24Name=RESERVED.1, mandatory=false)
+        RESERVED_10 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=21.0, core=true, t24Name=RESERVED.10, mandatory=false)
+        RESERVED_11 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=20.0, core=true, t24Name=RESERVED.11, mandatory=false)
+        RESERVED_12 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=19.0, core=true, t24Name=RESERVED.12, mandatory=false)
+        RESERVED_13 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=18.0, core=true, t24Name=RESERVED.13, mandatory=false)
+        RESERVED_14 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=17.0, core=true, t24Name=RESERVED.14, mandatory=false)
+        RESERVED_15 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=16.0, core=true, t24Name=RESERVED.15, mandatory=false)
+        RESERVED_16 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=15.0, core=true, t24Name=RESERVED.16, mandatory=false)
+        RESERVED_17 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=14.0, core=true, t24Name=RESERVED.17, mandatory=false)
+        RESERVED_18 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=13.0, core=true, t24Name=RESERVED.18, mandatory=false)
+        RESERVED_19 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=12.0, core=true, t24Name=RESERVED.19, mandatory=false)
+        RESERVED_2 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=29.0, core=true, t24Name=RESERVED.2, mandatory=false)
+        RESERVED_20 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=11.0, core=true, t24Name=RESERVED.20, mandatory=false)
+        RESERVED_3 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=28.0, core=true, t24Name=RESERVED.3, mandatory=false)
+        RESERVED_4 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=27.0, core=true, t24Name=RESERVED.4, mandatory=false)
+        RESERVED_5 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=26.0, core=true, t24Name=RESERVED.5, mandatory=false)
+        RESERVED_6 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=25.0, core=true, t24Name=RESERVED.6, mandatory=false)
+        RESERVED_7 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=24.0, core=true, t24Name=RESERVED.7, mandatory=false)
+        RESERVED_8 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=23.0, core=true, t24Name=RESERVED.8, mandatory=false)
+        RESERVED_9 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=22.0, core=true, t24Name=RESERVED.9, mandatory=false)
+        STAGE : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=70, sysNumber=6.0, core=true, t24Name=STAGE, mandatory=false)
+        TABLENAME -> byValue EB_InternalUtility:EB_SCALABILITY_TXN_DATA__TABLENAME *
+            @t24:i (t24Name=TABLENAME)
+        TXN_ID : T24BusinessTypes:A
+            @i18n:Label (en="Transaction Ref")
+            @t24:i (align=L, inputBehaviour=I, maxLength=70, sysNumber=2.0, core=true, t24Name=TXN.ID, mandatory=false)
+        USER : T24BusinessTypes:A
+            @i18n:Label (en=User)
+            @i18n:Tooltip (en="Indicates teller id")
+            @t24:i (align=L, inputBehaviour=I, maxLength=70, sysNumber=7.0, core=true, t24Name=USER, mandatory=false)
+    }
+    EB_SCALABILITY_TXN_DATA__TABLENAME
+    {
+        CONTRACT_ID : T24BusinessTypes:A
+            @i18n:Label (en="Contract Id")
+            @t24:i (align=L, inputBehaviour=I, maxLength=70, sysNumber=9.0, core=true, t24Name=CONTRACT.ID, mandatory=false)
+        IO_MODE : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=70, sysNumber=10.0, core=true, t24Name=IO.MODE, mandatory=false)
+        TABLENAME : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=70, sysNumber=8.0, core=true, t24Name=TABLENAME, mandatory=false)
+    }
+/* This application is used for updating EB.SYSGEN.DATA.CONTROL records.
+Records defined in this application are used by the SYSGEN.RUN program (initiated by VERIFY on SYSGEN SYSTEM record) to generate T24 areas.
+Some applications have date and currency information in their records that needs to be modified according to the needs of the T24 implemenation being built.
+A typical use case is to update records in parameter tables where the @ID includes the default currency or company code of the basebank, and it needs to be changed for a specific implementation.
+Records in EB.SYSGEN.DATA.CONTROL allow specific characters within target fields to be marked for update. */
+    EB_SYSGEN_DATA_CONTROL
+        @i18n:Description (en="")
+        @t24:i (t24Name=EB.SYSGEN.DATA.CONTROL, level=I, type=H, allowedFunctions="A C D E H I L P Q R S", localRefApplicationSysNo=22.0, localRefAllowed=true)
+    {
+        AUDITOR_CODE : T24BusinessTypes:A
+            @i18n:Label (en="Auditor Code")
+            @i18n:Tooltip (en="Auditor Code")
+            @t24:i (align=L, inputBehaviour=E, maxLength=16, sysNumber=31.0, core=true, t24Name=AUDITOR.CODE, mandatory=false)
+        AUDIT_DATE_TIME : T24BusinessTypes:RELTIME
+            @i18n:Label (en="Audit Date Time")
+            @i18n:Tooltip (en="Date and time when record was audited")
+            @t24:i (align=L, inputBehaviour=E, maxLength=15, sysNumber=32.0, core=true, t24Name=AUDIT.DATE.TIME, mask="RDD DD  DD ##:##", mandatory=false)
+        AUTHORISER : T24BusinessTypes:A
+            @i18n:Label (en=Authoriser)
+            @i18n:Tooltip (en="Indicates the User who Authorises the record")
+            @t24:i (align=L, inputBehaviour=N, maxLength=100, sysNumber=28.0, core=true, t24Name=AUTHORISER, mandatory=false)
+/* Flag to indicate whether the record should be processed or not. If set to 'NO' the record will be skipped during SYSGEN processing.
+Validation Rules:
+Option Field, allowed values: blank or 'NO'. */
+        AVBL_MARKER : EB_InternalUtility:EB_SYSGEN_DATA_CONTROL__AVBL_MARKER
+            @i18n:Label (en="Available Marker")
+            @i18n:Tooltip (en="Indicates whether facility is available to draw")
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber=18.0, core=true, t24Name=AVBL.MARKER, mandatory=false)
+        CO_CODE -> ST_CompanyCreation:COMPANY
+            @i18n:Label (en=Company)
+            @t24:i (align=L, inputBehaviour=N, maxLength=11, sysNumber=29.0, core=true, businessType=A, t24Name=CO.CODE, mask="R##-###-####", mandatory=false)
+        CURR_NO : T24BusinessTypes:N
+            @i18n:Label (en="Curr No")
+            @t24:i (align=R, inputBehaviour=N, maxLength=6, sysNumber=25.0, core=true, t24Name=CURR.NO, mandatory=false)
+        DATE_TIME -> byValue EB_InternalUtility:EB_SYSGEN_DATA_CONTROL__DATE_TIME *
+            @t24:i (t24Name=DATE.TIME)
+        DEPT_CODE -> ST_Config:DEPT_ACCT_OFFICER
+            @i18n:Label (en="Dept Code")
+            @t24:i (align=R, inputBehaviour=N, maxLength=6, sysNumber=30.0, core=true, t24Name=DEPT.CODE, mandatory=false)
+        FIELD_NAME -> byValue EB_InternalUtility:EB_SYSGEN_DATA_CONTROL__FIELD_NAME *
+            @t24:i (t24Name=FIELD.NAME)
+        INPUTTER -> byValue EB_InternalUtility:EB_SYSGEN_DATA_CONTROL__INPUTTER *
+            @t24:i (t24Name=INPUTTER)
+        OVERRIDE -> byValue EB_InternalUtility:EB_SYSGEN_DATA_CONTROL__OVERRIDE *
+            @t24:i (t24Name=OVERRIDE)
+/* This field indicates which product the target application is in. It is automatically updated by the system during input by referencing PGM.FILE. It is a NOINPUT field and users cannot alter it.
+Validation Rules:
+Alphanumeric characters of length 35 */
+        PRODUCT_ID : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=35, sysNumber=2.0, core=true, t24Name=PRODUCT.ID, mandatory=false)
+        RECORD_STATUS : T24BusinessTypes:STAT
+            @i18n:Label (en="Record Status")
+            @t24:i (align=L, inputBehaviour=N, maxLength=6, sysNumber=24.0, core=true, t24Name=RECORD.STATUS, mandatory=false)
+        RESERVED_01 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=21.0, core=true, t24Name=RESERVED.01, mandatory=false)
+        RESERVED_02 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=20.0, core=true, t24Name=RESERVED.02, mandatory=false)
+        RESERVED_03 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=19.0, core=true, t24Name=RESERVED.03, mandatory=false)
+        RESERVED_08 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=5.0, core=true, t24Name=RESERVED.08, mandatory=false)
+        RESERVED_09 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=4.0, core=true, t24Name=RESERVED.09, mandatory=false)
+        RESERVED_10 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=3.0, core=true, t24Name=RESERVED.10, mandatory=false)
+        SELECT_CRIT -> byValue EB_InternalUtility:EB_SYSGEN_DATA_CONTROL__SELECT_CRIT *
+            @t24:i (t24Name=SELECT.CRIT)
+/* This field is intended for future use and is currently not used. All records are selected from $NAU regardless of the value of this field.
+Validation Rules:
+Option Field, allowed values: LIVE and $NAU.
+Mandatory field, defaulted to $NAU automatically. */
+        SELECT_FROM : EB_InternalUtility:EB_SYSGEN_DATA_CONTROL__SELECT_FROM required
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber=16.0, core=true, t24Name=SELECT.FROM, mandatory=true)
+/* The ID field of the record identifies the target table which will be processed during SYSGEN.RUN
+Validation Rules:
+Alphanumeric characters of length 35. Must exist in PGM.FILE */
+        TABLE_NAME -> EB_InternalUtility:EB_SYSGEN_DATA_CONTROL PK required
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber=0.0, core=true, businessType=A, t24Name=TABLE.NAME, mandatory=true)
+/* This field is intended for future use and is currently not used. All records are written to the $NAU table without changing their status regardless of the value of this field.
+Validation Rules:
+Option Field, allowed values: IHLD, LIVE and INAU.
+Mandatory field, defaulted to INAU automatically. */
+        WRITE_STATUS : EB_InternalUtility:EB_SYSGEN_DATA_CONTROL__WRITE_STATUS required
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber=17.0, core=true, t24Name=WRITE.STATUS, mandatory=true)
+    }
+    EB_SYSGEN_DATA_CONTROL__DATE_TIME
+    {
+        DATE_TIME : T24BusinessTypes:RELTIME
+            @i18n:Label (en="Date time")
+            @i18n:Tooltip (en="Date and time when record was input or authorised")
+            @t24:i (align=L, inputBehaviour=N, maxLength=15, sysNumber=27.0, core=true, t24Name=DATE.TIME, mask="RDD DD  DD ##:##", mandatory=false)
+    }
+    EB_SYSGEN_DATA_CONTROL__FIELD_NAME
+    {
+/* Position of the last character to be changed by the conversion, characters indexed from 1. For example suppose a field has format {AccountNumber}.{Currency} for like 123456.USD. This field can define exactly which part of the field is the currency part.
+Validation Rules:
+Alphanumeric characters of length 35. */
+        CHNG_END_POS : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber=10.0, core=true, t24Name=CHNG.END.POS, mandatory=false)
+/* Position of the first character to be changed by the conversion, characters indexed from 1. For example suppose a field has format {AccountNumber}.{Currency} for like 123456.USD. This field can define exactly which part of the field is the currency part.
+Validation Rules:
+Alphanumeric characters of length 35. */
+        CHNG_START_POS : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber=9.0, core=true, t24Name=CHNG.START.POS, mandatory=false)
+/* This field can provide additional information to support the data conversion of the field. If FIELD.TYPE = 'DATE' then this field may have a value like "+1W" and dates will be computed relative to TODAY. For all FIELD.TYPE choices, a conversion routine can be specified for running a routine to do custom conversions. If a routine is specified it should have an entry in EB.API and the routine name should be prefixed with '@' in this field (eg "@SOME.CONVERSION.ROUTINE"). Finally, if FIELD.TYPE = 'CONSTANT' then this field is mandatory and  specifies the replacement value.
+Validation Rules:
+Alphanumeric characters of length 35. */
+        CONV_FMT_RTN : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber=11.0, core=true, t24Name=CONV.FMT.RTN, mandatory=false)
+/* Identifies the field within the target application that will be modified. The field must exist in the STANDARD.SELECTION for the target application.
+Validation Rules:
+
+Alphanumeric characters of length 35
+Must exist in STANDARD.SELECTION record for the target application.
+Mandatory field */
+        FIELD_NAME : T24BusinessTypes:A required
+            @i18n:Label (en="Field Name")
+            @i18n:Tooltip (en="Name of the field(used mostly for SWIFT)")
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber=6.0, core=true, t24Name=FIELD.NAME, mandatory=true)
+/* This is a NOINPUT field updated by the system on validate / commit. It stores the position of the field, based on value in the STANDARD.SELECTION.
+Validation Rules:
+Alphanumeric characters of length 35 */
+        FIELD_POS : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=35, sysNumber=7.0, core=true, t24Name=FIELD.POS, mandatory=false)
+/* Enumeration indicating the type of conversion to perform on the field (rather than the actual field type, despite the name). This field could be called 'CONVERSION.TYPE' which would be more accurate. The fields CHNG.START.POS, CHNG.END.POS and CONV.FMT.RTN relate to the conversion type
+Validation Rules:
+Option Field, allowed values: CURRENCY, DATE, COUNTRY, CONSTANT and COMPANY.
+Mandatory field. */
+        FIELD_TYPE : EB_InternalUtility:EB_SYSGEN_DATA_CONTROL__FIELD_NAME__FIELD_TYPE required
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber=8.0, core=true, t24Name=FIELD.TYPE, mandatory=true)
+        RESERVED_04 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=15.0, core=true, t24Name=RESERVED.04, mandatory=false)
+        RESERVED_05 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=14.0, core=true, t24Name=RESERVED.05, mandatory=false)
+        RESERVED_06 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=13.0, core=true, t24Name=RESERVED.06, mandatory=false)
+        RESERVED_07 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=12.0, core=true, t24Name=RESERVED.07, mandatory=false)
+    }
+    EB_SYSGEN_DATA_CONTROL__INPUTTER
+    {
+        INPUTTER : T24BusinessTypes:A
+            @i18n:Label (en=Inputter)
+            @i18n:Tooltip (en="The user who last updated the record")
+            @t24:i (align=L, inputBehaviour=N, maxLength=100, sysNumber=26.0, core=true, t24Name=INPUTTER, mandatory=false)
+    }
+    EB_SYSGEN_DATA_CONTROL__OVERRIDE
+    {
+        OVERRIDE : T24BusinessTypes:N
+            @i18n:Label (en=Override)
+            @i18n:Tooltip (en="Overrides generated by this transaction")
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=23.0, core=true, t24Name=OVERRIDE, mandatory=false)
+    }
+    EB_SYSGEN_DATA_CONTROL__SELECT_CRIT
+    {
+/* This optional field allows a subset of records within the target application to be selected.
+Sample value: WITH @ID LIKE ...0010001
+This will select records ending in 0010001 for processing, and exclude all others.
+Validation Rules:
+Default alphanumeric characters of length 35. */
+        SELECT_CRIT : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber=1.0, core=true, t24Name=SELECT.CRIT, mandatory=false)
+    }
+/* When a client purchases T24, he initially receives a copy of the T24 demonstration account. This account is a fully populated account, containing sample customers, accounts, transactions, etc. and includes all the products available in T24. The client can use the demo account to familiarise himself with the system, begin training his staff and decide how he would like his system configured. Data can be amended as required and End of Days run in it.
+Once the client has decided on the configuration of his system, the Client Details form and the Client Implementation form at the back of this manual are completed and sent to the Distribution department at Temenos. Normally, the project manager from Temenos or one of Temenos' Business Partners would complete the form on the client's behalf.  It is very important that the client fully understands each of the questions asked on the form, as many of these settings cannot be changed after the tape has been generated.
+Distribution will create an implementation tape according to the parameters and requirements entered on the Client Details and Implementation forms. This is then used as the starting point for the client's implementation.
+Some clients who have purchased T24 for a number of different sites have adopted the practise of creating a "model bank".  This is normally created from the initial implementation tape.  The client then updates it with the customisation required for their bank.  For example, they will create SMS groups, versions, perhaps with additional validation in the form of user written subroutines, local reference fields, menus, enquiries including context sensitive enquiries and auto launch enquiries, additional helptext, etc.  Although all of this information can be transported by using the Data Library (see the Data Library chapter in the System Administration Guide), some clients prefer to be able to create their own implementation tapes from their "model bank".
+Therefore, T24 has made the system generation tool available to selected clients: it is not generally available.  However, the client must always advice the Distribution department at Temenos when new tapes are being created.  The detail and implementation forms must be sent to Temenos.  Upon checking this information, a license and maintenance code will be generated to enable the system generation program to be run. */
+    SYSGEN
+        @i18n:Description (en="")
+        @t24:i (t24Name=SYSGEN, level=I, type=W, allowedFunctions="C I L P Q R S V", localRefAllowed=false)
+    {
+/* Used to set the account mask on the COMPANY file (e.g.  ######-##-###); must include the checkdigit. The mask for internal accounts is hardcoded (###-#####-####).
+NOTE:   The checkdigit can be changed on the COMPANY record after the SYSGEN has been run, providing no customer accounts have been entered.
+Examples:
+1. No = 1234;      Mask = ##### - ##### Display =          1234
+2. No = 1234567;   Mask = ##### - ##### Display =          12 - 34567
+3. No = 1234;      Mask = R##### - ##### Display =          00000 - 01234
+4. No = 1234567;   Mask = R##### - ##### Display =          00012 - 34567
+Validation Rules:
+4 to 20 alphanumeric characters.
+Mandatory input if Ac is installed
+Validation raises error if AC product is not available in the PRODUCTS field list
+Input in this field must contain 4 '#' characters as a minimum. The number of '#' characters defines the maximum length of the account number.
+When ACCT.CHECKDIG.TYPE = 1, input in this field must contain 12 '#' characters.
+When ACCT.CHECKDIG.TYPE = 2, input in this field must contain 10 '#' characters.
+Characters '0...9', 'A...Z', 'a...z' are not allowed.  The only exception being that the 1st character can be 'R' which means that the account number will be right adjusted and that it may contain leading zeros. */
+        ACCOUNT_MASK : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=21, sysNumber=11.0, core=true, t24Name=ACCOUNT.MASK, mandatory=false)
+        AUDITOR_CODE : T24BusinessTypes:A
+            @i18n:Label (en="Auditor Code")
+            @i18n:Tooltip (en="Auditor Code")
+            @t24:i (align=L, inputBehaviour=E, maxLength=16, sysNumber=39.0, core=true, t24Name=AUDITOR.CODE, mandatory=false)
+        AUDIT_DATE_TIME : T24BusinessTypes:RELTIME
+            @i18n:Label (en="Audit Date Time")
+            @i18n:Tooltip (en="Date and time when record was audited")
+            @t24:i (align=L, inputBehaviour=E, maxLength=15, sysNumber=40.0, core=true, t24Name=AUDIT.DATE.TIME, mask="RDD DD  DD ##:##", mandatory=false)
+        AUTHORISER : T24BusinessTypes:A
+            @i18n:Label (en=Authoriser)
+            @i18n:Tooltip (en="Indicates the User who Authorises the record")
+            @t24:i (align=L, inputBehaviour=N, maxLength=100, sysNumber=36.0, core=true, t24Name=AUTHORISER, mandatory=false)
+        BANK_ADDRESS -> byValue EB_InternalUtility:SYSGEN__BANK_ADDRESS *
+            @t24:i (t24Name=BANK.ADDRESS)
+/* The DATES record will be updated with all dates based on the BANK.DATE entered.  All the dates on the batch records set accordingly.  Similary dates will be set on the following application parameter files:
+LMM.INSTALL.CONDS  REVALUATION.PARAMETER  LIMIT.PARAMETER
+The BANK.DATE should be set to a date close to the "go live" date, to avoid running numerous end of days to cycle the date forwards.
+Validation Rules:
+Mandatory input
+Up to 11 characters, date format. */
+        BANK_DATE : T24BusinessTypes:D required
+            @i18n:Label (en="Bank Date")
+            @t24:i (align=R, inputBehaviour=I, maxLength=11, sysNumber=5.0, core=true, t24Name=BANK.DATE, mandatory=true)
+/* This will be used for:  The site name on the SPF  Trimmed to 22 characters for the company name on the COMPANY file  The branchname/title on the delivery address file (DE.ADDRESS)
+Validation Rules:
+Mandatory input
+3-35 type "S" (SWIFT) characters */
+        BANK_NAME : T24BusinessTypes:S required
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber=1.0, core=true, t24Name=BANK.NAME, mandatory=true)
+/* Used to identify the account checkdigit calculation method (account checkdigit type on COMPANY).
+1     When the local currency code is BEF (Belgium Francs, 12-digit       account numbers, modulus 97, 2 checkdigits)
+2     When the local currency code is LUF (Luxembourg Francs, 14-digit       account numbers, modulus 97, 2 checkdigits)
+3     For 10 digit account numbers with a modulus 11 check, 1 checkdigit
+5     For a standard checkdigit calculation (1 checkdigit, modulus 11)       with the account numbers zero filled to the account mask
+99    No checkdigit calculation with the account number zero filled to       the account mask
+blank Standard checkdigit (1 checkdigit, modulus 11), not zero filled,       or a user-written routine is to be used to calculate the       checkdigit
+This field is used to update the ACCT.CHECKDIG.TYPE on the COMPANY record.
+NOTE:   The checkdigit can be changed on the COMPANY record after the SYSGEN has been run, providing no customer accounts have been entered.
+Validation Rules:
+Optional input
+Validation raises error if AC product is not available in the PRODUCTS field list
+Up to 2 numeric characters */
+        CHECKDIGIT_TYPE : EB_InternalUtility:SYSGEN__CHECKDIGIT_TYPE
+            @i18n:Label (en="Check Digit Type")
+            @t24:i (align=R, inputBehaviour=I, maxLength=2, sysNumber=10.0, core=true, t24Name=CHECKDIGIT.TYPE, mandatory=false)
+        /* Field reserved for future use. */
+        CLEAR_FILES : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=2, sysNumber=18.0, core=true, t24Name=CLEAR.FILES, mandatory=false)
+/* The company code will default to cc0010001, where cc is the local country code.  However, some clients may prefer to specify a paticular company code.
+Validation Rules:
+Optional input
+Up to 11 type "COM" (company) characters */
+        COMPANY_CODE : T24BusinessTypes:COM
+            @i18n:Label (en=Company)
+            @t24:i (align=L, inputBehaviour=I, maxLength=11, sysNumber=17.0, core=true, t24Name=COMPANY.CODE, mask="R##-###-####", mandatory=false)
+        CO_CODE -> ST_CompanyCreation:COMPANY
+            @i18n:Label (en=Company)
+            @t24:i (align=L, inputBehaviour=N, maxLength=11, sysNumber=37.0, core=true, businessType=A, t24Name=CO.CODE, mask="R##-###-####", mandatory=false)
+        CURR_NO : T24BusinessTypes:N
+            @i18n:Label (en="Curr No")
+            @t24:i (align=R, inputBehaviour=N, maxLength=6, sysNumber=33.0, core=true, t24Name=CURR.NO, mandatory=false)
+/* Date on which the SYSGEN was run.
+Validation Rules:
+Internal field */
+        DATE_RUN : T24BusinessTypes:D
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=30.0, core=true, t24Name=DATE.RUN, mandatory=false)
+        DATE_TIME -> byValue EB_InternalUtility:SYSGEN__DATE_TIME *
+            @t24:i (t24Name=DATE.TIME)
+        DEPT_CODE -> ST_Config:DEPT_ACCT_OFFICER
+            @i18n:Label (en="Dept Code")
+            @t24:i (align=R, inputBehaviour=N, maxLength=6, sysNumber=38.0, core=true, t24Name=DEPT.CODE, mandatory=false)
+/* Used for setting the financial year end and last year end on the company record on COMPANY. This field is also used for setting the date on year end jobs on BATCH records.
+Validation Rules:
+Mandatory input
+Up to 13 type FQU (frequency) characters */
+        FINANCIAL_YEAR_END : T24BusinessTypes:FQU required
+            @t24:i (align=L, inputBehaviour=I, maxLength=13, sysNumber=9.0, core=true, t24Name=FINANCIAL.YEAR.END, mandatory=true)
+        IMP_CHOICE_OVERRIDE_APPS -> byValue EB_InternalUtility:SYSGEN__IMP_CHOICE_OVERRIDE_APPS *
+            @t24:i (t24Name=IMP.CHOICE.OVERRIDE.APPS)
+/* Single value
+Introduced to make the decision whether the pack is to be created with alternate classification
+indicates whether system should respect IMP.CHOICE.TYPE value in the FILE.CONTROL record during the SYSGEN run
+If the ISB team has set ‘N’, then system will not respect the IMP.CHOICE.TYPE.
+Mandatory input
+Up to 1 character(Y/N) */
+        IMP_CHOICE_REQUIRED : EB_InternalUtility:SYSGEN__IMP_CHOICE_REQUIRED
+            @t24:i (align=L, inputBehaviour=I, maxLength=3, sysNumber=19.0, core=true, t24Name=IMP.CHOICE.REQUIRED, mandatory=false)
+        INPUTTER -> byValue EB_InternalUtility:SYSGEN__INPUTTER *
+            @t24:i (t24Name=INPUTTER)
+        LANGUAGE -> byValue EB_InternalUtility:SYSGEN__LANGUAGE *
+            @t24:i (t24Name=LANGUAGE)
+/* License code assigned to the client for whom the sysgen is being run. You should send a copy of the client's details and implementation forms to Distribution, Temenos London, who will then assign a license code.
+This will be used to set the license code field on the SPF.
+Validation Rules:
+Mandatory input
+12 type A characters */
+        LICENSE_CODE : T24BusinessTypes:A required
+            @t24:i (align=L, inputBehaviour=I, maxLength=15, sysNumber=13.0, core=true, t24Name=LICENSE.CODE, mask="###-##-####-###", mandatory=true)
+/* This is used for assigning the local country code on the company record and thus ensuring that the correct holiday tables are used for cycling dates.  Enter the SWIFT country code (e.g.  CH).
+If LOCAL.COUNTRY does not reference a record on the COUNTRY file, a record is created and written to IHLD by the PRE.SYSGEN.
+Holiday records for the next ten years will be written to the HOLIDAY table as IHLD by the PRE.SYSGEN if they do not already exist.
+Validation Rules:
+Mandatory input
+2 type "SSS" (SWIFT) characters */
+        LOCAL_COUNTRY -> ST_Config:COUNTRY required
+            @t24:i (align=L, inputBehaviour=I, maxLength=2, sysNumber=3.0, core=true, businessType=SSS, t24Name=LOCAL.COUNTRY, mandatory=true)
+/* Used for setting the local currency. Enter the SWIFT currency code (e.g. CHF).
+The LOCAL.CURRENCY field on the COMPANY record is set to the contents of this field.  Rank is set to 0 on this CURRENCY record.
+If the LOCAL.CURRENCY does not reference a record on CURRENCY.PARAM, a record will be written to IHLD by the PRE.SYSGEN.  Similarly, a record will be written to CURRENCY as IHLD if it does not already exist.
+Validation Rules:
+Mandatory input
+3 type "SSS" (SWIFT) characters */
+        LOCAL_CURRENCY -> ST_CurrencyConfig:CURRENCY_PARAM required
+            @i18n:Label (en="Local Currency")
+            @i18n:Tooltip (en="Shows Local Currency")
+            @t24:i (align=L, inputBehaviour=I, maxLength=3, sysNumber=4.0, core=true, businessType=CCY, t24Name=LOCAL.CURRENCY, mandatory=true)
+/* After the client's details and implementation forms are sent to Distribution, Temenos London, a maintenance code will be issued.  This validates that the license details have been entered in SYSGEN correctly.
+Validation Rules:
+Mandatory input
+Up to 10 type "A" characters */
+        MAINTENANCE_CODE : T24BusinessTypes:A required
+            @t24:i (align=L, inputBehaviour=I, maxLength=10, sysNumber=16.0, core=true, t24Name=MAINTENANCE.CODE, mandatory=true)
+/* The date up to which maintenance has been paid.  If you are unsure of the date, contact Distribution, Temenos London.
+This will be used to set the maintenance date on the SPF.
+Validation Rules:
+Mandatory input
+Up to 8 type D (date) characters */
+        MAINTENANCE_DATE : T24BusinessTypes:D required
+            @t24:i (align=R, inputBehaviour=I, maxLength=8, sysNumber=14.0, core=true, t24Name=MAINTENANCE.DATE, mandatory=true)
+/* The number of users for which T24 has been licensed.
+This will be used to set the number of users on the SPF.
+Validation Rules:
+Mandatory input
+Up to 4 numeric characters */
+        NO_OF_USERS : T24BusinessTypes:N required
+            @t24:i (align=R, inputBehaviour=I, maxLength=6, sysNumber=15.0, core=true, t24Name=NO.OF.USERS, mandatory=true)
+        OVERRIDE -> byValue EB_InternalUtility:SYSGEN__OVERRIDE *
+            @t24:i (t24Name=OVERRIDE)
+        PRODUCTS -> byValue EB_InternalUtility:SYSGEN__PRODUCTS *
+            @t24:i (t24Name=PRODUCTS)
+        RECORD_STATUS : T24BusinessTypes:STAT
+            @i18n:Label (en="Record Status")
+            @t24:i (align=L, inputBehaviour=N, maxLength=6, sysNumber=32.0, core=true, t24Name=RECORD.STATUS, mandatory=false)
+        /* Field reserved for future use. */
+        RESERVED_1 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=9, sysNumber=29.0, core=true, t24Name=RESERVED.1, mandatory=false)
+        /* Field reserved for future use. */
+        RESERVED_2 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=9, sysNumber=28.0, core=true, t24Name=RESERVED.2, mandatory=false)
+        /* Field reserved for future use. */
+        RESERVED_3 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=9, sysNumber=27.0, core=true, t24Name=RESERVED.3, mandatory=false)
+        /* Field reserved for future use. */
+        RESERVED_4 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=9, sysNumber=26.0, core=true, t24Name=RESERVED.4, mandatory=false)
+        /* Field reserved for future use. */
+        RESERVED_5 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=9, sysNumber=25.0, core=true, t24Name=RESERVED.5, mandatory=false)
+        /* Field reserved for future use. */
+        RESERVED_6 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=9, sysNumber=24.0, core=true, t24Name=RESERVED.6, mandatory=false)
+        /* Field reserved for future use. */
+        RESERVED_7 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=9, sysNumber=23.0, core=true, t24Name=RESERVED.7, mandatory=false)
+        /* Field reserved for future use. */
+        RESERVED_8 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=9, sysNumber=22.0, core=true, t24Name=RESERVED.8, mandatory=false)
+        /* Field reserved for future use. */
+        RESERVED_9 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=9, sysNumber=21.0, core=true, t24Name=RESERVED.9, mandatory=false)
+/* Used to add the SWIFT delivery address record for the company to the delivery address file (DE.ADDRESS).  The first four characters followed by characters 7-8  are also used to set the SWIFT common reference on the COMPANY record. If this field is left blank, the SWIFT common reference is set to XXXXXX.
+Validation Rules:
+Optional input
+Validation raises error if AC product is not available in the PRODUCTS field list
+The format for a SWIFT address is as follows:             bbbbcclltrrr where:             bbbb is the bank code (must be alpha).            cc   is the country code.  The country code must                 exist on the country file.            ll   is the location code and must be in the range A-Z                 or 2-9.            t    is the terminal code.  Must be in the range A-Z                 or 2-9.            rrr  is the branch code and is optional.  If entered it                 must be alphanumeric. */
+        SWIFT_CODE : T24BusinessTypes:S
+            @i18n:Label (en="SWIFT Code")
+            @t24:i (align=L, inputBehaviour=I, maxLength=12, sysNumber=6.0, core=true, t24Name=SWIFT.CODE, mandatory=false)
+/* There is only one record on the SYSGEN file, the id of which is "SYSTEM"
+Validation Rules:
+SYSTEM
+Mandatory input
+SYSGEN can only be run in "V"erify mode if the BANK.NAME on the SPF is "BASE BANK". This is to ensure that the SYSGEN is not run inadvertently on the incorrect database. */
+        SYSGEN_ID : EB_InternalUtility:SYSGEN__SYSGEN_ID PK required
+            @t24:i (align=L, inputBehaviour=I, maxLength=6, sysNumber=0.0, core=true, t24Name=SYSGEN.ID, mandatory=true)
+/* Used to add the telex delivery address record for the company to the delivery address file (DE.ADDRESS).
+Validation Rules:
+Optional input
+Validation raises error if DE product is not available in the PRODUCTS field list
+Up to 40 type A characters
+Should be in the format:   9999999 aaaaaaaaa  where 9999999 is the telex number       aaaaaaaaa is the answerback  e.g. 2356495 TEMENOS GB */
+        TELEX_CODE : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=40, sysNumber=7.0, core=true, t24Name=TELEX.CODE, mandatory=false)
+    }
+    SYSGEN__BANK_ADDRESS
+    {
+/* The name and address will be used to update:
+. the NAME.ADDRESS field on the COMPANY record . the name and address fields for the company record on the delivery address file (fields name 1, name 2, street address, town county, post code and country).
+Validation Rules:
+Mandatory input
+1-35 type "S" (SWIFT) characters
+Multivalue field */
+        BANK_ADDRESS : T24BusinessTypes:A required
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber=2.0, core=true, t24Name=BANK.ADDRESS, mandatory=true)
+    }
+    SYSGEN__DATE_TIME
+    {
+        DATE_TIME : T24BusinessTypes:RELTIME
+            @i18n:Label (en="Date time")
+            @i18n:Tooltip (en="Date and time when record was input or authorised")
+            @t24:i (align=L, inputBehaviour=N, maxLength=15, sysNumber=35.0, core=true, t24Name=DATE.TIME, mask="RDD DD  DD ##:##", mandatory=false)
+    }
+    SYSGEN__IMP_CHOICE_OVERRIDE_APPS
+    {
+/* Multi value field.
+Valid entry in FILE.CONTROL
+This one will override the above setup for a specific table or set of tables.
+If a client has set Y in the above field, and can include SECTOR in the IMP.CHOICE.OVERRIDE.APPS, then system will respect IMP.CHOICE.TYPE for all the other tables except SECTOR
+optional input */
+        IMP_CHOICE_OVERRIDE_APPS -> EB_SystemTables:FILE_CONTROL
+            @t24:i (align=L, inputBehaviour=I, maxLength=40, sysNumber=20.0, core=true, businessType=ANY, t24Name=IMP.CHOICE.OVERRIDE.APPS, mandatory=false)
+    }
+    SYSGEN__INPUTTER
+    {
+        INPUTTER : T24BusinessTypes:A
+            @i18n:Label (en=Inputter)
+            @i18n:Tooltip (en="The user who last updated the record")
+            @t24:i (align=L, inputBehaviour=N, maxLength=100, sysNumber=34.0, core=true, t24Name=INPUTTER, mandatory=false)
+    }
+    SYSGEN__LANGUAGE
+    {
+/* Used to set the order of languages for all translatable fields.  English must be the first language.
+If any of the languages do not already exist on the LANGUAGE file, they will be created by the PRE.SYSGEN as IHLD.
+Validation Rules:
+Mandatory input
+Up to 2 type A characters */
+        LANGUAGE -> EB_SystemTables:MNEMONIC_LANGUAGE required
+            @i18n:Label (en=Language)
+            @i18n:Tooltip (en="Indicates the Language used")
+            @t24:i (align=L, inputBehaviour=I, maxLength=2, sysNumber=8.0, core=true, businessType=A, t24Name=LANGUAGE, mandatory=true)
+    }
+    SYSGEN__OVERRIDE
+    {
+/* When the SYSGEN record is verified, all files in the database will be checked to see if they contain any records.  Only files which SYSGEN expects to be populated should contain data.  An override message will be issued for any file which contains unexpected data.  You should take great care if overriding the warning, as, although the SYSGEN may complete, the integrity of the database could be questionable.
+A list of all files which can be populated can be found in the User Guide. */
+        OVERRIDE : T24BusinessTypes:N
+            @i18n:Label (en=Override)
+            @i18n:Tooltip (en="Overrides generated by this transaction")
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=31.0, core=true, t24Name=OVERRIDE, mandatory=false)
+    }
+    SYSGEN__PRODUCTS
+    {
+/* Contains the list of products purchased.  This field is updated automatically from the list of products on the SPF file when the SYSGEN record is first being updated for a new implementation.  Products can be removed if not required.  However, if new products are required, they must be entered on the SPF initially, obtaining the necessary product code from Temenos.
+This will be used to set the products field on the SPF and the applications field on the COMPANY file.  Also PGM.AUTOM.ID on COMPANY will be set according to the products purchased.
+Any programs, files and data for products not installed will be removed by the SYSGEN.
+Validation Rules:
+Mandatory input
+Up to 6 type A characters
+Must exist as a valid product on the SPF
+Product dependencies are validated
+For eg: If MM or LD are present, LM must be present
+LM cannot be present if LD and MM are not.
+XT cannot be present if SC is not. */
+        PRODUCTS : T24BusinessTypes:A required
+            @t24:i (align=L, inputBehaviour=I, maxLength=6, sysNumber=12.0, core=true, t24Name=PRODUCTS, mandatory=true)
+    }
+}
+Enumerations {
+    EB_SYSGEN_DATA_CONTROL__AVBL_MARKER : mml:string
+        NO=NO
+    EB_SYSGEN_DATA_CONTROL__FIELD_NAME__FIELD_TYPE : mml:string
+        COMPANY=COMPANY
+        CONSTANT=CONSTANT
+        COUNTRY=COUNTRY
+        CURRENCY=CURRENCY
+        DATE=DATE
+    EB_SYSGEN_DATA_CONTROL__SELECT_FROM : mml:string
+        LIVE=LIVE
+        _DOLLAR_NAU="$NAU"
+    EB_SYSGEN_DATA_CONTROL__WRITE_STATUS : mml:string
+        IHLD=IHLD
+        INAU=INAU
+        LIVE=LIVE
+    SYSGEN__CHECKDIGIT_TYPE : mml:string
+        1=1
+        2=2
+        3=3
+        5=5
+        99=99
+    SYSGEN__IMP_CHOICE_REQUIRED : mml:string
+        NO=NO
+        YES=YES
+    SYSGEN__SYSGEN_ID : mml:string
+        SYSTEM=SYSTEM
+}

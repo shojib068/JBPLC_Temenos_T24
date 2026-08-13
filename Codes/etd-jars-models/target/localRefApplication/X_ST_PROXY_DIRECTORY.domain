@@ -1,0 +1,31 @@
+# UTF-8
+Domain X_ST_PROXY_DIRECTORY
+    @t24:LocalFields (localRefApplications=true)
+    @java:Package (value=localRefApplication.x_st_proxy_directory)
+namespace "http://www.odcgroup.com/X_ST_PROXY_DIRECTORY"
+metamodelVersion 1.30.6
+Classes {
+    X_ST_PROXY_DIRECTORY extends ST_AliasManagement:ST_PROXY_DIRECTORY
+    {
+        /* Business ID */
+        BUSINESS_ID : T24BusinessTypes:TEXT
+            @i18n:Label (en=BUSINESS.ID)
+            @t24:LocalFields (maxChars=65, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=BUSINESS.ID)
+        /* Date and Time of Registration */
+        REGISTRATION_DATE_TIME : T24BusinessTypes:A
+            @i18n:Label (en=REG.DATE.TIME)
+            @t24:LocalFields (maxChars=30, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NOINPUT)
+            @t24:i (t24Name=REGISTRATION.DATE.TIME)
+        /* Process Id */
+        PROCESS_IDENTIFIER : T24BusinessTypes:A
+            @i18n:Label (en=PROCESS.ID)
+            @t24:LocalFields (maxChars=65, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=PROCESS.IDENTIFIER)
+        /* Server Node */
+        SERVER_NODE : T24BusinessTypes:A
+            @i18n:Label (en=SERVER.NODE)
+            @t24:LocalFields (maxChars=15, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=SERVER.NODE)
+    }
+}

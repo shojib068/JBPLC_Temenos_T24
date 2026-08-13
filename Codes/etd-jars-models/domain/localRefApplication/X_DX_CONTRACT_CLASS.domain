@@ -1,0 +1,16 @@
+# UTF-8
+Domain X_DX_CONTRACT_CLASS
+    @t24:LocalFields (localRefApplications=true)
+    @java:Package (value=localRefApplication.x_dx_contract_class)
+namespace "http://www.odcgroup.com/X_DX_CONTRACT_CLASS"
+metamodelVersion 1.30.6
+Classes {
+    X_DX_CONTRACT_CLASS extends DX_Configuration:DX_CONTRACT_CLASS
+    {
+        /* To identify Asset Class for DXtrade */
+        ASSET_CLASS : LocalFieldsEnumeration:LocalField_ASSET_CLASS
+            @i18n:Label (en=ASSET.CLASS)
+            @t24:LocalFields (maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=ASSET.CLASS)
+            @t24:i (t24Name=ASSET.CLASS)
+    }
+}

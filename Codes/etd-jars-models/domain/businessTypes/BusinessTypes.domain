@@ -1,0 +1,233 @@
+# UTF-8
+Domain T24BusinessTypes
+    @java:Package (value=com.temenos.t24.datamodel.businesstypes)
+    @t24:i (businessTypes=true)
+namespace "http://www.odcgroup.com/business-types"
+metamodelVersion 1.30.6
+BusinessTypes {
+    A : mml:string
+    AA : mml:string
+    AAA : mml:string
+    AMTCCY : mml:string
+    AMTLCCY : mml:string
+    ANY : mml:string
+    D : mml:string
+    DD : mml:string
+    FQU : mml:string
+    PASSWD : mml:string
+    PERIOD : mml:string
+    R : mml:string
+    S : mml:string
+    SS : mml:string
+    SSS : mml:string
+    TEXT : mml:string
+    TIME : mml:string
+    TIMEH : mml:string
+    TIMEHS : mml:string
+    TIMES : mml:string
+    HOOK : mml:string
+        @t24:i (t24Name=HOOK)
+    PV : mml:string
+        @t24:i (t24Name=PV)
+    COMPFQU : mml:string
+        @t24:i (t24Name=COMPFQU)
+    POSANT : mml:string
+        @t24:i (t24Name=POSANT)
+    DXMATDT : mml:string
+        @t24:i (t24Name=DXMATDT)
+    YM : mml:string
+        @t24:i (t24Name=YM)
+    RELTIME : mml:string
+        @t24:i (t24Name=RELTIME)
+    DXEM : mml:string
+        @t24:i (t24Name=DXEM)
+    ACCA : mml:string
+        @t24:i (t24Name=ACCA)
+    CUS : mml:string
+        @t24:i (t24Name=CUS)
+    IFRSPOSTYPE : mml:string
+        @t24:i (t24Name=IFRSPOSTYPE)
+    DXCT : mml:string
+        @t24:i (t24Name=DXCT)
+    MNEM : mml:string
+        @t24:i (t24Name=MNEM)
+    SEC : mml:string
+        @t24:i (t24Name=SEC)
+    IFRSSUBTYP : mml:string
+        @t24:i (t24Name=IFRSSUBTYP)
+    FWDR : mml:string
+        @t24:i (t24Name=FWDR)
+    RR : mml:string
+        @t24:i (t24Name=RR)
+    ARR : mml:string
+        @t24:i (t24Name=ARR)
+    MMANT : mml:string
+        @t24:i (t24Name=MMANT)
+    AAPRODUCT : mml:string
+        @t24:i (t24Name=AAPRODUCT)
+    SETACC : mml:string
+        @t24:i (t24Name=SETACC)
+    TXN : mml:string
+        @t24:i (t24Name=TXN)
+    N : mml:string
+        @t24:i (t24Name=N)
+    AA_PROP_ACTION : mml:string
+        @t24:i (t24Name=AA.PROP.ACTION)
+    T : mml:string
+        @t24:i (t24Name=T)
+    SORT_CODE : mml:string
+        @t24:i (t24Name=SORT.CODE)
+    TFS_AC : mml:string
+        @t24:i (t24Name=TFS.AC)
+    FOREXD : mml:string
+        @t24:i (t24Name=FOREXD)
+    MNELC : mml:string
+        @t24:i (t24Name=MNELC)
+    EBFMT : mml:string
+        @t24:i (t24Name=EBFMT)
+    COM : mml:string
+        @t24:i (t24Name=COM)
+    ACC : mml:string
+        @t24:i (t24Name=ACC)
+    SW : mml:string
+        @t24:i (t24Name=SW)
+    SWI : mml:string
+        @t24:i (t24Name=SWI)
+    SYSM : mml:string
+        @t24:i (t24Name=SYSM)
+    BMT : mml:string
+        @t24:i (t24Name=BMT)
+    DIR : mml:string
+        @t24:i (t24Name=DIR)
+    CR : mml:string
+        @t24:i (t24Name=CR)
+    DELACC : mml:string
+        @t24:i (t24Name=DELACC)
+    REC : mml:string
+        @t24:i (t24Name=REC)
+    STAT : mml:string
+        @t24:i (t24Name=STAT)
+    DAO : mml:string
+        @t24:i (t24Name=DAO)
+    CUST_BIC : mml:string
+        @t24:i (t24Name=CUST.BIC)
+    SYCOM : mml:string
+        @t24:i (t24Name=SYCOM)
+    ALL : mml:string
+        @t24:i (t24Name=ALL)
+    ATT : mml:string
+        @t24:i (t24Name=ATT)
+    VER : mml:string
+        @t24:i (t24Name=VER)
+    CHG : mml:string
+        @t24:i (t24Name=CHG)
+    PRD : mml:string
+        @t24:i (t24Name=PRD)
+    POST : mml:string
+        @t24:i (t24Name=POST)
+    FNO : mml:string
+        @t24:i (t24Name=FNO)
+    TAX : mml:string
+        @t24:i (t24Name=TAX)
+    MATLMM : mml:string
+        @t24:i (t24Name=MATLMM)
+    DP : mml:string
+        @t24:i (t24Name=DP)
+    BCON_FILEPATH : mml:string
+        @t24:i (t24Name=BCON.FILEPATH)
+    MATDN : mml:string
+        @t24:i (t24Name=MATDN)
+    R_AMT : mml:string
+        @t24:i (t24Name=R.AMT)
+    UPLOAD : mml:string
+        @t24:i (t24Name=UPLOAD)
+    MD : mml:string
+        @t24:i (t24Name=MD)
+    LETT : mml:string
+        @t24:i (t24Name=LETT)
+    NDDATE : mml:string
+        @t24:i (t24Name=NDDATE)
+    PRICE : mml:string
+        @t24:i (t24Name=PRICE)
+    PRODCAT : mml:string
+        @t24:i (t24Name=PRODCAT)
+    AMT : mml:string
+        @t24:i (t24Name=AMT)
+    SWAG : mml:string
+        @t24:i (t24Name=SWAG)
+    NOS : mml:string
+        @t24:i (t24Name=NOS)
+    DFMT : mml:string
+        @t24:i (t24Name=DFMT)
+    CAT : mml:string
+        @t24:i (t24Name=CAT)
+    CPARTY : mml:string
+        @t24:i (t24Name=CPARTY)
+    SAM : mml:string
+        @t24:i (t24Name=SAM)
+    PLANT : mml:string
+        @t24:i (t24Name=PLANT)
+    MNE : mml:string
+        @t24:i (t24Name=MNE)
+    ANT : mml:string
+        @t24:i (t24Name=ANT)
+    ENQ : mml:string
+        @t24:i (t24Name=ENQ)
+    INT : mml:string
+        @t24:i (t24Name=INT)
+    MATBL : mml:string
+        @t24:i (t24Name=MATBL)
+    LINE : mml:string
+        @t24:i (t24Name=LINE)
+    FQF : mml:string
+        @t24:i (t24Name=FQF)
+    STOK : mml:string
+        @t24:i (t24Name=STOK)
+    BIC : mml:string
+        @t24:i (t24Name=BIC)
+    DXCM : mml:string
+        @t24:i (t24Name=DXCM)
+    LAUNCH : mml:string
+        @t24:i (t24Name=LAUNCH)
+    DEC : mml:string
+        @t24:i (t24Name=DEC)
+    DEF : mml:string
+        @t24:i (t24Name=DEF)
+    FQO : mml:string
+        @t24:i (t24Name=FQO)
+    MATLI : mml:string
+        @t24:i (t24Name=MATLI)
+    NOMAMT : mml:string
+        @t24:i (t24Name=NOMAMT)
+    MATLC : mml:string
+        @t24:i (t24Name=MATLC)
+    PG : mml:string
+        @t24:i (t24Name=PG)
+    CCY : mml:string
+        @t24:i (t24Name=CCY)
+    API : mml:string
+        @t24:i (t24Name=API)
+    BRK : mml:string
+        @t24:i (t24Name=BRK)
+    HEX : mml:string
+        @t24:i (t24Name=HEX)
+    LAMT : mml:string
+        @t24:i (t24Name=LAMT)
+
+SWZ : mml:string
+        @t24:i (t24Name=SWZ)
+    BRANCH : mml:string
+        @t24:i (t24Name=BRANCH)
+    HOOKOTHER : mml:string
+        @t24:i (t24Name=HOOKOTHER)
+    ADDR : mml:string
+        @t24:i (t24Name=ADDR)
+FQU_IGN : mml:string
+        @t24:i (t24Name=FQU.IGN)
+LIM : mml:string
+        @t24:i (t24Name=LIM)
+ALLACCVAL : mml:string
+        @t24:i (t24Name=ALLACCVAL)
+E_VAL_DATES : mml:string
+        @t24:i (t24Name=E.VAL.DATES)
+}

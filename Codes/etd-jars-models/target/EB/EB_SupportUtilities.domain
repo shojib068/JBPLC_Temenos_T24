@@ -1,0 +1,661 @@
+# UTF-8
+/* Support Utilities */
+Domain EB_SupportUtilities
+    @t24:i (module=EB)
+    @java:Package (value=com.temenos.t24.datamodel.eb.eb_supportutilities)
+namespace "http://www.temenos.com/t24/EB_SupportUtilities"
+metamodelVersion 1.30.6
+Classes {
+    /* GLINFO.EXTRACT table has been designed to extract the basic information required for analyzing entries and report related files. */
+    GLINFO_EXTRACT
+        @i18n:Description (en="")
+        @t24:i (t24Name=GLINFO.EXTRACT, level=F, type=U, allowedFunctions="A D E I L Q S", localRefAllowed=false)
+    {
+        APPLICATION -> byValue EB_SupportUtilities:GLINFO_EXTRACT__APPLICATION *
+            @t24:i (t24Name=APPLICATION)
+        AUDITOR_CODE : T24BusinessTypes:A
+            @i18n:Label (en="Auditor Code")
+            @i18n:Tooltip (en="Auditor Code")
+            @t24:i (align=L, inputBehaviour=E, maxLength=16, sysNumber=24.0, core=true, t24Name=AUDITOR.CODE, mandatory=false)
+        AUDIT_DATE_TIME : T24BusinessTypes:RELTIME
+            @i18n:Label (en="Audit Date Time")
+            @i18n:Tooltip (en="Date and time when record was audited")
+            @t24:i (align=L, inputBehaviour=E, maxLength=15, sysNumber=25.0, core=true, t24Name=AUDIT.DATE.TIME, mask="RDD DD  DD ##:##", mandatory=false)
+        AUTHORISER : T24BusinessTypes:A
+            @i18n:Label (en=Authoriser)
+            @i18n:Tooltip (en="Indicates the User who Authorises the record")
+            @t24:i (align=L, inputBehaviour=N, maxLength=100, sysNumber=21.0, core=true, t24Name=AUTHORISER, mandatory=false)
+        CO_CODE -> ST_CompanyCreation:COMPANY
+            @i18n:Label (en=Company)
+            @t24:i (align=L, inputBehaviour=N, maxLength=11, sysNumber=22.0, core=true, businessType=A, t24Name=CO.CODE, mask="R##-###-####", mandatory=false)
+        CURR_NO : T24BusinessTypes:N
+            @i18n:Label (en="Curr No")
+            @t24:i (align=R, inputBehaviour=N, maxLength=6, sysNumber=18.0, core=true, t24Name=CURR.NO, mandatory=false)
+        DATE_TIME -> byValue EB_SupportUtilities:GLINFO_EXTRACT__DATE_TIME *
+            @t24:i (t24Name=DATE.TIME)
+        DEPT_CODE -> ST_Config:DEPT_ACCT_OFFICER
+            @i18n:Label (en="Dept Code")
+            @t24:i (align=R, inputBehaviour=N, maxLength=6, sysNumber=23.0, core=true, t24Name=DEPT.CODE, mandatory=false)
+/* This field is used to indicate the current status of the online service running
+Validation Rules:
+No Input field
+Values are Process Started;Process Finished */
+        EXECUTION_STATUS : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=35, sysNumber=6.0, core=true, t24Name=EXECUTION.STATUS, mandatory=false)
+        ID : EB_SupportUtilities:GLINFO_EXTRACT__ID PK required
+            @i18n:Label (en="Transaction Ref")
+            @i18n:Tooltip (en="Transaction Reference")
+            @t24:i (align=L, inputBehaviour=I, maxLength=6, sysNumber=0.0, core=true, t24Name="@ID", mandatory=true)
+        INPUTTER -> byValue EB_SupportUtilities:GLINFO_EXTRACT__INPUTTER *
+            @t24:i (t24Name=INPUTTER)
+        RECORD_STATUS : T24BusinessTypes:STAT
+            @i18n:Label (en="Record Status")
+            @t24:i (align=L, inputBehaviour=N, maxLength=6, sysNumber=17.0, core=true, t24Name=RECORD.STATUS, mandatory=false)
+        RESERVED_01 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=16.0, core=true, t24Name=RESERVED.01, mandatory=false)
+        RESERVED_02 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=15.0, core=true, t24Name=RESERVED.02, mandatory=false)
+        RESERVED_03 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=14.0, core=true, t24Name=RESERVED.03, mandatory=false)
+        RESERVED_04 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=13.0, core=true, t24Name=RESERVED.04, mandatory=false)
+        RESERVED_05 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=12.0, core=true, t24Name=RESERVED.05, mandatory=false)
+        RESERVED_06 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=11.0, core=true, t24Name=RESERVED.06, mandatory=false)
+        RESERVED_07 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=10.0, core=true, t24Name=RESERVED.07, mandatory=false)
+        RESERVED_08 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=9.0, core=true, t24Name=RESERVED.08, mandatory=false)
+        RESERVED_09 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=8.0, core=true, t24Name=RESERVED.09, mandatory=false)
+        RESERVED_10 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=7.0, core=true, t24Name=RESERVED.10, mandatory=false)
+    }
+    /* GLINFO.EXTRACT.HIST table has been designed to store the history record of GLINFO.EXTRACT. */
+    GLINFO_EXTRACT_HIST
+        @i18n:Description (en="")
+        @t24:i (t24Name=GLINFO.EXTRACT.HIST, level=F, type=L, allowedFunctions="L S", localRefAllowed=false)
+    {
+        APPLICATION -> byValue EB_SupportUtilities:GLINFO_EXTRACT_HIST__APPLICATION *
+            @t24:i (t24Name=APPLICATION)
+/* This field is used to indicate the current status of the online service running
+Validation Rules:
+No Input field
+Values are Process Started;Process Finished */
+        EXECUTION_STATUS : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=35, sysNumber=6.0, core=true, t24Name=EXECUTION.STATUS, mandatory=false)
+        ID -> EB_SupportUtilities:GLINFO_EXTRACT_HIST PK required
+            @i18n:Label (en="Transaction Ref")
+            @i18n:Tooltip (en="Transaction Reference")
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber=0.0, core=true, businessType=A, t24Name="@ID", mandatory=true)
+        RESERVED_01 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=16.0, core=true, t24Name=RESERVED.01, mandatory=false)
+        RESERVED_02 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=15.0, core=true, t24Name=RESERVED.02, mandatory=false)
+        RESERVED_03 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=14.0, core=true, t24Name=RESERVED.03, mandatory=false)
+        RESERVED_04 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=13.0, core=true, t24Name=RESERVED.04, mandatory=false)
+        RESERVED_05 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=12.0, core=true, t24Name=RESERVED.05, mandatory=false)
+        RESERVED_06 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=11.0, core=true, t24Name=RESERVED.06, mandatory=false)
+        RESERVED_07 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=10.0, core=true, t24Name=RESERVED.07, mandatory=false)
+        RESERVED_08 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=9.0, core=true, t24Name=RESERVED.08, mandatory=false)
+        RESERVED_09 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=8.0, core=true, t24Name=RESERVED.09, mandatory=false)
+        RESERVED_10 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=7.0, core=true, t24Name=RESERVED.10, mandatory=false)
+    }
+    GLINFO_EXTRACT_HIST__APPLICATION
+    {
+/* This field is used to specify the Application name for which the information to be extracted
+Validation Rules:
+Mandatory input.
+Applications available in this field as a dropdown
+Fields   APPLICATION to VALUE form a related multi value set. */
+        APPLICATION : T24BusinessTypes:A
+            @i18n:Label (en=Application)
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber=1.0, core=true, t24Name=APPLICATION, mandatory=false)
+/* This field is used to specify the relevant values if required based on the option provided in the field SEL.FIELD
+Validation Rules:
+3-85 type A (alphanumeric) characters
+Application#SEL.FIELD#GL.DATE#VALUE##
+ESS#START.DATE#Specify the START.DATE#-##
+ESS#START.DATE#Specify the START.DATE#-##
+RE.CRF.REPORT#REPORT.NAME#-#Specify the valid report name eg.MBGL##
+STMT.ENTRY#BOOKING.DATE#Specify the required date#-##
+STMT.ENTRY#VALUE.DATE#Specify the required date#-##
+STMT.ENTRY#CONSOL.KEY#-#Specify the valid CONSOL.KEY##
+STMT.ENTRY#TRANS.REFERENCE#-#Specify the reference id##
+STMT.ENTRY#SAVEDLISTS#-#Specify the savedlist id##
+POSITION#-#-#-##
+CAL#-#-#-##
+CPL#-#-#-##
+RE.STAT.LINE.CONT#REPORT.NAME#-#Specify valid report name eg. MBGL##
+RE.STAT.LINE.BAL#REPORT.NAME#-#Specify valid report name and date with delimiter '-' eg. MBGL-20190101##
+STMT.ENTRY option is applicable
+		    for all the entry options as well as POS.MVMT.HIST## */
+        DATA : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=85, sysNumber=4.0, core=true, t24Name=DATA, mandatory=false)
+/* This field is used to specify the date if required based on the option specified in the field SEL.FIELD
+Standard T24 date field
+Validation Rules:
+T24 date field. 8 characters. */
+        DATE : T24BusinessTypes:D
+            @i18n:Label (en=Date)
+            @t24:i (align=R, inputBehaviour=I, maxLength=11, sysNumber=3.0, core=true, t24Name=DATE, mandatory=false)
+/* Hold the list of HOLD.CONTROL ids generated by the extractor
+Validation Rules:
+No Input field */
+        HOLD_IDS : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=35, sysNumber=5.0, core=true, t24Name=HOLD.IDS, mandatory=false)
+/* This field is used to specify the selection criteria related to the application specified in Field APPLICATION.
+Validation Rules:
+Options available in this field as a dropdown */
+        SELECTION_FIELD : T24BusinessTypes:A
+            @i18n:Label (en="Selection Field")
+            @i18n:Tooltip (en="Selection Field")
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber=2.0, core=true, t24Name=SELECTION.FIELD, mandatory=false)
+    }
+    GLINFO_EXTRACT__APPLICATION
+    {
+/* This field is used to specify the Application name for which the information to be extracted
+Validation Rules:
+Mandatory input.
+Applications available in this field as a dropdown
+Fields   APPLICATION to VALUE form a related multi value set. */
+        APPLICATION : EB_SupportUtilities:GLINFO_EXTRACT__APPLICATION__APPLICATION required
+            @i18n:Label (en=Application)
+            @t24:i (align=L, inputBehaviour=I, maxLength=50, sysNumber=1.0, core=true, t24Name=APPLICATION, mandatory=true)
+/* This field is used to specify the relevant values if required based on the option provided in the field SEL.FIELD
+Validation Rules:
+3-85 type A (alphanumeric) characters
+Application#SEL.FIELD#GL.DATE#VALUE##
+ESS#START.DATE#Specify the START.DATE#-##
+ESS#START.DATE#Specify the START.DATE#-##
+RE.CRF.REPORT#REPORT.NAME#-#Specify the valid report name eg.MBGL##
+STMT.ENTRY#BOOKING.DATE#Specify the required date#-##
+STMT.ENTRY#VALUE.DATE#Specify the required date#-##
+STMT.ENTRY#CONSOL.KEY#-#Specify the valid CONSOL.KEY##
+STMT.ENTRY#TRANS.REFERENCE#-#Specify the reference id##
+STMT.ENTRY#SAVEDLISTS#-#Specify the savedlist id##
+POSITION#-#-#-##
+CAL#-#-#-##
+CPL#-#-#-##
+RE.STAT.LINE.CONT#REPORT.NAME#-#Specify valid report name eg. MBGL##
+RE.STAT.LINE.BAL#REPORT.NAME#-#Specify valid report name and date with delimiter '-' eg. MBGL-20190101##
+STMT.ENTRY option is applicable
+		    for all the entry options as well as POS.MVMT.HIST## */
+        DATA : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=85, sysNumber=4.0, core=true, t24Name=DATA, mandatory=false)
+/* This field is used to specify the date if required based on the option specified in the field SEL.FIELD
+Standard T24 date field
+Validation Rules:
+T24 date field. 8 characters. */
+        DATE : T24BusinessTypes:D
+            @i18n:Label (en=Date)
+            @t24:i (align=R, inputBehaviour=I, maxLength=11, sysNumber=3.0, core=true, t24Name=DATE, mandatory=false)
+/* Hold the list of HOLD.CONTROL ids generated by the extractor
+Validation Rules:
+No Input field */
+        HOLD_IDS : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=35, sysNumber=5.0, core=true, t24Name=HOLD.IDS, mandatory=false)
+/* This field is used to specify the selection criteria related to the application specified in Field APPLICATION.
+Validation Rules:
+Options available in this field as a dropdown */
+        SELECTION_FIELD : EB_SupportUtilities:GLINFO_EXTRACT__APPLICATION__SELECTION_FIELD
+            @i18n:Label (en="Selection Field")
+            @i18n:Tooltip (en="Selection Field")
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber=2.0, core=true, t24Name=SELECTION.FIELD, mandatory=false)
+    }
+    GLINFO_EXTRACT__DATE_TIME
+    {
+        DATE_TIME : T24BusinessTypes:RELTIME
+            @i18n:Label (en="Date time")
+            @i18n:Tooltip (en="Date and time when record was input or authorised")
+            @t24:i (align=L, inputBehaviour=N, maxLength=15, sysNumber=20.0, core=true, t24Name=DATE.TIME, mask="RDD DD  DD ##:##", mandatory=false)
+    }
+    GLINFO_EXTRACT__INPUTTER
+    {
+        INPUTTER : T24BusinessTypes:A
+            @i18n:Label (en=Inputter)
+            @i18n:Tooltip (en="The user who last updated the record")
+            @t24:i (align=L, inputBehaviour=N, maxLength=100, sysNumber=19.0, core=true, t24Name=INPUTTER, mandatory=false)
+    }
+    NOFILE_GLINFO_APPL
+        @i18n:Description (en="")
+        @t24:i (t24Name=NOFILE.GLINFO.APPL, level=I, type=T, allowedFunctions="L P S", localRefAllowed=false)
+    {
+        MB_OPTIONS : T24BusinessTypes:N
+            @t24:i (align=L, inputBehaviour=N, maxLength=50, core=false, t24Name=MB.OPTIONS, genOperation=E.NOFILE.GLINFO.APPL, mandatory=true)
+    }
+    /* TINFO.EXTRACT table has been designed to extract the basic information required for analyzing issues. */
+    TINFO_EXTRACT
+        @i18n:Description (en="")
+        @t24:i (t24Name=TINFO.EXTRACT, level=F, type=U, allowedFunctions="A D E I L Q S", localRefAllowed=false)
+    {
+        /* Reserved for future use */
+        AD_ROUTINE : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber=7.0, core=true, t24Name=AD.ROUTINE, mandatory=false)
+        APPLICATION -> byValue EB_SupportUtilities:TINFO_EXTRACT__APPLICATION *
+            @t24:i (t24Name=APPLICATION)
+        AUDITOR_CODE : T24BusinessTypes:A
+            @i18n:Label (en="Auditor Code")
+            @i18n:Tooltip (en="Auditor Code")
+            @t24:i (align=L, inputBehaviour=E, maxLength=16, sysNumber=28.0, core=true, t24Name=AUDITOR.CODE, mandatory=false)
+        AUDIT_DATE_TIME : T24BusinessTypes:RELTIME
+            @i18n:Label (en="Audit Date Time")
+            @i18n:Tooltip (en="Date and time when record was audited")
+            @t24:i (align=L, inputBehaviour=E, maxLength=15, sysNumber=29.0, core=true, t24Name=AUDIT.DATE.TIME, mask="RDD DD  DD ##:##", mandatory=false)
+        AUTHORISER : T24BusinessTypes:A
+            @i18n:Label (en=Authoriser)
+            @i18n:Tooltip (en="Indicates the User who Authorises the record")
+            @t24:i (align=L, inputBehaviour=N, maxLength=100, sysNumber=25.0, core=true, t24Name=AUTHORISER, mandatory=false)
+        CO_CODE -> ST_CompanyCreation:COMPANY
+            @i18n:Label (en=Company)
+            @t24:i (align=L, inputBehaviour=N, maxLength=11, sysNumber=26.0, core=true, businessType=A, t24Name=CO.CODE, mask="R##-###-####", mandatory=false)
+        CURR_NO : T24BusinessTypes:N
+            @i18n:Label (en="Curr No")
+            @t24:i (align=R, inputBehaviour=N, maxLength=6, sysNumber=22.0, core=true, t24Name=CURR.NO, mandatory=false)
+        DATE_TIME -> byValue EB_SupportUtilities:TINFO_EXTRACT__DATE_TIME *
+            @t24:i (t24Name=DATE.TIME)
+        DEPT_CODE -> ST_Config:DEPT_ACCT_OFFICER
+            @i18n:Label (en="Dept Code")
+            @t24:i (align=R, inputBehaviour=N, maxLength=6, sysNumber=27.0, core=true, t24Name=DEPT.CODE, mandatory=false)
+/* This field is used to indicate the current status of the tool running
+Validation Rules:
+No Input field
+Values are Process Started;Process Finished */
+        EXECUTION_STATUS : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=35, sysNumber=8.0, core=true, t24Name=EXECUTION.STATUS, mandatory=false)
+        FREE_PRINT -> byValue EB_SupportUtilities:TINFO_EXTRACT__FREE_PRINT *
+            @t24:i (t24Name=FREE.PRINT)
+        ID : EB_SupportUtilities:TINFO_EXTRACT__ID PK required
+            @i18n:Label (en="Transaction Ref")
+            @i18n:Tooltip (en="Transaction Reference")
+            @t24:i (align=L, inputBehaviour=I, maxLength=6, sysNumber=0.0, core=true, t24Name="@ID", mandatory=true)
+        INPUTTER -> byValue EB_SupportUtilities:TINFO_EXTRACT__INPUTTER *
+            @t24:i (t24Name=INPUTTER)
+        RECORD_STATUS : T24BusinessTypes:STAT
+            @i18n:Label (en="Record Status")
+            @t24:i (align=L, inputBehaviour=N, maxLength=6, sysNumber=21.0, core=true, t24Name=RECORD.STATUS, mandatory=false)
+        RESERVED_01 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=20.0, core=true, t24Name=RESERVED.01, mandatory=false)
+        RESERVED_02 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=19.0, core=true, t24Name=RESERVED.02, mandatory=false)
+        RESERVED_03 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=18.0, core=true, t24Name=RESERVED.03, mandatory=false)
+        RESERVED_04 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=17.0, core=true, t24Name=RESERVED.04, mandatory=false)
+        RESERVED_05 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=16.0, core=true, t24Name=RESERVED.05, mandatory=false)
+        RESERVED_06 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=15.0, core=true, t24Name=RESERVED.06, mandatory=false)
+        RESERVED_07 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=14.0, core=true, t24Name=RESERVED.07, mandatory=false)
+        RESERVED_08 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=13.0, core=true, t24Name=RESERVED.08, mandatory=false)
+        RESERVED_09 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=12.0, core=true, t24Name=RESERVED.09, mandatory=false)
+        RESERVED_10 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=11.0, core=true, t24Name=RESERVED.10, mandatory=false)
+        RESULT_APPL -> byValue EB_SupportUtilities:TINFO_EXTRACT__RESULT_APPL *
+            @t24:i (t24Name=RESULT.APPL)
+    }
+    /* TINFO.EXTRACT.HIST table has been designed to maintain history for TINFO.EXTRACT application */
+    TINFO_EXTRACT_HIST
+        @i18n:Description (en="")
+        @t24:i (t24Name=TINFO.EXTRACT.HIST, level=F, type=L, allowedFunctions="L S", localRefAllowed=false)
+    {
+        /* Reserved for future use */
+        AD_ROUTINE : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber=7.0, core=true, t24Name=AD.ROUTINE, mandatory=false)
+        APPLICATION -> byValue EB_SupportUtilities:TINFO_EXTRACT_HIST__APPLICATION *
+            @t24:i (t24Name=APPLICATION)
+/* This field is used to indicate the current status of the tool running
+Validation Rules:
+No Input field
+Values are Process Started;Process Finished */
+        EXECUTION_STATUS : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=35, sysNumber=8.0, core=true, t24Name=EXECUTION.STATUS, mandatory=false)
+        FREE_PRINT -> byValue EB_SupportUtilities:TINFO_EXTRACT_HIST__FREE_PRINT *
+            @t24:i (t24Name=FREE.PRINT)
+        ID -> EB_SupportUtilities:TINFO_EXTRACT_HIST PK required
+            @i18n:Label (en="Transaction Ref")
+            @i18n:Tooltip (en="Transaction Reference")
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber=0.0, core=true, businessType=A, t24Name="@ID", mandatory=true)
+        RESERVED_01 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=20.0, core=true, t24Name=RESERVED.01, mandatory=false)
+        RESERVED_02 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=19.0, core=true, t24Name=RESERVED.02, mandatory=false)
+        RESERVED_03 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=18.0, core=true, t24Name=RESERVED.03, mandatory=false)
+        RESERVED_04 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=17.0, core=true, t24Name=RESERVED.04, mandatory=false)
+        RESERVED_05 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=16.0, core=true, t24Name=RESERVED.05, mandatory=false)
+        RESERVED_06 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=15.0, core=true, t24Name=RESERVED.06, mandatory=false)
+        RESERVED_07 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=14.0, core=true, t24Name=RESERVED.07, mandatory=false)
+        RESERVED_08 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=13.0, core=true, t24Name=RESERVED.08, mandatory=false)
+        RESERVED_09 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=12.0, core=true, t24Name=RESERVED.09, mandatory=false)
+        RESERVED_10 : T24BusinessTypes:N
+            @t24:i (align=R, inputBehaviour=N, maxLength=35, sysNumber=11.0, core=true, t24Name=RESERVED.10, mandatory=false)
+        RESULT_APPL -> byValue EB_SupportUtilities:TINFO_EXTRACT_HIST__RESULT_APPL *
+            @t24:i (t24Name=RESULT.APPL)
+    }
+    TINFO_EXTRACT_HIST__APPLICATION
+    {
+/* This field is used to specify the Application name which will generate the information related to the contract specified in Field CONTRACT.ID.
+Validation Rules:
+Mandatory input.
+Applications available in this field as a dropdown
+Fields   APPLICATION to LIST.NAME form a related multi value set. */
+        APPLICATION : T24BusinessTypes:A
+            @i18n:Label (en=Application)
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber=1.0, core=true, t24Name=APPLICATION, mandatory=false)
+        CONTRACT_ID -> byValue EB_SupportUtilities:TINFO_EXTRACT_HIST__APPLICATION__CONTRACT_ID *
+            @t24:i (t24Name=CONTRACT.ID)
+/* This field is used to specify the file name of SAVEDLISTS record
+Validation Rules:
+Standard   T24 alphanumeric field of 35 characters. */
+        LIST_NAME : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber=5.0, core=true, t24Name=LIST.NAME, mandatory=false)
+/* This field is used to specify the number of history's records to be retrieved
+Validation Rules:
+T24 numeric field of maximum 4 characters.Optional input. */
+        NO_OF_HISTORY : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber=3.0, core=true, t24Name=NO.OF.HISTORY, mandatory=false)
+        START_DATE : T24BusinessTypes:D
+            @i18n:Label (en="Start Date")
+            @i18n:Tooltip (en="Start Date")
+            @t24:i (align=R, inputBehaviour=I, maxLength=11, sysNumber=4.0, core=true, t24Name=START.DATE, mandatory=false)
+    }
+    TINFO_EXTRACT_HIST__APPLICATION__CONTRACT_ID
+    {
+/* This field is used to specify the account/contract/consol key related to the application specified in Field APPLICATION.
+Validation Rules:
+3-85 type A (alphanumeric) characters
+Application#Contract.id##
+LIMIT#CUSTOMER.NO##
+COLLATERAL#CUSTOMER.NO##
+TAX#CUSTOMER.NO##
+INTEREST.AND.CHARGES#ACCOUNT.NUMBER##
+FATCA#Input not required##
+SC.CAL.ID#SC.1.TR.EUR.205.3001.US..TRADING.QUOTED.DK.3100.....GB0010001## */
+        CONTRACT_ID : T24BusinessTypes:A
+            @i18n:Label (en="Contract Id")
+            @t24:i (align=L, inputBehaviour=I, maxLength=85, sysNumber=2.0, core=true, t24Name=CONTRACT.ID, mandatory=false)
+    }
+    TINFO_EXTRACT_HIST__FREE_PRINT
+    {
+/* This field is used to Application name and record id (with comma as delimiter)
+Validation Rules:
+Optional field
+Only allowed if APPLICATION is FREE.PRINT
+Application name must be a standard T24 application. */
+        FREE_PRINT : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=50, sysNumber=6.0, core=true, t24Name=FREE.PRINT, mandatory=false)
+    }
+    TINFO_EXTRACT_HIST__RESULT_APPL
+    {
+        HOLD_IDS -> byValue EB_SupportUtilities:TINFO_EXTRACT_HIST__RESULT_APPL__HOLD_IDS *
+            @t24:i (t24Name=HOLD.IDS)
+        RESULT_APPL : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=35, sysNumber=9.0, core=true, t24Name=RESULT.APPL, mandatory=false)
+    }
+    TINFO_EXTRACT_HIST__RESULT_APPL__HOLD_IDS
+    {
+/* Hold the list of HOLD.CONTROL ids
+Validation Rules:
+No Input field */
+        HOLD_IDS : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=35, sysNumber=10.0, core=true, t24Name=HOLD.IDS, mandatory=false)
+    }
+    TINFO_EXTRACT__APPLICATION
+    {
+/* This field is used to specify the Application name which will generate the information related to the contract specified in Field CONTRACT.ID.
+Validation Rules:
+Mandatory input.
+Applications available in this field as a dropdown
+Fields   APPLICATION to LIST.NAME form a related multi value set. */
+        APPLICATION : EB_SupportUtilities:TINFO_EXTRACT__APPLICATION__APPLICATION
+            @i18n:Label (en=Application)
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber=1.0, core=true, t24Name=APPLICATION, mandatory=false)
+        CONTRACT_ID -> byValue EB_SupportUtilities:TINFO_EXTRACT__APPLICATION__CONTRACT_ID *
+            @t24:i (t24Name=CONTRACT.ID)
+/* This field is used to specify the file name of SAVEDLISTS record
+Validation Rules:
+Standard   T24 alphanumeric field of 35 characters. */
+        LIST_NAME : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber=5.0, core=true, t24Name=LIST.NAME, mandatory=false)
+/* This field is used to specify the number of history's records to be retrieved
+Validation Rules:
+T24 numeric field of maximum 4 characters.Optional input. */
+        NO_OF_HISTORY : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber=3.0, core=true, t24Name=NO.OF.HISTORY, mandatory=false)
+        START_DATE : T24BusinessTypes:D
+            @i18n:Label (en="Start Date")
+            @i18n:Tooltip (en="Start Date")
+            @t24:i (align=R, inputBehaviour=I, maxLength=11, sysNumber=4.0, core=true, t24Name=START.DATE, mandatory=false)
+    }
+    TINFO_EXTRACT__APPLICATION__CONTRACT_ID
+    {
+/* This field is used to specify the account/contract/consol key related to the application specified in Field APPLICATION.
+Validation Rules:
+3-85 type A (alphanumeric) characters
+Application#Contract.id##
+LIMIT#CUSTOMER.NO##
+COLLATERAL#CUSTOMER.NO##
+TAX#CUSTOMER.NO##
+INTEREST.AND.CHARGES#ACCOUNT.NUMBER##
+FATCA#Input not required##
+SECURITIES.STP#SC.TRADING.POSITION Id##
+SECURITIES.TRADE#Any one of the following Application IDs:- SEC.TRADE, SECURITY.TRANSFER, POSITION.TRANSFER, DIARY, ENTITLEMENT, ORDER.BY.CUST, SEC.OPEN.ORDER, SC.BOOK.COST##
+SECURITIES.CAL#Securities Cal Id e.g. SC.1.TR.EUR.205.3001.US..TRADING.QUOTED.DK.3100.....GB0010001##
+LD.LOANS.AND.DEPOSITS#LD Contract reference##
+PD.PAYMENT.DUE#PD Contract reference##
+MD.DEAL#MD Contract reference##
+LETTER.OF.CREDIT#LC reference##
+DRAWINGS#DR reference##
+SL.LOANS#SL reference##
+FACILITY#Facility reference##
+MG.MORTGAGE#MG reference##
+TELLER#Teller reference##
+BL.BILL#Bill reference##
+PAYMENT.STOP#ACCOUNT reference##
+CHEQUE.ISSUE#A valid cheque reference## */
+        CONTRACT_ID : T24BusinessTypes:A
+            @i18n:Label (en="Contract Id")
+            @t24:i (align=L, inputBehaviour=I, maxLength=85, sysNumber=2.0, core=true, t24Name=CONTRACT.ID, mandatory=false)
+    }
+    TINFO_EXTRACT__DATE_TIME
+    {
+        DATE_TIME : T24BusinessTypes:RELTIME
+            @i18n:Label (en="Date time")
+            @i18n:Tooltip (en="Date and time when record was input or authorised")
+            @t24:i (align=L, inputBehaviour=N, maxLength=15, sysNumber=24.0, core=true, t24Name=DATE.TIME, mask="RDD DD  DD ##:##", mandatory=false)
+    }
+    TINFO_EXTRACT__FREE_PRINT
+    {
+/* This field is used to Application name and record id (with comma as delimiter)
+Validation Rules:
+Optional field
+Only allowed if APPLICATION is FREE.PRINT
+Application name must be a standard T24 application. */
+        FREE_PRINT : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=I, maxLength=50, sysNumber=6.0, core=true, t24Name=FREE.PRINT, mandatory=false)
+    }
+    TINFO_EXTRACT__INPUTTER
+    {
+        INPUTTER : T24BusinessTypes:A
+            @i18n:Label (en=Inputter)
+            @i18n:Tooltip (en="The user who last updated the record")
+            @t24:i (align=L, inputBehaviour=N, maxLength=100, sysNumber=23.0, core=true, t24Name=INPUTTER, mandatory=false)
+    }
+    TINFO_EXTRACT__RESULT_APPL
+    {
+        HOLD_IDS -> byValue EB_SupportUtilities:TINFO_EXTRACT__RESULT_APPL__HOLD_IDS *
+            @t24:i (t24Name=HOLD.IDS)
+        RESULT_APPL : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=35, sysNumber=9.0, core=true, t24Name=RESULT.APPL, mandatory=false)
+    }
+    TINFO_EXTRACT__RESULT_APPL__HOLD_IDS
+    {
+/* Hold the list of HOLD.CONTROL ids
+Validation Rules:
+No Input field */
+        HOLD_IDS : T24BusinessTypes:A
+            @t24:i (align=L, inputBehaviour=N, maxLength=35, sysNumber=10.0, core=true, t24Name=HOLD.IDS, mandatory=false)
+    }
+    /* TREPORT.EXTRACT table has been designed to extract the report related files. */
+    TREPORT_EXTRACT
+        @i18n:Description (en="")
+        @t24:i (t24Name=TREPORT.EXTRACT, level=F, type=U, allowedFunctions="A C D E I L P Q R S", localRefAllowed=false)
+    {
+        AUDITOR_CODE : T24BusinessTypes:A
+            @i18n:Label (en="Auditor Code")
+            @i18n:Tooltip (en="Auditor Code")
+            @t24:i (align=L, inputBehaviour=E, maxLength=16, sysNumber=12.0, core=true, t24Name=AUDITOR.CODE, mandatory=false)
+        AUDIT_DATE_TIME : T24BusinessTypes:RELTIME
+            @i18n:Label (en="Audit Date Time")
+            @i18n:Tooltip (en="Date and time when record was audited")
+            @t24:i (align=L, inputBehaviour=E, maxLength=15, sysNumber=13.0, core=true, t24Name=AUDIT.DATE.TIME, mask="RDD DD  DD ##:##", mandatory=false)
+        AUTHORISER : T24BusinessTypes:A
+            @i18n:Label (en=Authoriser)
+            @i18n:Tooltip (en="Indicates the User who Authorises the record")
+            @t24:i (align=L, inputBehaviour=N, maxLength=100, sysNumber=9.0, core=true, t24Name=AUTHORISER, mandatory=false)
+        CO_CODE -> ST_CompanyCreation:COMPANY
+            @i18n:Label (en=Company)
+            @t24:i (align=L, inputBehaviour=N, maxLength=11, sysNumber=10.0, core=true, businessType=A, t24Name=CO.CODE, mask="R##-###-####", mandatory=false)
+        CURR_NO : T24BusinessTypes:N
+            @i18n:Label (en="Curr No")
+            @t24:i (align=R, inputBehaviour=N, maxLength=6, sysNumber=6.0, core=true, t24Name=CURR.NO, mandatory=false)
+/* This field is used to specify the date for which report to be extracted
+Standard T24 date field
+Validation Rules:
+T24 date field. 8 characters. */
+        DATE : T24BusinessTypes:D
+            @i18n:Label (en=Date)
+            @t24:i (align=R, inputBehaviour=I, maxLength=11, sysNumber=1.0, core=true, t24Name=DATE, mandatory=false)
+        DATE_TIME -> byValue EB_SupportUtilities:TREPORT_EXTRACT__DATE_TIME *
+            @t24:i (t24Name=DATE.TIME)
+        DEPT_CODE -> ST_Config:DEPT_ACCT_OFFICER
+            @i18n:Label (en="Dept Code")
+            @t24:i (align=R, inputBehaviour=N, maxLength=6, sysNumber=11.0, core=true, t24Name=DEPT.CODE, mandatory=false)
+/* This field is used to indicate the current status of the online service running
+Validation Rules:
+No Input field
+Values are Process Started;Process Finished */
+        EXECUTION_STATUS : T24BusinessTypes:ANY
+            @t24:i (align=L, inputBehaviour=N, maxLength=65, sysNumber=4.0, core=true, t24Name=EXECUTION.STATUS, mandatory=false)
+        ID : EB_SupportUtilities:TREPORT_EXTRACT__ID PK required
+            @i18n:Label (en="Transaction Ref")
+            @i18n:Tooltip (en="Transaction Reference")
+            @t24:i (align=L, inputBehaviour=I, maxLength=6, sysNumber=0.0, core=true, t24Name="@ID", mandatory=true)
+        INPUTTER -> byValue EB_SupportUtilities:TREPORT_EXTRACT__INPUTTER *
+            @t24:i (t24Name=INPUTTER)
+        RECORD_STATUS : T24BusinessTypes:STAT
+            @i18n:Label (en="Record Status")
+            @t24:i (align=L, inputBehaviour=N, maxLength=6, sysNumber=5.0, core=true, t24Name=RECORD.STATUS, mandatory=false)
+/* This field is used to specify the selection criteria like report to be extracted from current company or from all companies
+Validation Rules:
+Options available in this field as a option field */
+        SELECTION_COMPANY : EB_SupportUtilities:TREPORT_EXTRACT__SELECTION_COMPANY required
+            @t24:i (align=L, inputBehaviour=I, maxLength=35, sysNumber=2.0, core=true, t24Name=SELECTION.COMPANY, mandatory=true)
+/* Hold the tar file id generated by the extractor
+Validation Rules:
+No Input field */
+        TAR_FILE_ID : T24BusinessTypes:ANY
+            @t24:i (align=L, inputBehaviour=N, maxLength=65, sysNumber=3.0, core=true, t24Name=TAR.FILE.ID, mandatory=false)
+    }
+    TREPORT_EXTRACT__DATE_TIME
+    {
+        DATE_TIME : T24BusinessTypes:RELTIME
+            @i18n:Label (en="Date time")
+            @i18n:Tooltip (en="Date and time when record was input or authorised")
+            @t24:i (align=L, inputBehaviour=N, maxLength=15, sysNumber=8.0, core=true, t24Name=DATE.TIME, mask="RDD DD  DD ##:##", mandatory=false)
+    }
+    TREPORT_EXTRACT__INPUTTER
+    {
+        INPUTTER : T24BusinessTypes:A
+            @i18n:Label (en=Inputter)
+            @i18n:Tooltip (en="The user who last updated the record")
+            @t24:i (align=L, inputBehaviour=N, maxLength=100, sysNumber=7.0, core=true, t24Name=INPUTTER, mandatory=false)
+    }
+}
+Enumerations {
+    GLINFO_EXTRACT__APPLICATION__APPLICATION : mml:string
+        ACCOUNT=ACCOUNT
+        AC_BALANCE_TYPE=AC.BALANCE.TYPE
+        CATEG_ENTRY=CATEG.ENTRY
+        CATEG_ENTRY_DETAIL=CATEG.ENTRY.DETAIL
+        CONSOLIDATE_ASST_LIAB=CONSOLIDATE.ASST.LIAB
+        CONSOLIDATE_PRFT_LOSS=CONSOLIDATE.PRFT.LOSS
+        EB_CONTRACT_BALANCES=EB.CONTRACT.BALANCES
+        EB_JOURNAL_SUMMARY=EB.JOURNAL.SUMMARY
+        EB_SYSTEM_SUMMARY=EB.SYSTEM.SUMMARY
+        NULL=NULL
+        POSITION=POSITION
+        POS_MVMT_HIST=POS.MVMT.HIST
+        RE_CONSOL_SPEC_ENTRY=RE.CONSOL.SPEC.ENTRY
+        RE_CRF_REPORT=RE.CRF.REPORT
+        RE_SPEC_ENTRY_DETAIL=RE.SPEC.ENTRY.DETAIL
+        RE_STAT_LINE_BAL=RE.STAT.LINE.BAL
+        RE_STAT_LINE_CONT=RE.STAT.LINE.CONT
+        STMT_ENTRY=STMT.ENTRY
+        STMT_ENTRY_DETAIL=STMT.ENTRY.DETAIL
+    GLINFO_EXTRACT__APPLICATION__SELECTION_FIELD : mml:string
+        Booking_date=Booking.date
+        Consol_key=Consol.key
+        NULL=NULL
+        Pl_category=Pl.category
+        Report_name=Report.name
+        Savedlists=Savedlists
+        Start_date=Start.date
+        Trans_reference=Trans.reference
+        Value_date=Value.date
+    GLINFO_EXTRACT__ID : mml:string
+        SYSTEM=SYSTEM
+    TINFO_EXTRACT__APPLICATION__APPLICATION : mml:string
+        ACCOUNT=ACCOUNT
+        BL_BILL=BL.BILL
+        CHEQUE_ISSUE=CHEQUE.ISSUE
+        COLLATERAL=COLLATERAL
+        CONFIRMATION_MATCHING=CONFIRMATION.MATCHING
+        DATA_CAPTURE=DATA.CAPTURE
+        DELIVERY=DELIVERY
+        DRAWINGS=DRAWINGS
+        FACILITY=FACILITY
+        FATCA=FATCA
+        FUNDS_TRANSFER=FUNDS.TRANSFER
+        INTEREST_AND_CHARGES=INTEREST.AND.CHARGES
+        LD_LOANS_AND_DEPOSITS=LD.LOANS.AND.DEPOSITS
+        LETTER_OF_CREDIT=LETTER.OF.CREDIT
+        LIMIT=LIMIT
+        MD_DEAL=MD.DEAL
+        NOSTRO_RECONCILIATION=NOSTRO.RECONCILIATION
+        PAYMENT_STOP=PAYMENT.STOP
+        PD_PAYMENT_DUE=PD.PAYMENT.DUE
+        SECURITIES_CAL=SECURITIES.CAL
+        SECURITIES_STP=SECURITIES.STP
+        SECURITIES_TRADE=SECURITIES.TRADE
+        SL_LOANS=SL.LOANS
+        STANDING_ORDER=STANDING.ORDER
+        TAX=TAX
+        TELLER=TELLER
+    TINFO_EXTRACT__ID : mml:string
+        SYSTEM=SYSTEM
+    TREPORT_EXTRACT__ID : mml:string
+        SYSTEM=SYSTEM
+    TREPORT_EXTRACT__SELECTION_COMPANY : mml:string
+        ALL=ALL
+        CURRENT=CURRENT
+}

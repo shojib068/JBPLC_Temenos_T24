@@ -1,0 +1,41 @@
+# UTF-8
+Domain X_USER
+    @t24:LocalFields (localRefApplications=true)
+    @java:Package (value=localRefApplication.x_user)
+namespace "http://www.odcgroup.com/X_USER"
+metamodelVersion 1.30.6
+Classes {
+    Group_NSF_DESK
+    {
+        /* NSF Desk ID */
+        NSF_DESK -> NSFDES_DeskMgmt:NSF_DESK_DEFINITION
+            @i18n:Label (en=NSF.DESK)
+            @t24:LocalFields (applicationEnrich=DESCRIPTION, maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=NSF.DESK)
+    }
+    Group_NSF_GROUP
+    {
+        /* NSF Group ID */
+        NSF_GROUP -> NSFDES_DeskMgmt:NSF_DESK_GROUP
+            @i18n:Label (en=NSF.GROUP)
+            @t24:LocalFields (applicationEnrich=DESCRIPTION, maxChars=16, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=NSF.GROUP)
+    }
+    X_USER extends EB_Security:USER
+    {
+        /* Customer number for the User */
+        USER_CUSTOMER -> ST_Customer:CUSTOMER
+            @i18n:Label (en=USER.CUSTOMER)
+            @t24:LocalFields (applicationEnrich=MNEMONIC, maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USER.CUSTOMER)
+        GroupSample_NSF_DESK -> byValue X_USER:Group_NSF_DESK *
+            @t24:i (t24Name=GroupSample_NSF_DESK)
+        GroupSample_NSF_GROUP -> byValue X_USER:Group_NSF_GROUP *
+            @t24:i (t24Name=GroupSample_NSF_GROUP)
+        /* TAX.ID */
+        TAX_ID : T24BusinessTypes:N
+            @i18n:Label (en=TAX.ID)
+            @t24:LocalFields (maxChars=9, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=TAX.ID)
+    }
+}

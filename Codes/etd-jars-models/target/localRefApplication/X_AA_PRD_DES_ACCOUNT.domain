@@ -1,0 +1,271 @@
+# UTF-8
+Domain X_AA_PRD_DES_ACCOUNT
+    @t24:LocalFields (localRefApplications=true)
+    @java:Package (value=localRefApplication.x_aa_prd_des_account)
+namespace "http://www.odcgroup.com/X_AA_PRD_DES_ACCOUNT"
+metamodelVersion 1.30.6
+Classes {
+    Group_AULMOI_POLICY_ID
+    {
+        /* Policy Id */
+        AULMOI_POLICY_ID -> AA_Framework:AA_ARRANGEMENT
+            @i18n:Label (en=POLICY.ID)
+            @t24:LocalFields (applicationEnrich=PRODUCT, maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=AULMOI.POLICY.ID)
+    }
+    Group_USIRAC_RA_BENEFICIARY
+    {
+        /* IRA Beneficiary */
+        USIRAC_RA_BENEFICIARY : T24BusinessTypes:A
+            @i18n:Label (en=RA.BENEFICIARY)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USIRAC.RA.BENEFICIARY)
+        /* IRA Benf Share */
+        USIRAC_BEN_SHARE : T24BusinessTypes:N
+            @i18n:Label (en=IRA.BEN.SHARE)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USIRAC.BEN.SHARE)
+        /* Benf Relation */
+        USIRAC_BEN_RELATION : T24BusinessTypes:A
+            @i18n:Label (en=BEN.RELATION)
+            @t24:LocalFields (maxChars=11, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USIRAC.BEN.RELATION)
+    }
+    Group_USRETL_COL_PRIORITY
+    {
+        /* Collateral Priority */
+        USRETL_COL_PRIORITY : T24BusinessTypes:N
+            @i18n:Label (en=COL.PRIORITY)
+            @t24:LocalFields (maxChars=2, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USRETL.COL.PRIORITY)
+        /* Linked Deposit/Account */
+        USRETL_COL_ARRANGEMENT -> AA_Framework:AA_ARRANGEMENT
+            @i18n:Label (en=COL.ARRANGEMENT)
+            @t24:LocalFields (applicationEnrich=CO_CODE, maxChars=17, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USRETL.COL.ARRANGEMENT)
+        /* Spread Type */
+        USRETL_SPREAD_TYPE : LocalFieldsEnumeration:LocalField_USRETL_SPREAD_TYPE
+            @i18n:Label (en=SPREAD.TYPE)
+            @t24:LocalFields (maxChars=8, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USRETL.SPREAD.TYPE)
+        /* Spread Operand */
+        USRETL_SPREAD_OPERAND : LocalFieldsEnumeration:LocalField_USRETL_SPREAD_OPERAND
+            @i18n:Label (en=SPREAD.OPERAND)
+            @t24:LocalFields (maxChars=8, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USRETL.SPREAD.OPERAND)
+        /* Spread Rate */
+        USRETL_SPREAD_RATE : T24BusinessTypes:R
+            @i18n:Label (en=SPREAD.RATE)
+            @t24:LocalFields (maxChars=19, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USRETL.SPREAD.RATE)
+    }
+    Group_SDB_VISIT_CUSTOMER
+    {
+        /* VISIT CUSTOMER */
+        SDB_VISIT_CUSTOMER -> ST_Customer:CUSTOMER
+            @i18n:Label (en=VISIT.CUSTOMER)
+            @t24:LocalFields (applicationEnrich=NAME_1, maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=SDB.VISIT.CUSTOMER)
+    }
+    X_AA_PRD_DES_ACCOUNT extends AA_Account:AA_PRD_DES_ACCOUNT
+    {
+        /* Risk Segment */
+        PV_RISK_SEGMENT -> PV_Config:PV_RISK_SEGMENT
+            @i18n:Label (en=PV.RISK.SEGMENT)
+            @t24:LocalFields (applicationEnrich=DESCRIPTION, maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=PV.RISK.SEGMENT)
+        /* Principal Residency */
+        PRINCIPAL_RESIDENCY : LocalFieldsEnumeration:LocalField_PRINCIPAL_RESIDENCY
+            @i18n:Label (en=PR.RESIDENCY)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=PRINCIPAL.RESIDENCY)
+        GroupSample_AULMOI_POLICY_ID -> byValue X_AA_PRD_DES_ACCOUNT:Group_AULMOI_POLICY_ID *
+            @t24:i (t24Name=GroupSample_AULMOI_POLICY_ID)
+        /* Printing Code */
+        LBACTR_PRINTING_CODE : LocalFieldsEnumeration:LocalField_LBACTR_PRINTING_CODE
+            @i18n:Label (en=PRINTING.CODE)
+            @t24:LocalFields (maxChars=6, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=LBACTR.PRINTING.CODE)
+            @t24:i (t24Name=LBACTR.PRINTING.CODE)
+        /* Regulation UCCC */
+        USLREG_REG_UCCC : LocalFieldsEnumeration:LocalField_USLREG_REG_UCCC
+            @i18n:Label (en=REG.UCCC)
+            @t24:LocalFields (maxChars=1, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USLREG.REG.UCCC)
+        /* Legal Status */
+        USLREG_LEGAL_STATUS : LocalFieldsEnumeration:LocalField_USLREG_LEGAL_STATUS
+            @i18n:Label (en=LEGAL.STATUS)
+            @t24:LocalFields (maxChars=1, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=LEGAL.STATUS)
+            @t24:i (t24Name=USLREG.LEGAL.STATUS)
+        /* Pledge Purpose */
+        RLGAAP_PLEDGE_PURPOSE : LocalFieldsEnumeration:LocalField_RLGAAP_PLEDGE_PURPOSE
+            @i18n:Label (en=PLEDGE.PURPOSE)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=PLEDGE.PURPOSE)
+            @t24:i (t24Name=RLGAAP.PLEDGE.PURPOSE)
+        /* Pledge Flag */
+        RLGAAP_PLEDGE_FLAG : LocalFieldsEnumeration:LocalField_RLGAAP_PLEDGE_FLAG
+            @i18n:Label (en=PLEDGE.FLAG)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=PLEDGE.FLAG)
+            @t24:i (t24Name=RLGAAP.PLEDGE.FLAG)
+        /* HUD Loan */
+        USLREG_HUD_LOAN : LocalFieldsEnumeration:LocalField_USLREG_HUD_LOAN
+            @i18n:Label (en=HUD.LOAN)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USLREG.HUD.LOAN)
+        /* Credit Bureau Reporting */
+        USLREG_CBR_REPORT : LocalFieldsEnumeration:LocalField_USLREG_CBR_REPORT
+            @i18n:Label (en=CBR.REPORT)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USLREG.CBR.REPORT)
+        /* Risk Rating */
+        RLGAAP_RISK_RATING : T24BusinessTypes:ANY
+            @i18n:Label (en=RISK.RATING)
+            @t24:LocalFields (maxChars=4, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=RISK.RATING)
+            @t24:i (t24Name=RLGAAP.RISK.RATING)
+        /* Loan Sold Date */
+        USLEND_SOLD_DATE : T24BusinessTypes:D
+            @i18n:Label (en=SOLD.DATE)
+            @t24:LocalFields (maxChars=11, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USLEND.SOLD.DATE)
+        /* Repurchase Date */
+        USLEND_REPURCHASE_DATE : T24BusinessTypes:D
+            @i18n:Label (en=REPURCHASE.DATE)
+            @t24:LocalFields (maxChars=11, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USLEND.REPURCHASE.DATE)
+        /* MERS ID */
+        USLEND_MERS_ID : T24BusinessTypes:A
+            @i18n:Label (en=MERS.ID)
+            @t24:LocalFields (maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USLEND.MERS.ID)
+        /* Secondary Market Loan ID */
+        USLEND_SECONDARY_MARKET_LOAN_ID : T24BusinessTypes:A
+            @i18n:Label (en=SEC.MKT.LOAN.ID)
+            @t24:LocalFields (maxChars=20, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USLEND.SECONDARY.MARKET.LOAN.ID)
+        GroupSample_USIRAC_RA_BENEFICIARY -> byValue X_AA_PRD_DES_ACCOUNT:Group_USIRAC_RA_BENEFICIARY *
+            @t24:i (t24Name=GroupSample_USIRAC_RA_BENEFICIARY)
+        /* Hold Type */
+        USCORE_HOLD_TYPE -> USCORE_Holds:USCORE_HOLD_PARAMETER
+            @i18n:Label (en=HOLD.TYPE)
+            @t24:LocalFields (applicationEnrich=DESCRIPTION, maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USCORE.HOLD.TYPE)
+        /* Loan or Deposit Purpose Code */
+        USCORE_PURPOSE_CODE : T24BusinessTypes:N
+            @i18n:Label (en=PURPOSE.CODE)
+            @t24:LocalFields (maxChars=32, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=PURPOSE.CODE)
+            @t24:i (t24Name=USCORE.PURPOSE.CODE)
+        /* Positive Pay Action */
+        POSPAY_POS_PAY_ACTION : LocalFieldsEnumeration:LocalField_POSPAY_POS_PAY_ACTION
+            @i18n:Label (en=POS.PAY.ACTION)
+            @t24:LocalFields (maxChars=6, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=POSPAY.POS.PAY.ACTION)
+        /* Positive Pay Waive Charge */
+        POSPAY_POS_PAY_WV_CHG : LocalFieldsEnumeration:LocalField_POSPAY_POS_PAY_WV_CHG
+            @i18n:Label (en=POS.PAY.WV.CHG)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=POSPAY.POS.PAY.WV.CHG)
+        /* LAST ACTIVITY DATE */
+        USRETL_LAST_ACT_DATE : T24BusinessTypes:D
+            @i18n:Label (en=LAST.ACT.DATE)
+            @t24:LocalFields (maxChars=8, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USRETL.LAST.ACT.DATE)
+        /* WAIVE.CHARGE */
+        USRETL_WAIVE_CHARGE : LocalFieldsEnumeration:LocalField_USRETL_WAIVE_CHARGE
+            @i18n:Label (en=WAIVE.CHARGE)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USRETL.WAIVE.CHARGE)
+        /* GRACE.AMOUNT */
+        USRETL_GRACE_AMOUNT : T24BusinessTypes:AMTLCCY
+            @i18n:Label (en=GRACE.AMOUNT)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USRETL.GRACE.AMOUNT)
+        /* ODP.AMOUNT */
+        USRETL_ODP_AMOUNT : T24BusinessTypes:AMTLCCY
+            @i18n:Label (en=ODP.AMOUNT)
+            @t24:LocalFields (maxChars=15, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USRETL.ODP.AMOUNT)
+        /* OPT.IN */
+        USRETL_OPT_IN : LocalFieldsEnumeration:LocalField_USRETL_OPT_IN
+            @i18n:Label (en=OPT.IN)
+            @t24:LocalFields (maxChars=3, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USRETL.OPT.IN)
+        GroupSample_USRETL_COL_PRIORITY -> byValue X_AA_PRD_DES_ACCOUNT:Group_USRETL_COL_PRIORITY *
+            @t24:i (t24Name=GroupSample_USRETL_COL_PRIORITY)
+        /* Collateral Liquidation Method */
+        USRETL_COL_LIQ_METHOD : LocalFieldsEnumeration:LocalField_USRETL_COL_LIQ_METHOD
+            @i18n:Label (en=COL.LIQ.METHOD)
+            @t24:LocalFields (maxChars=4, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USRETL.COL.LIQ.METHOD)
+        /* Collateral Liquidation Account */
+        USRETL_COL_LIQ_ACCT -> AC_AccountOpening:ACCOUNT
+            @i18n:Label (en=COL.LIQ.ACCT)
+            @t24:LocalFields (applicationEnrich=ACCOUNT_TITLE_1, maxChars=36, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USRETL.COL.LIQ.ACCT)
+        /* Collateral Linked Loan Ref */
+        USRETL_COL_LINKED_LOAN -> AA_Framework:AA_ARRANGEMENT
+            @i18n:Label (en=COL.LINKED.LOAN)
+            @t24:LocalFields (applicationEnrich=CO_CODE, maxChars=17, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USRETL.COL.LINKED.LOAN)
+        /* Reserve Rate */
+        USRETL_RSRV_KEY -> ST_RateParameters:BASIC_RATE_TEXT
+            @i18n:Label (en=USRETL.RSRV.KEY)
+            @t24:LocalFields (applicationEnrich=DESCRIPTION, maxChars=4, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USRETL.RSRV.KEY)
+        /* SDB Box Type */
+        SDB_BOX_TYPE : T24BusinessTypes:A
+            @i18n:Label (en=BOX.TYPE)
+            @t24:LocalFields (maxChars=7, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=SDB.BOX.TYPE)
+            @t24:i (t24Name=SDB.BOX.TYPE)
+        /* SDB Box Number */
+        SDB_BOX_NUMBER : T24BusinessTypes:A
+            @i18n:Label (en=BOX.NUMBER)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=SDB.BOX.NUMBER)
+        GroupSample_SDB_VISIT_CUSTOMER -> byValue X_AA_PRD_DES_ACCOUNT:Group_SDB_VISIT_CUSTOMER *
+            @t24:i (t24Name=GroupSample_SDB_VISIT_CUSTOMER)
+        /* VISIT TIME */
+        SDB_VISIT_TIME : T24BusinessTypes:TIME
+            @i18n:Label (en=VISIT.TIME)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=SDB.VISIT.TIME)
+        /* FFIEC.CODE */
+        USRETL_FFIEC_CODE : T24BusinessTypes:A
+            @i18n:Label (en=FFIEC.CODE)
+            @t24:LocalFields (maxChars=8, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USRETL.FFIEC.CODE)
+        /* Flag if repeated OD happens */
+        NACUST_REPEAT_OD : LocalFieldsEnumeration:LocalField_NACUST_REPEAT_OD
+            @i18n:Label (en=REPEAT.OD)
+            @t24:LocalFields (maxChars=8, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=NACUST.REPEAT.OD)
+        /* FDIC Deposit class code */
+        USREGS_DEPOSIT_CLASS_CODE -> USREGS_FDIC:USREGS_FDIC_DEPOSIT_CLASS_CODE
+            @i18n:Label (en=FDIC.CLASS.CODE)
+            @t24:LocalFields (applicationEnrich=DEPOSIT_CLASS_TYPE, maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USREGS.DEPOSIT.CLASS.CODE)
+        /* FDIC Deposit class type */
+        USREGS_DEPOSIT_CLASS_TYPE : T24BusinessTypes:A
+            @i18n:Label (en=FDIC.CLASS.TYPE)
+            @t24:LocalFields (maxChars=35, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USREGS.DEPOSIT.CLASS.TYPE)
+        /* FDIC Ownership code */
+        USREGS_OWNERSHIP_CODE : LocalFieldsEnumeration:LocalField_USREGS_OWNERSHIP_CODE
+            @i18n:Label (en=OWNERSHIP.CODE)
+            @t24:LocalFields (maxChars=10, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=FDIC.OWNERSHIP.CODE)
+            @t24:i (t24Name=USREGS.OWNERSHIP.CODE)
+        /* Reserve Sweep Reference */
+        RSRV_SWEEP_REF : LocalFieldsEnumeration:LocalField_RSRV_SWEEP_REF
+            @i18n:Label (en=RSRV.SWEEP.REF)
+            @t24:LocalFields (maxChars=65, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=RETSWEEPPGM)
+            @t24:i (t24Name=RSRV.SWEEP.REF)
+        /* Account Type */
+        USREGS_ACCOUNT_TYPE : LocalFieldsEnumeration:LocalField_USREGS_ACCOUNT_TYPE
+            @i18n:Label (en=ACCOUNT.TYPE)
+            @t24:LocalFields (maxChars=15, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE)
+            @t24:i (t24Name=USREGS.ACCOUNT.TYPE)
+        /* Benefit Number of the account */
+        TAX_BENEFICIARY_NUMBER : LocalFieldsEnumeration:LocalField_TAX_BENEFICIARY_NUMBER
+            @i18n:Label (en=TX.BEN.NUM)
+            @t24:LocalFields (maxChars=2, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=AA.TX.BENEFIT.NUMBER)
+            @t24:i (t24Name=TAX.BENEFICIARY.NUMBER)
+    }
+}

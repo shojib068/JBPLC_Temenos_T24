@@ -1,0 +1,16 @@
+# UTF-8
+Domain X_OC_CUSTOMER
+    @t24:LocalFields (localRefApplications=true)
+    @java:Package (value=localRefApplication.x_oc_customer)
+namespace "http://www.odcgroup.com/X_OC_CUSTOMER"
+metamodelVersion 1.30.6
+Classes {
+    X_OC_CUSTOMER extends ST_Customer:OC_CUSTOMER
+    {
+        /* Collateral Agreement */
+        COLLATERAL_AGREEMENT : LocalFieldsEnumeration:LocalField_COLLATERAL_AGREEMENT
+            @i18n:Label (en=COLLAT.AGREEMT)
+            @t24:LocalFields (maxChars=65, minChars=0, overridePossible=false, defaultPossible=false, noInputChange=NONE, virtualTable=COLLATERAL.AGREEMENT)
+            @t24:i (t24Name=COLLATERAL.AGREEMENT)
+    }
+}
